@@ -1,13 +1,14 @@
-# ProductName (e.g. MediaLibrary 2018)
+# Online Shop 2020
 
 ## Project
 
+O objetivo deste projeto é desenvolver uma aplicação web para uma loja de smartphones online, chamada uPhone.
+
 ### Team
 
-* Group member 1 name, email
-* Group member 2 name, email
-* Group member 3 name, email
-* Group member 4 name, email
+* Eduardo Ferreira Campos, up201604920@fe.up.pt
+* Miguel Rodrigues Gomes, up201605908@fe.up.pt
+* João Paulo Ribeiro Nunes, up201705457@fe.up.pt
 
 ### Artefacts
 
@@ -27,4 +28,4 @@
   * [A10: Presentation and discussion](a10)
 
 ***
-GROUP20gg, DD/MM/2020
+GROUP2065, 11/02/2020

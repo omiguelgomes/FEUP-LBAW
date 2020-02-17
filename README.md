@@ -9,6 +9,7 @@ O objetivo deste projeto é desenvolver uma aplicação web para uma loja de sma
 * Eduardo Ferreira Campos, up201604920@fe.up.pt
 * Miguel Rodrigues Gomes, up201605908@fe.up.pt
 * João Paulo Ribeiro Nunes, up201705457@fe.up.pt
+* João Pedro da Costa Ribeiro, up201704851@fe.up.pt
 
 ### Artefacts
 

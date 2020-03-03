@@ -1,3 +1,8 @@
+<?php
+    include_once('navbar.php');
+    include_once('tabs.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,38 +15,15 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<!-- Make this in a seperate header file -->
 <body>
     <div class="container">
-        <div class="row-12 py-3">
-            <nav class="navbar navbar-light bg-light">
-                <a class="nav-item nav-link" href="#">
-                    <img src="../assets/user.svg" width="30" height="30" alt="">
-                </a>
-                <a class="navbar-brand" href="#">
-                    <img src="../assets/uPlaceHolder.png" width="30" height="30" alt="">Phone
-                </a>
-                <a class="nav-item nav-link" href="#">
-                    <img src="../assets/shopping-cart.svg" width="30" height="30" alt="">
-                </a>
-                <a class="nav-item nav-link" href="#">
-                    <img src="../assets/search.svg" width="30" height="30" alt="">
-                </a>
-            </nav>
-        </div>
-        <div class="row-12">
-            <div class="btn-group d-flex justify-content-between ">
-                <div class="btn-group w-100 justify-content-center">
-                    <button type="button" class="btn btn-secondary w-100">Tablets</button>
-                </div>
-                <div class="btn-group w-100 justify-content-center">
-                    <button type="button" class="btn btn-secondary w-100">Brands</button>
-                </div>
-                <div class="btn-group w-100 justify-content-center">
-                    <button type="button" class="btn btn-secondary w-100">Phones</button>
-                </div>
-            </div>
-        </div>
+        
+        <!-- Navbar -->
+        <?php draw_navbar(); ?>    
+
+        <!--tabs-->
+        <?php draw_tabs(); ?>
+
         <div class="row-12 py-3">
             <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000"
                 data-ride="carousel">

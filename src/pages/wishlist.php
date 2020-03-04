@@ -17,9 +17,15 @@ include_once('tabs.php');
   draw_tabs();
   ?>
 
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-4">Wishlist</h1>
+    </div>
+  </div>
+
   <div class="container mx-auto py-3">
     <div class="card text-center" style="width: 18rem;">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide py-3" data-ride="carousel">
         <ol class="carousel-indicators w-25" style="filter:invert(100%); margin: auto;">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -51,8 +57,8 @@ include_once('tabs.php');
           <h6 class="card-text">Samsung</h6>
           <p><b>499.99€</b></p>
           <button type="button" class="btn btn-small btn-primary"><i class="fas fa-euro-sign"></i></button>
-          <button type="button" class="btn btn-small btn-primary"><i class="fas fa-star"></i></button>
           <button type="button" class="btn btn-small btn-primary"><i class="fas fa-cart-arrow-down"></i></button>
+          <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
         </div>
       </div>
     </div>

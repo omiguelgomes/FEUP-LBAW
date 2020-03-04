@@ -84,7 +84,7 @@ include_once('navbar.php');
                     </div>
                 </div>
 
-                <button type="Alterar" class="btn btn-primary" disabled>Alterar</button>
+                <button type="button" class="btn btn-primary" disabled>Alterar</button>
 
 
             </form>

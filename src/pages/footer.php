@@ -1,33 +1,35 @@
 <?php function draw_footer()
 { ?>
-    <div class="container">
-
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+    <footer>
         <div class="row-12 py-3">
-            <nav class="navbar navbar-light bg-light">
-                <a></a>
+            <nav class="navbar navbar-light bg-light justify-content-center">
                 <a class="navbar-brand" href="#">
                     <img src="../assets/uPlaceHolder.png" width="30" height="30" alt="">Phone
                 </a>
-                <a></a>
             </nav>
-            <div class="row pl-3 pr-3">
-                <div class="card-body bg-light">
-                    <h5><a href="#" class="card-link">Contacte-nos</a> </h5>
-                    <p class="card-text">+345 925515415</p>
-                    <p class="card-text">support@uphone.com</p>
-                    <p class="card-text">R. Dr. Roberto Frias, 4200-465 Porto</p>
+            <div class="row px-3">
+                <div class="col bg-light">
+                    <h5 style="color: blue;">Contact us</h5>
+                    <p>+345 925515415</p>
+                    <p>support@uphone.com</p>
+                    <p>R. Dr. Roberto Frias, 4200-465 Porto</p>
                 </div>
-                <div class="card-body bg-light">
-                    <h5><a href="#" class="card-link">Suporte</a> </h5>
+                <div class="col bg-light">
+                    <h5 style="color: blue;">Support</h5>
                     <div class="p-2 bd-highlight">
                         <button type="button" class="btn btn-primary">F.A.Q</button>
                     </div>
                     <div class="ml-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-primary">Mande-nos um Ticket</button>
+                        <button type="button" class="btn btn-primary">Ticket us</button>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
+    </footer>
+
+    </html>
 <?php } ?>

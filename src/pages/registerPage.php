@@ -23,9 +23,6 @@ include_once('navbar.php');
         <div class="row-form">
             <form>
                 <h3 class="text-center">Registar</h3>
-                <div class="d-flex flex-row-reverse bd-highlight">
-                    <button type="button" class="btn btn-small btn-primary"><i class="far fa-edit"></i></button>
-                </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <img src="../assets/profilepadrao.jpg" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">

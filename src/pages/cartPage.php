@@ -21,15 +21,15 @@ include_once('footer.php');
         <!-- Navbar -->
         <?php draw_navbar(); ?>
 
-        <h3 class="text-center">Carrinho</h3>
+        <h3 class="text-center">Cart</h3>
         <br>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Produtos</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Remover</th>
+                        <th scope="col">Products</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -178,20 +178,20 @@ include_once('footer.php');
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row" colspan="3" class="text-right">Portes de Envio: 0.00 €</th>
+                        <th scope="row" colspan="3" class="text-right">Shipping Costs: 0.00 €</th>
                     </tr>
                     <tr>
-                        <th scope="row" colspan="3" class="text-right">Total de Compra: 1499.97 €</th>
+                        <th scope="row" colspan="3" class="text-right">TOTAL PURCHASE: 1499.97 €</th>
                     </tr>
                 </tbody>
             </table>
 
             <div class="d-flex">
                 <div class="p-2 bd-highlight">
-                    <button type="button" class="btn btn-primary">Continuar a comprar</button>
+                    <button type="button" class="btn btn-primary">Continue shopping</button>
                 </div>
                 <div class="ml-auto p-2 bd-highlight">
-                    <button type="button" class="btn btn-primary">Prosseguir com a compra</button>
+                    <button type="button" class="btn btn-primary">Proceed with purchase</button>
                 </div>
             </div>
         </div>

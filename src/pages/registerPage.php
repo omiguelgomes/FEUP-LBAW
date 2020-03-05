@@ -22,15 +22,15 @@ include_once('navbar.php');
 
         <div class="row-form">
             <form>
-                <h3 class="text-center">Registar</h3>
+                <h3 class="text-center">Register</h3>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <img src="../assets/profilepadrao.jpg" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
                         <br>
                         <div class="custom-file">
                             <input type="image" class="custom-file-input" id="validatedCustomFile">
-                            <label class="custom-file-label" for="validatedCustomFile">Escolha uma nova imagem</label>
-                            <div class="invalid-feedback">Ficheiro Inválido</div>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose a new image</label>
+                            <div class="invalid-feedback">Invalid file</div>
                         </div>
 
                     </div>
@@ -43,45 +43,45 @@ include_once('navbar.php');
                         <input type="password" class="form-control" id="inputPassword4">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputAge">Idade</label>
+                        <label for="inputAge">Age</label>
                         <input type="number" class="form-control" id="inputAge">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputAddress">Endereço</label>
+                    <label for="inputAddress">Address</label>
                     <input type="text" class="form-control" id="inputAddress">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Cidade</label>
+                        <label for="inputCity">City</label>
                         <input type="text" class="form-control" id="inputCity">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputZip">Código Postal</label>
+                        <label for="inputZip">Postal Code</label>
                         <input type="text" class="form-control" id="inputZip">
                     </div>
                 </div>
 
                 <br>
-                <h5>Dados de Facturação</h5>
+                <h5>Billing Data</h5>
                 <br>
 
                 <div class="form-group">
-                    <label for="inputAddress">Endereço</label>
+                    <label for="inputAddress">Address</label>
                     <input type="text" class="form-control" id="inputAddress">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Cidade</label>
+                        <label for="inputCity">City</label>
                         <input type="text" class="form-control" id="inputCity">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputZip">Código Postal</label>
+                        <label for="inputZip">Postal Code</label>
                         <input type="text" class="form-control" id="inputZip">
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary">Criar minha conta</button>
+                <button type="button" class="btn btn-primary">Create my account</button>
 
 
             </form>

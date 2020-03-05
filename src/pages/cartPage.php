@@ -17,8 +17,7 @@ include_once('navbar.php');
 <body>
     <div class="container">
 
-        <!-- Navbar -->
-        <?php draw_navbar(); ?>
+        
 
         <h3 class="text-center">Carrinho</h3>
         <br>
@@ -80,7 +79,7 @@ include_once('navbar.php');
                     </td>
                 </tr>
                 <tr>
-                <td>
+                    <td>
                         <div class="container mx-auto py-3">
                             <div class="card text-center" style="width: 14rem;">
                                 <div id="carouselExampleIndicators" class="carousel slide py-3" data-ride="carousel">
@@ -128,7 +127,7 @@ include_once('navbar.php');
                     </td>
                 </tr>
                 <tr>
-                <td>
+                    <td>
                         <div class="container mx-auto py-3">
                             <div class="card text-center" style="width: 14rem;">
                                 <div id="carouselExampleIndicators" class="carousel slide py-3" data-ride="carousel">
@@ -176,14 +175,22 @@ include_once('navbar.php');
                     </td>
                 </tr>
                 <tr>
-                <th scope="row" colspan="3" class="text-right">Portes de Envio: 0.00 €</th> </tr>
+                    <th scope="row" colspan="3" class="text-right">Portes de Envio: 0.00 €</th>
+                </tr>
                 <tr>
-                <th scope="row" colspan="3" class="text-right">Total de Compra: 1499.97 €</th> 
+                    <th scope="row" colspan="3" class="text-right">Total de Compra: 1499.97 €</th>
                 </tr>
             </tbody>
         </table>
 
-
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <button type="button" class="btn btn-primary">Continuar a comprar</button>
+            </div>
+            <div class="ml-auto p-2 bd-highlight">
+                <button type="button" class="btn btn-primary">Prosseguir com a compra</button>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -191,4 +198,5 @@ include_once('navbar.php');
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 <?php
 include_once('navbar.php');
 include_once('tabs.php');
+include_once('jumbo_title.php');
 ?>
 
 <!doctype html>
@@ -15,13 +16,8 @@ include_once('tabs.php');
   <?php
   draw_navbar();
   draw_tabs();
+  draw_jumbo('Wishlist');
   ?>
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-      <h1 class="display-4">Wishlist</h1>
-    </div>
-  </div>
 
   <div class="container mx-auto py-3">
     <div class="card text-center" style="width: 18rem;">
@@ -56,8 +52,8 @@ include_once('tabs.php');
           <h5 class="card-title">Samsung Galaxy S5</h5>
           <h6 class="card-text">Samsung</h6>
           <p><b>499.99€</b></p>
-          <button type="button" class="btn btn-small btn-primary"><i class="fas fa-euro-sign"></i></button>
-          <button type="button" class="btn btn-small btn-primary"><i class="fas fa-cart-arrow-down"></i></button>
+          <button type="button" class="btn btn-small btn-primary mx-2 px-3"><i class="fas fa-euro-sign"></i></button>
+          <button type="button" class="btn btn-small btn-primary mx-2"><i class="fas fa-cart-arrow-down"></i></button>
           <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
         </div>
       </div>

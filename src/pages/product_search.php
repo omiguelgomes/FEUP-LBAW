@@ -10,7 +10,6 @@
     <!--Font awesome stuff, place outside of header.php (when created (TODO))-->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
-    <div class="container text-center">
     <div class="card text-center" style="width: 18rem;">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators w-25" style="filter:invert(100%); margin: auto;">

@@ -12,13 +12,13 @@
                 </a>
             </nav>
             <div class="row px-3">
-                <div class="col bg-light">
+                <div class="col bg-light text-center">
                     <h5 style="color: blue;">Contact us</h5>
                     <p>+345 925515415</p>
                     <p>support@uphone.com</p>
                     <p>R. Dr. Roberto Frias, 4200-465 Porto</p>
                 </div>
-                <div class="col bg-light">
+                <div class="col bg-light text-center">
                     <h5 style="color: blue;">Support</h5>
                     <div class="p-2 bd-highlight">
                         <button type="button" class="btn btn-primary">F.A.Q</button>

@@ -264,10 +264,141 @@ draw_jumbo('Admin Profile Page');
             </div>
         </div>
 
+        <!-- ORDERS -->
 
+        <br>
+        <div class="d-flex">
+            <div class="p-2">
+                <h4>Orders</h4>
+            </div>
+            <div class="p-2"> <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tabelorders" aria-expanded="false" aria-controls="tabelorders">
+                    <i class="fas fa-sort-down"></i>
+                </button>
+            </div>
 
+            <div class="ml-auto p-2">
+                <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
 
+            </div>
+        </div>
 
+        <div class="collapse" id="tabelorders">
+
+            <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+            </div>
+
+            <div class="table-overflow">
+                <table id="tabela" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>User Email</th>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>joaoe@mail.com</td>
+                            <td>001</td>
+                            <td>2020-01-05</td>
+                            <td>
+
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option>Choose...</option>
+                                        <option value="1">Awaiting Payment</option>
+                                        <option value="2">Processing</option>
+                                        <option value="3">Shipped</option>
+                                        <option selected value="4">Delivered</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>1299.00€</td>
+                        </tr>
+
+                        <tr>
+                            <td>miguelp@mail.com</td>
+                            <td>002</td>
+                            <td>2020-02-05</td>
+                            <td>
+
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option>Choose...</option>
+                                        <option selected value="1">Awaiting Payment</option>
+                                        <option value="2">Processing</option>
+                                        <option value="3">Shipped</option>
+                                        <option value="4">Delivered</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>299.00€</td>
+                        </tr>
+
+                        <tr>
+                            <td>tiagok@mail.com</td>
+                            <td>004</td>
+                            <td>2020-03-15</td>
+                            <td>
+                                
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option>Choose...</option>
+                                        <option value="1">Awaiting Payment</option>
+                                        <option value="2">Processing</option>
+                                        <option selected value="3">Shipped</option>
+                                        <option value="4">Delivered</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>1099.00€</td>
+                        </tr>
+
+                        <tr>
+                            <td>joaop@mail.com</td>
+                            <td>005</td>
+                            <td>2020-01-25</td>
+                            <td>
+                                
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option>Choose...</option>
+                                        <option value="1">Awaiting Payment</option>
+                                        <option selected value="2">Processing</option>
+                                        <option value="3">Shipped</option>
+                                        <option value="4">Delivered</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>852.00€</td>
+                        </tr>
+
+                        <tr>
+                            <td>pedrop@mail.com</td>
+                            <td>006</td>
+                            <td>2020-01-08</td>
+                            <td>
+                                
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option >Choose...</option>
+                                        <option selected value="1">Awaiting Payment</option>
+                                        <option value="2">Processing</option>
+                                        <option value="3">Shipped</option>
+                                        <option value="4">Delivered</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>699.00€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
         <!-- BRANDS -->
 
@@ -563,31 +694,60 @@ draw_jumbo('Admin Profile Page');
         <div class="collapse" id="banner">
 
             <div class="row-12 py-3">
-                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="../assets/teste.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../assets/teste.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../assets/teste.jpg" alt="Third slide">
+
+                <div class="row align-items-center justify-content-md-center">
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+
+                    <div class="col-7">
+
+                        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="../assets/teste.jpg" alt="First slide">
+                                    <a href="#" class="thumbnail-carousel">
+                                        <i class="far fa-times-circle fa"></i>
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="../assets/teste.jpg" alt="Second slide">
+                                    <a href="#" class="thumbnail-carousel">
+                                        <i class="far fa-times-circle fa"></i>
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="../assets/teste.jpg" alt="Third slide">
+                                    <a href="#" class="thumbnail-carousel">
+                                        <i class="far fa-times-circle fa"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -652,7 +812,7 @@ draw_jumbo('Admin Profile Page');
                 </div>
 
                 <div class="collapse" id="FAQs2">
-                    <p>Generally our international parcels will arrive within 7 working days. However if  your parcels tracking ID begins with RML, we advise that you allow up to 2 weeks to account for any postal delays within your country. Please note that UK Bank Holidays, Saturday and Sunday are not classed as working days.</p>
+                    <p>Generally our international parcels will arrive within 7 working days. However if your parcels tracking ID begins with RML, we advise that you allow up to 2 weeks to account for any postal delays within your country. Please note that UK Bank Holidays, Saturday and Sunday are not classed as working days.</p>
                 </div>
 
 

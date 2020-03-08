@@ -19,13 +19,13 @@ include_once('footer.php');
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="../assets/user.svg" alt="First slide">
+                        <img class="d-block w-100" src="../assets/teste.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="../assets/shopping-cart.svg" alt="Second slide">
+                        <img class="d-block w-100" src="../assets/teste.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="../assets/search.svg" alt="Third slide">
+                        <img class="d-block w-100" src="../assets/teste.jpg" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -51,7 +51,7 @@ include_once('footer.php');
         <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
             <div class="col mb-2">
                 <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+                    <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                     <div class="card-body justify-content-center">
                         <h5 class="card-title">Phone</h5>
                         <p class="card-text">Quick description of the phone in place.</p>
@@ -61,7 +61,7 @@ include_once('footer.php');
             </div>
             <div class="col mb-2">
                 <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+                    <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                     <div class="card-body justify-content-center">
                         <h5 class="card-title">Phone</h5>
                         <p class="card-text">Quick description of the phone in place.</p>
@@ -71,7 +71,7 @@ include_once('footer.php');
             </div>
             <div class="col mb-2">
                 <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+                    <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                     <div class="card-body justify-content-center">
                         <h5 class="card-title">Phone</h5>
                         <p class="card-text">Quick description of the phone in place.</p>
@@ -81,7 +81,7 @@ include_once('footer.php');
             </div>
             <div class="col mb-2">
                 <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+                    <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                     <div class="card-body justify-content-center">
                         <h5 class="card-title">Phone</h5>
                         <p class="card-text">Quick description of the phone in place.</p>
@@ -91,7 +91,7 @@ include_once('footer.php');
             </div>
             <div class="col mb-2">
                 <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+                    <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                     <div class="card-body justify-content-center">
                         <h5 class="card-title">Phone</h5>
                         <p class="card-text">Quick description of the phone in place.</p>
@@ -101,7 +101,7 @@ include_once('footer.php');
             </div>
             <div class="col mb-2">
                 <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+                    <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                     <div class="card-body justify-content-center">
                         <h5 class="card-title">Phone</h5>
                         <p class="card-text">Quick description of the phone in place.</p>

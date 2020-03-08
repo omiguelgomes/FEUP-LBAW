@@ -12,9 +12,13 @@ draw_jumbo('Profile Page');
 <div class="container">
     <div class="row-form">
         <form>
-            <div class="d-flex flex-row-reverse bd-highlight">
-                <button type="button" class="btn btn-small btn-primary"><i class="far fa-edit"></i></button>
+            <div class="d-flex">
+                <div class="p-1">
+                    <h3>Personal Information</h3>
+                </div>            
+                <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary"><i class="far fa-edit"></i></button></div>
             </div>
+           
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <img src="../assets/profilepadrao.jpg" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
@@ -74,6 +78,7 @@ draw_jumbo('Profile Page');
             </div>
 
             <button type="button" class="btn btn-primary" disabled>Change</button>
+            <button type="button" class="btn btn-danger">Delete Account</button>
 
         </form>
     </div>

@@ -1,0 +1,82 @@
+homePage
+
+mobile - carrossel pequeno
+
+
+
+desktop - icones navbar muito espaçados(muito espaço vazio), trocar ordem (search no meio, perfil a direita)
+	tabs new e best seller parecem botoes 
+
+	faq e ticket us demasiado realçados, talvez mudar para link
+
+
+
+adminProfilePage
+
+	dentro de cada colapsável, o botão de colapsar e de adicionar novo
+	têm o mesmo peso, devemos remover o peso do botão (sugestao, tirar
+	o fundo azul do botao, e tornar o triângulo azul)
+
+adminProfile/userProfile/register
+
+	alinhar email com idade, ou colocar os 3 campos numa coluna
+	unica. alterar o campo de upload (por exemplo, um "+" ou simbolo de lapis
+	na imagem do admin. dar menos peso ao botao delete, geralmente tenta-se
+	"esconder" este tipo de opções (sign-out, apagar conta, apagar comentario,
+	etc)
+
+	acrescentar asterisco nos campos facultativos (convem haver
+	distincao, e desta forma em geral obtemos mais dados)
+
+	possivelmente ter paginas distintas de login e register		
+	
+carrinho
+
+	retirar importancia ao continue shopping, dar mais importancia ao 
+	proceed with purchase (por exemplo, no continue shopping retirar 
+	o fundo azul, deixar so uma border)
+	muito pouco espaco utilizado, aproveitar espaço na horizontal, 
+	sugestao: semelhante ao da worten
+	
+phonePage
+
+	alterar o rating, nao e intuitivo o que significa. manter um tema 
+	para os botoes, botao add to cart diferente de todos os outros
+
+purchaseHistory
+
+	pequenos jumbotrons para assinalar cada estado de envio. em baixo de 
+	cada um deles os produtos (em linha)
+
+	OU
+
+	organizar por compra (se compramos 3 telemoveis de uma vez, mostra na 
+	pagina a compra aglomerada)
+
+
+wishlist
+
+	botao de comprar agora pouco intuitivo (por exemplo, acrescentar um label)
+	pesquisar na wishlist, ou pagina-las
+	tirar carrossel
+
+searchScreen
+	
+	adicionar header e navbar. pelo menos em deskop, mostrar de imediato os
+	filtros, em vez de ser sidebar (ha muito espaço livre no ecra)
+
+
+admin gestao
+	sidebar com as opcoes principais ( admin account, brands, faq, etc) e carregando
+	ai aparece as opcoes individuais
+	adicionar opcao de editar em vez de so remover
+
+
+gitlab
+	branch com a versao do codigo aquando da entrega do a3
+
+	
+
+
+
+

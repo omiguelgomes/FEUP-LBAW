@@ -16,7 +16,7 @@ O objetivo deste projeto é desenvolver uma aplicação web para uma loja de sma
 * User Requirements specification
   * [A1: Project presentation](https://git.fe.up.pt/lbaw/lbaw1920/lbaw2065/-/wikis/a1)
   * [A2: Actors and User stories](https://git.fe.up.pt/lbaw/lbaw1920/lbaw2065/-/wikis/a2)
-  * [A3: User Interfaces Prototype](a3)
+  * [A3: User Interfaces Prototype](https://git.fe.up.pt/lbaw/lbaw1920/lbaw2065/-/wikis/a3)
 * Database specification
   * [A4: Conceptual Data Model](a4)
   * [A5: Relational schema, validation and schema refinement](a5)

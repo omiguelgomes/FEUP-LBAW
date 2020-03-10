@@ -4,8 +4,8 @@ mobile - carrossel pequeno
 
 
 
-desktop - icones navbar muito espaçados(muito espaço vazio)
-	tabs new e best seller parecem botoes
+desktop - icones navbar muito espaçados(muito espaço vazio), trocar ordem (search no meio, perfil a direita)
+	tabs new e best seller parecem botoes 
 
 	faq e ticket us demasiado realçados, talvez mudar para link
 
@@ -35,6 +35,8 @@ carrinho
 	retirar importancia ao continue shopping, dar mais importancia ao 
 	proceed with purchase (por exemplo, no continue shopping retirar 
 	o fundo azul, deixar so uma border)
+	muito pouco espaco utilizado, aproveitar espaço na horizontal, 
+	sugestao: semelhante ao da worten
 	
 phonePage
 
@@ -46,15 +48,32 @@ purchaseHistory
 	pequenos jumbotrons para assinalar cada estado de envio. em baixo de 
 	cada um deles os produtos (em linha)
 
+	OU
+
+	organizar por compra (se compramos 3 telemoveis de uma vez, mostra na 
+	pagina a compra aglomerada)
+
 
 wishlist
 
 	botao de comprar agora pouco intuitivo (por exemplo, acrescentar um label)
+	pesquisar na wishlist, ou pagina-las
+	tirar carrossel
 
 searchScreen
 	
 	adicionar header e navbar. pelo menos em deskop, mostrar de imediato os
 	filtros, em vez de ser sidebar (ha muito espaço livre no ecra)
+
+
+admin gestao
+	sidebar com as opcoes principais ( admin account, brands, faq, etc) e carregando
+	ai aparece as opcoes individuais
+	adicionar opcao de editar em vez de so remover
+
+
+gitlab
+	branch com a versao do codigo aquando da entrega do a3
 
 	
 

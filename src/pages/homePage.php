@@ -135,5 +135,3 @@ draw_footer();
         }
     }
 </style>
-
-</html>

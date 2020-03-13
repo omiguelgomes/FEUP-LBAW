@@ -8,7 +8,7 @@
                 Phone
             </a>
             
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="../pages/search_screen.php">
                 <img src="../assets/search.svg" width="30" height="30" alt="">
             </a>
 

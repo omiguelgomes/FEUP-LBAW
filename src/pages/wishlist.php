@@ -8,7 +8,7 @@ include_once('footer.php');
   draw_header();
   draw_navbar();
   draw_tabs();
-  draw_jumbo('Wishlist');
+  draw_jumbo('wishlists');
   ?>
 
 <div class="container mx-auto py-3">

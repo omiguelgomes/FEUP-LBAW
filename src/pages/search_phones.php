@@ -1,17 +1,20 @@
 <?php
 include_once('header.php');
 include_once('navbar.php');
+include_once('jumbo_title.php');
 include_once('footer.php');
 
 draw_header();
 draw_navbar();
+draw_jumbo('Phones');
 
 ?>
 
 <link rel="stylesheet" href="../css/sidebar.css">
 <link rel="stylesheet" href="../css/filters.css">
 
-<nav class="navbar navbar-expand-lg fixed-top shadow navbar-light ">
+
+<nav class="navbar navbar-expand-lg shadow navbar-light ">
     <button class="navbar-toggler d-block" type="button" id="navToggle">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,7 +22,7 @@ draw_navbar();
         <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
         <i class="fas fa-search" aria-hidden="true"></i>
     </form>
-    <div class="navbar-collapse  offcanvas-collapse">
+    <div class="navbar-collapse offcanvas-collapse">
         <div class="row">
             <div class="col-md-4 col-lg-3">
                 <div class="filters d-flex flex-column">

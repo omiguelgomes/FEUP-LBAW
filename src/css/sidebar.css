@@ -2,9 +2,7 @@ html,
 body {
     overflow-x: hidden;
 }
-body {
-    padding-top: 56px;
-}
+
 .offcanvas-collapse {
     position: fixed;
     top: 56px;

@@ -14,7 +14,7 @@ draw_jumbo('Phones');
 <link rel="stylesheet" href="../css/filters.css">
 
 
-<nav class="navbar navbar-expand-lg shadow navbar-light ">
+<nav class="navbar navbar-expand-lg shadow navbar-light">
     <button class="navbar-toggler d-block" type="button" id="navToggle">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +22,7 @@ draw_jumbo('Phones');
         <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
         <i class="fas fa-search" aria-hidden="true"></i>
     </form>
-    <div class="navbar-collapse offcanvas-collapse">
+    <div class="navbar-collapse offcanvas-collapse mt-4 ">
         <div class="row">
             <div class="col-md-4 col-lg-3">
                 <div class="filters d-flex flex-column">
@@ -70,10 +70,11 @@ draw_jumbo('Phones');
         </div>
 </nav>
 <div class="container">
+    <br>
     <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
         <div class="col mb-2">
-            <div class="card" style="width: 10rem;">
-                <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -82,8 +83,8 @@ draw_jumbo('Phones');
             </div>
         </div>
         <div class="col mb-2">
-            <div class="card" style="width: 10rem;">
-                <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -92,8 +93,21 @@ draw_jumbo('Phones');
             </div>
         </div>
         <div class="col mb-2">
-            <div class="card" style="width: 10rem;">
-                <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <div class="card-body justify-content-center">
+                    <h5 class="card-title">Phone</h5>
+                    <p class="card-text">Quick description of the phone in place.</p>
+                    <a href="#" class="btn btn-secondary w-75">See</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
+        <div class="col mb-2">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -102,8 +116,8 @@ draw_jumbo('Phones');
             </div>
         </div>
         <div class="col mb-2">
-            <div class="card" style="width: 10rem;">
-                <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -112,18 +126,8 @@ draw_jumbo('Phones');
             </div>
         </div>
         <div class="col mb-2">
-            <div class="card" style="width: 10rem;">
-                <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card" style="width: 10rem;">
-                <img class="card-img-top" src="../assets/smartphone.svg" alt="Card image cap">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -133,6 +137,8 @@ draw_jumbo('Phones');
         </div>
     </div>
 </div>
+</div>
+
 
 <?php
 draw_footer();

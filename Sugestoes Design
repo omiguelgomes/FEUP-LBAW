@@ -4,18 +4,18 @@ mobile - carrossel pequeno ------ CHECK
 
 
 
-desktop - icones navbar muito espaçados(muito espaço vazio), trocar ordem (search no meio, perfil a direita)
-	tabs new e best seller parecem botoes 
+desktop - icones navbar muito espaçados(muito espaço vazio), trocar ordem (search no meio, perfil a direita)  ------ CHECK
+	tabs new e best seller parecem botoes ---- CHECK
 
 	faq e ticket us demasiado realçados, talvez mudar para link ------ CHECK
 
 
 
-adminProfilePage
+adminProfilePage ------ CHECK
 
-	dentro de cada colapsável, o botão de colapsar e de adicionar novo
-	têm o mesmo peso, devemos remover o peso do botão (sugestao, tirar
-	o fundo azul do botao, e tornar o triângulo azul)
+	dentro de cada colapsável, o botão de colapsar e de adicionar novo  ------ CHECK
+	têm o mesmo peso, devemos remover o peso do botão (sugestao, tirar ------ CHECK
+	o fundo azul do botao, e tornar o triângulo azul) ------ CHECK
 
 adminProfile/userProfile/register
 
@@ -60,10 +60,10 @@ wishlist
 	pesquisar na wishlist, ou pagina-las
 	tirar carrossel
 
-searchScreen
+searchScreen ----- CHECK
 	
-	adicionar header e navbar. pelo menos em deskop, mostrar de imediato os
-	filtros, em vez de ser sidebar (ha muito espaço livre no ecra)
+	adicionar header e navbar. pelo menos em deskop, mostrar de imediato os ----- CHECK
+	filtros, em vez de ser sidebar (ha muito espaço livre no ecra)   ----- CHECK
 
 
 admin gestao

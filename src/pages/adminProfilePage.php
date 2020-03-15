@@ -24,31 +24,26 @@ draw_jumbo('Admin Profile Page');
             <br>
 
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 text-center">
+                    <br><br>
                     <img src="../assets/profilepadrao.jpg" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
-                    <br>
-                    <div class="custom-file">
-                        <input type="image" class="custom-file-input" id="validatedCustomFile" required disabled>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose a new image</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                    </div>
-
+                    <a href="#" class="">Change Photo</a>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
+                    <label for="inputEmail4">Email<a class="text-danger">*</a></label>
                     <input type="email" class="form-control" id="inputEmail4" placeholder="joaopaulo_n@hotmail.com" readonly>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
+                    <br>
+                    <label for="inputPassword4">Password<a class="text-danger">*</a></label>
                     <input type="password" class="form-control" id="inputPassword4" placeholder="**********" readonly>
-                </div>
-                <div class="form-group col-md-6">
+                    <br>
                     <label for="inputAge">Age</label>
                     <input type="number" class="form-control" id="inputAge" placeholder="20" readonly>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" disabled>Change</button>
-            <button type="button" class="btn btn-danger">Delete Account</button>
+            <a class="text-danger">* Campos Obrigatórios</a>
+            <br><br>
+            <button type="button" class="btn btn-primary" disabled>Change</button>&nbsp;&nbsp;
+            <a class="text-danger align-middle" href="#"> Delete Account</a>
 
         </form>
     </div>
@@ -57,16 +52,16 @@ draw_jumbo('Admin Profile Page');
     <!--------------------- MANAGEMENT ----------------------------->
 
     <br>
-    <h3>Management Area</h3>
+    <h3 class="text-center p-3 mb-2 bg-danger text-white ">Management Area</h3>
     <br>
 
     <!-- Client Accounts -->
 
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Client Accounts</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#clientAccounts" aria-expanded="false" aria-controls="clientAccounts">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#clientAccounts" aria-expanded="false" aria-controls="clientAccounts">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -98,56 +93,56 @@ draw_jumbo('Admin Profile Page');
                         <td>João Nunes</td>
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Eduardo Campos</td>
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Miguel Gomes</td>
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>João Nunes</td>
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Eduardo Campos</td>
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Miguel Gomes</td>
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
 
@@ -159,11 +154,11 @@ draw_jumbo('Admin Profile Page');
     <!-- Admin Accounts -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Admin Accounts</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#adminsAccounts" aria-expanded="false" aria-controls="adminsAccounts">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#adminsAccounts" aria-expanded="false" aria-controls="adminsAccounts">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -195,56 +190,56 @@ draw_jumbo('Admin Profile Page');
                         <td>João Nunes</td>
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Eduardo Campos</td>
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Miguel Gomes</td>
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>João Nunes</td>
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Eduardo Campos</td>
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Miguel Gomes</td>
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
 
@@ -256,11 +251,11 @@ draw_jumbo('Admin Profile Page');
     <!-- ORDERS -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Orders</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#tabelorders" aria-expanded="false" aria-controls="tabelorders">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelorders" aria-expanded="false" aria-controls="tabelorders">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -392,11 +387,11 @@ draw_jumbo('Admin Profile Page');
     <!-- BRANDS -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Brands</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#tabelbrands" aria-expanded="false" aria-controls="tabelbrands">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelbrands" aria-expanded="false" aria-controls="tabelbrands">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -426,61 +421,61 @@ draw_jumbo('Admin Profile Page');
                     <tr>
                         <td>Apple</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Samsung</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Huawei</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Asus</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Xiaomi</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Apple</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Samsung</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Huawei</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Asus</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
                         <td>Xiaomi</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                 </tbody>
@@ -491,11 +486,11 @@ draw_jumbo('Admin Profile Page');
     <!-- Specs -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Specifications</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#tabelspecs" aria-expanded="false" aria-controls="tabelspecs">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelspecs" aria-expanded="false" aria-controls="tabelspecs">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -529,7 +524,7 @@ draw_jumbo('Admin Profile Page');
                         <td><i class="fas fa-exclamation"></i></td>
                         <td>Slider</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -537,7 +532,7 @@ draw_jumbo('Admin Profile Page');
                         <td>&nbsp;</td>
                         <td>Checkbox</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -545,7 +540,7 @@ draw_jumbo('Admin Profile Page');
                         <td>&nbsp;</td>
                         <td>Checkbox</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -553,7 +548,7 @@ draw_jumbo('Admin Profile Page');
                         <td><i class="fas fa-exclamation"></i></td>
                         <td>Slider</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -561,7 +556,7 @@ draw_jumbo('Admin Profile Page');
                         <td><i class="fas fa-exclamation"></i></td>
                         <td>Slider</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                 </tbody>
@@ -571,7 +566,7 @@ draw_jumbo('Admin Profile Page');
 
     <!-- Manage Products -->
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
 
         <div class="mr-auto p-2">
             <h4>Manage Products</h4>
@@ -591,11 +586,11 @@ draw_jumbo('Admin Profile Page');
     <!-- Sales -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Sales</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#tabelsales" aria-expanded="false" aria-controls="tabelsales">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelsales" aria-expanded="false" aria-controls="tabelsales">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -631,7 +626,7 @@ draw_jumbo('Admin Profile Page');
                         <td>10%</td>
                         <td>2020-01-05</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -640,7 +635,7 @@ draw_jumbo('Admin Profile Page');
                         <td>30%</td>
                         <td>2019-12-15</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -649,7 +644,7 @@ draw_jumbo('Admin Profile Page');
                         <td>0%</td>
                         <td>2019-12-08</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -658,7 +653,7 @@ draw_jumbo('Admin Profile Page');
                         <td>0%</td>
                         <td>2019-11-18</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-3x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
                 </tbody>
@@ -669,11 +664,11 @@ draw_jumbo('Admin Profile Page');
     <!-- BANNER -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Banner</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#banner" aria-expanded="false" aria-controls="banner">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#banner" aria-expanded="false" aria-controls="banner">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -744,11 +739,11 @@ draw_jumbo('Admin Profile Page');
     <!-- FAQS -->
 
     <br>
-    <div class="d-flex">
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>FAQs</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#FAQs" aria-expanded="false" aria-controls="FAQs">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#FAQs" aria-expanded="false" aria-controls="FAQs">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>

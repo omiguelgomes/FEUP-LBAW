@@ -1,0 +1,56 @@
+	DATABASE
+
+-adicionar nomes a todas as associações;
+
+restricoes na base de dados:
+ exemplo: data de nascimento(tem de ser
+	definido, tem de ser do tipo
+	data). dizer que e obrigatorio (como	a pass e assim)
+
+
+juntar produto com modelo, nao faz sentido serem separados - DONE 
+
+ligacao ternaria entre produto, categoria e propriedade. remover valor, valores, propriedadCat, propObrigatorias - DONE (differently)
+
+dois produtos diferentes, por exemplo: s10 com 4Ram e S10 com 6RAM - DONE
+
+nome da associacao produtos comprados
+
+manter apenas a classe associacao avaliacao, remover atributo de produto - DONE
+
+alterar estados de compra para ser um atributo e nao uma classe filho - DONE
+
+ajustar linhas para acabarem no meio da classe, nao no vertice - DONE
+
+remover imagem do utilizador - DONE
+
+adicionar descricao da imagem de cada produto - DONE
+
+estado de compra com data e comentario (para o utilizador ver, por exemplo: dia x foi enviado) - DONE
+
+adicionar comentarios a db - DONE
+
+criar entidade desconto ( se e um voucher, se e aplicado a loja toda, qual o valor, aplicado a que produto, data de acao) - DONE
+
+faltam classes presentes no a2
+
+	BR
+
+br2 e uma constraint, nao uma br
+
+so admin pode editar faq, alterar faq, adicionar modelos, categorias (uma so categoria, desde que descrevamos tudo)
+		
+
+	NOTAS	
+
+adicionei classe "marca" porque e preciso guardar todas as marcas disponiveis, dado que estas vao aparecer nos filtros
+e podem ser alteradas/adicionadas/removidas a qq momento por um admin. relacionei com a classe imagem para mostrar tb
+nos filtros uma imagem.
+faltam coisas no pagamento
+faltam nomes de associacoes e constraints
+adicionei classe especificacoes porque nao fazia sentido a classe produto ter tanta coisa
+
+
+	
+
+

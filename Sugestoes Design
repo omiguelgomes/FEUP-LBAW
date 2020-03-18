@@ -53,22 +53,22 @@ purchaseHistory ------ CHECK
 	pagina a compra aglomerada) ------ CHECK
 
 
-wishlist
+wishlist ----- CHECK
 
-	botao de comprar agora pouco intuitivo (por exemplo, acrescentar um label)
-	pesquisar na wishlist, ou pagina-las
-	tirar carrossel
+	botao de comprar agora pouco intuitivo (por exemplo, acrescentar um label) ----- CHECK
+	pesquisar na wishlist, ou pagina-las ----- CHECK
+	tirar carrossel ----- CHECK
 
 searchScreen ----- CHECK
 	
 	adicionar header e navbar. pelo menos em deskop, mostrar de imediato os ----- CHECK
 	filtros, em vez de ser sidebar (ha muito espaço livre no ecra)   ----- CHECK
 
-
-admin gestao
-	sidebar com as opcoes principais ( admin account, brands, faq, etc) e carregando
-	ai aparece as opcoes individuais
-	adicionar opcao de editar em vez de so remover
+ 
+admin gestao   -- CHECK
+	sidebar com as opcoes principais ( admin account, brands, faq, etc) e carregando  ----- Aprimorado sem sidebar -- CHECK
+	ai aparece as opcoes individuais -- CHECK
+	adicionar opcao de editar em vez de so remover   -- CHECK
 
 
 gitlab

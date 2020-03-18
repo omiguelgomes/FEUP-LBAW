@@ -14,29 +14,37 @@ draw_navbar();
                 <div class="row justify-content-center pb-2">
                     <h1 class="display-4"><b>S20 Ultra</b></h1>
                 </div>
-                <div class="row justify-content-between">
-                    <h5>Samsung</h5>
-                    <h5>10/10</h5>
+                <div class="d-flex bd-highlight mb-3">
+
+                    <div class="mr-auto p-2 bd-highlight">
+                        <h5>Samsung</h5>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <h5>Rating: 4.9</h5>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row py-3">
+    <div class="row py-3 row justify-content-around ">
         <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="20000" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner pb-5">
+            <div class="carousel-inner pb-5 center-block">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="../assets/s20Ultra1.png" alt="First slide">
+                    <img class="d-block " src="../assets/s20Ultra1.png" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/s20Ultra.png" alt="Second slide">
+                    <img class="d-block" src="../assets/s20Ultra.png" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/s20Ultra2.png" alt="Third slide">
+                    <img class="d-block" src="../assets/s20Ultra2.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -54,8 +62,8 @@ draw_navbar();
             <h5><b>1099€</b></h5>
         </div>
         <div class="col d-flex justify-content-center">
-            <a href="#" class="badge-pill badge-secondary">Add to cart</a>
-            <img src="../assets/shopping-cart.svg" width="30" height="30" alt="">
+            <button type="button" class="btn btn-primary">Add to Cart</button>&nbsp;&nbsp;
+            <img src="../assets/shopping-cart.svg" width="30" height="30" alt="cart_image">
         </div>
     </div>
 
@@ -118,5 +126,9 @@ draw_footer();
         object-fit: cover;
         margin: auto;  */
         max-height: 300px;
+    }
+
+    .fa-star {
+        color: #f7aa31;
     }
 </style>

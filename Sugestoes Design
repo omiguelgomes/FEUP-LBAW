@@ -3,7 +3,6 @@ homePage
 mobile - carrossel pequeno ------ CHECK
 
 
-
 desktop - icones navbar muito espaçados(muito espaço vazio), trocar ordem (search no meio, perfil a direita)  ------ CHECK
 	tabs new e best seller parecem botoes ---- CHECK
 
@@ -38,20 +37,20 @@ carrinho ------ CHECK
 	muito pouco espaco utilizado, aproveitar espaço na horizontal,  ------ CHECK
 	sugestao: semelhante ao da worten ------ CHECK
 	
-phonePage
+phonePage ------ CHECK
 
-	alterar o rating, nao e intuitivo o que significa. manter um tema 
-	para os botoes, botao add to cart diferente de todos os outros
+	alterar o rating, nao e intuitivo o que significa. manter um tema ------ CHECK
+	para os botoes, botao add to cart diferente de todos os outros ------ CHECK
 
-purchaseHistory
+purchaseHistory ------ CHECK
 
-	pequenos jumbotrons para assinalar cada estado de envio. em baixo de 
-	cada um deles os produtos (em linha)
+	pequenos jumbotrons para assinalar cada estado de envio. em baixo de  ------ CHECK
+	cada um deles os produtos (em linha)------ CHECK
 
-	OU
+	OU ------ CHECK
 
-	organizar por compra (se compramos 3 telemoveis de uma vez, mostra na 
-	pagina a compra aglomerada)
+	organizar por compra (se compramos 3 telemoveis de uma vez, mostra na  ------ CHECK
+	pagina a compra aglomerada) ------ CHECK
 
 
 wishlist

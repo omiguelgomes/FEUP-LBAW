@@ -971,8 +971,6 @@ draw_jumbo('Admin Profile Page');
 
         </div>
     </div>
-
-</div>
 </div>
 
 <!--for search bar-->

@@ -25,9 +25,11 @@
                 <div class="col bg-light text-center">
                     <h5 style="color: black;">Support</h5>
                     <br>
-                    <a href="#" class="font-weight-bold">F.A.Q</a>
+                    <a href="../pages/FAQ.php" class="font-weight-bold">FAQ</a>
                     <br>
                     <a href="#" class="font-weight-bold">Ticket us</a>
+                    <br>
+                    <a class="font-weight-bold" href="../pages/about.php">About us</a>
                 </div>
             </div>
         </div>

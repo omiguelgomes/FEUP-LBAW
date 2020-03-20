@@ -6,7 +6,7 @@ include_once('footer.php');
 
 draw_header();
 draw_navbar();
-draw_jumbo('Phones');
+draw_jumbo('Search');
 
 ?>
 

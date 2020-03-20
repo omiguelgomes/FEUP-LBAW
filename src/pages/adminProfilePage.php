@@ -754,6 +754,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2020-01-05</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -763,6 +766,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2019-12-15</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -772,6 +778,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2019-12-08</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -781,6 +790,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2019-11-18</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                 </tbody>
@@ -898,6 +910,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -919,6 +934,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -940,6 +958,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -961,6 +982,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 

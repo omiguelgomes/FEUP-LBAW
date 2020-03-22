@@ -85,7 +85,7 @@ draw_jumbo('Admin Profile Page');
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Remove</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -93,14 +93,19 @@ draw_jumbo('Admin Profile Page');
                         <td>João Nunes</td>
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
+                                <i class="far fa-times-circle fa-2x ml-4"></i></a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i></a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -108,6 +113,9 @@ draw_jumbo('Admin Profile Page');
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -115,6 +123,9 @@ draw_jumbo('Admin Profile Page');
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -122,6 +133,9 @@ draw_jumbo('Admin Profile Page');
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -129,6 +143,9 @@ draw_jumbo('Admin Profile Page');
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -136,6 +153,9 @@ draw_jumbo('Admin Profile Page');
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -143,6 +163,9 @@ draw_jumbo('Admin Profile Page');
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
 
@@ -182,7 +205,7 @@ draw_jumbo('Admin Profile Page');
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Remove</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -191,56 +214,89 @@ draw_jumbo('Admin Profile Page');
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>Eduardo Campos</td>
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>Miguel Gomes</td>
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>João Nunes</td>
                         <td>joaon@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>João Riberio</td>
                         <td>joaor@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>Eduardo Campos</td>
                         <td>eduardoc@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
                     <tr>
                         <td>Miguel Gomes</td>
                         <td>miguelg@mail.com</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -274,9 +330,10 @@ draw_jumbo('Admin Profile Page');
         </div>
 
         <div class="table-overflow">
-            <table id="tabela" class="table table-hover">
+            <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>User Email</th>
                         <th>Order ID</th>
                         <th>Date</th>
@@ -285,7 +342,14 @@ draw_jumbo('Admin Profile Page');
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="clickable">
+                        <td>
+                            <div class="row-fluid summary">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail">
+                                    <i class="fas fa-sort-down"></i>
+                                </button>
+                            </div>
+                        </td>
                         <td>joaoe@mail.com</td>
                         <td>001</td>
                         <td>2020-01-05</td>
@@ -303,8 +367,22 @@ draw_jumbo('Admin Profile Page');
                         </td>
                         <td>1299.00€</td>
                     </tr>
+                    <tr id="orderdetail" class="collapse">
+                        <td colspan="6">
+                            <div class="row-fluid summary">
+                                <a>1 - Samsung Galaxy S5 32GB - 499.99€ </a><br>
+                                <a>2 - Samsung Galaxy S3 8GB - 799.01€ </a>
+                            </div>
+                    </tr>
 
-                    <tr>
+                    <tr class="clickable">
+                        <td>
+                            <div class="row-fluid summary">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail2">
+                                    <i class="fas fa-sort-down"></i>
+                                </button>
+                            </div>
+                        </td>
                         <td>miguelp@mail.com</td>
                         <td>002</td>
                         <td>2020-02-05</td>
@@ -322,8 +400,22 @@ draw_jumbo('Admin Profile Page');
                         </td>
                         <td>299.00€</td>
                     </tr>
+                    <tr id="orderdetail2" class="collapse">
+                        <td colspan="6">
+                            <div class="row-fluid summary">
+                                <a>1 - Samsung Galaxy S5 32GB - 499.99€ </a><br>
+                                <a>2 - Samsung Galaxy S10 32GB - 1500.99€ </a>
+                            </div>
+                    </tr>
 
-                    <tr>
+                    <tr class="clickable">
+                        <td>
+                            <div class="row-fluid summary">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail3">
+                                    <i class="fas fa-sort-down"></i>
+                                </button>
+                            </div>
+                        </td>
                         <td>tiagok@mail.com</td>
                         <td>004</td>
                         <td>2020-03-15</td>
@@ -341,8 +433,22 @@ draw_jumbo('Admin Profile Page');
                         </td>
                         <td>1099.00€</td>
                     </tr>
+                    <tr id="orderdetail3" class="collapse">
+                        <td colspan="6">
+                            <div class="row-fluid summary">
+                                <a>1 - Samsung Galaxy S5 32GB - 499.99€ </a><br>
+                                <a>2 - Samsung Galaxy S10 32GB - 1500.99€ </a>
+                            </div>
+                    </tr>
 
-                    <tr>
+                    <tr class="clickable">
+                        <td>
+                            <div class="row-fluid summary">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail4">
+                                    <i class="fas fa-sort-down"></i>
+                                </button>
+                            </div>
+                        </td>
                         <td>joaop@mail.com</td>
                         <td>005</td>
                         <td>2020-01-25</td>
@@ -360,8 +466,22 @@ draw_jumbo('Admin Profile Page');
                         </td>
                         <td>852.00€</td>
                     </tr>
+                    <tr id="orderdetail4" class="collapse">
+                        <td colspan="6">
+                            <div class="row-fluid summary">
+                                <a>1 - Samsung Galaxy S5 32GB - 499.99€ </a><br>
+                                <a>2 - Samsung Galaxy S10 32GB - 1500.99€ </a>
+                            </div>
+                    </tr>
 
-                    <tr>
+                    <tr class="clickable">
+                        <td>
+                            <div class="row-fluid summary">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail5">
+                                    <i class="fas fa-sort-down"></i>
+                                </button>
+                            </div>
+                        </td>
                         <td>pedrop@mail.com</td>
                         <td>006</td>
                         <td>2020-01-08</td>
@@ -378,6 +498,13 @@ draw_jumbo('Admin Profile Page');
                             </div>
                         </td>
                         <td>699.00€</td>
+                    </tr>
+                    <tr id="orderdetail5" class="collapse">
+                        <td colspan="6">
+                            <div class="row-fluid summary">
+                                <a>1 - Samsung Galaxy S5 32GB - 499.99€ </a><br>
+                                <a>2 - Samsung Galaxy S10 32GB - 1500.99€ </a>
+                            </div>
                     </tr>
                 </tbody>
             </table>
@@ -627,6 +754,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2020-01-05</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -636,6 +766,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2019-12-15</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -645,6 +778,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2019-12-08</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                     <tr>
@@ -654,6 +790,9 @@ draw_jumbo('Admin Profile Page');
                         <td>2019-11-18</td>
                         <td><a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a>
+                            <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a> </td>
                     </tr>
                 </tbody>
@@ -771,6 +910,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -792,6 +934,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -813,6 +958,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -834,6 +982,9 @@ draw_jumbo('Admin Profile Page');
                     <a href="#" class="thumbnail">
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
+                    <a href="#" class="thumbnail">
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            </a> 
                 </div>
             </div>
 
@@ -844,8 +995,6 @@ draw_jumbo('Admin Profile Page');
 
         </div>
     </div>
-
-</div>
 </div>
 
 <!--for search bar-->

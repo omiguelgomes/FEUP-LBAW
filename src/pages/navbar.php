@@ -8,12 +8,12 @@
                 Phone
             </a>
 
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="../pages/cartPage.php">
                 <img src="../assets/shopping-cart.svg" width="30" height="30" alt="">
             </a>
 
 
-            <a class="nav-item nav-link" href="../pages/search_screen.php">
+            <a class="nav-item nav-link" href="../pages/search.php">
                 <img src="../assets/search.svg" width="30" height="30" alt="">
             </a>
 

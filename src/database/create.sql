@@ -25,6 +25,42 @@ create table if not exists address (
 	uid integer not null unique references users(uid) on delete cascade
 );
 
+create table if not exists image(
+	iid integer primary key,
+	description text not null,
+	path text not null
+);
+
+create table if not exists brands(
+	mid integer primary key,
+	"name" text not null,
+	iid integer unique not null references image(iid) on delete cascade
+);
+
+create table if not exists specs(
+	esid integer primary key,
+	screenSize double precision not null,
+	cameraRes integer not null,
+	ram integer not null,
+	battery integer not null,
+	os text not null,
+	"storage" integer not null,
+	cpu text not null,
+	gpu text not null,
+	screenRes double precision not null,
+	headphoneJack boolean not null,
+	weight double precision not null,
+	waterResRat text not null,
+	fingerprintType text not null,
+	constraint screenSize check (screenSize > (0)::double precision),
+	constraint cameraRes check (cameraRes > 0),
+	constraint ram check (ram > 0),
+	constraint battery check (battery > 0),
+	constraint "storage" check ("storage" > 0),
+	constraint screenRes check (screenRes > (0)::double precision),
+	constraint weight check (weight > (0)::double precision)
+);
+
 create table if not exists product (
 	pid integer primary key,
 	stock integer not null, 
@@ -39,7 +75,7 @@ create table if not exists product (
 );
 
 create table if not exists eval (
-	pid integer primary key references users(pid) on delete cascade,
+	pid integer primary key references product(pid) on delete cascade,
 	uid integer not null references users(uid) on delete cascade,
 	val double precision not null,
 	constraint val check (val > (0)::double precision and val <= (5)::double precision)
@@ -73,16 +109,6 @@ create table if not exists history(
 	primary key(pid, uid)
 );
 
-create table if not exists purchase(
-	pid integer references product(pid) on delete cascade,
-	uid integer references users(uid) on delete cascade,
-	val double precision not null,
-	eid integer not null references purchaseState(eid) on delete cascade,
-	paid integer not null references payment(paid) on delete cascade,
-	constraint val check (val > (0)::double precision),
-	primary key(pid, uid)
-);
-
 create table if not exists purchaseState(
 	eid integer primary key,
 	stateChangedate date not null,
@@ -97,10 +123,14 @@ create table if not exists payment(
 	constraint "type" check (("type" = any(array['Tranferencia Bancaria'::text, 'Paypal'::text])))
 );
 
-create table if not exists disCounts(
+create table if not exists purchase(
 	pid integer references product(pid) on delete cascade,
-	did integer references discount(did) on delete cascade,
-	primary key(pid, did)
+	uid integer references users(uid) on delete cascade,
+	val double precision not null,
+	eid integer not null references purchaseState(eid) on delete cascade,
+	paid integer not null references payment(paid) on delete cascade,
+	constraint val check (val > (0)::double precision),
+	primary key(pid, uid)
 );
 
 create table if not exists discount(
@@ -110,4 +140,40 @@ create table if not exists discount(
 	endDate date not null,
 	constraint val check (val > (0)::double precision and val < (1)::double precision),
 	constraint endDate check (endDate > beginDate)
+);
+
+create table if not exists disCounts(
+	pid integer references product(pid) on delete cascade,
+	did integer references discount(did) on delete cascade,
+	primary key(pid, did)
+);
+
+create table if not exists image_product(
+	pid integer references product(pid) on delete cascade,
+	iid integer references image(iid) on delete cascade,
+	primary key(pid, iid)
+);
+
+create table if not exists specs(
+	esid integer primary key,
+	screenSize double precision not null,
+	cameraRes integer not null,
+	ram integer not null,
+	battery integer not null,
+	os text not null,
+	"storage" integer not null,
+	cpu text not null,
+	gpu text not null,
+	screenRes double precision not null,
+	headphoneJack boolean not null,
+	weight double precision not null,
+	waterResRat text not null,
+	fingerprintType text not null,
+	constraint screenSize check (screenSize > (0)::double precision),
+	constraint cameraRes check (cameraRes > 0),
+	constraint ram check (ram > 0),
+	constraint battery check (battery > 0),
+	constraint "storage" check ("storage" > 0),
+	constraint screenRes check (screenRes > (0)::double precision),
+	constraint weight check (weight > (0)::double precision)
 );

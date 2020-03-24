@@ -1,0 +1,13 @@
+-admin: passar tabela para booleano em user (só no a5, o uml mantem se);
+-mudar todas PK para só id;
+-isolar cidade e pais em tabelas e ligar a morada
+-mudar fk de modo a ficar marca_id, p.ex
+-merge das tabelas specs e produto e exportar uma tabela por item;
+-compra é uma entidade, com relaçaõ muitos-muitos para produtos, rel compra-user é many-one
+-descontos: dataInicio > data atual
+-adicionar descrição a justificar a pq que as tabelas estão ou não estão na bcnf
+-adicionar checks a datas
+-nas fk q tb são pk mudar serial para integer
+-mudar nome de discounts p/ discount_product
+-mudar de modo a user domains como no exemplo dado
+-por o codigo sql dentro da propria wiki

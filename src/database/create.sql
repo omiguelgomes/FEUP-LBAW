@@ -153,27 +153,3 @@ create table if not exists image_product(
 	iid serial references image(iid) on delete cascade,
 	primary key(pid, iid)
 );
-
-create table if not exists specs(
-	esid serial primary key,
-	screenSize double precision not null,
-	cameraRes integer not null,
-	ram integer not null,
-	battery integer not null,
-	os text not null,
-	"storage" integer not null,
-	cpu text not null,
-	gpu text not null,
-	screenRes double precision not null,
-	headphoneJack boolean not null,
-	weight double precision not null,
-	waterResRat text not null,
-	fingerprintType text not null,
-	constraint screenSize check (screenSize > (0)::double precision),
-	constraint cameraRes check (cameraRes > 0),
-	constraint ram check (ram > 0),
-	constraint battery check (battery > 0),
-	constraint "storage" check ("storage" > 0),
-	constraint screenRes check (screenRes > (0)::double precision),
-	constraint weight check (weight > (0)::double precision)
-);

@@ -92,6 +92,31 @@ insert into address (street, postalCode, userID, cityIDinteger, countryID) value
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Dovetail', '5241-545', 19, 19, 19);
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Blue Bill Park', '3002-060', 20, 20, 20);
 
+/* waterResRat */
+
+insert into waterResRat (value) values ('500');
+insert into waterResRat (value) values ('1000');
+insert into waterResRat (value) values ('200');
+insert into waterResRat (value) values ('100');
+insert into waterResRat (value) values ('50');
+
+/* os */
+
+insert into os (name) values ('android');
+insert into os (name) values ('ios');
+
+
+/* gpu */
+
+insert into gpu (name, vram) values ('Mali-G71 MP2', '2');
+insert into gpu (name, vram) values ('Mali-G21 MP1', '1');
+insert into gpu (name, vram) values ('Mali-G01 MP0', '8');
+
+/* screenSize */ 
+
+insert into screenSize (value) values ('1080');
+insert into screenSize (value) values ('720');
+insert into screenSize (value) values ('4000');
 
 
 /* cpu */

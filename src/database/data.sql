@@ -70,12 +70,12 @@ insert into address (street, postalCode, userID, cityID, countryID) values ('Rie
 insert into address (street, postalCode, userID, cityID, countryID) values ('Hudson', '0054-515', 11, 11, 11);
 insert into address (street, postalCode, userID, cityID, countryID) values ('Springs', '1545-174', 12, 12, 12);
 insert into address (street, postalCode, userID, cityID, countryID) values ('Ohio', '0221-512', 13, 13, 13);
-insert into address (street, postalCode, userID, cityID, countryID) values ('Kedzie Ohio', '8680-825', 14, 13, 12);
-insert into address (street, postalCode, userID, cityID, countryID) values ('Ohiozz', '5145-541', 15, 12, 11);
-insert into address (street, postalCode, userID, cityID, countryID) values ('Beilfuss', '4640-210', 16, 11, 10);
-insert into address (street, postalCode, userID, cityID, countryID) values ('Acker', '1241-524', 17, 10, 9);
-insert into address (street, postalCode, userID, cityID, countryID) values ('Sundown', '2540-541', 18, 9, 8);
-insert into address (street, postalCode, userID, cityID, countryID) values ('Dovetail', '5241-545', 19, 8, 9);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Kedzie Ohio', '8680-825', 14, 13, 13);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Ohiozz', '5145-541', 15, 12, 12);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Beilfuss', '4640-210', 16, 10, 10);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Acker', '1241-524', 17, 9, 9);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Sundown', '2540-541', 18, 8, 8);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Dovetail', '5241-545', 19, 7, 7);
 
 /* FAQ */
 

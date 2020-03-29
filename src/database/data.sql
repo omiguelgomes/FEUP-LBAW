@@ -251,3 +251,61 @@ insert into history (productID, userID, purchaseDate) values (2, 2, '2012-12-13'
 insert into history (productID, userID, purchaseDate) values (3, 3, '2015-08-16');
 insert into history (productID, userID, purchaseDate) values (4, 4, '2013-04-08');
 insert into history (productID, userID, purchaseDate) values (5, 5, '2017-04-06');
+
+/* purchase State */
+
+insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-13', 'payment please!','Aguarda Pagamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-14', 'please wait, in process','Em Processamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-15', 'shipped with success','Enviada');
+insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-16', 'payment please!','Aguarda Pagamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-17', 'please wait, in process','Em Processamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-18', 'shipped with success','Enviada');
+
+/* payment */
+
+insert into payment (type) values ('Tranferencia Bancaria');
+insert into payment (type) values ('Tranferencia Bancaria');
+insert into payment (type) values ('Tranferencia Bancaria');
+insert into payment (type) values ('Paypal');
+insert into payment (type) values ('Paypal');
+
+/* purchase */
+
+insert into purchase (val, statusID, paid, userID) values (1820, 1, 1, 1);
+insert into purchase (val, statusID, paid, userID) values (2112, 2, 2, 2);
+insert into purchase (val, statusID, paid, userID) values (881, 3, 3, 3);
+insert into purchase (val, statusID, paid, userID) values (989, 4, 4, 4);
+insert into purchase (val, statusID, paid, userID) values (859, 5, 5, 5);
+
+/* discount */
+
+insert into discount (val, beginDate, endDate) values (10, '2020-03-27', '2020-04-12');
+insert into discount (val, beginDate, endDate) values (20, '2020-01-17', '2020-02-02');
+insert into discount (val, beginDate, endDate) values (30, '2020-01-10', '2020-01-26');
+insert into discount (val, beginDate, endDate) values (40, '2020-01-14', '2020-02-18');
+insert into discount (val, beginDate, endDate) values (50, '2019-08-04', '2019-09-16');
+
+/* discount product */
+
+insert into discount_product (productID, discountID) values (1, 1);
+insert into discount_product (productID, discountID) values (2, 2);
+insert into discount_product (productID, discountID) values (3, 3);
+insert into discount_product (productID, discountID) values (4, 4);
+insert into discount_product (productID, discountID) values (5, 5);
+
+
+/* image_product */
+
+insert into image_product (productID, imageID) values (1, 1);
+insert into image_product (productID, imageID) values (2, 2);
+insert into image_product (productID, imageID) values (3, 3);
+insert into image_product (productID, imageID) values (4, 4);
+insert into image_product (productID, imageID) values (5, 5);
+
+/* product_purchase */
+
+insert into product_purchase (productID, purchaseID) values (1, 1);
+insert into product_purchase (productID, purchaseID) values (2, 2);
+insert into product_purchase (productID, purchaseID) values (3, 3);
+insert into product_purchase (productID, purchaseID) values (4, 4);
+insert into product_purchase (productID, purchaseID) values (5, 5);

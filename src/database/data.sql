@@ -92,8 +92,23 @@ insert into address (street, postalCode, userID, cityIDinteger, countryID) value
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Dovetail', '5241-545', 19, 19, 19);
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Blue Bill Park', '3002-060', 20, 20, 20);
 
+
+
 /* cpu */
 
+insert into cpu (freq, cores, threads, name) values ('3.4', '8', '16', 'snapdragon');
+insert into cpu (freq, cores, threads, name) values ('2.5', '4', '8', 'enxoys');
+insert into cpu (freq, cores, threads, name) values ('5.52', '2', '4', 'trivi');
+insert into cpu (freq, cores, threads, name) values ('5.1', '1', '2', 'Mi');
+
+
+/* ram */
+
+insert into ram (value) values ('12');
+insert into ram (value) values ('4');
+insert into ram (value) values ('2');
+insert into ram (value) values ('1');
+insert into ram (value) values ('8');
 
 
 /* brand */

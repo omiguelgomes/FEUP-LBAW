@@ -21,8 +21,32 @@ insert into users (name, email, birthDate, pass) values ('Dame Doget', 'ddogeth@
 insert into users (name, email, birthDate, pass) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3173068a819802cc6e92560784ffe1f38662cd');
 insert into users (name, email, birthDate, pass) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea77fbdefa5707dad1087295e5639354d94d5c4dd');
 
+/* country */
+
+insert into country (name) values ('Russia');
+insert into country (name) values ('Brazil');
+insert into country (name) values ('Indonesia');
+insert into country (name) values ('France');
+insert into country (name) values ('Canada');
+insert into country (name) values ('Czech Republic');
+insert into country (name) values ('Japan');
+insert into country (name) values ('China');
+insert into country (name) values ('Russia');
+insert into country (name) values ('Indonesia');
+insert into country (name) values ('France');
+insert into country (name) values ('Indonesia');
+insert into country (name) values ('Nicaragua');
+insert into country (name) values ('China');
+insert into country (name) values ('Azerbaijan');
+insert into country (name) values ('Indonesia');
+insert into country (name) values ('Czech Republic');
+insert into country (name) values ('Sweden');
+insert into country (name) values ('Ukraine');
+insert into country (name) values ('South Korea');
+
+
 /* city */
- 
+
 insert into city (name, countryID) values ('Xinyuan', 1);
 insert into city (name, countryID) values ('Visconde do Rio Branco', 2);
 insert into city (name, countryID) values ('Usab', 3);

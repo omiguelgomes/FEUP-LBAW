@@ -227,3 +227,11 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '109', 'P smart 2019', 'Phones', 3, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18);
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('83', '980', 'Mi Note 10', 'Phones', 3, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19);
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('31', '99', 'Redmi 7A', 'Phones', 3, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20);
+
+/* eval */
+
+insert into eval (id, userID, val) values ('1', '2', '5');
+insert into eval (id, userID, val) values ('2', '1', '3');
+insert into eval (id, userID, val) values ('3', '3', '4');
+insert into eval (id, userID, val) values ('4', '4', '1');
+insert into eval (id, userID, val) values ('5', '5', '2');

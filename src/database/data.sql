@@ -1,5 +1,6 @@
 
 /* users */
+
 insert into users (name, email, birthDate, pass) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fae46de65f616fcfabb5d69b944d37d99fe80170cb');
 insert into users (name, email, birthDate, pass) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86b766c0fa8fe2a42593add935a9ea1f89ea752');
 insert into users (name, email, birthDate, pass) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a3ef3e922d4400e06d3c31f86d9ecc9f003');
@@ -19,4 +20,27 @@ insert into users (name, email, birthDate, pass) values ('Karlens Bambery', 'kba
 insert into users (name, email, birthDate, pass) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdefa5707dad1087295e5639354d94d5c4dd');
 insert into users (name, email, birthDate, pass) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3173068a819802cc6e92560784ffe1f38662cd');
 insert into users (name, email, birthDate, pass) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea77fbdefa5707dad1087295e5639354d94d5c4dd');
+
+/* address */
+
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Calypso', '1121-015', 1, 1, 1);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Mitchell', '4700-001', 2, 2, 2);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Kedzie', '0652-380', 3, 3, 3);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Summerview', '1547-201', 4, 4, 4);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Claremont', '9005-007', 5, 5, 5);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Orin', '2154-212', 6, 6, 6);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Hudson', '7390-094', 7, 7, 7);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Kingsford', '1212-521', 8, 8, 8);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Barnett', '2124-154', 9, 9, 9);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Rieder', '2414-544', 10, 10, 10);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Hudson', '0054-515', 11, 11, 11);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Springs', '1545-174', 12, 12, 12);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Ohio', '0221-512', 13, 13, 13);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Kedzie Ohio', '8680-825', 14, 14, 14);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Ohiozz', '5145-541', 15, 15, 15);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Beilfuss', '4640-210', 16, 16, 16);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Acker', '1241-524', 17, 17, 17);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Sundown', '2540-541', 18, 18, 18);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Dovetail', '5241-545', 19, 19, 19);
+insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Blue Bill Park', '3002-060', 20, 20, 20);
 

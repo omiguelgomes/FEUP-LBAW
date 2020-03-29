@@ -26,19 +26,12 @@ insert into users (name, email, birthDate, pass) values ('Ashli Flippini', 'afli
 insert into country (name) values ('Russia');
 insert into country (name) values ('Brazil');
 insert into country (name) values ('Indonesia');
-insert into country (name) values ('France');
 insert into country (name) values ('Canada');
-insert into country (name) values ('Czech Republic');
 insert into country (name) values ('Japan');
-insert into country (name) values ('China');
-insert into country (name) values ('Russia');
-insert into country (name) values ('Indonesia');
 insert into country (name) values ('France');
-insert into country (name) values ('Indonesia');
 insert into country (name) values ('Nicaragua');
 insert into country (name) values ('China');
 insert into country (name) values ('Azerbaijan');
-insert into country (name) values ('Indonesia');
 insert into country (name) values ('Czech Republic');
 insert into country (name) values ('Sweden');
 insert into country (name) values ('Ukraine');
@@ -47,26 +40,19 @@ insert into country (name) values ('South Korea');
 
 /* city */
 
-insert into city (name, countryID) values ('Xinyuan', 1);
-insert into city (name, countryID) values ('Visconde do Rio Branco', 2);
-insert into city (name, countryID) values ('Usab', 3);
-insert into city (name, countryID) values ('Bang Phlat', 4);
-insert into city (name, countryID) values ('Dashtobod', 5);
-insert into city (name, countryID) values ('Suwaluh', 6);
-insert into city (name, countryID) values ('Boliden', 7);
-insert into city (name, countryID) values ('Strelitsa', 8);
-insert into city (name, countryID) values ('Kokterek', 9);
-insert into city (name, countryID) values ('Shuangjiang', 10);
-insert into city (name, countryID) values ('Curpahuasi', 11);
-insert into city (name, countryID) values ('Beruniy', 12);
-insert into city (name, countryID) values ('Cijoho', 13);
-insert into city (name, countryID) values ('New Washington', 14);
-insert into city (name, countryID) values ('Zuru', 15);
-insert into city (name, countryID) values ('Hwange', 16);
-insert into city (name, countryID) values ('Dongtian', 17);
-insert into city (name, countryID) values ('Nanjing', 18);
-insert into city (name, countryID) values ('Tunzhai', 19);
-insert into city (name, countryID) values ('Nicosia', 20);
+insert into city (name, countryID) values ('Moscow', 1);
+insert into city (name, countryID) values ('Rio de Janeiro', 2);
+insert into city (name, countryID) values ('Jacarta', 3);
+insert into city (name, countryID) values ('Toronto', 4);
+insert into city (name, countryID) values ('Kyoto', 5);
+insert into city (name, countryID) values ('Nice', 6);
+insert into city (name, countryID) values ('Managua', 7);
+insert into city (name, countryID) values ('Beijing', 8);
+insert into city (name, countryID) values ('Baku', 9);
+insert into city (name, countryID) values ('Prague', 10);
+insert into city (name, countryID) values ('Stockholm', 11);
+insert into city (name, countryID) values ('Kiev', 12);
+insert into city (name, countryID) values ('Seul', 13);
 
 
 /* address */

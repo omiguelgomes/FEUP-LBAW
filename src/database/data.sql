@@ -118,6 +118,32 @@ insert into screenSize (value) values ('1080');
 insert into screenSize (value) values ('720');
 insert into screenSize (value) values ('4000');
 
+/* weight */
+
+insert into weight (value) values ('200');
+insert into weight (value) values ('150');
+insert into weight (value) values ('256');
+insert into weight (value) values ('212');
+insert into weight (value) values ('120');
+
+/* storage  */
+
+insert into storage (value) values ('32');
+insert into storage (value) values ('16');
+insert into storage (value) values ('64');
+insert into storage (value) values ('128');
+insert into storage (value) values ('256');
+
+/* battery */
+
+insert into battery (value) values ('5000');
+insert into battery (value) values ('4000');
+insert into battery (value) values ('2900');
+insert into battery (value) values ('3000');
+insert into battery (value) values ('2700');
+
+
+
 
 /* cpu */
 

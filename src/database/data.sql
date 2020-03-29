@@ -21,6 +21,30 @@ insert into users (name, email, birthDate, pass) values ('Dame Doget', 'ddogeth@
 insert into users (name, email, birthDate, pass) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3173068a819802cc6e92560784ffe1f38662cd');
 insert into users (name, email, birthDate, pass) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea77fbdefa5707dad1087295e5639354d94d5c4dd');
 
+/* city */
+ 
+insert into city (name, countryID) values ('Xinyuan', 1);
+insert into city (name, countryID) values ('Visconde do Rio Branco', 2);
+insert into city (name, countryID) values ('Usab', 3);
+insert into city (name, countryID) values ('Bang Phlat', 4);
+insert into city (name, countryID) values ('Dashtobod', 5);
+insert into city (name, countryID) values ('Suwaluh', 6);
+insert into city (name, countryID) values ('Boliden', 7);
+insert into city (name, countryID) values ('Strelitsa', 8);
+insert into city (name, countryID) values ('Kokterek', 9);
+insert into city (name, countryID) values ('Shuangjiang', 10);
+insert into city (name, countryID) values ('Curpahuasi', 11);
+insert into city (name, countryID) values ('Beruniy', 12);
+insert into city (name, countryID) values ('Cijoho', 13);
+insert into city (name, countryID) values ('New Washington', 14);
+insert into city (name, countryID) values ('Zuru', 15);
+insert into city (name, countryID) values ('Hwange', 16);
+insert into city (name, countryID) values ('Dongtian', 17);
+insert into city (name, countryID) values ('Nanjing', 18);
+insert into city (name, countryID) values ('Tunzhai', 19);
+insert into city (name, countryID) values ('Nicosia', 20);
+
+
 /* address */
 
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Calypso', '1121-015', 1, 1, 1);

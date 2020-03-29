@@ -114,9 +114,11 @@ insert into gpu (name, vram) values ('Mali-G01 MP0', '8');
 
 /* screenSize */ 
 
-insert into screenSize (value) values ('1080');
-insert into screenSize (value) values ('720');
-insert into screenSize (value) values ('4000');
+insert into screenSize (value) values ('5');
+insert into screenSize (value) values ('9');
+insert into screenSize (value) values ('4');
+insert into screenSize (value) values ('4.5');
+insert into screenSize (value) values ('6');
 
 /* weight */
 
@@ -142,6 +144,25 @@ insert into battery (value) values ('2900');
 insert into battery (value) values ('3000');
 insert into battery (value) values ('2700');
 
+/* Screen Res */
+
+insert into screenRes (value) values ('1080');
+insert into screenRes (value) values ('720');
+insert into screenRes (value) values ('4000');
+
+/* cameraRes */
+
+insert into cameraRes (value) values ('5');
+insert into cameraRes (value) values ('12');
+insert into cameraRes (value) values ('8');
+insert into cameraRes (value) values ('16');
+insert into cameraRes (value) values ('24');
+
+/* fingerprintType */
+
+insert into fingerprintType (value) values ('rear-mounted');
+insert into fingerprintType (value) values ('??');
+insert into fingerprintType (value) values ('???');
 
 
 

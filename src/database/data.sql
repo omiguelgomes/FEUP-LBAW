@@ -92,6 +92,15 @@ insert into address (street, postalCode, userID, cityIDinteger, countryID) value
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Dovetail', '5241-545', 19, 19, 19);
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Blue Bill Park', '3002-060', 20, 20, 20);
 
+/* image */
+
+insert into image (description, path) values ('brand_apple', 'https://dummyimage.com/1000x810.jpg/5fa2dd/ffffff');
+insert into image (description, path) values ('brand_samsung', 'https://dummyimage.com/1000x810.jpg/5fa2dd/ffffff');
+insert into image (description, path) values ('brand_xiaomi', 'https://dummyimage.com/1000x810.jpg/5fa2dd/ffffff');
+insert into image (description, path) values ('phone_s20', 'https://dummyimage.com/1000x810.jpg/5fa2dd/ffffff');
+insert into image (description, path) values ('phone_11pro', 'https://dummyimage.com/1000x810.jpg/5fa2dd/ffffff');
+
+
 /* waterResRat */
 
 insert into waterResRat (value) values ('500');
@@ -163,7 +172,6 @@ insert into cameraRes (value) values ('24');
 insert into fingerprintType (value) values ('rear-mounted');
 insert into fingerprintType (value) values ('??');
 insert into fingerprintType (value) values ('???');
-
 
 
 /* cpu */

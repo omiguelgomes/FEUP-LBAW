@@ -1,11 +1,13 @@
--admin: passar tabela para booleano em user (só no a5, o uml mantem se);
--isolar cidade e pais em tabelas e ligar a morada
--merge das tabelas specs e produto e exportar uma tabela por item;
--compra é uma entidade, com relaçaõ muitos-muitos para produtos, rel compra-user é many-one
--descontos: dataInicio > data atual
--adicionar descrição a justificar a pq que as tabelas estão ou não estão na bcnf
--adicionar checks a datas
--mudar de modo a user domains como no exemplo dado
+ALL DONE!!
+
+
+-admin: passar tabela para booleano em user (só no a5, o uml mantem se); - DONE
+-isolar cidade e pais em tabelas e ligar a morada - DONE
+-merge das tabelas specs e produto e exportar uma tabela por item; - DONE
+-compra é uma entidade, com relaçaõ muitos-muitos para produtos, rel compra-user é many-one - DONE
+-descontos: dataInicio > data atual - DONE
+-adicionar descrição a justificar a pq que as tabelas estão ou não estão na bcnf - DONE
+-mudar de modo a user domains como no exemplo dado - DONE
 
 
 -nas fk q tb são pk mudar serial para integer - DONE

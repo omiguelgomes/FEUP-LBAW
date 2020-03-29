@@ -264,3 +264,7 @@ create table if not exists product_purchase
     purchaseID integer references purchase (id) on delete cascade,
     primary key (productID, purchaseID)
 );
+
+/*this deletes all tables*/
+/*DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;*/

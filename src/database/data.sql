@@ -57,26 +57,25 @@ insert into city (name, countryID) values ('Seul', 13);
 
 /* address */
 
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Calypso', '1121-015', 1, 1, 1);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Mitchell', '4700-001', 2, 2, 2);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Kedzie', '0652-380', 3, 3, 3);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Summerview', '1547-201', 4, 4, 4);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Claremont', '9005-007', 5, 5, 5);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Orin', '2154-212', 6, 6, 6);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Hudson', '7390-094', 7, 7, 7);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Kingsford', '1212-521', 8, 8, 8);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Barnett', '2124-154', 9, 9, 9);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Rieder', '2414-544', 10, 10, 10);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Hudson', '0054-515', 11, 11, 11);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Springs', '1545-174', 12, 12, 12);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Ohio', '0221-512', 13, 13, 13);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Kedzie Ohio', '8680-825', 14, 14, 14);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Ohiozz', '5145-541', 15, 15, 15);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Beilfuss', '4640-210', 16, 16, 16);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Acker', '1241-524', 17, 17, 17);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Sundown', '2540-541', 18, 18, 18);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Dovetail', '5241-545', 19, 19, 19);
-insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Blue Bill Park', '3002-060', 20, 20, 20);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Calypso', '1121-015', 1, 1, 1);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Mitchell', '4700-001', 2, 2, 2);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Kedzie', '0652-380', 3, 3, 3);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Summerview', '1547-201', 4, 4, 4);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Claremont', '9005-007', 5, 5, 5);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Orin', '2154-212', 6, 6, 6);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Hudson', '7390-094', 7, 7, 7);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Kingsford', '1212-521', 8, 8, 8);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Barnett', '2124-154', 9, 9, 9);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Rieder', '2414-544', 10, 10, 10);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Hudson', '0054-515', 11, 11, 11);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Springs', '1545-174', 12, 12, 12);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Ohio', '0221-512', 13, 13, 13);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Kedzie Ohio', '8680-825', 14, 13, 12);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Ohiozz', '5145-541', 15, 12, 11);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Beilfuss', '4640-210', 16, 11, 10);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Acker', '1241-524', 17, 10, 9);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Sundown', '2540-541', 18, 9, 8);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Dovetail', '5241-545', 19, 8, 9);
 
 /* FAQ */
 
@@ -193,26 +192,25 @@ insert into brand (name, imageID) values ('Xiaomi', 3);
 
 /* product */
 
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('67', '622', 'A50', 'Phones', 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('24', '410', 'A60', 'Phones', 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('57', '639', 'Tab S3', 'Tablets', 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('46', '759', 'Tab S4', 'Tablets', 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('7', '999', 'S20', 'Phones', 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '659', '7 plus', 'Phones', 1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('30', '1599', '11 pro max', 'Phones', 1, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('6', '752', 'xs max', 'Phones', 1, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('14', '699', 'pro 2018', 'Tablets', 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('0', '779', '8 plus', 'Phones', 1, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('5', '721', '8', 'Phones', 1, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('7', '744', 'S10', 'Phones', 2, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '1199', 'S20+', 'Phones', 2, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('5', '558', 'P20', 'Phones', 3, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('50', '889', 'P30', 'Phones', 3, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('1', '1207', '11 pro', 'Phones', 1, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('12', '584', 'Mi 9', 'Phones', 3, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '109', 'P smart 2019', 'Phones', 3, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('83', '980', 'Mi Note 10', 'Phones', 3, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('31', '99', 'Redmi 7A', 'Phones', 3, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('67', '622', 'A50', 'Phones',            2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('24', '410', 'A60', 'Phones',            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('57', '639', 'Tab S3', 'Tablets',        3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('46', '759', 'Tab S4', 'Tablets',        2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('7', '999', 'S20', 'Phones',             3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '659', '7 plus', 'Phones',          2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('30', '1599', '11 pro max', 'Phones',    3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('6', '752', 'xs max', 'Phones',          2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('14', '699', 'pro 2018', 'Tablets',      3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('5', '721', '8', 'Phones',           2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('7', '744', 'S10', 'Phones',         3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '1199', 'S20+', 'Phones',       2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('5', '558', 'P20', 'Phones',         3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('50', '889', 'P30', 'Phones',        2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('1', '1207', '11 pro', 'Phones',     2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('12', '584', 'Mi 9', 'Phones',       3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('9', '109', 'P smart 2019', 'Phones',2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('83', '980', 'Mi Note 10', 'Phones', 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('31', '99', 'Redmi 7A', 'Phones',    2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
 
 /* eval */
 

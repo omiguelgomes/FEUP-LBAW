@@ -279,11 +279,11 @@ insert into purchase (val, statusID, paid, userID) values (859, 5, 5, 5);
 
 /* discount */
 
-insert into discount (val, beginDate, endDate) values (10, '2020-03-27', '2020-04-12');
-insert into discount (val, beginDate, endDate) values (20, '2020-01-17', '2020-02-02');
-insert into discount (val, beginDate, endDate) values (30, '2020-01-10', '2020-01-26');
-insert into discount (val, beginDate, endDate) values (40, '2020-01-14', '2020-02-18');
-insert into discount (val, beginDate, endDate) values (50, '2019-08-04', '2019-09-16');
+insert into discount (val, beginDate, endDate) values (0.10, '2020-03-31', '2020-04-12');
+insert into discount (val, beginDate, endDate) values (0.20, '2020-04-17', '2020-05-02');
+insert into discount (val, beginDate, endDate) values (0.30, '2020-05-10', '2020-05-26');
+insert into discount (val, beginDate, endDate) values (0.40, '2020-06-14', '2020-06-18');
+insert into discount (val, beginDate, endDate) values (0.50, '2020-07-04', '2020-07-16');
 
 /* discount product */
 

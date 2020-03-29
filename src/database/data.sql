@@ -92,6 +92,14 @@ insert into address (street, postalCode, userID, cityIDinteger, countryID) value
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Dovetail', '5241-545', 19, 19, 19);
 insert into address (street, postalCode, userID, cityIDinteger, countryID) values ('Blue Bill Park', '3002-060', 20, 20, 20);
 
+/* FAQ */
+
+insert into faq (question, answer) values ('How do I track my order?', 'All orders despatched with DPD are now trackable. Tracking updates will be provided by our delivery partner, with the links to follow your parcel. If your tracking number begins with RML, unfortunately, we are unable to track these parcels at present. Most parcels will reach their destination within 2 weeks, however, some destinations may require additional time allowed for parcels to arrive. As most parcels will reach their destination within 2 weeks, we are unable to query your parcel before this time. If this time has passed and you have still not received your parcel please contact our Customer Care Team.');
+insert into faq (question, answer) values ('How long will my order take to arrive?', 'Generally our international parcels will arrive within 7 working days. However if your parcels tracking ID begins with RML, we advise that you allow up to 2 weeks to account for any postal delays within your country. Please note that UK Bank Holidays, Saturday and Sunday are not classed as working days.');
+insert into faq (question, answer) values ('What do I do if there is a problem with my delivery?', 'Please contact our Customer Care team who are here to help with any problems.');
+insert into faq (question, answer) values ('What is your online security policy?', 'We want to make sure that you are safe and secure when you are shopping with us online. As part of our commitment to this, we perform random checks on orders and this means that you may need to prove your identity. Customers will be contacted by phone or email and will have up to 24 hours to provide us with the required information.');
+
+
 /* image */
 
 insert into image (description, path) values ('brand_apple', 'https://dummyimage.com/1000x810.jpg/5fa2dd/ffffff');

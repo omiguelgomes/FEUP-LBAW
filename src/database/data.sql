@@ -235,3 +235,35 @@ insert into eval (id, userID, val) values ('2', '1', '3');
 insert into eval (id, userID, val) values ('3', '3', '4');
 insert into eval (id, userID, val) values ('4', '4', '1');
 insert into eval (id, userID, val) values ('5', '5', '2');
+
+/* comments */
+
+insert into coment ("content", productID) values ('ok!!!', 1);
+insert into coment ("content", productID) values ('great!!', 2);
+insert into coment ("content", productID) values ('good phone', 3);
+insert into coment ("content", productID) values ('yess!! i love it', 4);
+insert into coment ("content", productID) values ('bad quality!', 5);
+
+/* cart */
+
+insert into cart (productID, userID, quant) values (1, 1, 1);
+insert into cart (productID, userID, quant) values (2, 2, 2);
+insert into cart (productID, userID, quant) values (3, 3, 3);
+insert into cart (productID, userID, quant) values (4, 4, 4);
+insert into cart (productID, userID, quant) values (5, 5, 5);
+
+/* wishlist */
+
+insert into wishlist (productID, userID) values (1, 1);
+insert into wishlist (productID, userID) values (2, 2);
+insert into wishlist (productID, userID) values (3, 3);
+insert into wishlist (productID, userID) values (4, 4);
+insert into wishlist (productID, userID) values (5, 5);
+
+/* history */
+
+insert into history (productID, userID, purchaseDate) values (1, 1, '2012-12-12');
+insert into history (productID, userID, purchaseDate) values (2, 2, '2012-12-13');
+insert into history (productID, userID, purchaseDate) values (3, 3, '2015-08-16');
+insert into history (productID, userID, purchaseDate) values (4, 4, '2013-04-08');
+insert into history (productID, userID, purchaseDate) values (5, 5, '2017-04-06');

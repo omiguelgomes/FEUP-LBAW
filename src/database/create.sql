@@ -1,13 +1,15 @@
+create domain "TODAY" as date not null default ('now'::text)::date;
+create type category_type as enum ('Phones', 'Tablets');
+create type purchase_state as enum ('Aguarda Pagamento', 'Em Processamento', 'Enviada');
+create type pay_method as enum ('Tranferencia Bancaria', 'Paypal');
+
 create table if not exists users (
 	id serial primary key,
 	name text not null,
 	email text unique not null,
 	birthDate date not null,
-	pass text not null
-);
-
-create table if not exists admins (
-	id integer primary key references users(id) on delete cascade
+	pass text not null,
+        isAdmin boolean default false
 );
 
 create table if not exists faq (
@@ -16,13 +18,24 @@ create table if not exists faq (
 	answer text not null
 );
 
+create table if not exists country (
+       id serial primary key,
+       name text not null unique
+);
+
+create table if not exists city (
+       id serial primary key,
+       name text not null unique,
+       countryID integer not null references country(id) on delete cascade
+);
+
 create table if not exists address (
 	id serial primary key,
 	street text not null,
 	postalCode text not null,
-	country text not null,
-	city text not null,
-	userID integer not null unique references users(id) on delete cascade
+	userID integer not null unique references users(id) on delete cascade,
+        cityIDinteger not null references city(id) on delete cascade,
+        countryID integer not null references country(id) on delete cascade
 );
 
 create table if not exists image(
@@ -37,28 +50,79 @@ create table if not exists brand(
 	imageID integer unique not null references image(id) on delete cascade
 );
 
-create table if not exists specs(
-	id serial primary key,
-	screenSize double precision not null,
-	cameraRes integer not null,
-	ram integer not null,
-	battery integer not null,
-	os text not null,
-	"storage" integer not null,
-	cpu text not null,
-	gpu text not null,
-	screenRes double precision not null,
-	headphoneJack boolean not null,
-	weight double precision not null,
-	waterResRat text not null,
-	fingerprintType text not null,
-	constraint screenSize check (screenSize > (0)::double precision),
-	constraint cameraRes check (cameraRes > 0),
-	constraint ram check (ram > 0),
-	constraint battery check (battery > 0),
-	constraint "storage" check ("storage" > 0),
-	constraint screenRes check (screenRes > (0)::double precision),
-	constraint weight check (weight > (0)::double precision)
+create table if not exists cpu(
+       id serial primary key,
+       freq double precision not null,
+       cores integer not null,
+       threads integer not null,
+       name text not null unique,
+       constraint freq check (freq > (0)::double precision),
+       constraint cores check (nucleos > 0),
+       constraint threads check (threads > 0)
+);
+
+create table if not exists ram(
+       id serial primary key,
+       value integer not null,
+       constraint value check (valor > 0)
+);
+
+create table if not exists waterResRat(
+       id serial primary key,
+       value text not null
+);
+
+create table if not exists os(
+       id serial primary key,
+       name text not null unique
+);
+
+create table if not exists gpu(
+       id serial primary key,
+       name text not null unique,
+       vram integer not null,
+       constraint vram check (vram > 0)
+);
+
+create table if not exists screenSize(
+       id serial primary key,
+       value double precision not null,
+       constraint value check (value > (0)::double precision)
+);
+
+create table if not exists weight(
+       id serial primary key,
+       value double precision not null,
+       constraint value check (value > (0)::double precision)
+);
+
+create table if not exists storage(
+       id serial primary key,
+       value integer not null,
+       constraint value check (value > 0)
+);
+
+create table if not exists battery(
+       id serial primary key,
+       value integer not null,
+       constraint value check (value > 0)
+);
+
+create table if not exists screenRes(
+       id serial primary key,
+       value double precision not null
+       constraint value check (value > (0)::double precision)
+);
+
+create table if not exists cameraRes(
+       id serial primary key,
+       value double precision not null,
+       constraint value check (value > (0)::double precision)
+);
+
+create table if not exists fingerprintType(
+       id serial primary key,
+       value text not null
 );
 
 create table if not exists product (
@@ -66,12 +130,22 @@ create table if not exists product (
 	stock integer not null, 
 	price double precision not null, 
 	model text not null,
-	category text not null,
+	category category_type not null,
 	brandID integer not null references brand(id) on delete cascade,
-	specsID integer not null references specs(id) on delete cascade,
+        cpuID integer not null references cpu(id) on delete cascade,
+        ramID integer not null references ram(id) on delete cascade,
+        waterResID integer not null references waterResRat(id) on delete cascade,
+        osID integer not null references os(id) on delete cascade,
+        gpuID integer not null references gpu(id) on delete cascade,
+        screenSizeID integer not null references screenSize(id) on delete cascade,
+        weightID integer not null references weight(id) on delete cascade,
+        storageID integer not null references storage(id) on delete cascade,
+        batteryID integer not null references battery(id) on delete cascade,
+        screenResID integer not null references screenRes(id) on delete cascade,
+        cameraResID integer not null references cameraRes(id) on delete cascade,
+        fingerprintTypeID integer not null references fingerprintType(id) on delete cascade,
 	constraint stock check (stock > 0),
-	constraint price check (price > (0)::double precision),
-	constraint category check ((category = any (array['Phones'::text, 'Tablets'::text])))
+	constraint price check (price > (0)::double precision)
 );
 
 create table if not exists eval (
@@ -113,24 +187,27 @@ create table if not exists purchaseState(
 	id serial primary key,
 	stateChangedate date not null,
 	coment text,
-	pState text not null,
-	constraint pState check ((pState = any (array['Aguarda Pagamento'::text, 'Em Processamento'::text, 'Enviada'::text])))
+	pState purchase_state not null
 );
 
 create table if not exists payment(
 	id serial primary key,
-	"type" text not null
-	constraint "type" check (("type" = any(array['Tranferencia Bancaria'::text, 'Paypal'::text])))
+	"type" pay_method not null
 );
 
 create table if not exists purchase(
-	productID integer references product(id) on delete cascade,
-	userID integer references users(id) on delete cascade,
+	id serial primary key,
 	val double precision not null,
 	statusID integer not null references purchaseState(id) on delete cascade,
 	paid integer not null references payment(id) on delete cascade,
-	constraint val check (val > (0)::double precision),
-	primary key(productID, userID)
+        userID integer not null references users(id) on delete cascade,
+	constraint val check (val > (0)::double precision)
+);
+
+create table if not exists product_purchase(
+       productID integer references product(id) on delete cascade,
+       purchaseID integer references purchase(id) on delete cascade,
+       primary key(productID, purchaseID)
 );
 
 create table if not exists discount(
@@ -139,10 +216,11 @@ create table if not exists discount(
 	beginDate date not null,
 	endDate date not null,
 	constraint val check (val > (0)::double precision and val < (1)::double precision),
-	constraint endDate check (endDate > beginDate)
+	constraint endDate check (endDate > beginDate),
+        constraint beginDate check (beginDate >= TODAY)
 );
 
-create table if not exists discountProduct(
+create table if not exists discount_product(
 	productID integer references product(id) on delete cascade,
 	discountID integer references discount(id) on delete cascade,
 	primary key(productID, discountID)

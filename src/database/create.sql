@@ -279,7 +279,7 @@ create table product_purchase
 ---------------------------------------------------------------------
 --Triggers and UDF
 ---------------------------------------------------------------------
-
+/*
 --Trigger and UDF 1
 create function add_review() returns trigger as
 $body$
@@ -373,7 +373,7 @@ language plpgsql;
 create trigger update_stock
 after insert on product_purchase
 execute procedure update_stock();
-
+*/
 
 -------------------------------------------------------------------
 --Indexes

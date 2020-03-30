@@ -211,13 +211,40 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('83', '980', 'Mi Note 10', 'Phones', 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3);
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterResID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values ('31', '99', 'Redmi 7A', 'Phones',    2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1);
 
+/* purchase State */
+
+insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-13', 'payment please!','Aguarda Pagamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-14', 'please wait, in process','Em Processamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-15', 'shipped with success','Enviada');
+insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-16', 'payment please!','Aguarda Pagamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-17', 'please wait, in process','Em Processamento');
+insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-18', 'shipped with success','Enviada');
+
+/* payment */
+
+insert into payment (type) values ('Tranferencia Bancaria');
+insert into payment (type) values ('Tranferencia Bancaria');
+insert into payment (type) values ('Tranferencia Bancaria');
+insert into payment (type) values ('Paypal');
+insert into payment (type) values ('Paypal');
+
+
+/* purchase */
+
+insert into purchase (val, statusID, paid, userID) values (1820, 1, 1, 1);
+insert into purchase (val, statusID, paid, userID) values (2112, 2, 2, 2);
+insert into purchase (val, statusID, paid, userID) values (881, 3, 3, 3);
+insert into purchase (val, statusID, paid, userID) values (989, 4, 4, 4);
+insert into purchase (val, statusID, paid, userID) values (859, 5, 5, 5);
+
+
 /* eval */
 
-insert into eval (id, userID, val) values ('1', '1', '5');
-insert into eval (id, userID, val) values ('2', '2', '3');
-insert into eval (id, userID, val) values ('3', '3', '4');
-insert into eval (id, userID, val) values ('4', '4', '1');
-insert into eval (id, userID, val) values ('5', '5', '2');
+insert into eval (id, userID, val) values ('1', '1', '1');
+insert into eval (id, userID, val) values ('2', '2', '2');
+insert into eval (id, userID, val) values ('3', '3', '3');
+insert into eval (id, userID, val) values ('4', '4', '4');
+insert into eval (id, userID, val) values ('5', '5', '5');
 
 /* comments */
 
@@ -251,30 +278,6 @@ insert into history (productID, userID, purchaseDate) values (3, 3, '2015-08-16'
 insert into history (productID, userID, purchaseDate) values (4, 4, '2013-04-08');
 insert into history (productID, userID, purchaseDate) values (5, 5, '2017-04-06');
 
-/* purchase State */
-
-insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-13', 'payment please!','Aguarda Pagamento');
-insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-14', 'please wait, in process','Em Processamento');
-insert into purchaseState (stateChangedate, coment, pState) values ('2012-12-15', 'shipped with success','Enviada');
-insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-16', 'payment please!','Aguarda Pagamento');
-insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-17', 'please wait, in process','Em Processamento');
-insert into purchaseState (stateChangedate, coment, pState) values ('2015-08-18', 'shipped with success','Enviada');
-
-/* payment */
-
-insert into payment (type) values ('Tranferencia Bancaria');
-insert into payment (type) values ('Tranferencia Bancaria');
-insert into payment (type) values ('Tranferencia Bancaria');
-insert into payment (type) values ('Paypal');
-insert into payment (type) values ('Paypal');
-
-/* purchase */
-
-insert into purchase (val, statusID, paid, userID) values (1820, 1, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (2112, 2, 2, 2);
-insert into purchase (val, statusID, paid, userID) values (881, 3, 3, 3);
-insert into purchase (val, statusID, paid, userID) values (989, 4, 4, 4);
-insert into purchase (val, statusID, paid, userID) values (859, 5, 5, 5);
 
 /* discount */
 

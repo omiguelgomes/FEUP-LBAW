@@ -213,8 +213,8 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 
 /* eval */
 
-insert into eval (id, userID, val) values ('1', '2', '5');
-insert into eval (id, userID, val) values ('2', '1', '3');
+insert into eval (id, userID, val) values ('1', '1', '5');
+insert into eval (id, userID, val) values ('2', '2', '3');
 insert into eval (id, userID, val) values ('3', '3', '4');
 insert into eval (id, userID, val) values ('4', '4', '1');
 insert into eval (id, userID, val) values ('5', '5', '2');

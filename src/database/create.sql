@@ -1,57 +1,6 @@
 --cleaning database
-drop domain if exists today;
-drop type if exists category_type cascade;
-drop type if exists purchase_state cascade;
-drop type if exists pay_method cascade;
-
-drop function if exists add_review() cascade;
-drop function if exists check_stock() cascade;
-drop function if exists clear_cart() cascade;
-drop function if exists remove_wishlist() cascade;
-drop function if exists update_stock() cascade;
-
-drop trigger if exists add_review on eval;
-drop trigger if exists check_stock on product_purchase;
-drop trigger if exists clear_cart on purchase;
-drop trigger if exists remove_wishlist on purchase;
-drop trigger if exists update_stock on product_purchase;
-
-drop table if exists users cascade;
-drop table if exists faq cascade;
-drop table if exists country cascade;
-drop table if exists city cascade;
-drop table if exists address cascade;
-drop table if exists image cascade;
-drop table if exists brand cascade;
-drop table if exists cpu cascade;
-drop table if exists ram cascade;
-drop table if exists waterResRat cascade;
-drop table if exists os cascade;
-drop table if exists gpu cascade;
-drop table if exists screenSize cascade;
-drop table if exists weight cascade;
-drop table if exists storage cascade;
-drop table if exists battery cascade;
-drop table if exists screenRes cascade;
-drop table if exists cameraRes cascade;
-drop table if exists fingerprintType cascade;
-drop table if exists product cascade;
-drop table if exists eval cascade;
-drop table if exists coment cascade;
-drop table if exists cart cascade;
-drop table if exists wishlist cascade;
-drop table if exists history cascade;
-drop table if exists purchaseState cascade;
-drop table if exists payment cascade;
-drop table if exists purchase cascade;
-drop table if exists discount cascade;
-drop table if exists discount_product cascade;
-drop table if exists image_product cascade;
-drop table if exists product_purchase cascade;
-
-drop index if exists email_users;
-drop index if exists user_address;
-drop index if exists product_reviews;
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
 
 -------------------------------------------------------------------
 --domain and type definition
@@ -340,7 +289,7 @@ begin
 		from purchase, product_purchase as Product, users
 		where purchase.id = Product.purchaseID and
 		New.userID = purchase.userID and
-		New.productID = Product.productID
+		New.id = Product.productID
 	)
 	then raise exception 'You cannot review a product you have not bought!';
 	end if;

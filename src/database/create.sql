@@ -279,7 +279,7 @@ create table product_purchase
 ---------------------------------------------------------------------
 --Triggers and UDF
 ---------------------------------------------------------------------
-/*
+
 --Trigger and UDF 1
 create function add_review() returns trigger as
 $body$
@@ -373,7 +373,7 @@ language plpgsql;
 create trigger update_stock
 after insert on product_purchase
 execute procedure update_stock();
-*/
+
 
 -------------------------------------------------------------------
 --Indexes
@@ -381,6 +381,8 @@ execute procedure update_stock();
 create index email_users on users using hash (email);
 create index user_address on address using hash (userID);
 create index product_reviews on eval using hash(id);
+create index price_product on product using btree(price);
+create index search_product on product using gist(search);
 
 /*this deletes all tables*/
 /*DROP SCHEMA public CASCADE;

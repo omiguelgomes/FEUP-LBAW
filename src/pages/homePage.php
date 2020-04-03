@@ -3,13 +3,15 @@ include_once('header.php');
 include_once('navbar.php');
 include_once('tabs.php');
 include_once('footer.php');
+include_once("../database/connection.php");
 
 draw_header();
 draw_navbar();
 draw_tabs();
+/*test();*/
 ?>
 
-<div class="row-12 py-3 p-4">
+<div class="row-12 y-3 p-4">
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -39,8 +41,6 @@ draw_tabs();
 </div>
 
 <div class="container">
-
-
     <nav>
         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
             <li class="nav-item">

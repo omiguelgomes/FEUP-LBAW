@@ -1,9 +1,9 @@
-1.1 
-no geral rever ordens de grandeza/crescimento
-ser consistente nas ordens de grandeza (por unidades por ano, por exemplo)
-countries/cities tem crescimento errado, nao deve crescer, normalmente.
-mudar nome do waterResRat para waterproof
-mudar eval para rating
+1.1 - DONE
+no geral rever ordens de grandeza/crescimento - DONE
+ser consistente nas ordens de grandeza (por unidades por ano, por exemplo) - DONE
+countries/cities tem crescimento errado, nao deve crescer, normalmente. - DONE
+mudar nome do waterResRat para waterproof - DONE in A6
+mudar eval para rating - DONE in A6
 
 1.2
 adicionar varias moradas a cada utilizador(baixa prioridade)
@@ -15,19 +15,22 @@ queries de asc/desc juntar
 pesquisa por texto: usar fullTextSearch e agregar todos os atributos para a search(os, marca, brand, etc) sugestao: usar select2
 se apagarmos os descontos, a compra deve ter o valor pago guardado, nao o valor do produto + desconto
 
-2.1
+2.1 - DONE
 clustering faz sentido quando ha poucos dados, dao jeito estar ordenados, geralmente vao ser lidos por ordem sequencial, tem insercoes pouco frequentes
 clustering e bom, por exemplo, para as tabelas com os atributos dos dispositivos
+adicionar indice para as especificacoes, com clustering ativo
 
-3
-implementar fazer uma compra de varios produtos ao mm tempo (ou muita quantidade de um produto)
-trigger de compra verificar se o numero de items de cada produto é menor do que o stock existente
-nao retirar produtos comprados da wishlist
+3 - DONE
+implementar fazer uma compra de varios produtos ao mm tempo (ou muita quantidade de um produto) - DONE
+trigger de compra verificar se o numero de items de cada produto é menor do que o stock existente - DONE
+nao retirar produtos comprados da wishlist - DONE
 
-5
-adicionar unidades (inches, mah, etc)
-arranjar fingerPrintTypes decentes(side mounted, under screen, rear mounted)
-tabelas com palavras reservadas devem ter nome entre aspas (ex comment)
+5 - DONE
+adicionar unidades (inches, mah, etc) - NOT WORH IT	
+arranjar fingerPrintTypes decentes(side mounted, under screen, rear mounted) - DONE
+tabelas com palavras reservadas devem ter nome entre aspas (ex comment) - DONE
 
 GERAL
 atencao aos scrollables horizontais, em pdf nao se ve tudo
+
+Nota: criar indice para cada especificacao e ativar o clustering nesses indices - DONE

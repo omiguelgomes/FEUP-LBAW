@@ -64,7 +64,7 @@ create table image
 create table brand
 (
     id      serial primary key,
-    "name"  text           not null,
+    name  text           not null,
     imageID integer unique not null references image (id) on delete cascade
 );
 
@@ -87,7 +87,7 @@ create table ram
     constraint value check (value > 0)
 );
 
-create table waterResRat
+create table waterProofing
 (
     id    serial primary key,
     value text not null
@@ -165,7 +165,7 @@ create table product
     brandID           integer          not null references brand (id) on delete cascade,
     cpuID             integer          not null references cpu (id) on delete cascade,
     ramID             integer          not null references ram (id) on delete cascade,
-    waterResID        integer          not null references waterResRat (id) on delete cascade,
+    waterProofingID        integer          not null references waterProofing (id) on delete cascade,
     osID              integer          not null references os (id) on delete cascade,
     gpuID             integer          not null references gpu (id) on delete cascade,
     screenSizeID      integer          not null references screenSize (id) on delete cascade,
@@ -179,7 +179,7 @@ create table product
     constraint price check (price > (0)::double precision)
 );
 
-create table eval
+create table rating
 (
     id     integer primary key references product (id) on delete cascade,
     userID integer          not null references users (id) on delete cascade,
@@ -187,8 +187,7 @@ create table eval
     constraint val check (val > (0)::double precision and val <= (5)::double precision)
 );
 
---comment and comments are reserved words... sorry
-create table coment
+create table "comment"
 (
     id        serial primary key,
     "content" text    not null,
@@ -221,10 +220,10 @@ create table history
 
 create table purchaseState
 (
-    id              serial primary key,
-    stateChangedate date           not null,
-    coment          text,
-    pState          purchase_state not null
+    id              serial          primary key,
+    stateChangedate date            not null,
+    "comment"       text,
+    pState          purchase_state  not null
 );
 
 create table payment
@@ -273,6 +272,7 @@ create table product_purchase
 (
     productID  integer references product (id) on delete cascade,
     purchaseID integer references purchase (id) on delete cascade,
+    quantity integer not null,
     primary key (productID, purchaseID)
 );
 
@@ -300,7 +300,7 @@ $body$
 language plpgsql;
 
 create trigger add_review
-before insert or update on eval
+before insert or update on rating
 for each row
 execute procedure add_review();
 
@@ -312,7 +312,7 @@ begin
 	if not exists(
 		select stock from product
 		where id = New.productID
-		and stock < 1
+		and stock < New.quantity
 	)
 	then raise exception 'Product out of stock!';
 	end if;
@@ -343,28 +343,12 @@ after insert on purchase
 execute procedure clear_cart();
 
 
--- Trigger and UDF 4
-create function remove_wishlist() returns trigger as
-$body$
-begin
-	delete from wishlist
-	where userID = New.userID
-	and productID = New.productID;
-end
-$body$
-language plpgsql;
-
-create trigger remove_wishlist
-after insert on cart
-execute procedure remove_wishlist();
-
-
---Trigger and UDF 5
+--Trigger and UDF 4
 create function update_stock() returns trigger as
 $body$
 begin
 	update product
-	set stock = stock - 1
+	set stock = stock - New.quantity
 	where productID = New.productID;
 end
 $body$
@@ -377,13 +361,20 @@ execute procedure update_stock();
 
 -------------------------------------------------------------------
 --Indexes
--------------------------------------------------------------------
+------------------------------------------------------------------- 
 create index email_users on users using hash (email);
 create index user_address on address using hash (userID);
-create index product_reviews on eval using hash(id);
-create index price_product on product using btree(price);
-create index search_product on product using gist(search);
+create index product_reviews on rating using hash(id);
 
-/*this deletes all tables*/
-/*DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;*/
+create index cpu_product on cpu using hash(id)
+create index ram_product on ram using hash(id)
+create index waterProofing_product on waterProofing using hash(id)
+create index os_product on os using hash(id)
+create index gpu_product on gpu using hash(id)
+create index screenSize_product on screenSize using hash(id)
+create index weight_product on weight using hash(id)
+create index storage_product on storage using hash(id)
+create index battery_product on battery using hash(id)
+create index screenRes_product on screenRes using hash(id)
+create index cameraRes_product on cameraRes using hash(id)
+create index fingerprintType_product on fingerprintType using hash(id)

@@ -205,6 +205,7 @@
     }
 </style>
 
+{{-- DOENST WORK --}}
 <script>
 //     $('#nav-tab li:first-child a').on('click', function(e) {
 //         e.preventDefault()

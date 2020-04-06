@@ -1,12 +1,7 @@
  @extends('layouts.pageWrapper')
  @section('content')  
 
- <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-          <h1 class="display-4">FAQ</h1>
-    </div>
-</div>  
+ @include('partials.jumboTitle',['title' => 'FAQ'])
 
 <div class="container">
 

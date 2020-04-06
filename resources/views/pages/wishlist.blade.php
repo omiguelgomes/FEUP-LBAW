@@ -1,12 +1,8 @@
 @extends('layouts.pageWrapper')
 @section('content')
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-          <h1 class="display-4">Wishlist</h1>
-    </div>
-</div>  
+@include('partials.jumboTitle',['title' => 'Wishlist'])
+
 
 <div class="container mx-auto py-3">
 
@@ -25,7 +21,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
-            <img src="../assets/tele1.jpg" class="card-img" alt="..." style="margin: auto;">
+            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
             <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
@@ -42,7 +38,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
-            <img src="../assets/tele1.jpg" class="card-img" alt="..." style="margin: auto;">
+            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
             <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
@@ -59,7 +55,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
-            <img src="../assets/tele1.jpg" class="card-img" alt="..." style="margin: auto;">
+            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
             <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
@@ -81,7 +77,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
-            <img src="../assets/tele1.jpg" class="card-img" alt="..." style="margin: auto;">
+            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
             <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
@@ -98,7 +94,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
-            <img src="../assets/tele1.jpg" class="card-img" alt="..." style="margin: auto;">
+            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
             <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
@@ -115,7 +111,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
-            <img src="../assets/tele1.jpg" class="card-img" alt="..." style="margin: auto;">
+            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
             <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>

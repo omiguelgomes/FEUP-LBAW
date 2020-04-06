@@ -1,12 +1,8 @@
 @extends('layouts.pageWrapper')
 @section('content')  
  
- <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-          <h1 class="display-4">Profile Page</h1>
-    </div>
-</div>  
+@include('partials.jumboTitle',['title' => 'Profile Page'])
+
 
 <div class="container">
     <div class="row-form">
@@ -22,7 +18,7 @@
               
                 <div class="form-group col-md-4 text-center">
                     <br><br>
-                    <img src="../assets/profilepadrao.jpg" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
+                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
                     <a href="#" class="">Change Photo</a>
                 </div>
                 <div class="form-group col-md-6">

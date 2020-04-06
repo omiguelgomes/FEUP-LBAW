@@ -18,7 +18,6 @@ class AboutController extends Controller
      */
     public function show()
     {
-
       return view('pages.about');
     }
 }

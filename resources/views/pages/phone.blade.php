@@ -32,13 +32,13 @@
             </ol>
             <div class="carousel-inner pb-5 center-block">
                 <div class="carousel-item active">
-                    <img class="d-block " src="../assets/s20Ultra1.png" alt="First slide">
+                    <img class="d-block " src="{{ asset('/images/s20Ultra.png') }}" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="../assets/s20Ultra.png" alt="Second slide">
+                    <img class="d-block" src="{{ asset('/images/s20Ultra1.png') }}" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="../assets/s20Ultra2.png" alt="Third slide">
+                    <img class="d-block" src="{{ asset('/images/s20Ultra2.png') }}" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,7 +57,7 @@
         </div>
         <div class="col d-flex justify-content-center">
             <button type="button" class="btn btn-primary">Add to Cart</button>&nbsp;&nbsp;
-            <img src="../assets/shopping-cart.svg" width="30" height="30" alt="cart_image">
+            <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="cart_image">
         </div>
     </div>
 
@@ -72,7 +72,7 @@
         </ul>
         <div class="container">
             <div class="media">
-                <img src="../assets/user.svg" class="align-self-start mr-3" alt="...">
+                <img src="{{ asset('/images/user.svg') }}" class="align-self-start mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0">Great phone!</h5>
                     <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras

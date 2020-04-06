@@ -1,15 +1,12 @@
 @extends('layouts.pageWrapper')
 @section('content')  
 
-<div class="container">
-  <div class="jumbotron jumbotron-fluid">
-      <div class="container text-center">
-        <h1 class="display-4">Search</h1>
-  </div>
-</div>  
+@include('partials.jumboTitle',['title' => 'Search'])
 
-<link rel="stylesheet" href="../css/sidebar.css">
-<link rel="stylesheet" href="../css/filters.css">
+
+{{-- NOT SURE IF THIS WORKS --}}
+<link rel="stylesheet" href="{{ asset('/js/siderbar.css') }}">
+<link rel="stylesheet" href="{{ asset('/js/filters.css') }}">
 
 
 <nav class="navbar navbar-expand-lg shadow navbar-light">
@@ -72,7 +69,7 @@
     <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
         <div class="col mb-2">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -82,7 +79,7 @@
         </div>
         <div class="col mb-2">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -92,7 +89,7 @@
         </div>
         <div class="col mb-2">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -105,7 +102,7 @@
     <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
         <div class="col mb-2">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -115,7 +112,7 @@
         </div>
         <div class="col mb-2">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
@@ -125,7 +122,7 @@
         </div>
         <div class="col mb-2">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="../assets/s20Ultra1.png" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>

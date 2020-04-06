@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Auth\LoginController@home');
+
 // Cards
 Route::get('cards', 'CardController@list');
 Route::get('cards/{id}', 'CardController@show');
@@ -30,8 +30,11 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //Routes for the professor's template pages
-// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-// Route::post('register', 'Auth\RegisterController@register');
+Route::get('registerTemplate', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('registerTemplate', 'Auth\RegisterController@register');
+
+//Page to go to by default
+Route::get('/', 'HomeController@show');
 
 Route::get('home', 'HomeController@show');
 Route::get('about', 'AboutController@show');

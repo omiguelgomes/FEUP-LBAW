@@ -1,12 +1,7 @@
 @extends('layouts.pageWrapper')
 @section('content')  
- 
- <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-          <h1 class="display-4">Purchase History</h1>
-    </div>
-</div>  
+
+@include('partials.jumboTitle',['title' => 'Purchase History'])
 
 <div class="container">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
@@ -30,7 +25,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">
@@ -67,7 +62,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">
@@ -103,7 +98,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">
@@ -139,7 +134,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">

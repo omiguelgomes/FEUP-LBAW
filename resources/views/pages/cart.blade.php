@@ -24,7 +24,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="../assets/tele1.jpg" alt="..." style="width:80px;">
+                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
                         <div class="card-body">

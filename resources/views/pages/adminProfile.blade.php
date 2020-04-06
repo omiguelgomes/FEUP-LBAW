@@ -1,14 +1,10 @@
  @extends('layouts.pageWrapper')
  @section('content')  
 
- <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-          <h1 class="display-4">Admin Page</h1>
-    </div>
-</div>  
+ @include('partials.jumboTitle',['title' => 'Admin Page'])
 
-<link rel="stylesheet" href="../css/admin.css">
+{{-- NOT SURE IF THIS WORKS --}}
+<link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
 
 <div class="container">
 
@@ -25,7 +21,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4 text-center">
                     <br><br>
-                    <img src="../assets/profilepadrao.jpg" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
+                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
                     <a href="#" class="">Change Photo</a>
                 </div>
                 <div class="form-group col-md-6">
@@ -699,7 +695,7 @@
         </div>
         <div class="p-2">
             <a class="nav-item nav-link" href="#">
-                <img src="../assets/search.svg" width="30" height="30" alt="">
+                <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
             </a>
         </div>
 
@@ -835,19 +831,19 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="../assets/teste.jpg" alt="First slide">
+                                <img class="d-block w-100" src="{{ asset('/images/teste.jpg') }}" alt="First slide">
                                 <a href="#" class="thumbnail-carousel">
                                     <i class="far fa-times-circle fa"></i>
                                 </a>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="../assets/teste.jpg" alt="Second slide">
+                                <img class="d-block w-100" src="{{ asset('/images/teste.jpg') }}" alt="Second slide">
                                 <a href="#" class="thumbnail-carousel">
                                     <i class="far fa-times-circle fa"></i>
                                 </a>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="../assets/teste.jpg" alt="Third slide">
+                                <img class="d-block w-100" src="{{ asset('/images/teste.jpg') }}" alt="Third slide">
                                 <a href="#" class="thumbnail-carousel">
                                     <i class="far fa-times-circle fa"></i>
                                 </a>
@@ -996,6 +992,7 @@
     </div>
 </div>
 
+{{-- NOT SURE IF THIS WORKS --}}
 <!--for search bar-->
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>

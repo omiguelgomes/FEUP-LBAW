@@ -1,11 +1,5 @@
-<?php
-include_once('header.php');
-include_once('navbar.php');
-include_once('footer.php');
-
-draw_header();
-draw_navbar();
-?>
+@extends('layouts.pageWrapper')
+@section('content')  
 
 <div class="container">
     <div class="row-12">
@@ -93,10 +87,6 @@ draw_navbar();
 
 </div>
 
-<?php
-draw_footer();
-?>
-
 <!-- Make carousel indicators and controls black -->
 <style>
     .nav-pills>li>a.active {
@@ -132,3 +122,4 @@ draw_footer();
         color: #f7aa31;
     }
 </style>
+@endsection

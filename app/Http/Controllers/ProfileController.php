@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Card;
 
-class AdminProfilePageController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Shows the card for a given id.
@@ -19,6 +19,6 @@ class AdminProfilePageController extends Controller
     public function show()
     {
 
-      return view('pages.adminProfilePage');
+      return view('pages.profile');
     }
 }

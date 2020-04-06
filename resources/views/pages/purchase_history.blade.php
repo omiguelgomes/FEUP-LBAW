@@ -1,15 +1,12 @@
-<?php
-include_once('header.php');
-include_once('navbar.php');
-include_once('tabs.php');
-include_once('jumbo_title.php');
-include_once('footer.php');
-
-draw_header();
-draw_navbar();
-draw_tabs();
-draw_jumbo('Purchase History');
-?>
+@extends('layouts.pageWrapper')
+@section('content')  
+ 
+ <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+          <h1 class="display-4">Purchase History</h1>
+    </div>
+</div>  
 
 <div class="container">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
@@ -158,8 +155,4 @@ draw_jumbo('Purchase History');
         </table>
     </div>
 </div>
-
-
-<?php
-draw_footer();
-?>
+@endsection

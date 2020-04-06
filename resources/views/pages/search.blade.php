@@ -1,14 +1,12 @@
-<?php
-include_once('header.php');
-include_once('navbar.php');
-include_once('jumbo_title.php');
-include_once('footer.php');
+@extends('layouts.pageWrapper')
+@section('content')  
 
-draw_header();
-draw_navbar();
-draw_jumbo('Search');
-
-?>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container text-center">
+        <h1 class="display-4">Search</h1>
+  </div>
+</div>  
 
 <link rel="stylesheet" href="../css/sidebar.css">
 <link rel="stylesheet" href="../css/filters.css">
@@ -139,11 +137,6 @@ draw_jumbo('Search');
 </div>
 </div>
 
-
-<?php
-draw_footer();
-?>
-
 <script>
     $(document).ready(function() {
         console.log("document is ready");
@@ -155,3 +148,4 @@ draw_footer();
         console.log("window is loaded");
     };
 </script>
+@endsection

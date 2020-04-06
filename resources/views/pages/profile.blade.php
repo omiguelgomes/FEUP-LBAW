@@ -1,13 +1,12 @@
-<?php
-include_once('header.php');
-include_once('navbar.php');
-include_once('jumbo_title.php');
-include_once('footer.php');
-
-draw_header();
-draw_navbar();
-draw_jumbo('Profile Page');
-?>
+@extends('layouts.pageWrapper')
+@section('content')  
+ 
+ <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+          <h1 class="display-4">Profile Page</h1>
+    </div>
+</div>  
 
 <div class="container">
     <div class="row-form">
@@ -78,7 +77,4 @@ draw_jumbo('Profile Page');
         </form>
     </div>
 </div>
-
-<?php
-draw_footer();
-?>
+@endsection

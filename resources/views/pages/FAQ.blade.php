@@ -1,14 +1,12 @@
-<?php
-include_once('header.php');
-include_once('navbar.php');
-include_once('jumbo_title.php');
-include_once('footer.php');
+ @extends('layouts.pageWrapper')
+ @section('content')  
 
-draw_header();
-draw_navbar();
-draw_jumbo('FAQ');
-?>
-
+ <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+          <h1 class="display-4">FAQ</h1>
+    </div>
+</div>  
 
 <div class="container">
 
@@ -88,7 +86,4 @@ draw_jumbo('FAQ');
         color: blue;
     }
 </style>
-
-<?php
-draw_footer();
-?>
+@endsection

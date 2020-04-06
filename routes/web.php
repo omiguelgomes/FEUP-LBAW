@@ -34,3 +34,6 @@ Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('home', 'HomeController@show');
 Route::get('about', 'AboutController@show');
+Route::get('FAQ', 'FAQController@show');
+Route::get('wishlist', 'WishlistController@show');
+Route::get('adminPage', 'AdminProfilePageController@show');

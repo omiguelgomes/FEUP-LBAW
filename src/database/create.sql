@@ -366,15 +366,15 @@ create index email_users on users using hash (email);
 create index user_address on address using hash (userID);
 create index product_reviews on rating using hash(id);
 
-create index cpu_product on cpu using hash(id)
-create index ram_product on ram using hash(id)
-create index waterProofing_product on waterProofing using hash(id)
-create index os_product on os using hash(id)
-create index gpu_product on gpu using hash(id)
-create index screenSize_product on screenSize using hash(id)
-create index weight_product on weight using hash(id)
-create index storage_product on storage using hash(id)
-create index battery_product on battery using hash(id)
-create index screenRes_product on screenRes using hash(id)
-create index cameraRes_product on cameraRes using hash(id)
-create index fingerprintType_product on fingerprintType using hash(id)
+create index cpu_product on cpu using hash(id);
+create index ram_product on ram using hash(id);
+create index waterProofing_product on waterProofing using hash(id);
+create index os_product on os using hash(id);
+create index gpu_product on gpu using hash(id);
+create index screenSize_product on screenSize using hash(id);
+create index weight_product on weight using hash(id);
+create index storage_product on storage using hash(id);
+create index battery_product on battery using hash(id);
+create index screenRes_product on screenRes using hash(id);
+create index cameraRes_product on cameraRes using hash(id);
+create index fingerprintType_product on fingerprintType using hash(id);

@@ -242,20 +242,18 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (5, 721, 'iPhone 7', 'Phones',                  1, 6, 4, 3, 2, 5, 5, 5, 1, 8, 2, 2, 6);   
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (9, 1099, 'Galaxy S20+', 'Phones',              2, 1, 6, 1, 1, 6, 9, 10, 4, 9, 3, 9, 4);
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (12, 569, 'Mi 9', 'Phones',                     3, 2, 3, 1, 1, 4, 6, 2, 4, 5, 1, 6, 1);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 1, 6, 6, 10, 10, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 1, 6, 6, 10, 4, 10, 3, 6, 3);
 
 /* rating */
 
 insert into rating (id, userID, val) values ('1', '1', '1');
-insert into rating (id, userID, val) values ('2', '2', '2');
-insert into rating (id, userID, val) values ('3', '3', '3');
-insert into rating (id, userID, val) values ('4', '4', '4');
-insert into rating (id, userID, val) values ('5', '5', '5');
-insert into rating (id, userID, val) values ('6', '6', '4');
-insert into rating (id, userID, val) values ('7', '7', '4');
-insert into rating (id, userID, val) values ('8', '8', '2');
-insert into rating (id, userID, val) values ('9', '9', '3');
-insert into rating (id, userID, val) values ('10', '10', '5');
+insert into rating (id, userID, val) values ('2', '1', '2');
+insert into rating (id, userID, val) values ('3', '1', '3');
+insert into rating (id, userID, val) values ('4', '2', '4');
+insert into rating (id, userID, val) values ('5', '2', '5'); /*
+insert into rating (id, userID, val) values ('6', '4', '4');
+insert into rating (id, userID, val) values ('7', '3', '4');
+insert into rating (id, userID, val) values ('8', '5', '4'); */
 
 /* comments */
 
@@ -324,12 +322,12 @@ insert into payment (type) values ('Paypal');
 /* purchase */
 
 insert into purchase (val, statusID, paid, userID) values (1600.37, 1, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (1588.99, 2, 2, 2);
+insert into purchase (val, statusID, paid, userID) values (1588.99, 2, 2, 2);/*
 insert into purchase (val, statusID, paid, userID) values (1599.99, 3, 1, 3);
 insert into purchase (val, statusID, paid, userID) values (599.97, 4, 1, 4);
 insert into purchase (val, statusID, paid, userID) values (721, 5, 2, 5);
 insert into purchase (val, statusID, paid, userID) values (1099, 6, 2, 6);
-insert into purchase (val, statusID, paid, userID) values (829.99, 8, 1, 13);
+insert into purchase (val, statusID, paid, userID) values (829.99, 8, 1, 13); */
 
 /* product_purchase */
 
@@ -337,12 +335,12 @@ insert into product_purchase (productID, purchaseID, quantity) values (1, 1, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (2, 1, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (3, 1, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (4, 2, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (5, 2, 1);
+insert into product_purchase (productID, purchaseID, quantity) values (5, 2, 1);/*
 insert into product_purchase (productID, purchaseID, quantity) values (6, 4, 2);
 insert into product_purchase (productID, purchaseID, quantity) values (7, 3, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (8, 5, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (9, 6, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (11, 7, 1);
+insert into product_purchase (productID, purchaseID, quantity) values (11, 7, 1); */
 
 /* discount */
 
@@ -378,5 +376,3 @@ insert into image_product (productID, imageID) values (8, 12);
 insert into image_product (productID, imageID) values (9, 13);
 insert into image_product (productID, imageID) values (10, 14);
 insert into image_product (productID, imageID) values (11, 15);
-
-

@@ -28,5 +28,21 @@ Route::delete('api/item/{id}', 'ItemController@delete');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+
+//Routes for the professor's template pages
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('home', 'HomeController@show');
+Route::get('about', 'AboutController@show');
+Route::get('FAQ', 'FAQController@show');
+Route::get('wishlist', 'WishlistController@show');
+Route::get('adminPage', 'AdminProfileController@show');
+Route::get('cart', 'CartController@show');
+Route::get('phone', 'PhoneController@show');
+Route::get('search', 'SearchController@show');
+Route::get('profile', 'ProfileController@show');
+Route::get('purchase_history', 'PurchaseHistoryController@show');
+
+//should implement things from the auth folder for these pages
+Route::get('register', 'RegisterController@show');

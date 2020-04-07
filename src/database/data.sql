@@ -1,5 +1,3 @@
-/* users */
-
 insert into users (name, email, birthDate, pass) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb');
 insert into users (name, email, birthDate, pass) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752');
 insert into users (name, email, birthDate, pass) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003');
@@ -244,30 +242,6 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (12, 569, 'Mi 9', 'Phones',                     3, 2, 3, 1, 1, 4, 6, 2, 4, 5, 1, 6, 1);
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 1, 6, 6, 10, 4, 10, 3, 6, 3);
 
-/* rating */
-
-insert into rating (id, userID, val) values ('1', '1', '1');
-insert into rating (id, userID, val) values ('2', '1', '2');
-insert into rating (id, userID, val) values ('3', '1', '3');
-insert into rating (id, userID, val) values ('4', '2', '4');
-insert into rating (id, userID, val) values ('5', '2', '5'); /*
-insert into rating (id, userID, val) values ('6', '4', '4');
-insert into rating (id, userID, val) values ('7', '3', '4');
-insert into rating (id, userID, val) values ('8', '5', '4'); */
-
-/* comments */
-
-insert into "comment" ("content", productID) values ('ok!!!', 1);
-insert into "comment" ("content", productID) values ('great!!', 2);
-insert into "comment" ("content", productID) values ('good phone', 3);
-insert into "comment" ("content", productID) values ('yess!! i love it', 4);
-insert into "comment" ("content", productID) values ('bad quality!', 5);
-insert into "comment" ("content", productID) values ('ok!!!', 6);
-insert into "comment" ("content", productID) values ('great!!', 7);
-insert into "comment" ("content", productID) values ('good phone', 8);
-insert into "comment" ("content", productID) values ('yess!! i love it', 9);
-insert into "comment" ("content", productID) values ('bad quality!', 10);
-
 /* cart */
 
 insert into cart (productID, userID, quant) values (1, 1, 1);
@@ -344,11 +318,11 @@ insert into product_purchase (productID, purchaseID, quantity) values (11, 7, 1)
 
 /* discount */
 
-insert into discount (val, beginDate, endDate) values (0.10, '2020-03-31', '2020-04-12');
-insert into discount (val, beginDate, endDate) values (0.20, '2020-04-17', '2020-05-02');
-insert into discount (val, beginDate, endDate) values (0.30, '2020-05-10', '2020-05-26');
-insert into discount (val, beginDate, endDate) values (0.40, '2020-06-14', '2020-06-18');
-insert into discount (val, beginDate, endDate) values (0.50, '2020-07-04', '2020-07-16');
+insert into discount (val, beginDate, endDate) values (0.10, '2021-04-29', '2021-05-12');
+insert into discount (val, beginDate, endDate) values (0.20, '2021-04-17', '2021-05-02');
+insert into discount (val, beginDate, endDate) values (0.30, '2021-05-10', '2021-05-26');
+insert into discount (val, beginDate, endDate) values (0.40, '2021-06-14', '2021-06-18');
+insert into discount (val, beginDate, endDate) values (0.50, '2021-07-04', '2021-07-16');
 
 /* discount product */
 
@@ -376,3 +350,27 @@ insert into image_product (productID, imageID) values (8, 12);
 insert into image_product (productID, imageID) values (9, 13);
 insert into image_product (productID, imageID) values (10, 14);
 insert into image_product (productID, imageID) values (11, 15);
+
+/* rating */
+
+insert into rating (id, userID, val) values ('1', '1', '1');
+insert into rating (id, userID, val) values ('2', '1', '2');
+insert into rating (id, userID, val) values ('3', '1', '3');
+insert into rating (id, userID, val) values ('4', '2', '4');
+insert into rating (id, userID, val) values ('5', '2', '5'); /*
+insert into rating (id, userID, val) values ('6', '4', '4');
+insert into rating (id, userID, val) values ('7', '3', '4');
+insert into rating (id, userID, val) values ('8', '5', '4'); */
+
+/* comments */
+
+insert into "comment" ("content", productID) values ('ok!!!', 1);
+insert into "comment" ("content", productID) values ('great!!', 2);
+insert into "comment" ("content", productID) values ('good phone', 3);
+insert into "comment" ("content", productID) values ('yess!! i love it', 4);
+insert into "comment" ("content", productID) values ('bad quality!', 5);
+insert into "comment" ("content", productID) values ('ok!!!', 6);
+insert into "comment" ("content", productID) values ('great!!', 7);
+insert into "comment" ("content", productID) values ('good phone', 8);
+insert into "comment" ("content", productID) values ('yess!! i love it', 9);
+insert into "comment" ("content", productID) values ('bad quality!', 10);

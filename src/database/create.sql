@@ -285,11 +285,11 @@ create function add_review() returns trigger as
 $body$
 begin
 	if not exists(
-		select Product.productID
-		from purchase, product_purchase as Product, users
-		where purchase.id = Product.purchaseID and
+		select product_purchase.productID
+		from purchase, product_purchase, users
+		where product_purchase.purchaseID = purchase.id and
 		New.userID = purchase.userID and
-		New.id = Product.productID
+		New.id = product_purchase.productID
 	)
 	then raise exception 'You cannot review a product you have not bought!';
 	end if;
@@ -309,10 +309,11 @@ execute procedure add_review();
 create function check_stock() returns trigger as
 $body$
 begin
-	if not exists(
-		select stock from product
-		where id = New.productID
-		and stock < New.quantity
+	if exists(
+		select product.stock 
+			from product
+			where product.id = New.productID and
+			product.stock < New.quantity
 	)
 	then raise exception 'Product out of stock!';
 	end if;
@@ -333,13 +334,16 @@ create function clear_cart() returns trigger as
 $body$
 begin
 	delete from cart
-	where userID = New.userID;
+	where cart.userID = New.userID;
+	
+	return new;
 end
 $body$
 language plpgsql;
 
 create trigger clear_cart
 after insert on purchase
+for each row
 execute procedure clear_cart();
 
 
@@ -348,14 +352,17 @@ create function update_stock() returns trigger as
 $body$
 begin
 	update product
-	set stock = stock - New.quantity
-	where productID = New.productID;
+	set stock = product.stock - New.quantity
+	where product.id = New.productID;
+	
+	return NEW;
 end
 $body$
 language plpgsql;
 
 create trigger update_stock
 after insert on product_purchase
+for each row
 execute procedure update_stock();
 
 

@@ -358,10 +358,10 @@ insert into rating (id, userID, val) values ('1', '1', '1');
 insert into rating (id, userID, val) values ('2', '1', '2');
 insert into rating (id, userID, val) values ('3', '1', '3');
 insert into rating (id, userID, val) values ('4', '2', '4');
-insert into rating (id, userID, val) values ('5', '2', '5'); /*
+insert into rating (id, userID, val) values ('5', '2', '5'); 
 insert into rating (id, userID, val) values ('6', '4', '4');
 insert into rating (id, userID, val) values ('7', '3', '4');
-insert into rating (id, userID, val) values ('8', '5', '4'); */
+insert into rating (id, userID, val) values ('8', '5', '4'); 
 
 /* comments */
 

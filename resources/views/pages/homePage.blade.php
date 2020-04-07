@@ -49,10 +49,10 @@
     <nav>
         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="new-tab" href="#">New</a>
+                <a class="nav-link active" id="new-tab" href="#">Hot</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="best-tab" href="#">Best-sellers</a>
+                <a class="nav-link" id="best-tab" href="#">New</a>
             </li>
         </div>
     </nav>

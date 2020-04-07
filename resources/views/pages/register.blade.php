@@ -3,7 +3,6 @@
 
 @include('partials.jumboTitle',['title' => 'Register'])
 
-
 <div class="container">
     <div class="row-form">
         <form>
@@ -70,3 +69,4 @@
     </div>
 </div>
 
+@endsection

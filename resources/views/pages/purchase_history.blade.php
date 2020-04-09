@@ -25,6 +25,7 @@
             <tbody>
                 <tr>
                     <td>
+                        <a href="{{ url('phone') }}">
                         <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
@@ -62,6 +63,7 @@
             <tbody>
                 <tr>
                     <td>
+                        <a href="{{ url('phone') }}">
                         <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
@@ -98,6 +100,7 @@
             <tbody>
                 <tr>
                     <td>
+                        <a href="{{ url('phone') }}">
                         <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>
@@ -134,6 +137,7 @@
             <tbody>
                 <tr>
                     <td>
+                        <a href="{{ url('phone') }}">
                         <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
                     </td>
                     <td>

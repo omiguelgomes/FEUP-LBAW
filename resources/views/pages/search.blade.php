@@ -73,7 +73,7 @@
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
+                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
+                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
+                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
+                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
+                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@
                 <div class="card-body justify-content-center">
                     <h5 class="card-title">Phone</h5>
                     <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="#" class="btn btn-secondary w-75">See</a>
+                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>
         </div>

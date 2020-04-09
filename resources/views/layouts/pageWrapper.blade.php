@@ -14,22 +14,22 @@
     {{-- NAVBAR --}}
     <div class="row-12 py-3">
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand mr-auto ml-4 mt-2 mt-lg-0" href="../pages/homePage.php">
+            <a class="navbar-brand mr-auto ml-4 mt-2 mt-lg-0" href="{{ url('home') }}">
                 <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">
                 Phone
             </a>
 
-            <a class="nav-item nav-link" href="../pages/cartPage.php">
+            <a class="nav-item nav-link" href="{{ url('cart') }}">
                 <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
             </a>
 
 
-            <a class="nav-item nav-link" href="../pages/search.php">
+            <a class="nav-item nav-link" href="{{ url('search') }}">
                 <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
             </a>
 
 
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="{{ url('profile') }}">
                 <img src="{{ asset('/images/user.svg') }}" width="30" height="30" alt="">
             </a>
         </nav>
@@ -50,7 +50,7 @@
     <footer>
         <div class="row-12 py-3">
             <nav class="navbar navbar-light bg-light justify-content-center">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ url('home') }}">
                     <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">Phone
                 </a>
             </nav>
@@ -64,11 +64,11 @@
                 <div class="col bg-light text-center">
                     <h5 style="color: black;">Support</h5>
                     <br>
-                    <a href="../pages/FAQ.php" class="font-weight-bold">FAQ</a>
+                    <a href="{{ url('FAQ') }}" class="font-weight-bold">FAQ</a>
                     <br>
                     <a href="#" class="font-weight-bold">Ticket us</a>
                     <br>
-                    <a class="font-weight-bold" href="../pages/about.php">About us</a>
+                    <a class="font-weight-bold" href="{{ url('about') }}">About us</a>
                 </div>
             </div>
         </div>

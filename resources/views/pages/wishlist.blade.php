@@ -21,6 +21,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
+            <a href="{{ url('phone') }}">
             <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
@@ -38,6 +39,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
+            <a href="{{ url('phone') }}">
             <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
@@ -55,6 +57,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
+            <a href="{{ url('phone') }}">
             <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
@@ -77,6 +80,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
+            <a href="{{ url('phone') }}">
             <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
@@ -94,6 +98,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
+            <a href="{{ url('phone') }}">
             <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>
@@ -111,6 +116,7 @@
         <div class="card-body">
           <div class="container">
             <h5 class="card-title">Samsung Galaxy S5</h5>
+            <a href="{{ url('phone') }}">
             <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
             <h6 class="card-text">Samsung</h6>
             <p><b>499.99€</b></p>

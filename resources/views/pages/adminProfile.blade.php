@@ -625,10 +625,12 @@
 
     <div class="collapse" id="tabelspecs">
 
-        <div class="form-group input-group">
+        {{-- DOENS'T MAKE SENSE TO SEARCH SPECS BY TEXT --}}
+
+        {{-- <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
             <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-        </div>
+        </div> --}}
 
         <div class="table-overflow">
             <table id="tabela" class="table table-hover">
@@ -706,6 +708,7 @@
     </div>
 
     <!-- Sales -->
+
 
     <br>
     <div class="d-flex p-3 mb-2 bg-light text-dark">

@@ -13,31 +13,7 @@
 
     <div class="table-responsive">
         <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Products</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="{{ url('phone') }}">
-                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
-                    </td>
-                    <td>
-                        <div class="card-body">
-                            <h5 class="card-title">Samsung Galaxy S5 (64GB - Preto) </h5>
-                            <h6 class="card-text">Samsung</h6>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td>499.99€</td>
-                    
-                </tr>
+                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -51,31 +27,7 @@
 
     <div class="table-responsive">
         <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Products</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="{{ url('phone') }}">
-                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
-                    </td>
-                    <td>
-                        <div class="card-body">
-                            <h5 class="card-title">Samsung Galaxy S5 (64GB - Preto) </h5>
-                            <h6 class="card-text">Samsung</h6>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td>499.99€</td>
-                    
-                </tr>
+                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -88,31 +40,7 @@
     <br>
     <div class="table-responsive">
         <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Products</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="{{ url('phone') }}">
-                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
-                    </td>
-                    <td>
-                        <div class="card-body">
-                            <h5 class="card-title">Samsung Galaxy S5 (64GB - Preto) </h5>
-                            <h6 class="card-text">Samsung</h6>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td>499.99€</td>
-                    
-                </tr>
+                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -125,31 +53,7 @@
     <br>
     <div class="table-responsive">
         <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Products</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="{{ url('phone') }}">
-                        <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
-                    </td>
-                    <td>
-                        <div class="card-body">
-                            <h5 class="card-title">Samsung Galaxy S5 (64GB - Preto) </h5>
-                            <h6 class="card-text">Samsung</h6>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td>499.99€</td>
-                    
-                </tr>
+                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>

@@ -64,72 +64,8 @@
             </div>
         </div>
 </nav>
-<div class="container">
-    <br>
-    <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
-        <div class="col mb-2">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
-        <div class="col mb-2">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
-                <div class="card-body justify-content-center">
-                    <h5 class="card-title">Phone</h5>
-                    <p class="card-text">Quick description of the phone in place.</p>
-                    <a href="{{ url('phone') }}" class="btn btn-secondary w-75">See</a>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        @include('partials.phoneGrid',['phoneNr' => 6, 'colNr' => 3])
     </div>
 </div>
 </div>

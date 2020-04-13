@@ -3,7 +3,6 @@
 
 @include('partials.jumboTitle',['title' => 'Wishlist'])
 
-
 <div class="container mx-auto py-3">
 
   <nav class="navbar navbar-light bg-light mb-4">
@@ -13,122 +12,30 @@
     </form>
   </nav>
 
+  <div class="row no-gutters row-cols-xs-5 row-cols-sm-4 row-col-md-3 row-col-lg-2 text-center">
 
-  <div class="row">
+    <?php $nrCards = 10; $nrCols = 3;
 
-    <div class="col">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <div class="container">
-            <h5 class="card-title">Samsung Galaxy S5</h5>
-            <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
-            <h6 class="card-text">Samsung</h6>
-            <p><b>499.99€</b></p>
-            <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
-            <br> <br>
-            <button type="button" class="btn btn-small btn-primary mx-2">Add to Cart &nbsp;<i class="fas fa-cart-arrow-down"></i></button>
-            <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
-          </div>
+      for ($col = 0; $col < $nrCards; $col++) {?>
+        <div class="col-<?= 12/$nrCols?> ">
+            <div class="card width-100 mx-1 my-1">
+                <img class="card-img-top" src="{{ asset('/images/s20Ultra1.png') }}" alt="Card image cap">
+                <div class="card-body justify-content-center">
+                    <h5 class="card-title">Phone</h5>
+                    <p class="card-text">Quick description of the phone in place.</p>
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <a href="#" class="btn btn-primary w-75 mx-1"> Buy now <i class="fas fa-euro-sign"></i></a>
+                      <a href="#" class="btn btn-primary w-75 mx-1"> Add to cart <i class="fas fa-cart-arrow-down"></i></a>
+                    </div>
+
+                    <a href="#" class="btn text-danger my-3">Remove from wishlist</a>
+
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <div class="container">
-            <h5 class="card-title">Samsung Galaxy S5</h5>
-            <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
-            <h6 class="card-text">Samsung</h6>
-            <p><b>499.99€</b></p>
-            <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
-            <br> <br>
-            <button type="button" class="btn btn-small btn-primary mx-2">Add to Cart &nbsp;<i class="fas fa-cart-arrow-down"></i></button>
-            <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <div class="container">
-            <h5 class="card-title">Samsung Galaxy S5</h5>
-            <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
-            <h6 class="card-text">Samsung</h6>
-            <p><b>499.99€</b></p>
-            <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
-            <br> <br>
-            <button type="button" class="btn btn-small btn-primary mx-2">Add to Cart &nbsp;<i class="fas fa-cart-arrow-down"></i></button>
-            <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="row mt-4">
-
-    <div class="col">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <div class="container">
-            <h5 class="card-title">Samsung Galaxy S5</h5>
-            <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
-            <h6 class="card-text">Samsung</h6>
-            <p><b>499.99€</b></p>
-            <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
-            <br> <br>
-            <button type="button" class="btn btn-small btn-primary mx-2">Add to Cart &nbsp;<i class="fas fa-cart-arrow-down"></i></button>
-            <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <div class="container">
-            <h5 class="card-title">Samsung Galaxy S5</h5>
-            <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
-            <h6 class="card-text">Samsung</h6>
-            <p><b>499.99€</b></p>
-            <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
-            <br> <br>
-            <button type="button" class="btn btn-small btn-primary mx-2">Add to Cart &nbsp;<i class="fas fa-cart-arrow-down"></i></button>
-            <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center" style="width: 18rem;">
-        <div class="card-body">
-          <div class="container">
-            <h5 class="card-title">Samsung Galaxy S5</h5>
-            <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" class="card-img" alt="..." style="margin: auto;">
-            <h6 class="card-text">Samsung</h6>
-            <p><b>499.99€</b></p>
-            <button type="button" class="btn btn-small btn-primary mx-2 px-3">Buy Now &nbsp;<i class="fas fa-euro-sign"></i></button>
-            <br> <br>
-            <button type="button" class="btn btn-small btn-primary mx-2">Add to Cart &nbsp;<i class="fas fa-cart-arrow-down"></i></button>
-            <p class="py-3"><a href="#" class="card-link text-danger "><b>Remove from wishlist</b></a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <?php }?>
   </div>
 </div>
 @endsection

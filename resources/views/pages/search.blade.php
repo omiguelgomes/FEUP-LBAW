@@ -65,7 +65,7 @@
         </div>
 </nav>
     <div class="container">
-        @include('partials.phoneGrid',['phoneNr' => 6, 'colNr' => 3])
+        @include('partials.phoneGrid',['phoneNr' => 6])
     </div>
 </div>
 </div>

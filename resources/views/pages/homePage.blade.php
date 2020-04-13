@@ -56,9 +56,10 @@
             </li>
         </div>
     </nav>
-    @include('partials.phoneGrid',['phoneNr' => 10, 'colNr' => 6])
+    @include('partials.phoneGrid',['phoneNr' => 6])
+    
 </div>
-
+    
 <!-- Make carousel indicators and controls black -->
 <style>
     .carousel-control-next,

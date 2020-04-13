@@ -1,16 +1,10 @@
 @extends('layouts.pageWrapper')
 @section('content')  
 
-<div class="container">
-   <div class="jumbotron jumbotron-fluid">
-       <div class="container text-center">
-         <h1 class="display-4">Cart</h1>
-   </div>
-</div>  
+@include('partials.jumboTitle',['title' => 'Cart'])
+ 
 
 <div class="container">
-    <br>
-    <div class="table-responsive">
         <table class="table">
             
                 @include('partials.phoneList',['phoneNr' => 6, 'xButton' => 'true'])
@@ -31,7 +25,6 @@
                 <button type="button" class="btn btn-primary">Proceed with purchase</button>
             </div>
         </div>
-    </div>
 
-
+</div>
 @endsection

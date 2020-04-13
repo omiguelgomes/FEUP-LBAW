@@ -11,5 +11,4 @@
 
 <div class="collapse" id="FAQs<?= $questionID ?>">
     <p> <?= $answer ?></p>
-    <p> <?= $questionID ?></p>
 </div>

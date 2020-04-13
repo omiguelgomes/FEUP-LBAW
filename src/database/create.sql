@@ -408,23 +408,6 @@ COMMIT;
 
 
 
--- Purchase a wishlisted product
-
-BEGIN TRANSACTION;
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
- 
--- Insert discount
- INSERT INTO discount (val, beginDate, endDate)
-VALUES ($val, $beginDate, $endDate);
-
--- Insert discount_product
- INSERT INTO discount_product (productID, discountID) 
-VALUES ($productID, currval(g_get_serial_sequence('discount', 'id'))); 
- 
-COMMIT;
-
-
-
 -- New purchase
 
  INSERT INTO purchase (val, statusID, paid, userID)

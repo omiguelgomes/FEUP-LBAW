@@ -365,6 +365,59 @@ after insert on product_purchase
 for each row
 execute procedure update_stock();
 
+-------------------------------------------------------------------
+--Transactions
+------------------------------------------------------------------- 
+
+-- Add new product with new images
+
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+ 
+-- Insert product
+ INSERT INTO product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) 
+VALUES ($stock, $price, $model, $category, $brandID, $cpuID, $ramID, $waterProofingID, $osID, $gpuID, $screenSizeID, $weightID, $storageID, $batteryID, $screenResID, $cameraResID, $fingerprintTypeID);
+
+-- Insert image
+ INSERT INTO image (description, path)
+VALUES ($description, $path);
+
+ 
+-- Insert image_product
+ INSERT INTO image_product (productID, imageID) 
+VALUES (currval(g_get_serial_sequence('product', 'id')), currval(g_get_serial_sequence('image', 'id'))); 
+ 
+COMMIT;
+
+
+
+-- Add new discount associated with a product
+
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+ 
+-- Insert discount
+ INSERT INTO discount (val, beginDate, endDate)
+VALUES ($val, $beginDate, $endDate);
+ 
+-- Insert discount_product
+ INSERT INTO discount_product (productID, discountID) 
+VALUES ($productID, currval(g_get_serial_sequence('discount', 'id'))); 
+ 
+COMMIT;
+
+
+
+-- New purchase
+
+ INSERT INTO purchase (val, statusID, paid, userID)
+VALUES ($val, $statusID, $paid, $userID);
+
+ INSERT INTO product_purchase (productID, purchaseID)
+VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
+
+COMMIT;
+
 
 -------------------------------------------------------------------
 --Indexes

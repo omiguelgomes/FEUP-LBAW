@@ -179,20 +179,17 @@ create table product
     constraint price check (price > (0)::double precision)
 );
 
+
 create table rating
 (
     id     integer primary key references product (id) on delete cascade,
     userID integer          not null references users (id) on delete cascade,
+    productID integer not null references product(id) on delete cascade,
+    "content" text    not null,
     val    double precision not null,
     constraint val check (val > (0)::double precision and val <= (5)::double precision)
 );
 
-create table "comment"
-(
-    id        serial primary key,
-    "content" text    not null,
-    productID integer not null unique references product (id) on delete cascade
-);
 
 create table cart
 (
@@ -798,24 +795,11 @@ insert into image_product (productID, imageID) values (11, 15);
 
 /* rating */
 
-insert into rating (id, userID, val) values ('1', '1', '1');
-insert into rating (id, userID, val) values ('2', '1', '2');
-insert into rating (id, userID, val) values ('3', '1', '3');
-insert into rating (id, userID, val) values ('4', '2', '4');
-insert into rating (id, userID, val) values ('5', '2', '5'); 
-insert into rating (id, userID, val) values ('6', '4', '4');
-insert into rating (id, userID, val) values ('7', '3', '4');
-insert into rating (id, userID, val) values ('8', '5', '4'); 
-
-/* comments */
-
-insert into "comment" ("content", productID) values ('ok!!!', 1);
-insert into "comment" ("content", productID) values ('great!!', 2);
-insert into "comment" ("content", productID) values ('good phone', 3);
-insert into "comment" ("content", productID) values ('yess!! i love it', 4);
-insert into "comment" ("content", productID) values ('bad quality!', 5);
-insert into "comment" ("content", productID) values ('ok!!!', 6);
-insert into "comment" ("content", productID) values ('great!!', 7);
-insert into "comment" ("content", productID) values ('good phone', 8);
-insert into "comment" ("content", productID) values ('yess!! i love it', 9);
-insert into "comment" ("content", productID) values ('bad quality!', 10);
+insert into rating (id, userID, productID, "content", val) values ('1', '1', '1', 'ok!!!', '1');
+insert into rating (id, userID, productID, "content", val) values ('2', '1', '5', 'great!!!', '2');
+insert into rating (id, userID, productID, "content", val) values ('3', '1', '4', 'good phone', '3');
+insert into rating (id, userID, productID, "content", val) values ('4', '2', '4', 'yess!! i love it', '4');
+insert into rating (id, userID, productID, "content", val) values ('5', '2', '5', 'bad quality!', '5'); 
+insert into rating (id, userID, productID, "content", val) values ('6', '4', '3', 'ok', '4');
+insert into rating (id, userID, productID, "content", val) values ('7', '3', '4', 'very nice', '4');
+insert into rating (id, userID, productID, "content", val) values ('8', '5', '9', 'terrible', '4'); 

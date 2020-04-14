@@ -11,6 +11,4 @@ class FAQ extends Model
     
     protected $pk = 'id';
     
-    public $timestamps = true;
-
 }

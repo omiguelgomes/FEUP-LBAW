@@ -5,15 +5,16 @@
             <div class="jumbotron">
                 <div class="container">
                     <div class="row justify-content-center pb-2">
-                        <h1 class="display-4"><b>{{$productInfo->model}}</b></h1>
+                        <h1 class="display-4"><b>{{$product->model}}</b></h1>
                     </div>
                     <div class="d-flex bd-highlight mb-3">
     
                         <div class="mr-auto p-2 bd-highlight">
-                            <h5>{{$productInfo->brandname}}</h5>
+                            <h5>{{$product->brand->name}}</h5>
                         </div>
                         <div class="p-2 bd-highlight">
-                            <h5>Rating: {{$productInfo->price}}</h5>
+                            {{-- NOTA: PRODUCT N TEM RATING ASSOCIADO --}}
+                            <h5>Rating: 4.5</h5>
                         </div>
                         <div class="p-2 bd-highlight">
                             <i class="fas fa-star"></i>
@@ -52,7 +53,7 @@
         </div>
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <h5><b>1099€</b></h5>
+            <h5><b>{{$product->price}}</b></h5>
             </div>
             <div class="col d-flex justify-content-center">
                 <button type="button" class="btn btn-primary">Add to Cart</button>&nbsp;&nbsp;
@@ -69,17 +70,21 @@
                     <a class="nav-link nav-link-color" href="#">Specifications</a>
                 </li>
             </ul>
-            <div class="container">
-                <div class="media">
-                    <img src="{{ asset('/images/user.svg') }}" class="align-self-start mr-3" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">Great phone!</h5>
-                        <p>
-                            COMMENTARIES
-                        </p>
+            @foreach($product->ratings as $rating)
+                <div class="container">
+                    <div class="media">
+                        <img src="{{ asset('/images/user.svg') }}" class="align-self-start mr-3" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{$rating->val}}/5
+                                <i class="fas fa-star"></i>
+                            </h5>
+                            <p>
+                                {{$rating->content}}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     
     </div>

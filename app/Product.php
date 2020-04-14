@@ -8,7 +8,14 @@ class Product extends Model
 {
     //Table name
     protected $table = 'product';
-    //id
-    public $pk = 'id';
     
+    public function brand()
+    {
+        return $this->belongsTo('App\Brand', 'brandid');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany('App\Rating', 'productid');
+    }
 }

@@ -42,7 +42,7 @@ Route::get('FAQ', 'FAQController@show');
 Route::get('wishlist', 'WishlistController@show');
 Route::get('adminPage', 'AdminProfileController@show');
 Route::get('cart', 'CartController@show');
-Route::get('phone', 'PhoneController@show');
+Route::get('product', 'ProductController@show');
 Route::get('search', 'SearchController@show');
 Route::get('profile', 'ProfileController@show');
 Route::get('purchase_history', 'PurchaseHistoryController@show');

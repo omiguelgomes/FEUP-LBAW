@@ -1,0 +1,35 @@
+MODULOS
+
+por homepage em algum dos modulos
+edicao de morada e put e nao post
+novos links para cada cena que se atualiza(link para alterar morada/alterar perfil, etc)
+modulo 2 onde tem /homepage deve ser so /
+falta url na acao de procura
+
+r204 nao ter category name, usar como um dos parametros de pesquisa
+r202 juntar a 204
+adicionar paginacao no filtrar produtos
+
+adicionar acao de listar utilizadores
+onde vamos buscar arrays de propriedades, ir buscar um objeto(ex r:305)
+adicionar r's de ver/adicionar/remover banners
+r para criar produtos
+r403 tem um product_id redundante e permissao nao e user, e owner (ver se nao acontece noutros sitios), e nao por user_id no request body, isso vem pela sessao
+chamadas ajax  nao retornam ui's
+r203 falta url
+redirects nao sao para ui's
+get nao tem redirects 
+falta parte do pagamento
+atualizar para tras, ha inconsistencias
+
+
+GERAL
+atualizar links falsos 
+permitir banir utilizadores
+adicionar url para cada acao (nota: url deve ser autoexplicativo)
+
+
+a8:
+admin criar produtos
+utilizador comprar produto(sem parte dos pagamentos)
+mas, pelo menos: abrir pagina de produto, comprar agora

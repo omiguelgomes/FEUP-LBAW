@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="table-overflow">
-        @if(count($faqs) > 1)
+        @if(count($faqs) > 0)
             @foreach($faqs as $faq)
                 @include('partials.FAQCard', ['question' => $faq->question, 'answer' => $faq->answer, 'questionID' => $faq->id])
             @endforeach

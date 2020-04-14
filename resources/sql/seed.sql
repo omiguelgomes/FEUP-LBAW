@@ -276,6 +276,170 @@ create table product_purchase
     primary key (productID, purchaseID)
 );
 
+---------------------------------------------------------------------
+--Triggers and UDF
+---------------------------------------------------------------------
+
+--Trigger and UDF 1
+create function add_review() returns trigger as
+$body$
+begin
+	if not exists(
+		select product_purchase.productID
+		from purchase, product_purchase, users
+		where product_purchase.purchaseID = purchase.id and
+		New.userID = purchase.userID and
+		New.id = product_purchase.productID
+	)
+	then raise exception 'You cannot review a product you have not bought!';
+	end if;
+	
+	return New;
+end
+$body$
+language plpgsql;
+
+create trigger add_review
+before insert or update on rating
+for each row
+execute procedure add_review();
+
+
+--Trigger and UDF 2
+create function check_stock() returns trigger as
+$body$
+begin
+	if exists(
+		select product.stock 
+			from product
+			where product.id = New.productID and
+			product.stock < New.quantity
+	)
+	then raise exception 'Product out of stock!';
+	end if;
+	
+	return New;
+end
+$body$
+language plpgsql;
+
+create trigger check_stock
+before insert on product_purchase
+for each row
+execute procedure check_stock();
+
+
+--Trigger and UDF 3
+create function clear_cart() returns trigger as
+$body$
+begin
+	delete from cart
+	where cart.userID = New.userID;
+	
+	return new;
+end
+$body$
+language plpgsql;
+
+create trigger clear_cart
+after insert on purchase
+for each row
+execute procedure clear_cart();
+
+
+--Trigger and UDF 4
+create function update_stock() returns trigger as
+$body$
+begin
+	update product
+	set stock = product.stock - New.quantity
+	where product.id = New.productID;
+	
+	return NEW;
+end
+$body$
+language plpgsql;
+
+create trigger update_stock
+after insert on product_purchase
+for each row
+execute procedure update_stock();
+
+-- -------------------------------------------------------------------
+-- --Transactions
+-- ------------------------------------------------------------------- 
+
+-- -- Add new product with new images
+
+-- BEGIN TRANSACTION;
+-- SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+ 
+-- -- Insert product
+--  INSERT INTO product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) 
+-- VALUES ($stock, $price, $model, $category, $brandID, $cpuID, $ramID, $waterProofingID, $osID, $gpuID, $screenSizeID, $weightID, $storageID, $batteryID, $screenResID, $cameraResID, $fingerprintTypeID);
+
+-- -- Insert image
+--  INSERT INTO image (description, path)
+-- VALUES ($description, $path);
+
+ 
+-- -- Insert image_product
+--  INSERT INTO image_product (productID, imageID) 
+-- VALUES (currval(g_get_serial_sequence('product', 'id')), currval(g_get_serial_sequence('image', 'id'))); 
+ 
+-- COMMIT;
+
+
+
+-- -- Add new discount associated with a product
+
+-- BEGIN TRANSACTION;
+-- SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+ 
+-- -- Insert discount
+--  INSERT INTO discount (val, beginDate, endDate)
+-- VALUES ($val, $beginDate, $endDate);
+ 
+-- -- Insert discount_product
+--  INSERT INTO discount_product (productID, discountID) 
+-- VALUES ($productID, currval(g_get_serial_sequence('discount', 'id'))); 
+ 
+-- COMMIT;
+
+
+
+-- -- New purchase
+
+--  INSERT INTO purchase (val, statusID, paid, userID)
+-- VALUES ($val, $statusID, $paid, $userID);
+
+--  INSERT INTO product_purchase (productID, purchaseID)
+-- VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
+
+-- COMMIT;
+
+
+-------------------------------------------------------------------
+--Indexes
+------------------------------------------------------------------- 
+create index email_users on users using hash (email);
+create index user_address on address using hash (userID);
+create index product_reviews on rating using hash(id);
+
+create index cpu_product on cpu using hash(id);
+create index ram_product on ram using hash(id);
+create index waterProofing_product on waterProofing using hash(id);
+create index os_product on os using hash(id);
+create index gpu_product on gpu using hash(id);
+create index screenSize_product on screenSize using hash(id);
+create index weight_product on weight using hash(id);
+create index storage_product on storage using hash(id);
+create index battery_product on battery using hash(id);
+create index screenRes_product on screenRes using hash(id);
+create index cameraRes_product on cameraRes using hash(id);
+create index fingerprintType_product on fingerprintType using hash(id);
+
+
 
 
 insert into users (name, email, birthDate, pass) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb');

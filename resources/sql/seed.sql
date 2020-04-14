@@ -525,21 +525,21 @@ insert into faq (question, answer) values ('What is your online security policy?
 
 /* image */
 
-insert into image (description, path) values ('brand_apple', 'https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202003310625');
-insert into image (description, path) values ('brand_samsung', 'https://i.pinimg.com/originals/cc/63/3a/cc633ad293fb08831b0d635cb77e5405.jpg');
-insert into image (description, path) values ('brand_xiaomi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/1024px-Xiaomi_logo.svg.png');
-insert into image (description, path) values ('brand_huawei', 'https://marcas-logos.net/wp-content/uploads/2019/12/Huawei-Logo.png');
-insert into image (description, path) values ('phone_a50', 'https://www.worten.pt/i/7ed675c4b5f427bd31b7c0338d6b393575850ea3.jpg');
-insert into image (description, path) values ('phone_a70', 'https://www.worten.pt/i/225792738ee10f255a667c38220369404f2fd1c6.jpg');
-insert into image (description, path) values ('phone_tabS6', 'https://www.worten.pt/i/01454bc1f70e682f316e1490d58b0e5667606001.jpg');
-insert into image (description, path) values ('phone_tabS5e', 'https://www.worten.pt/i/0e2f94e471bf2dc00d15e8ec26d3d3520b1e3344.jpg');
-insert into image (description, path) values ('phone_ipad_pro2020', 'https://www.worten.pt/i/131dd37085ad35e1707960b572c09fbf9c2e114b.jpg');
-insert into image (description, path) values ('phone_mediapad_t3', 'https://www.worten.pt/i/122f58f4ac8ca8837ca723662e5f12569e2b5553.jpg');
-insert into image (description, path) values ('phone_11pro_max', 'https://www.worten.pt/i/5ceb869e409a740db0af336db9d970cb34feecd8.jpg');
-insert into image (description, path) values ('phone_iphone7', 'https://www.worten.pt/i/f34136b7f4928e2aa882b08642dd691379c5431a.jpg');
-insert into image (description, path) values ('phone_s20', 'https://www.worten.pt/i/72106d6b151514e6c9450f779f3c8281991cc956.jpg');
-insert into image (description, path) values ('phone_mi9', 'https://www.worten.pt/i/b8f3b72988c3800057dad75b2de69431aa9cbfdb.jpg');
-insert into image (description, path) values ('phone_p40', 'https://www.worten.pt/i/09655e5625dde94b06dc7d3a226453c8f97c67ba.jpg');
+insert into image (description, path) values ('brand_apple', 'apple.jpg');
+insert into image (description, path) values ('brand_samsung', 'samsung.png');
+insert into image (description, path) values ('brand_xiaomi', 'xiaomi.png');
+insert into image (description, path) values ('brand_huawei', 'huawei.png');
+insert into image (description, path) values ('phone_a50', 'sa50.jpg');
+insert into image (description, path) values ('phone_a70', 'sa70.jpg');
+insert into image (description, path) values ('phone_tabS6', 'tabs6.jpg');
+insert into image (description, path) values ('phone_tabS5e', 'tabs5e.jpg');
+insert into image (description, path) values ('phone_ipad_pro2020', 'ipadpro.jpg');
+insert into image (description, path) values ('phone_mediapad_t3', 'mediapadt3.jpg');
+insert into image (description, path) values ('phone_11pro_max', 'iphone11promax.jpg');
+insert into image (description, path) values ('phone_iphone7', 'iphone7.jpg');
+insert into image (description, path) values ('phone_s20', 's20Ultra1.png');
+insert into image (description, path) values ('phone_mi9', 'mi9.jpg');
+insert into image (description, path) values ('phone_p40', 'p40.jpg');
 
 /* brand */
 

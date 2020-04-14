@@ -8,7 +8,4 @@ class FAQ extends Model
 {
     //Table name
     protected $table = 'faq';
-    
-    protected $pk = 'id';
-    
 }

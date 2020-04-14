@@ -20,7 +20,8 @@ r203 falta url
 redirects nao sao para ui's
 get nao tem redirects 
 falta parte do pagamento
-atualizar para tras, ha inconsistencias
+atualizar para tras, ha inconsistencias (exemplo, tabela comments ja nao existe, 
+tabela ratings tem agora userID e content)
 
 
 GERAL

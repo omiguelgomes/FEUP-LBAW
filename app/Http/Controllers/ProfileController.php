@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+
 class ProfileController extends Controller
 {
     /**
@@ -12,7 +14,10 @@ class ProfileController extends Controller
      */
     public function show()
     {
-      return view('pages.profile');
+      //Hard coded, will come from session in the future
+      $userId = 1;
+      $user = User::find($userId);
+      return view('pages.profile')->with('user', $user);
 
     }
 

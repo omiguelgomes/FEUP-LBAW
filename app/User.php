@@ -5,8 +5,6 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use App\Product;
-
 class User extends Authenticatable
 {
     protected $table = 'users';
@@ -34,6 +32,11 @@ class User extends Authenticatable
             array_push($productList, $product);
         }
         return $productList;
+    }
+
+    public function address()
+    {
+        return $this->hasOne('App\Address', 'userid');
     }
 
 

@@ -23,27 +23,27 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email<a class="text-danger">*</a></label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="joaopaulo_n@hotmail.com" readonly>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="{{$user->email}}" readonly>
                     <br>
                     <label for="inputPassword4">Password<a class="text-danger">*</a></label>
                     <input type="password" class="form-control" id="inputPassword4" placeholder="**********" readonly>
                     <br>
-                    <label for="inputAge">Age</label>
-                    <input type="number" class="form-control" id="inputAge" placeholder="20" readonly>
+                    <label for="inputAge">Birth Date</label>
+                <input type="number" class="form-control" id="inputAge" placeholder="{{$user->birthdate}}" readonly>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Address<a class="text-danger">*</a></label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Rua da Igreja Velha 30" readonly>
+                <input type="text" class="form-control" id="inputAddress" placeholder="{{$user->address->street}}" readonly>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City<a class="text-danger">*</a></label>
-                    <input type="text" class="form-control" id="inputCity" placeholder="Paredes" readonly>
+                    <input type="text" class="form-control" id="inputCity" placeholder="{{$user->address->city()}}" readonly>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Postal Code<a class="text-danger">*</a></label>
-                    <input type="text" class="form-control" id="inputZip" placeholder="4580-113" readonly>
+                    <input type="text" class="form-control" id="inputZip" placeholder="{{$user->address->postalcode}}" readonly>
                 </div>
             </div>
 
@@ -53,16 +53,16 @@
 
             <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Rua da Igreja Velha 30" readonly>
+                <input type="text" class="form-control" id="inputAddress" placeholder="{{$user->address->street}}" readonly>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" placeholder="Paredes" readonly>
+                    <input type="text" class="form-control" id="inputCity" placeholder="{{$user->address->city()}}" readonly>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Postal Code</label>
-                    <input type="text" class="form-control" id="inputZip" placeholder="4580-113" readonly>
+                    <input type="text" class="form-control" id="inputZip" placeholder="{{$user->address->postalcode}}" readonly>
                 </div>
             </div>
             <a class="text-danger">* Campos Obrigatórios</a>

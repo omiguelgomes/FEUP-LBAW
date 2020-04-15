@@ -29,4 +29,10 @@ class Product extends Model
         }
         return $paths;
     }
+
+    public function specs()
+    {
+        $cpu = $this->hasOne('App\Specs\Cpu', 'id')->get();
+        return $cpu;
+    }
 }

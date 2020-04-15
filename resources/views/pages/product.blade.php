@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="col d-flex justify-content-center">
-            <h5><b>{{$product->price}}</b></h5>
+            <h5><b>{{$product->price}}€</b></h5>
             </div>
             <div class="col d-flex justify-content-center">
                 <button type="button" class="btn btn-primary">Add to Cart</button>&nbsp;&nbsp;

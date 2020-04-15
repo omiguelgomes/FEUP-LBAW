@@ -727,6 +727,9 @@ insert into product_purchase (productID, purchaseID, quantity) values (11, 7, 1)
 /* cart */
 
 insert into cart (productID, userID, quant) values (1, 1, 1);
+insert into cart (productID, userID, quant) values (5, 1, 3);
+insert into cart (productID, userID, quant) values (2, 1, 2);
+
 insert into cart (productID, userID, quant) values (2, 2, 2);
 insert into cart (productID, userID, quant) values (3, 3, 3);
 insert into cart (productID, userID, quant) values (4, 4, 4);
@@ -738,6 +741,12 @@ insert into cart (productID, userID, quant) values (8, 12, 3);
 /* wishlist */
 
 insert into wishlist (productID, userID) values (1, 1);
+insert into wishlist (productID, userID) values (7, 1);
+insert into wishlist (productID, userID) values (2, 1);
+insert into wishlist (productID, userID) values (5, 1);
+insert into wishlist (productID, userID) values (3, 1);
+insert into wishlist (productID, userID) values (9, 1);
+
 insert into wishlist (productID, userID) values (2, 2);
 insert into wishlist (productID, userID) values (3, 3);
 insert into wishlist (productID, userID) values (4, 4);

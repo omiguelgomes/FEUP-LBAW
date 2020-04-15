@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 
 class PurchaseHistoryController extends Controller
 {
@@ -13,7 +14,10 @@ class PurchaseHistoryController extends Controller
      */
     public function show()
     {
-
-      return view('pages.purchase_history');
+      //All this is a placeholder, theses products given to the view aren't the ones in the purchase history
+      //will be retrieved from the session in the future
+      $userid = 1;
+      $user = User::find(1);
+      return view('pages.purchase_history')->with('products', $user->cart());
     }
 }

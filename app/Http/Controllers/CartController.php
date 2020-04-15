@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+Use App\User;
+
 class CartController extends Controller
 {
     /**
@@ -12,7 +14,9 @@ class CartController extends Controller
      */
     public function show()
     {
-
-      return view('pages.cart');
+      //will be retrieved from the session in the future
+      $userid = 1;
+      $user = User::find(1);
+      return view('pages.cart')->with('products', $user->cart());
     }
 }

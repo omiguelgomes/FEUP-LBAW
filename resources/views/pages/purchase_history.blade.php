@@ -13,7 +13,7 @@
 
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -27,7 +27,7 @@
 
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -40,7 +40,7 @@
     <br>
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -53,7 +53,7 @@
     <br>
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['phoneNr' => 2, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
             </tbody>
         </table>
     </div>

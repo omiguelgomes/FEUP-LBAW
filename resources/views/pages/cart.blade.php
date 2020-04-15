@@ -7,7 +7,7 @@
 <div class="container">
         <table class="table">
             
-                @include('partials.phoneList',['phoneNr' => 6, 'xButton' => 'true'])
+                @include('partials.phoneList',['products' => $products, 'xButton' => 'true'])
                 <tr>
                     <th scope="row" colspan="5" class="text-right">Shipping Costs: 0.00 €</th>
                 </tr>

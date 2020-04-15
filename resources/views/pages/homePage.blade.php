@@ -56,6 +56,7 @@
             </li>
         </div>
     </nav>
+    {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}
     @include('partials.phoneGrid',['products' => $hotProducts])
 </div>
     

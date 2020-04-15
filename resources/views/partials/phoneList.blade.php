@@ -5,37 +5,36 @@
         <th scope="col">Quantity</th>
         <th scope="col">Price</th>
 
-        <?php if($xButton == 'true'){ ?>
+        @if($xButton == 'true')
             <th scope="col">Remove</th>
-        <?php }?>
+        @endif
 
     </tr>
 </thead>
 <tbody>
 
-<?php for($nr = 0; $nr < $phoneNr; $nr++){?>
+@foreach($products as $product)
     <tr>
         <td>
             <a href="{{ url('phone') }}">
-            <img src="{{ asset('/images/tele1.jpg') }}" alt="..." style="width:80px;">
+            <img src="{{ asset('images/'.$product->image()[0]) }}" alt="..." style="width:80px;">
         </td>
         <td>
             <div class="card-body">
-                <h5 class="card-title">Samsung Galaxy S5 (64GB - Preto) </h5>
-                <h6 class="card-text">Samsung</h6>
+            <h5 class="card-title">{{$product->model}}</h5>
+                <h6 class="card-text">{{$product->brand->name}}</h6>
             </div>
         </td>
-        <td>1</td>
-        <td>499.99€</td>
+        <td>{{$product['quantity']}}</td>
+        <td>{{$product->price}}€</td>
 
-        <?php if($xButton == 'true')
-        {?>
+        @if($xButton == 'true')
             <td>
                 <a href="#" class="thumbnail">
                     <i class="far fa-times-circle fa-2x ml-4"></i>
                 </a>
             </td>
-        <?php }?>
+        @endif
 
     </tr>
-<?php }?>
+@endforeach

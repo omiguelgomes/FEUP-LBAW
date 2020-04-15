@@ -19,8 +19,14 @@ class Product extends Model
         return $this->hasMany('App\Rating', 'productid');
     }
 
-    public function imageProduct()
+    public function image()
     {
-        return $this->hasMany('App\ImageProduct', 'productid');
+        $images = $this->hasMany('App\ImageProduct', 'productid')->get();
+        $paths = [];
+        foreach($images as $image)
+        {
+            array_push($paths, $image->image->path);
+        }
+        return $paths;
     }
 }

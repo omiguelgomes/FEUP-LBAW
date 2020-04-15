@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-
-use App\Card;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -18,7 +14,8 @@ class HomeController extends Controller
      */
     public function show()
     {
-
-      return view('pages.homePage');
+      //get 10 first products from db. should be replaced with query for the hottest products
+      $hotProducts = Product::get()->take(10);
+      return view('pages.homePage')->with('hotProducts', $hotProducts);
     }
 }

@@ -23,21 +23,25 @@
                 </div>
             </div>
         </div>
-        {{-- NOTA: AJUSTAR CARROSSEL PARA NUMERO VARIAVEL DE IMAGENS --}}
+
         <div class="row py-3 row justify-content-around ">
             <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="20000" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    @for($count = 1; $count < count($product->image()); $count++)
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$count}}"></li>
+                    @endfor
                 </ol>
                 <div class="carousel-inner pb-5 center-block">
-                    @foreach($product->imageProduct as $imageProduct)
-                        <div class="carousel-item active">
-                            <img class="d-block " src="{{ asset('images/'.$imageProduct->image->path) }}" alt="First slide">
+                     <div class="carousel-item active">
+                        <img class="d-block" src="{{ asset('images/'.$product->image()[0]) }}" alt="First Slide">
+                    </div>
+                    @for($count = 1; $count < count($product->image()); $count++)
+                        <div class="carousel-item">
+                            <img class="d-block " src="{{ asset('images/'.$product->image()[$count]) }}" alt="Slide">
                         </div>
-                    @endforeach
-                </div>
+                    @endfor
+                </div>  
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>

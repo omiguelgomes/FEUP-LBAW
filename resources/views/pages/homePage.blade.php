@@ -56,8 +56,7 @@
             </li>
         </div>
     </nav>
-    @include('partials.phoneGrid',['phoneNr' => 6])
-    
+    @include('partials.phoneGrid',['products' => $hotProducts])
 </div>
     
 <!-- Make carousel indicators and controls black -->

@@ -540,6 +540,7 @@ insert into image (description, path) values ('phone_iphone7', 'iphone7.jpg');
 insert into image (description, path) values ('phone_s20', 's20Ultra1.png');
 insert into image (description, path) values ('phone_mi9', 'mi9.jpg');
 insert into image (description, path) values ('phone_p40', 'p40.jpg');
+insert into image (description, path) values ('banner', 'teste.jpg');
 
 /* brand */
 

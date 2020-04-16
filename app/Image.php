@@ -8,7 +8,7 @@ class Image extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'image';
+  protected $table = 'public.image';
 
   public function imageProduct()
   {

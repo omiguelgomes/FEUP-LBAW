@@ -8,5 +8,5 @@ class Cart extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'cart';
+  protected $table = 'public.cart';
 }

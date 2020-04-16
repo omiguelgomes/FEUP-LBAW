@@ -1,6 +1,6 @@
 @extends('layouts.pageWrapper')
 @section('content')    
-@include('partials.jumboTitle',['title' => 'About'])
+@include('partials.jumboTitle',['title' => 'About: '])
 
 <div class="px-5">
     <h3>About UPhone</h3>

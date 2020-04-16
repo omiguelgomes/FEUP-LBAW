@@ -9,7 +9,7 @@ use App\Specs\WaterProofing;
 class Product extends Model
 {
     //Table name
-    protected $table = 'product';
+    protected $table = 'public.product';
     
     public function brand()
     {

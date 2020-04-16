@@ -14,6 +14,14 @@ create type pay_method as enum ('Tranferencia Bancaria', 'Paypal');
 -------------------------------------------------------------------
 --create tables
 -------------------------------------------------------------------
+
+create table image
+(
+    id          serial primary key,
+    description text not null,
+    path        text not null
+);
+
 create table users
 (
     id        serial primary key,
@@ -21,6 +29,7 @@ create table users
     email     text unique not null,
     birthDate date        not null,
     pass      text        not null,
+    imageID integer not null references image(id) on delete cascade,
     isAdmin   boolean default false
 );
 
@@ -52,13 +61,6 @@ create table address
     userID     integer not null unique references users (id) on delete cascade,
     cityID     integer not null references city (id) on delete cascade,
     countryID  integer not null references country (id) on delete cascade
-);
-
-create table image
-(
-    id          serial primary key,
-    description text not null,
-    path        text not null
 );
 
 create table brand
@@ -436,27 +438,47 @@ create index cameraRes_product on cameraRes using hash(id);
 create index fingerprintType_product on fingerprintType using hash(id);
 
 
+/* image */
 
+insert into image (description, path) values ('brand_apple', 'apple.jpg');
+insert into image (description, path) values ('brand_samsung', 'samsung.png');
+insert into image (description, path) values ('brand_xiaomi', 'xiaomi.png');
+insert into image (description, path) values ('brand_huawei', 'huawei.png');
+insert into image (description, path) values ('phone_a50', 'sa50.jpg');
+insert into image (description, path) values ('phone_a70', 'sa70.jpg');
+insert into image (description, path) values ('phone_tabS6', 'tabs6.jpg');
+insert into image (description, path) values ('phone_tabS5e', 'tabs5e.jpg');
+insert into image (description, path) values ('phone_ipad_pro2020', 'ipadpro.jpg');
+insert into image (description, path) values ('phone_mediapad_t3', 'mediapadt3.jpg');
+insert into image (description, path) values ('phone_11pro_max', 'iphone11promax.jpg');
+insert into image (description, path) values ('phone_iphone7', 'iphone7.jpg');
+insert into image (description, path) values ('phone_s20', 's20Ultra1.png');
+insert into image (description, path) values ('phone_mi9', 'mi9.jpg');
+insert into image (description, path) values ('phone_p40', 'p40.jpg');
+insert into image (description, path) values ('banner', 'teste.jpg');
+insert into image (description, path) values ('user_default', 'profilepadrao.jpg');
 
-insert into users (name, email, birthDate, pass) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb');
-insert into users (name, email, birthDate, pass) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752');
-insert into users (name, email, birthDate, pass) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003');
-insert into users (name, email, birthDate, pass) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', 'dea4b3c8182eeb9f4374411d22b70ac262c');
-insert into users (name, email, birthDate, pass) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', 'd4d88ee5cbd69740f84063d3609f2052be5');
-insert into users (name, email, birthDate, pass) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '9a54964ae2495fe6104cf4866710b9cda78');
-insert into users (name, email, birthDate, pass) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', 'db4fcfe8b060424f9beebc8ad3e7d6983cb');
-insert into users (name, email, birthDate, pass) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', 'a93eb19e24c05cfc40f19e4969293cb877c');
-insert into users (name, email, birthDate, pass) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.ru', '2016-10-29', 'efaf41c528c8bae0a4230e6f8fce9510c09');
-insert into users (name, email, birthDate, pass) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '000526527c515b08fad2030897f7e4e7b60');
-insert into users (name, email, birthDate, pass) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '7071ca563d5443dc392d3af354d94d5c4dd');
-insert into users (name, email, birthDate, pass) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', 'b6d16fd8f73bffdc99ee1f7488aa8fa506b');
-insert into users (name, email, birthDate, pass) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', 'e87aeb4fb4b88b66638b784ffe1f38662cd');
-insert into users (name, email, birthDate, pass) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', 'b6d16fd8f73bffdc99ee1f7488a48fa506b');
-insert into users (name, email, birthDate, pass) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '5069ee14c07061adeafc66bf55ca236830f');
-insert into users (name, email, birthDate, pass) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', 'b6d16fd8f73bffdc99ee1f7488a48fa506b');
-insert into users (name, email, birthDate, pass) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdef4dd');
-insert into users (name, email, birthDate, pass) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3f38662cd');
-insert into users (name, email, birthDate, pass) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea4d94d5c4dd');
+/* users */
+
+insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', 'dea4b3c8182eeb9f4374411d22b70ac262c', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', 'd4d88ee5cbd69740f84063d3609f2052be5', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '9a54964ae2495fe6104cf4866710b9cda78', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', 'db4fcfe8b060424f9beebc8ad3e7d6983cb', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', 'a93eb19e24c05cfc40f19e4969293cb877c', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.ru', '2016-10-29', 'efaf41c528c8bae0a4230e6f8fce9510c09', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '000526527c515b08fad2030897f7e4e7b60', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '7071ca563d5443dc392d3af354d94d5c4dd', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', 'b6d16fd8f73bffdc99ee1f7488aa8fa506b', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', 'e87aeb4fb4b88b66638b784ffe1f38662cd', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '5069ee14c07061adeafc66bf55ca236830f', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdef4dd', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3f38662cd', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea4d94d5c4dd', 17);
 
 /* country */
 
@@ -522,24 +544,6 @@ insert into faq (question, answer) values ('What do I do if there is a problem w
 insert into faq (question, answer) values ('What is your online security policy?', 'We want to make sure that you are safe and secure when you are shopping with us online. As part of our commitment to this, we perform random checks on orders and this means that you may need to prove your identity. Customers will be contacted by phone or email and will have up to 24 hours to provide us with the required information.');
 
 
-/* image */
-
-insert into image (description, path) values ('brand_apple', 'apple.jpg');
-insert into image (description, path) values ('brand_samsung', 'samsung.png');
-insert into image (description, path) values ('brand_xiaomi', 'xiaomi.png');
-insert into image (description, path) values ('brand_huawei', 'huawei.png');
-insert into image (description, path) values ('phone_a50', 'sa50.jpg');
-insert into image (description, path) values ('phone_a70', 'sa70.jpg');
-insert into image (description, path) values ('phone_tabS6', 'tabs6.jpg');
-insert into image (description, path) values ('phone_tabS5e', 'tabs5e.jpg');
-insert into image (description, path) values ('phone_ipad_pro2020', 'ipadpro.jpg');
-insert into image (description, path) values ('phone_mediapad_t3', 'mediapadt3.jpg');
-insert into image (description, path) values ('phone_11pro_max', 'iphone11promax.jpg');
-insert into image (description, path) values ('phone_iphone7', 'iphone7.jpg');
-insert into image (description, path) values ('phone_s20', 's20Ultra1.png');
-insert into image (description, path) values ('phone_mi9', 'mi9.jpg');
-insert into image (description, path) values ('phone_p40', 'p40.jpg');
-insert into image (description, path) values ('banner', 'teste.jpg');
 
 /* brand */
 

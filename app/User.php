@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table = 'users';
+    protected $table = 'public.users';
 
     public function wishlist()
     {
@@ -40,6 +40,11 @@ class User extends Authenticatable
     public function address()
     {
         return $this->hasOne('App\Address', 'userid');
+    }
+
+    public function image()
+    {
+        return $this->belongsTo('App\Image', 'imageid');
     }
 
 

@@ -10,7 +10,7 @@
                     <div class="d-flex bd-highlight mb-3">
     
                         <div class="mr-auto p-2 bd-highlight">
-                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="height: 50px; width=50px;">
+                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" height="100" width="100">
                         </div>
                         <div class="p-2 bd-highlight">
                         <h5>Rating: {{$product->rating()}}</h5>
@@ -73,7 +73,7 @@
             @foreach($product->ratings as $rating)
                 <div class="container">
                     <div class="media">
-                        <img src="{{ asset('/images/user.svg') }}" class="align-self-start mr-3" alt="...">
+                        <img src="{{ asset('/images/'.$rating->user->image->path) }}" class="align-self-start mr-3" height="50" width="50";">
                         <div class="media-body">
                             <h5 class="mt-0">{{$rating->val}}/5
                                 <i class="fas fa-star"></i>

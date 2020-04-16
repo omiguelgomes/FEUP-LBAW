@@ -1,7 +1,7 @@
  @extends('layouts.pageWrapper')
  @section('content')  
 
- @include('partials.jumboTitle',['title' => 'FAQ'])
+ @include('partials.jumboTitle',['title' => 'FAQ:'])
 
 <div class="container">
     <div class="table-overflow">

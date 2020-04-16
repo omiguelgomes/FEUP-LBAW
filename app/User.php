@@ -24,13 +24,16 @@ class User extends Authenticatable
     {
         $list = $this->hasMany('App\Cart', 'userid')->get();
         $productList = [];
+        $productList['products'] = [];
+        $total = 0;
         foreach($list as $item)
         {
             $product = Product::find($item['productid']);
             $product['quantity'] = $item['quant'];
-            
-            array_push($productList, $product);
+            $total += $product['quantity'] * $product['price'];
+            array_push($productList['products'], $product);
         }
+        $productList['total'] = $total;
         return $productList;
     }
 

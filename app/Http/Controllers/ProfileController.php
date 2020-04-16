@@ -16,7 +16,7 @@ class ProfileController extends Controller
     {
       //Hard coded, will come from session in the future
       $userId = 1;
-      $user = User::find($userId);
+      $user = User::findOrFail($userId);
       return view('pages.profile')->with('user', $user);
 
     }

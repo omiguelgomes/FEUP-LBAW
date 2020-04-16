@@ -17,7 +17,7 @@ class PurchaseHistoryController extends Controller
       //All this is a placeholder, theses products given to the view aren't the ones in the purchase history
       //will be retrieved from the session in the future
       $userid = 1;
-      $user = User::find(1);
+      $user = User::findOrFail(1);
       return view('pages.purchase_history')->with('products', $user->cart());
     }
 }

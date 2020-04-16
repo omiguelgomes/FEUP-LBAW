@@ -17,7 +17,7 @@ class WishlistController extends Controller
     {
       //will be obtained through session in the future
       $userid = 1;
-      $user = User::find(1);
+      $user = User::findOrFail(1);
       $wishlist = $user->wishlist();
       return view('pages.wishlist')->with('wishlist', $wishlist);
     }

@@ -16,7 +16,7 @@ class CartController extends Controller
     {
       //will be retrieved from the session in the future
       $userid = 1;
-      $user = User::find(1);
-      return view('pages.cart')->with('products', $user->cart());
+      $user = User::findOrFail(1);
+      return view('pages.cart')->with('cart', $user->cart());
     }
 }

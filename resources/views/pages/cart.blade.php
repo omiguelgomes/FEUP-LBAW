@@ -7,12 +7,12 @@
 <div class="container">
         <table class="table">
             
-                @include('partials.phoneList',['products' => $products, 'xButton' => 'true'])
+                @include('partials.phoneList',['products' => $cart['products'], 'xButton' => 'true'])
                 <tr>
                     <th scope="row" colspan="5" class="text-right">Shipping Costs: 0.00 €</th>
                 </tr>
                 <tr>
-                    <th scope="row" colspan="5" class="text-right">TOTAL PURCHASE: 1499.97 €</th>
+                    <th scope="row" colspan="5" class="text-right">TOTAL PURCHASE: {{$cart['total']}} €</th>
                 </tr>
             </tbody>
         </table>

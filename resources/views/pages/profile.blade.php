@@ -18,7 +18,7 @@
               
                 <div class="form-group col-md-4 text-center">
                     <br><br>
-                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
+                    <img src="{{ asset('/images/'.$user->image->path) }}" class="rounded mx-auto d-block" alt="imagempadrao" style="max-height: 300px;">
                     <a href="#" class="">Change Photo</a>
                 </div>
                 <div class="form-group col-md-6">

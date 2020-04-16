@@ -10,7 +10,7 @@
                     <div class="d-flex bd-highlight mb-3">
     
                         <div class="mr-auto p-2 bd-highlight">
-                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" height="100" width="100">
+                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="max-height: 100px;">
                         </div>
                         <div class="p-2 bd-highlight">
                         <h5>Rating: {{$product->rating()}}</h5>
@@ -61,7 +61,7 @@
             </div>
         </div>
     
-        <div class="row d-flex justify-content-center my-3">
+        <div class="row d-flex justify-content-center my-5">
             <ul class="nav nav-pills nav-fill black mb-3">
                 <li class="nav-item">
                     <a class="nav-link active nav-link-color" href="#">Comments</a>
@@ -73,7 +73,7 @@
             @foreach($product->ratings as $rating)
                 <div class="container">
                     <div class="media">
-                        <img src="{{ asset('/images/'.$rating->user->image->path) }}" class="align-self-start mr-3" height="50" width="50";">
+                        <img src="{{ asset('/images/'.$rating->user->image->path) }}" class="align-self-start mr-3" style="max-height: 100px;">
                         <div class="media-body">
                             <h5 class="mt-0">{{$rating->val}}/5
                                 <i class="fas fa-star"></i>
@@ -84,10 +84,9 @@
                         </div>
                     </div>
                 </div>
-
-                @endforeach
+            @endforeach
+        </div>
         @include('partials.specsTable',['specs' => $product->specs()])
-    </div>
         
     <!-- Make carousel indicators and controls black -->
     <style>

@@ -457,28 +457,34 @@ insert into image (description, path) values ('phone_mi9', 'mi9.jpg');
 insert into image (description, path) values ('phone_p40', 'p40.jpg');
 insert into image (description, path) values ('banner', 'teste.jpg');
 insert into image (description, path) values ('user_default', 'profilepadrao.jpg');
+insert into image (description, path) values ('user_ph', 'userpic.jpg');
+insert into image (description, path) values ('user_ph2', 'userpic2.jpg');
+insert into image (description, path) values ('user_ph3', 'userpic3.jpg');
+insert into image (description, path) values ('user_ph4', 'userpic4.jpg');
+insert into image (description, path) values ('user_ph5', 'userpic5.jpg');
+insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
 
 /* users */
 
-insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb', 18);
 insert into users (name, email, birthDate, pass, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', 'dea4b3c8182eeb9f4374411d22b70ac262c', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', 'd4d88ee5cbd69740f84063d3609f2052be5', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '9a54964ae2495fe6104cf4866710b9cda78', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', 'db4fcfe8b060424f9beebc8ad3e7d6983cb', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', 'a93eb19e24c05cfc40f19e4969293cb877c', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.ru', '2016-10-29', 'efaf41c528c8bae0a4230e6f8fce9510c09', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '000526527c515b08fad2030897f7e4e7b60', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003', 19);
+insert into users (name, email, birthDate, pass, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', 'dea4b3c8182eeb9f4374411d22b70ac262c', 20);
+insert into users (name, email, birthDate, pass, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', 'd4d88ee5cbd69740f84063d3609f2052be5', 21);
+insert into users (name, email, birthDate, pass, imageID) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '9a54964ae2495fe6104cf4866710b9cda78', 22);
+insert into users (name, email, birthDate, pass, imageID) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', 'db4fcfe8b060424f9beebc8ad3e7d6983cb', 21);
+insert into users (name, email, birthDate, pass, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', 'a93eb19e24c05cfc40f19e4969293cb877c', 20);
+insert into users (name, email, birthDate, pass, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.ru', '2016-10-29', 'efaf41c528c8bae0a4230e6f8fce9510c09', 19);
+insert into users (name, email, birthDate, pass, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '000526527c515b08fad2030897f7e4e7b60', 18);
 insert into users (name, email, birthDate, pass, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '7071ca563d5443dc392d3af354d94d5c4dd', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', 'b6d16fd8f73bffdc99ee1f7488aa8fa506b', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', 'e87aeb4fb4b88b66638b784ffe1f38662cd', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '5069ee14c07061adeafc66bf55ca236830f', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdef4dd', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3f38662cd', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea4d94d5c4dd', 17);
+insert into users (name, email, birthDate, pass, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', 'b6d16fd8f73bffdc99ee1f7488aa8fa506b', 18);
+insert into users (name, email, birthDate, pass, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', 'e87aeb4fb4b88b66638b784ffe1f38662cd', 19);
+insert into users (name, email, birthDate, pass, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 20);
+insert into users (name, email, birthDate, pass, imageID) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '5069ee14c07061adeafc66bf55ca236830f', 21);
+insert into users (name, email, birthDate, pass, imageID) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 22);
+insert into users (name, email, birthDate, pass, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdef4dd', 21);
+insert into users (name, email, birthDate, pass, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3f38662cd', 20);
+insert into users (name, email, birthDate, pass, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea4d94d5c4dd', 19);
 
 /* country */
 

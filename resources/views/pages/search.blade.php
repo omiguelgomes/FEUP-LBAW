@@ -1,12 +1,13 @@
 @extends('layouts.pageWrapper')
-@section('content')  
+@section('content')
 
 @include('partials.jumboTitle',['title' => 'Search'])
 
 
-{{-- NOT SURE IF THIS WORKS --}}
-<link rel="stylesheet" href="{{ asset('/js/siderbar.css') }}">
-<link rel="stylesheet" href="{{ asset('/js/filters.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
+
+<script type="text/javascript" src="{{ URL::asset('js/slider.js') }}"></script>
 
 
 <nav class="navbar navbar-expand-lg shadow navbar-light">
@@ -65,7 +66,7 @@
         </div>
 </nav>
     <div class="container">
-        {{-- @include('partials.phoneGrid',['phoneNr' => 6]) --}}
+            {{-- SEARCH RESULTS IN HERE --}}
     </div>
 </div>
 </div>

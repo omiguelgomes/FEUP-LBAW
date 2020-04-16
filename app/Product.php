@@ -51,4 +51,22 @@ class Product extends Model
 
         return $specs;
     }
+
+    public function rating()
+    {
+        $ratingList = $this->hasMany('App\Rating', 'productid')->get();
+        $score = 0;
+
+        if (count($ratingList) == 0)
+        {
+            return "No ratings";
+        }
+
+        foreach($ratingList as $rating)
+        {
+            $score += (int)$rating['val'];
+        }
+
+        return round($score/count($ratingList), 1);
+    }
 }

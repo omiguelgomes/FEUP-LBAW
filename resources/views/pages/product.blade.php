@@ -13,8 +13,7 @@
                         <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="height: 50px; width=50px;">
                         </div>
                         <div class="p-2 bd-highlight">
-                            {{-- NOTA: PRODUCT N TEM RATING ASSOCIADO --}}
-                            <h5>Rating: 4.5</h5>
+                        <h5>Rating: {{$product->rating()}}</h5>
                         </div>
                         <div class="p-2 bd-highlight">
                             <i class="fas fa-star"></i>

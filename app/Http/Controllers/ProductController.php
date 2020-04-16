@@ -9,7 +9,7 @@ class ProductController extends Controller
     public function show($id)
     {
       $product = Product::find($id);
-      // return $product->specs();
+      //return $product->brand->image;
       return view('pages.product')->with('product', $product);
     }
 }

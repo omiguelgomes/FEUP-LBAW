@@ -10,7 +10,7 @@
                     <div class="d-flex bd-highlight mb-3">
     
                         <div class="mr-auto p-2 bd-highlight">
-                            <h5>{{$product->brand->name}}</h5>
+                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="height: 50px; width=50px;">
                         </div>
                         <div class="p-2 bd-highlight">
                             {{-- NOTA: PRODUCT N TEM RATING ASSOCIADO --}}
@@ -85,11 +85,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    
+
+                @endforeach
+        @include('partials.specsTable',['specs' => $product->specs()])
     </div>
-    
+        
     <!-- Make carousel indicators and controls black -->
     <style>
         .nav-pills>li>a.active {

@@ -87,7 +87,7 @@ create table ram
     constraint value check (value > 0)
 );
 
-create table waterProofing
+create table waterproofing
 (
     id    serial primary key,
     value text not null
@@ -138,8 +138,7 @@ create table battery
 create table screenRes
 (
     id    serial primary key,
-    value double precision not null
-        constraint value check (value > (0)::double precision)
+    value text not null
 );
 
 create table cameraRes
@@ -425,7 +424,7 @@ create index product_reviews on rating using hash(id);
 
 create index cpu_product on cpu using hash(id);
 create index ram_product on ram using hash(id);
-create index waterProofing_product on waterProofing using hash(id);
+create index waterProofing_product on waterproofing using hash(id);
 create index os_product on os using hash(id);
 create index gpu_product on gpu using hash(id);
 create index screenSize_product on screenSize using hash(id);
@@ -551,15 +550,20 @@ insert into brand (name, imageID) values ('Huawei', 4);
 
 /* waterProofing */
 
-insert into waterProofing (value) values ('IP68');
-insert into waterProofing (value) values ('None');
-insert into waterProofing (value) values ('IP67');
-insert into waterProofing (value) values ('IP53');
+insert into waterproofing (value) values ('IP68');
+insert into waterproofing (value) values ('None');
+insert into waterproofing (value) values ('IP67');
+insert into waterproofing (value) values ('IP53');
 
 /* os */
 
-insert into os (name) values ('android');
-insert into os (name) values ('ios');
+insert into os (name) values ('Android 10.0');
+insert into os (name) values ('IOS 11');
+insert into os (name) values ('IOS 10');
+insert into os (name) values ('Android 9.0 (Pie)');
+insert into os (name) values ('Android 8.0 (Oreo)');
+insert into os (name) values ('Android 7.0 (Nougat)');
+
 
 
 /* gpu */
@@ -621,11 +625,11 @@ insert into battery (value) values (3800);
 
 /* Screen Res */
 
-insert into screenRes (value) values (1080);
-insert into screenRes (value) values (720);
-insert into screenRes (value) values (1600);
-insert into screenRes (value) values (2048);
-insert into screenRes (value) values (1242);
+insert into screenRes (value) values ('1080 x 1920');
+insert into screenRes (value) values ('720 x 1280');
+insert into screenRes (value) values ('1080 x 2340');
+insert into screenRes (value) values ('1440 x 2960');
+insert into screenRes (value) values ('1440 x 3200');
 
 /* cameraRes */
 
@@ -642,12 +646,11 @@ insert into cameraRes (value) values (50);
 
 /* fingerprintType */
 
-insert into fingerprintType (value) values ('rear-mounted');
-insert into fingerprintType (value) values ('side-mounted');
-insert into fingerprintType (value) values ('in-display optical');
-insert into fingerprintType (value) values ('in-display ultrasonic');
+insert into fingerprintType (value) values ('Rear-mounted');
+insert into fingerprintType (value) values ('Side-mounted');
+insert into fingerprintType (value) values ('Under display optical sensor');
+insert into fingerprintType (value) values ('Under display ultrasonic sensor');
 insert into fingerprintType (value) values ('none');
-insert into fingerprintType (value) values ('front-mounted');
 
 
 /* cpu */
@@ -677,17 +680,17 @@ insert into payment (type) values ('Paypal');
 
 /* product */
 
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (67, 349.99, 'Galaxy A50', 'Phones',            2, 2, 2, 1, 1, 2, 1, 1, 4, 2, 1, 5, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (67, 349.99, 'Galaxy A50', 'Phones',            2, 2, 2, 1, 4, 2, 1, 1, 4, 2, 1, 5, 3);
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (24, 470.39, 'Galaxy A70', 'Phones',            2, 1, 3, 1, 1, 3, 2, 1, 4, 3, 1, 6, 1); 
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (57, 749.99, 'Galaxy Tab S6', 'Tablets',        2, 1, 3, 2, 1, 3, 7, 6, 4, 6, 3, 7, 3); 
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (46, 459.99, 'Galaxy Tab S5e', 'Tablets',       2, 1, 2, 2, 1, 3, 7, 7, 4, 6, 3, 7, 2); 
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (57, 749.99, 'Galaxy Tab S6', 'Tablets',        2, 1, 3, 2, 5, 3, 7, 6, 4, 6, 3, 7, 3); 
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (46, 459.99, 'Galaxy Tab S5e', 'Tablets',       2, 1, 2, 2, 4, 3, 7, 7, 4, 6, 3, 7, 2); 
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (14, 1129.00, 'iPad Pro 2020', 'Tablets',       1, 3, 3, 2, 2, 5, 8, 8, 4, 7, 4, 2, 5); 
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (9, 199.99, 'MediaPad T3', 'Tablets',           4, 4, 5, 2, 1, 4, 3, 3, 2, 4, 2, 8, 5); 
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (30, 1599.99, 'iPhone 11 Pro Max', 'Phones',    1, 5, 2, 1, 2, 5, 1, 9, 5, 2, 5, 2, 5); 
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (5, 721, 'iPhone 7', 'Phones',                  1, 6, 4, 3, 2, 5, 5, 5, 1, 8, 2, 2, 6);   
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (30, 1599.99, 'iPhone 11 Pro Max', 'Phones',    1, 5, 2, 1, 3, 5, 1, 9, 5, 2, 5, 2, 5); 
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (5, 721, 'iPhone 7', 'Phones',                  1, 6, 4, 3, 2, 5, 5, 5, 1, 8, 2, 2, 4);   
 insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (9, 1099, 'Galaxy S20+', 'Phones',              2, 1, 6, 1, 1, 6, 9, 10, 4, 9, 3, 9, 4);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (12, 569, 'Mi 9', 'Phones',                     3, 2, 3, 1, 1, 4, 6, 2, 4, 5, 1, 6, 1);
-insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 1, 6, 6, 10, 4, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (12, 569, 'Mi 9', 'Phones',                     3, 2, 3, 1, 5, 4, 6, 2, 4, 5, 1, 6, 1);
+insert into product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
 
 /* purchase State */
 

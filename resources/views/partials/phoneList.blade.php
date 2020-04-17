@@ -26,7 +26,7 @@
             </div>
         </td>
         <td>{{$product['quantity']}}</td>
-        <td>{{$product->price}}€</td>
+        <td>{{$product->price*$product['quantity']}}€</td>
 
         @if($xButton == 'true')
             <td>

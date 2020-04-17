@@ -31,6 +31,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register')->name('register');
 
 //Page to go to by default
 Route::get('/', 'HomeController@show');
@@ -45,5 +46,3 @@ Route::get('product/{id}', 'ProductController@show');
 Route::get('search', 'SearchController@show');
 Route::get('profile', 'ProfileController@show');
 Route::get('purchase_history', 'PurchaseHistoryController@show');
-
-

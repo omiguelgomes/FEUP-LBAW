@@ -27,9 +27,9 @@ create table users
     id        serial primary key,
     name      text        not null,
     email     text unique not null,
-    birthDate date        not null,
+    birthdate date        not null default ('now'::text)::date,
     pass      text        not null,
-    imageID integer not null references image(id) on delete cascade,
+    imageID integer not null references image(id) on delete cascade default 1,
     isAdmin   boolean default false
 );
 
@@ -463,6 +463,7 @@ create index fingerprintType_product on fingerprintType using hash(id);
 
 /* image */
 
+insert into image (description, path) values ('user_default', 'profilepadrao.jpg');
 insert into image (description, path) values ('brand_apple', 'apple.jpg');
 insert into image (description, path) values ('brand_samsung', 'samsung.png');
 insert into image (description, path) values ('brand_xiaomi', 'xiaomi.png');
@@ -479,7 +480,6 @@ insert into image (description, path) values ('phone_s20', 's20Ultra1.png');
 insert into image (description, path) values ('phone_mi9', 'mi9.jpg');
 insert into image (description, path) values ('phone_p40', 'p40.jpg');
 insert into image (description, path) values ('banner', 'teste.jpg');
-insert into image (description, path) values ('user_default', 'profilepadrao.jpg');
 insert into image (description, path) values ('user_ph', 'userpic.jpg');
 insert into image (description, path) values ('user_ph2', 'userpic2.jpg');
 insert into image (description, path) values ('user_ph3', 'userpic3.jpg');
@@ -576,10 +576,10 @@ insert into faq (question, answer) values ('What is your online security policy?
 
 /* brand */
 
-insert into brand (name, imageID) values ('Apple', 1);
-insert into brand (name, imageID) values ('Samsung', 2);
-insert into brand (name, imageID) values ('Xiaomi', 3);
-insert into brand (name, imageID) values ('Huawei', 4);
+insert into brand (name, imageID) values ('Apple', 2);
+insert into brand (name, imageID) values ('Samsung', 3);
+insert into brand (name, imageID) values ('Xiaomi', 4);
+insert into brand (name, imageID) values ('Huawei', 5);
 
 /* waterProofing */
 
@@ -841,17 +841,17 @@ insert into discount_product (productID, discountID) values (9, 1);
 
 /* image_product */
 
-insert into image_product (productID, imageID) values (1, 5);
-insert into image_product (productID, imageID) values (2, 6);
-insert into image_product (productID, imageID) values (3, 7);
-insert into image_product (productID, imageID) values (4, 8);
-insert into image_product (productID, imageID) values (5, 9);
-insert into image_product (productID, imageID) values (6, 10);
-insert into image_product (productID, imageID) values (7, 11);
-insert into image_product (productID, imageID) values (8, 12);
-insert into image_product (productID, imageID) values (9, 13);
-insert into image_product (productID, imageID) values (10, 14);
-insert into image_product (productID, imageID) values (11, 15);
+insert into image_product (productID, imageID) values (1, 6);
+insert into image_product (productID, imageID) values (2, 7);
+insert into image_product (productID, imageID) values (3, 8);
+insert into image_product (productID, imageID) values (4, 9);
+insert into image_product (productID, imageID) values (5, 10);
+insert into image_product (productID, imageID) values (6, 11);
+insert into image_product (productID, imageID) values (7, 12);
+insert into image_product (productID, imageID) values (8, 13);
+insert into image_product (productID, imageID) values (9, 14);
+insert into image_product (productID, imageID) values (10, 15);
+insert into image_product (productID, imageID) values (11, 16);
 
 /* rating */
 

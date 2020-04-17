@@ -32,7 +32,9 @@
                 <input type="number" class="form-control" id="inputAge" placeholder="{{$user->birthdate}}" readonly>
                 </div>
             </div>
-            <div class="form-group">
+
+            {{-- COMMENTED BECAUSE NEWLY CREATED USERS DONT HAVE ADDRESS --}}
+            {{-- <div class="form-group">
                 <label for="inputAddress">Address<a class="text-danger">*</a></label>
                 <input type="text" class="form-control" id="inputAddress" placeholder="{{$user->address->street}}" readonly>
             </div>
@@ -67,10 +69,10 @@
             </div>
             <a class="text-danger">* Campos Obrigatórios</a>
             <br><br>
-            <button type="button" class="btn btn-primary" disabled>Change</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" disabled>Change</button>
             <a class="text-danger align-middle" href="#"> Delete Account</a>
 
-        </form>
+        </form> --}}
     </div>
 </div>
     @endsection

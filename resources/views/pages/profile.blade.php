@@ -20,6 +20,11 @@
                     <br><br>
                     <img src="{{ asset('/images/'.$user->image->path) }}" class="rounded mx-auto d-block" alt="imagempadrao" style="max-height: 300px;">
                     <a href="#" class="">Change Photo</a>
+                    @if (Auth::check())
+                    <div class="row">
+                        <a class="button" href="{{ url('/logout') }}"> Logout    </a> <span>{{$user->name }}</span>
+                    </div>
+                    @endif
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email<a class="text-danger">*</a></label>

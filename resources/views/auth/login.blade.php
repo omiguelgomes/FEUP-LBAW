@@ -1,32 +1,38 @@
-@extends('layouts.app')
-
+@extends('layouts.pageWrapper')
 @section('content')
-<form method="POST" action="{{ route('login') }}">
-    {{ csrf_field() }}
 
-    <label for="email">E-mail</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-    @if ($errors->has('email'))
-        <span class="error">
-          {{ $errors->first('email') }}
-        </span>
-    @endif
+@include('partials.jumboTitle',['title' => 'Login'])
 
-    <label for="password" >Password</label>
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-        <span class="error">
-            {{ $errors->first('password') }}
-        </span>
-    @endif
+{{ csrf_field() }}
+<div class="container">
+    <form method="POST" action="{{ route('login') }}">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="email@example.com" required autofocus>
+        @if ($errors->has('email'))
+            <span class="error">
+            {{ $errors->first('email') }}
+            </span>
+        @endif
 
-    <label>
-        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-    </label>
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
 
-    <button type="submit">
-        Login
-    </button>
-    <a class="button button-outline" href="{{ route('register') }}">Register</a>
-</form>
+        @if ($errors->has('password'))
+            <span class="error">
+                {{ $errors->first('password') }}
+            </span>
+        @endif
+
+        <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+        <label class="form-check-label" for="dropdownCheck">
+            Remember me
+        </label>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ url('register') }}">New around here? Sign up</a>
+        <a class="dropdown-item" href="#">Forgot password?</a>
+    </form>
+        <br>
+    </div>
 @endsection

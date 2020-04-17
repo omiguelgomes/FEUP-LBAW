@@ -47,6 +47,23 @@ class User extends Authenticatable
         return $this->belongsTo('App\Image', 'imageid');
     }
 
+    public function purchases()
+    {
+        $purchasesList = $this->hasMany('App\Purchase', 'userid')->get();
+        $purchases = [];
+        $purchases['Awaiting Payment'] = [];
+        $purchases['Processing'] = [];
+        $purchases['Sent'] = [];
+        $purchases['Delivered'] = [];
+
+        foreach($purchasesList as $purchase)
+        {
+        array_push($purchases[$purchase->state['pstate']], $purchase->details());
+        }
+
+        return $purchases;
+    }
+
 
     //Template stuff
     // use Notifiable;

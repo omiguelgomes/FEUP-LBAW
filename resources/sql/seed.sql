@@ -7,7 +7,7 @@ CREATE SCHEMA public;
 -------------------------------------------------------------------
 create domain TODAY as date not null default ('now'::text)::date;
 create type category_type as enum ('Phones', 'Tablets');
-create type purchase_state as enum ('Aguarda Pagamento', 'Em Processamento', 'Enviada');
+create type purchase_state as enum ('Awaiting Payment', 'Processing', 'Sent', 'Delivered');
 create type pay_method as enum ('Tranferencia Bancaria', 'Paypal');
 
 
@@ -216,7 +216,7 @@ create table history
     primary key (productID, userID)
 );
 
-create table purchaseState
+create table purchasestate
 (
     id              serial          primary key,
     stateChangedate date            not null,
@@ -234,7 +234,7 @@ create table purchase
 (
     id       serial primary key,
     val      double precision not null,
-    statusID integer          not null references purchaseState (id) on delete cascade,
+    statusID integer          not null references purchasestate (id) on delete cascade,
     paid     integer          not null references payment (id) on delete cascade,
     userID   integer          not null references users (id) on delete cascade,
     constraint val check (val > (0)::double precision)
@@ -704,15 +704,19 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 
 /* purchase State */
 
-insert into purchaseState (stateChangedate, "comment", pState) values ('2012-12-13', 'payment please!','Aguarda Pagamento');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2012-12-14', 'please wait, in process','Em Processamento');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2012-12-15', 'shipped with success','Enviada');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2017-07-16', 'payment please!','Aguarda Pagamento');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2018-05-17', 'please wait, in process','Em Processamento');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2016-02-18', 'shipped with success','Enviada');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2019-01-16', 'payment please!','Aguarda Pagamento');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2015-04-17', 'please wait, in process','Em Processamento');
-insert into purchaseState (stateChangedate, "comment", pState) values ('2015-08-18', 'shipped with success','Enviada');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2012-12-13', 'payment please!','Awaiting Payment');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2012-12-14', 'please wait, in process','Processing');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2012-12-15', 'shipped with success','Delivered');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2017-07-16', 'payment please!','Awaiting Payment');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2018-05-17', 'please wait, in process','Processing');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2016-02-18', 'shipped with success','Sent');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2019-01-16', 'payment please!','Awaiting Payment');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2015-04-17', 'please wait, in process','Processing');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2015-08-18', 'shipped with success','Sent');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2012-05-12', 'shipped with success','Sent');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2011-04-17', 'please wait, in process','Processing');
+insert into purchasestate (stateChangedate, "comment", pState) values ('2010-12-10', 'shipped with success','Delivered');
+
 
 /* purchase */
 
@@ -723,6 +727,10 @@ insert into purchase (val, statusID, paid, userID) values (599.97, 4, 1, 4);
 insert into purchase (val, statusID, paid, userID) values (721, 5, 2, 5);
 insert into purchase (val, statusID, paid, userID) values (1099, 6, 2, 6);
 insert into purchase (val, statusID, paid, userID) values (829.99, 8, 1, 13);
+insert into purchase (val, statusID, paid, userID) values (1090.37, 10, 1, 1);
+insert into purchase (val, statusID, paid, userID) values (1200.37, 11, 1, 1);
+insert into purchase (val, statusID, paid, userID) values (100.37, 12, 1, 1);
+
 
 /* product_purchase */
 
@@ -736,6 +744,11 @@ insert into product_purchase (productID, purchaseID, quantity) values (7, 3, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (8, 5, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (9, 6, 1);
 insert into product_purchase (productID, purchaseID, quantity) values (11, 7, 1);
+
+insert into product_purchase (productID, purchaseID, quantity) values (10, 8, 1);
+insert into product_purchase (productID, purchaseID, quantity) values (5, 9, 3);
+insert into product_purchase (productID, purchaseID, quantity) values (2, 10, 2);
+
 
 /* cart */
 

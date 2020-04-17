@@ -13,7 +13,7 @@
 
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products['Awaiting Payment'][0], 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -27,20 +27,20 @@
 
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products['Processing'][0], 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
 
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
-            <h4>Orders Shipped</h4>
+            <h4>Orders Sent</h4>
         </div>      
     </div>
     <br>
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products['Sent'][0], 'xButton' => 'false'])
             </tbody>
         </table>
     </div>
@@ -53,7 +53,7 @@
     <br>
     <div class="table-responsive">
         <table class="table">
-                @include('partials.phoneList',['products' => $products, 'xButton' => 'false'])
+                @include('partials.phoneList',['products' => $products['Delivered'][0], 'xButton' => 'false'])
             </tbody>
         </table>
     </div>

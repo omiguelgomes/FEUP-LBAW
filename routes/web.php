@@ -47,5 +47,8 @@ Route::get('search', 'SearchController@show');
 Route::get('profile', 'ProfileController@show');
 Route::get('purchase_history', 'PurchaseHistoryController@show');
 
+Route::get('test', 'TestController@show');
+
 //should implement things from the auth folder for these pages
 Route::get('register', 'RegisterController@show');
+

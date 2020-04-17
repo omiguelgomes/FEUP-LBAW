@@ -14,7 +14,9 @@
 
         <div class="table-responsive">
             <table class="table">
-                @include('partials.phoneList',['products' => $product[0], 'xButton' => 'false'])
+                @if(count($product) > 0)
+                    @include('partials.phoneList',['products' => $product[0], 'xButton' => 'false'])
+                @endif
             </tbody>
             </table>
         </div>

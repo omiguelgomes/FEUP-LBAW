@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\User;
 
@@ -14,10 +15,8 @@ class PurchaseHistoryController extends Controller
      */
     public function show()
     {
-      //All this is a placeholder, theses products given to the view aren't the ones in the purchase history
-      //will be retrieved from the session in the future
-      $userid = 1;
-      $user = User::findOrFail(1);
+      if (!Auth::check()) return redirect('/register');
+      $user = Auth::user();
       return view('pages.purchase_history')->with('products', $user->purchases());
     }
 }

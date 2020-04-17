@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -14,12 +15,8 @@ class ProfileController extends Controller
      */
     public function show()
     {
-      //Hard coded, will come from session in the future
-      $userId = 1;
-      $user = User::findOrFail($userId);
+      if (!Auth::check()) return redirect('/register');
+      $user = Auth::user();
       return view('pages.profile')->with('user', $user);
-
     }
-
-    
 }

@@ -7,12 +7,6 @@ use App\User;
 
 class PurchaseHistoryController extends Controller
 {
-    /**
-     * Shows the card for a given id.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function show()
     {
       if (!Auth::check()) return redirect('/register');

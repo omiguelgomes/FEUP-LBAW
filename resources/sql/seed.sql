@@ -208,14 +208,6 @@ create table wishlist
     primary key (productID, userID)
 );
 
-create table history
-(
-    productID    integer references product (id) on delete cascade,
-    userID       integer references users (id) on delete cascade,
-    purchaseDate date not null,
-    primary key (productID, userID)
-);
-
 create table purchasestate
 (
     id              serial          primary key,
@@ -272,6 +264,14 @@ create table product_purchase
     purchaseID integer references purchase (id) on delete cascade,
     quantity integer not null,
     primary key (productID, purchaseID)
+);
+
+create table history
+(
+    productID    integer references product (id) on delete cascade,
+    userID       integer references users (id) on delete cascade,
+    purchaseDate date not null,
+    primary key (productID, userID)
 );
 
 ---------------------------------------------------------------------
@@ -362,6 +362,29 @@ create trigger update_stock
 after insert on product_purchase
 for each row
 execute procedure update_stock();
+
+/*
+--Trigger and UDF 5
+create function update_history() returns trigger as
+$body$
+declare uid integer;
+begin
+    select purchase.userID INTO uid
+        from purchase
+        where purchase.id = NEW.purchaseID;
+
+    insert into history (productID, userID, purchaseDate) values (NEW.productID, uid, ('now'::text)::date);
+	
+	return NEW;
+end
+$body$
+language plpgsql;
+
+create trigger update_history
+after insert on product_purchase
+for each row
+execute procedure update_history();
+*/
 
 -- -------------------------------------------------------------------
 -- --Transactions
@@ -792,6 +815,7 @@ insert into history (productID, userID, purchaseDate) values (5, 5, '2017-04-06'
 insert into history (productID, userID, purchaseDate) values (6, 8, '2015-03-16');
 insert into history (productID, userID, purchaseDate) values (7, 9, '2013-02-18');
 insert into history (productID, userID, purchaseDate) values (8, 11, '2017-01-26');
+
 
 
 /* discount */

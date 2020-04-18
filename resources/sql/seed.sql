@@ -229,6 +229,7 @@ create table purchase
     statusID integer          not null references purchasestate (id) on delete cascade,
     paid     integer          not null references payment (id) on delete cascade,
     userID   integer          not null references users (id) on delete cascade,
+    purchaseDate date         not null,
     constraint val check (val > (0)::double precision)
 );
 
@@ -264,14 +265,6 @@ create table product_purchase
     purchaseID integer references purchase (id) on delete cascade,
     quantity integer not null,
     primary key (productID, purchaseID)
-);
-
-create table history
-(
-    productID    integer references product (id) on delete cascade,
-    userID       integer references users (id) on delete cascade,
-    purchaseDate date not null,
-    primary key (productID, userID)
 );
 
 ---------------------------------------------------------------------
@@ -363,41 +356,19 @@ after insert on product_purchase
 for each row
 execute procedure update_stock();
 
-/*
---Trigger and UDF 5
-create function update_history() returns trigger as
-$body$
-declare uid integer;
-begin
-    select purchase.userID INTO uid
-        from purchase
-        where purchase.id = NEW.purchaseID;
 
-    insert into history (productID, userID, purchaseDate) values (NEW.productID, uid, ('now'::text)::date);
-	
-	return NEW;
-end
-$body$
-language plpgsql;
-
-create trigger update_history
-after insert on product_purchase
-for each row
-execute procedure update_history();
-*/
-
--- -------------------------------------------------------------------
--- --Transactions
--- ------------------------------------------------------------------- 
+---------------------------------------------------------------------
+----Transactions
+--------------------------------------------------------------------- 
 
 -- -- Add new product with new images
 
--- BEGIN TRANSACTION;
--- SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+--BEGIN TRANSACTION;
+--SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
  
--- -- Insert product
+--Insert product
 --  INSERT INTO product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) 
--- VALUES ($stock, $price, $model, $category, $brandID, $cpuID, $ramID, $waterProofingID, $osID, $gpuID, $screenSizeID, $weightID, $storageID, $batteryID, $screenResID, $cameraResID, $fingerprintTypeID);
+--  VALUES ($stock, $price, $model, $category, $brandID, $cpuID, $ramID, $waterProofingID, $osID, $gpuID, $screenSizeID, $weightID, $storageID, $batteryID, $screenResID, $cameraResID, $fingerprintTypeID);
 
 -- -- Insert image
 --  INSERT INTO image (description, path)
@@ -430,15 +401,15 @@ execute procedure update_history();
 
 
 -- -- New purchase
+/*
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
 
---  INSERT INTO purchase (val, statusID, paid, userID)
--- VALUES ($val, $statusID, $paid, $userID);
+INSERT INTO purchase (val, statusID, paid, userID, purchaseDate) VALUES ($val, $statusID, $paid, $userID, ('now'::text)::date));
+INSERT INTO product_purchase (productID, purchaseID) VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
 
---  INSERT INTO product_purchase (productID, purchaseID)
--- VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
-
--- COMMIT;
-
+COMMIT;
+*/
 
 -------------------------------------------------------------------
 --Indexes
@@ -743,16 +714,16 @@ insert into purchasestate (stateChangedate, "comment", pState) values ('2010-12-
 
 /* purchase */
 
-insert into purchase (val, statusID, paid, userID) values (1600.37, 1, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (1588.99, 2, 2, 2);
-insert into purchase (val, statusID, paid, userID) values (1599.99, 3, 1, 3);
-insert into purchase (val, statusID, paid, userID) values (599.97, 4, 1, 4);
-insert into purchase (val, statusID, paid, userID) values (721, 5, 2, 5);
-insert into purchase (val, statusID, paid, userID) values (1099, 6, 2, 6);
-insert into purchase (val, statusID, paid, userID) values (829.99, 8, 1, 13);
-insert into purchase (val, statusID, paid, userID) values (1090.37, 10, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (1200.37, 11, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (100.37, 12, 1, 1);
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1600.37, 1, 1, 1, '2010-12-10');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1588.99, 2, 2, 2, '2010-12-11');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1599.99, 3, 1, 3, '2010-12-12');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (599.97, 4, 1, 4, '2010-12-13');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (721, 5, 2, 5, '2010-12-14');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1099, 6, 2, 6, '2010-12-15');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (829.99, 8, 1, 13, '2010-12-16');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1090.37, 10, 1, 1, '2010-12-17');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1200.37, 11, 1, 1, '2010-12-18');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (100.37, 12, 1, 1, '2010-12-19');
 
 
 /* product_purchase */
@@ -804,19 +775,6 @@ insert into wishlist (productID, userID) values (6, 11);
 insert into wishlist (productID, userID) values (7, 12);
 insert into wishlist (productID, userID) values (8, 10);
 insert into wishlist (productID, userID) values (9, 9);
-
-/* history */
-
-insert into history (productID, userID, purchaseDate) values (1, 1, '2012-12-12');
-insert into history (productID, userID, purchaseDate) values (2, 2, '2012-12-13');
-insert into history (productID, userID, purchaseDate) values (3, 3, '2015-08-16');
-insert into history (productID, userID, purchaseDate) values (4, 4, '2013-04-08');
-insert into history (productID, userID, purchaseDate) values (5, 5, '2017-04-06');
-insert into history (productID, userID, purchaseDate) values (6, 8, '2015-03-16');
-insert into history (productID, userID, purchaseDate) values (7, 9, '2013-02-18');
-insert into history (productID, userID, purchaseDate) values (8, 11, '2017-01-26');
-
-
 
 /* discount */
 

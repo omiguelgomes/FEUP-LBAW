@@ -44,14 +44,9 @@ class LoginController extends Controller
         return $request->user();
     }
 
-<<<<<<< HEAD
-    public function home() {
-        return redirect('login');
-=======
     public function home()
     {
         return redirect('/home');
->>>>>>> 08184efb404a97a0ab988ef727f03283e0538aae
     }
 
     public function showLoginForm()

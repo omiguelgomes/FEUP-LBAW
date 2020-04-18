@@ -35,6 +35,5 @@
                 </a>
             </td>
         @endif
-
     </tr>
 @endforeach

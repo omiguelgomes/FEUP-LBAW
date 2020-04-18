@@ -211,9 +211,9 @@ create table wishlist
 create table purchasestate
 (
     id              serial          primary key,
-    stateChangedate date            not null,
+    statechangedate date            not null,
     "comment"       text,
-    pState          purchase_state  not null
+    pstate          purchase_state  not null
 );
 
 create table payment
@@ -226,10 +226,10 @@ create table purchase
 (
     id       serial primary key,
     val      double precision not null,
-    statusID integer          not null references purchasestate (id) on delete cascade,
+    statusid integer          not null references purchasestate (id) on delete cascade,
     paid     integer          not null references payment (id) on delete cascade,
-    userID   integer          not null references users (id) on delete cascade,
-    purchaseDate date         not null,
+    userid   integer          not null references users (id) on delete cascade,
+    purchasedate date         not null,
     constraint val check (val > (0)::double precision)
 );
 
@@ -261,10 +261,10 @@ create table image_product
 
 create table product_purchase
 (
-    productID  integer references product (id) on delete cascade,
-    purchaseID integer references purchase (id) on delete cascade,
+    productid  integer references product (id) on delete cascade,
+    purchaseid integer references purchase (id) on delete cascade,
     quantity integer not null,
-    primary key (productID, purchaseID)
+    primary key (productid, purchaseid)
 );
 
 ---------------------------------------------------------------------
@@ -276,11 +276,11 @@ create function add_review() returns trigger as
 $body$
 begin
 	if not exists(
-		select product_purchase.productID
+		select product_purchase.productid
 		from purchase, product_purchase, users
-		where product_purchase.purchaseID = purchase.id and
-		New.userID = purchase.userID and
-		New.id = product_purchase.productID
+		where product_purchase.purchaseid = purchase.id and
+		New.userID = purchase.userid and
+		New.id = product_purchase.productid
 	)
 	then raise exception 'You cannot review a product you have not bought!';
 	end if;
@@ -303,7 +303,7 @@ begin
 	if exists(
 		select product.stock 
 			from product
-			where product.id = New.productID and
+			where product.id = New.productid and
 			product.stock < New.quantity
 	)
 	then raise exception 'Product out of stock!';
@@ -344,7 +344,7 @@ $body$
 begin
 	update product
 	set stock = product.stock - New.quantity
-	where product.id = New.productID;
+	where product.id = New.productid;
 	
 	return NEW;
 end
@@ -405,8 +405,8 @@ execute procedure update_stock();
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
 
-INSERT INTO purchase (val, statusID, paid, userID, purchaseDate) VALUES ($val, $statusID, $paid, $userID, ('now'::text)::date));
-INSERT INTO product_purchase (productID, purchaseID) VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
+INSERT INTO purchase (val, statusid, paid, userid, purchasedate) VALUES ($val, $statusid, $paid, $userid, ('now'::text)::date));
+INSERT INTO product_purchase (productid, purchaseid) VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
 
 COMMIT;
 */
@@ -460,8 +460,8 @@ insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
 
 /* users */
 
-insert into users (name, email, birthDate, password, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18); /* Pass: 123456 (é igual em todas abaixo)*/
-insert into users (name, email, birthDate, password, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 17);
+insert into users (name, email, birthDate, password, imageID) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 18); /* Pass: 123456 (é igual em todas abaixo)*/
+insert into users (name, email, birthDate, password, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
 insert into users (name, email, birthDate, password, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
 insert into users (name, email, birthDate, password, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
 insert into users (name, email, birthDate, password, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
@@ -470,7 +470,7 @@ insert into users (name, email, birthDate, password, imageID) values ('Wood Lage
 insert into users (name, email, birthDate, password, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
 insert into users (name, email, birthDate, password, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.pt', '2016-10-29', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
 insert into users (name, email, birthDate, password, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
-insert into users (name, email, birthDate, password, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 17);
+insert into users (name, email, birthDate, password, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
 insert into users (name, email, birthDate, password, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
 insert into users (name, email, birthDate, password, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
 insert into users (name, email, birthDate, password, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
@@ -702,50 +702,50 @@ insert into product (stock, price, model, category, brandID, cpuID, ramID, water
 
 /* purchase State */
 
-insert into purchasestate (stateChangedate, "comment", pState) values ('2012-12-13', 'payment please!','Awaiting Payment');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2012-12-14', 'please wait, in process','Processing');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2012-12-15', 'shipped with success','Delivered');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2017-07-16', 'payment please!','Awaiting Payment');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2018-05-17', 'please wait, in process','Processing');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2016-02-18', 'shipped with success','Sent');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2019-01-16', 'payment please!','Awaiting Payment');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2015-04-17', 'please wait, in process','Processing');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2015-08-18', 'shipped with success','Sent');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2012-05-12', 'shipped with success','Sent');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2011-04-17', 'please wait, in process','Processing');
-insert into purchasestate (stateChangedate, "comment", pState) values ('2010-12-10', 'shipped with success','Delivered');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-13', 'payment please!','Awaiting Payment');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-14', 'please wait, in process','Processing');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-15', 'shipped with success','Delivered');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2017-07-16', 'payment please!','Awaiting Payment');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2018-05-17', 'please wait, in process','Processing');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2016-02-18', 'shipped with success','Sent');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2019-01-16', 'payment please!','Awaiting Payment');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2015-04-17', 'please wait, in process','Processing');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2015-08-18', 'shipped with success','Sent');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2012-05-12', 'shipped with success','Sent');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2011-04-17', 'please wait, in process','Processing');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2010-12-10', 'shipped with success','Delivered');
 
 
 /* purchase */
 
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (1600.37, 1, 1, 1, '2010-12-10');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (1588.99, 2, 2, 2, '2010-12-11');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (1599.99, 3, 1, 3, '2010-12-12');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (599.97, 4, 1, 4, '2010-12-13');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (721, 5, 2, 5, '2010-12-14');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (1099, 6, 2, 6, '2010-12-15');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (829.99, 8, 1, 13, '2010-12-16');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (1090.37, 10, 1, 1, '2010-12-17');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (1200.37, 11, 1, 1, '2010-12-18');
-insert into purchase (val, statusID, paid, userID, purchaseDate) values (100.37, 12, 1, 1, '2010-12-19');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (1600.37, 1, 1, 1, '2010-12-10');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (1588.99, 2, 2, 2, '2010-12-11');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (1599.99, 3, 1, 3, '2010-12-12');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (599.97, 4, 1, 4, '2010-12-13');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (721, 5, 2, 5, '2010-12-14');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (1099, 6, 2, 6, '2010-12-15');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (829.99, 8, 1, 13, '2010-12-16');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (1090.37, 10, 1, 1, '2010-12-17');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (1200.37, 11, 1, 1, '2010-12-18');
+insert into purchase (val, statusid, paid, userid, purchasedate) values (100.37, 12, 1, 1, '2010-12-19');
 
 
 /* product_purchase */
 
-insert into product_purchase (productID, purchaseID, quantity) values (1, 1, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (2, 1, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (3, 1, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (4, 2, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (5, 2, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (6, 4, 2);
-insert into product_purchase (productID, purchaseID, quantity) values (7, 3, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (8, 5, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (9, 6, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (11, 7, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (1, 1, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (2, 1, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (3, 1, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (4, 2, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (5, 2, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (6, 4, 2);
+insert into product_purchase (productid, purchaseid, quantity) values (7, 3, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (8, 5, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (9, 6, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (11, 7, 1);
 
-insert into product_purchase (productID, purchaseID, quantity) values (10, 8, 1);
-insert into product_purchase (productID, purchaseID, quantity) values (5, 9, 3);
-insert into product_purchase (productID, purchaseID, quantity) values (2, 10, 2);
+insert into product_purchase (productid, purchaseid, quantity) values (10, 8, 1);
+insert into product_purchase (productid, purchaseid, quantity) values (5, 9, 3);
+insert into product_purchase (productid, purchaseid, quantity) values (2, 10, 2);
 
 
 /* cart */

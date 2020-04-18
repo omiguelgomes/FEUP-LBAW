@@ -25,10 +25,10 @@ create table image
 create table users
 (
     id        serial primary key,
-    name      text        not null,
-    email     text unique not null,
+    name      varchar        not null,
+    email     varchar unique not null,
     birthdate date        not null default ('now'::text)::date,
-    pass      text        not null,
+    password      varchar        not null,
     imageID integer not null references image(id) on delete cascade default 1,
     isAdmin   boolean default false
 );
@@ -229,6 +229,7 @@ create table purchase
     statusID integer          not null references purchasestate (id) on delete cascade,
     paid     integer          not null references payment (id) on delete cascade,
     userID   integer          not null references users (id) on delete cascade,
+    purchaseDate date         not null,
     constraint val check (val > (0)::double precision)
 );
 
@@ -264,14 +265,6 @@ create table product_purchase
     purchaseID integer references purchase (id) on delete cascade,
     quantity integer not null,
     primary key (productID, purchaseID)
-);
-
-create table history
-(
-    productID    integer references product (id) on delete cascade,
-    userID       integer references users (id) on delete cascade,
-    purchaseDate date not null,
-    primary key (productID, userID)
 );
 
 ---------------------------------------------------------------------
@@ -363,41 +356,19 @@ after insert on product_purchase
 for each row
 execute procedure update_stock();
 
-/*
---Trigger and UDF 5
-create function update_history() returns trigger as
-$body$
-declare uid integer;
-begin
-    select purchase.userID INTO uid
-        from purchase
-        where purchase.id = NEW.purchaseID;
 
-    insert into history (productID, userID, purchaseDate) values (NEW.productID, uid, ('now'::text)::date);
-	
-	return NEW;
-end
-$body$
-language plpgsql;
-
-create trigger update_history
-after insert on product_purchase
-for each row
-execute procedure update_history();
-*/
-
--- -------------------------------------------------------------------
--- --Transactions
--- ------------------------------------------------------------------- 
+---------------------------------------------------------------------
+----Transactions
+--------------------------------------------------------------------- 
 
 -- -- Add new product with new images
 
--- BEGIN TRANSACTION;
--- SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+--BEGIN TRANSACTION;
+--SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
  
--- -- Insert product
+--Insert product
 --  INSERT INTO product (stock, price, model, category, brandID, cpuID, ramID, waterProofingID, osID, gpuID, screenSizeID, weightID, storageID, batteryID, screenResID, cameraResID, fingerprintTypeID) 
--- VALUES ($stock, $price, $model, $category, $brandID, $cpuID, $ramID, $waterProofingID, $osID, $gpuID, $screenSizeID, $weightID, $storageID, $batteryID, $screenResID, $cameraResID, $fingerprintTypeID);
+--  VALUES ($stock, $price, $model, $category, $brandID, $cpuID, $ramID, $waterProofingID, $osID, $gpuID, $screenSizeID, $weightID, $storageID, $batteryID, $screenResID, $cameraResID, $fingerprintTypeID);
 
 -- -- Insert image
 --  INSERT INTO image (description, path)
@@ -430,15 +401,15 @@ execute procedure update_history();
 
 
 -- -- New purchase
+/*
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
 
---  INSERT INTO purchase (val, statusID, paid, userID)
--- VALUES ($val, $statusID, $paid, $userID);
+INSERT INTO purchase (val, statusID, paid, userID, purchaseDate) VALUES ($val, $statusID, $paid, $userID, ('now'::text)::date));
+INSERT INTO product_purchase (productID, purchaseID) VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
 
---  INSERT INTO product_purchase (productID, purchaseID)
--- VALUES ($productID, currval(g_get_serial_sequence('purchase', 'id')));
-
--- COMMIT;
-
+COMMIT;
+*/
 
 -------------------------------------------------------------------
 --Indexes
@@ -489,25 +460,26 @@ insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
 
 /* users */
 
-insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb', 18);
-insert into users (name, email, birthDate, pass, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003', 19);
-insert into users (name, email, birthDate, pass, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', 'dea4b3c8182eeb9f4374411d22b70ac262c', 20);
-insert into users (name, email, birthDate, pass, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', 'd4d88ee5cbd69740f84063d3609f2052be5', 21);
-insert into users (name, email, birthDate, pass, imageID) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '9a54964ae2495fe6104cf4866710b9cda78', 22);
-insert into users (name, email, birthDate, pass, imageID) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', 'db4fcfe8b060424f9beebc8ad3e7d6983cb', 21);
-insert into users (name, email, birthDate, pass, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', 'a93eb19e24c05cfc40f19e4969293cb877c', 20);
-insert into users (name, email, birthDate, pass, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.ru', '2016-10-29', 'efaf41c528c8bae0a4230e6f8fce9510c09', 19);
-insert into users (name, email, birthDate, pass, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '000526527c515b08fad2030897f7e4e7b60', 18);
-insert into users (name, email, birthDate, pass, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '7071ca563d5443dc392d3af354d94d5c4dd', 17);
-insert into users (name, email, birthDate, pass, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', 'b6d16fd8f73bffdc99ee1f7488aa8fa506b', 18);
-insert into users (name, email, birthDate, pass, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', 'e87aeb4fb4b88b66638b784ffe1f38662cd', 19);
-insert into users (name, email, birthDate, pass, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 20);
-insert into users (name, email, birthDate, pass, imageID) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '5069ee14c07061adeafc66bf55ca236830f', 21);
-insert into users (name, email, birthDate, pass, imageID) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', 'b6d16fd8f73bffdc99ee1f7488a48fa506b', 22);
-insert into users (name, email, birthDate, pass, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdef4dd', 21);
-insert into users (name, email, birthDate, pass, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3f38662cd', 20);
-insert into users (name, email, birthDate, pass, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea4d94d5c4dd', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18); /* Pass: 123456 (é igual em todas abaixo)*/
+insert into users (name, email, birthDate, password, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 17);
+insert into users (name, email, birthDate, password, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 22);
+insert into users (name, email, birthDate, password, imageID) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.pt', '2016-10-29', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
+insert into users (name, email, birthDate, password, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 17);
+insert into users (name, email, birthDate, password, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
+insert into users (name, email, birthDate, password, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 22);
+insert into users (name, email, birthDate, password, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 19); /* Pass: 1234*/
 
 /* country */
 
@@ -524,6 +496,7 @@ insert into country (name) values ('Czech Republic');
 insert into country (name) values ('Sweden');
 insert into country (name) values ('Ukraine');
 insert into country (name) values ('South Korea');
+insert into country (name) values ('Portugal');
 
 
 /* city */
@@ -541,6 +514,7 @@ insert into city (name, countryID) values ('Prague', 10);
 insert into city (name, countryID) values ('Stockholm', 11);
 insert into city (name, countryID) values ('Kiev', 12);
 insert into city (name, countryID) values ('Seul', 13);
+insert into city (name, countryID) values ('Paredes', 14);
 
 
 /* address */
@@ -564,6 +538,7 @@ insert into address (street, postalCode, userID, cityID, countryID) values ('Bei
 insert into address (street, postalCode, userID, cityID, countryID) values ('Acker', '1241-524', 17, 9, 9);
 insert into address (street, postalCode, userID, cityID, countryID) values ('Sundown', '2540-541', 18, 8, 8);
 insert into address (street, postalCode, userID, cityID, countryID) values ('Dovetail', '5241-545', 19, 7, 7);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Igreja Velha', '4501-505', 20, 14, 14);
 
 /* FAQ */
 
@@ -743,16 +718,16 @@ insert into purchasestate (stateChangedate, "comment", pState) values ('2010-12-
 
 /* purchase */
 
-insert into purchase (val, statusID, paid, userID) values (1600.37, 1, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (1588.99, 2, 2, 2);
-insert into purchase (val, statusID, paid, userID) values (1599.99, 3, 1, 3);
-insert into purchase (val, statusID, paid, userID) values (599.97, 4, 1, 4);
-insert into purchase (val, statusID, paid, userID) values (721, 5, 2, 5);
-insert into purchase (val, statusID, paid, userID) values (1099, 6, 2, 6);
-insert into purchase (val, statusID, paid, userID) values (829.99, 8, 1, 13);
-insert into purchase (val, statusID, paid, userID) values (1090.37, 10, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (1200.37, 11, 1, 1);
-insert into purchase (val, statusID, paid, userID) values (100.37, 12, 1, 1);
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1600.37, 1, 1, 1, '2010-12-10');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1588.99, 2, 2, 2, '2010-12-11');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1599.99, 3, 1, 3, '2010-12-12');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (599.97, 4, 1, 4, '2010-12-13');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (721, 5, 2, 5, '2010-12-14');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1099, 6, 2, 6, '2010-12-15');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (829.99, 8, 1, 13, '2010-12-16');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1090.37, 10, 1, 1, '2010-12-17');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (1200.37, 11, 1, 1, '2010-12-18');
+insert into purchase (val, statusID, paid, userID, purchaseDate) values (100.37, 12, 1, 1, '2010-12-19');
 
 
 /* product_purchase */
@@ -804,19 +779,6 @@ insert into wishlist (productID, userID) values (6, 11);
 insert into wishlist (productID, userID) values (7, 12);
 insert into wishlist (productID, userID) values (8, 10);
 insert into wishlist (productID, userID) values (9, 9);
-
-/* history */
-
-insert into history (productID, userID, purchaseDate) values (1, 1, '2012-12-12');
-insert into history (productID, userID, purchaseDate) values (2, 2, '2012-12-13');
-insert into history (productID, userID, purchaseDate) values (3, 3, '2015-08-16');
-insert into history (productID, userID, purchaseDate) values (4, 4, '2013-04-08');
-insert into history (productID, userID, purchaseDate) values (5, 5, '2017-04-06');
-insert into history (productID, userID, purchaseDate) values (6, 8, '2015-03-16');
-insert into history (productID, userID, purchaseDate) values (7, 9, '2013-02-18');
-insert into history (productID, userID, purchaseDate) values (8, 11, '2017-01-26');
-
-
 
 /* discount */
 

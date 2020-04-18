@@ -6,7 +6,6 @@ class AdminProfileController extends Controller
 {
     public function show()
     {
-
       return view('pages.adminProfile');
     }
 }

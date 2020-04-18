@@ -36,7 +36,7 @@ Route::post('register', 'Auth\RegisterController@register')->name('register');
 //Page to go to by default
 Route::get('/', 'HomeController@show');
 
-Route::get('home', 'HomeController@show');
+Route::get('home', 'HomeController@show')->name('home');
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
 Route::get('wishlist', 'WishlistController@show');

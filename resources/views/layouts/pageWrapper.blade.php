@@ -58,7 +58,6 @@
             <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">Phone
         </a>
     </nav>
-    <div class="container">
         <div class="row">
             <div class="col-6 bg-light text-center" style="padding-right: -15px; padding-left: -15px;">
                 <h5 style="color: black;">Contact us</h5>
@@ -77,7 +76,6 @@
                 <a class="font-weight-bold" href="{{ url('about') }}">About us</a>
             </div> 
         </div>
-    </div>
 </footer>
 
 </html>

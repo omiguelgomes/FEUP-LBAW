@@ -195,17 +195,17 @@ create table rating
 create table cart
 (
     productID integer references product (id) on delete cascade,
-    userID    integer references users (id) on delete cascade,
+    userid    integer references users (id) on delete cascade,
     quant     integer not null,
     constraint quant check (quant > 0),
-    primary key (productID, userID)
+    primary key (productID, userid)
 );
 
 create table wishlist
 (
     productID integer references product (id) on delete cascade,
-    userID    integer references users (id) on delete cascade,
-    primary key (productID, userID)
+    userid    integer references users (id) on delete cascade,
+    primary key (productID, userid)
 );
 
 create table purchasestate
@@ -325,7 +325,7 @@ create function clear_cart() returns trigger as
 $body$
 begin
 	delete from cart
-	where cart.userID = New.userID;
+	where cart.userid = New.userid;
 	
 	return new;
 end
@@ -746,35 +746,35 @@ insert into product_purchase (productID, purchaseID, quantity) values (2, 10, 2)
 
 /* cart */
 
-insert into cart (productID, userID, quant) values (1, 1, 1);
-insert into cart (productID, userID, quant) values (5, 1, 3);
-insert into cart (productID, userID, quant) values (2, 1, 2);
+insert into cart (productID, userid, quant) values (1, 1, 1);
+insert into cart (productID, userid, quant) values (2, 1, 2);
+insert into cart (productID, userid, quant) values (5, 1, 3);
 
-insert into cart (productID, userID, quant) values (2, 2, 2);
-insert into cart (productID, userID, quant) values (3, 3, 3);
-insert into cart (productID, userID, quant) values (4, 4, 4);
-insert into cart (productID, userID, quant) values (5, 5, 3);
-insert into cart (productID, userID, quant) values (6, 8, 1);
-insert into cart (productID, userID, quant) values (7, 10, 1);
-insert into cart (productID, userID, quant) values (8, 12, 3);
+insert into cart (productID, userid, quant) values (2, 2, 2);
+insert into cart (productID, userid, quant) values (3, 3, 3);
+insert into cart (productID, userid, quant) values (4, 4, 4);
+insert into cart (productID, userid, quant) values (5, 5, 3);
+insert into cart (productID, userid, quant) values (6, 8, 1);
+insert into cart (productID, userid, quant) values (7, 10, 1);
+insert into cart (productID, userid, quant) values (8, 12, 3);
 
 /* wishlist */
 
-insert into wishlist (productID, userID) values (1, 1);
-insert into wishlist (productID, userID) values (7, 1);
-insert into wishlist (productID, userID) values (2, 1);
-insert into wishlist (productID, userID) values (5, 1);
-insert into wishlist (productID, userID) values (3, 1);
-insert into wishlist (productID, userID) values (9, 1);
+insert into wishlist (productID, userid) values (1, 1);
+insert into wishlist (productID, userid) values (7, 1);
+insert into wishlist (productID, userid) values (2, 1);
+insert into wishlist (productID, userid) values (5, 1);
+insert into wishlist (productID, userid) values (3, 1);
+insert into wishlist (productID, userid) values (9, 1);
 
-insert into wishlist (productID, userID) values (2, 2);
-insert into wishlist (productID, userID) values (3, 3);
-insert into wishlist (productID, userID) values (4, 4);
-insert into wishlist (productID, userID) values (5, 5);
-insert into wishlist (productID, userID) values (6, 11);
-insert into wishlist (productID, userID) values (7, 12);
-insert into wishlist (productID, userID) values (8, 10);
-insert into wishlist (productID, userID) values (9, 9);
+insert into wishlist (productID, userid) values (2, 2);
+insert into wishlist (productID, userid) values (3, 3);
+insert into wishlist (productID, userid) values (4, 4);
+insert into wishlist (productID, userid) values (5, 5);
+insert into wishlist (productID, userid) values (6, 11);
+insert into wishlist (productID, userid) values (7, 12);
+insert into wishlist (productID, userid) values (8, 10);
+insert into wishlist (productID, userid) values (9, 9);
 
 /* discount */
 

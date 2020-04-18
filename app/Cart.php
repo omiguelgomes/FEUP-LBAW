@@ -10,6 +10,11 @@ class Cart extends Model
   public $timestamps  = false;
   protected $table = 'public.cart';
 
+  //so that it works with composite key
+  protected $primaryKey = null;
+  public $incrementing = false;
+
+  //make variables alterable
   protected $fillable = [
     'userID', 'productID', 'quant' 
   ];

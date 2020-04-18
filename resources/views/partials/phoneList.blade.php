@@ -16,7 +16,7 @@
 @foreach($products as $product)
     <tr>
         <td>
-            <a href="{{ url('phone') }}">
+            <a href="{{ url('product/'.$product->id) }}">
             <img src="{{ asset('images/'.$product->image()[0]) }}" alt="..." style="width:80px;">
         </td>
         <td>

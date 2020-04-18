@@ -10,7 +10,6 @@ class WishlistController extends Controller
 {
     public function show()
     {
-      //will be obtained through session in the future
       if (!Auth::check()) return redirect('/register');
 
       $user = Auth::user();

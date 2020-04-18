@@ -52,12 +52,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 <footer>
+    <br>
     <nav class="navbar navbar-light bg-light justify-content-center">
         <a class="navbar-brand" href="{{ url('home') }}">
             <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">Phone
         </a>
     </nav>
-    <div class="container">
         <div class="row">
             <div class="col-6 bg-light text-center" style="padding-right: -15px; padding-left: -15px;">
                 <h5 style="color: black;">Contact us</h5>
@@ -76,7 +76,6 @@
                 <a class="font-weight-bold" href="{{ url('about') }}">About us</a>
             </div> 
         </div>
-    </div>
 </footer>
 
 </html>

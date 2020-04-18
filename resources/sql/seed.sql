@@ -25,10 +25,10 @@ create table image
 create table users
 (
     id        serial primary key,
-    name      text        not null,
-    email     text unique not null,
+    name      varchar        not null,
+    email     varchar unique not null,
     birthdate date        not null default ('now'::text)::date,
-    pass      text        not null,
+    password      varchar        not null,
     imageID integer not null references image(id) on delete cascade default 1,
     isAdmin   boolean default false
 );
@@ -460,6 +460,7 @@ insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
 
 /* users */
 
+<<<<<<< HEAD
 insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'miguelrgomes1698@gmail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 18);
 insert into users (name, email, birthDate, pass, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752', 17);
 insert into users (name, email, birthDate, pass, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003', 19);
@@ -479,6 +480,28 @@ insert into users (name, email, birthDate, pass, imageID) values ('Karlens Bambe
 insert into users (name, email, birthDate, pass, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '7071ca563d5443dc392d3afea77fbdef4dd', 21);
 insert into users (name, email, birthDate, pass, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', 'e87aeb4fb4b88b66638beb264e3f38662cd', 20);
 insert into users (name, email, birthDate, pass, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '7071ca563d5443dc392d3afea4d94d5c4dd', 19);
+=======
+insert into users (name, email, birthDate, password, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18); /* Pass: 123456 (é igual em todas abaixo)*/
+insert into users (name, email, birthDate, password, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 17);
+insert into users (name, email, birthDate, password, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 22);
+insert into users (name, email, birthDate, password, imageID) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.pt', '2016-10-29', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
+insert into users (name, email, birthDate, password, imageID) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 17);
+insert into users (name, email, birthDate, password, imageID) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
+insert into users (name, email, birthDate, password, imageID) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 22);
+insert into users (name, email, birthDate, password, imageID) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
+insert into users (name, email, birthDate, password, imageID) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
+insert into users (name, email, birthDate, password, imageID) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
+insert into users (name, email, birthDate, password, imageID) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 19); /* Pass: 1234*/
+>>>>>>> 08184efb404a97a0ab988ef727f03283e0538aae
 
 /* country */
 
@@ -495,6 +518,7 @@ insert into country (name) values ('Czech Republic');
 insert into country (name) values ('Sweden');
 insert into country (name) values ('Ukraine');
 insert into country (name) values ('South Korea');
+insert into country (name) values ('Portugal');
 
 
 /* city */
@@ -512,6 +536,7 @@ insert into city (name, countryID) values ('Prague', 10);
 insert into city (name, countryID) values ('Stockholm', 11);
 insert into city (name, countryID) values ('Kiev', 12);
 insert into city (name, countryID) values ('Seul', 13);
+insert into city (name, countryID) values ('Paredes', 14);
 
 
 /* address */
@@ -535,6 +560,7 @@ insert into address (street, postalCode, userID, cityID, countryID) values ('Bei
 insert into address (street, postalCode, userID, cityID, countryID) values ('Acker', '1241-524', 17, 9, 9);
 insert into address (street, postalCode, userID, cityID, countryID) values ('Sundown', '2540-541', 18, 8, 8);
 insert into address (street, postalCode, userID, cityID, countryID) values ('Dovetail', '5241-545', 19, 7, 7);
+insert into address (street, postalCode, userID, cityID, countryID) values ('Igreja Velha', '4501-505', 20, 14, 14);
 
 /* FAQ */
 

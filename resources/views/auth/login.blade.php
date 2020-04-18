@@ -1,32 +1,42 @@
-@extends('layouts.app')
+@extends('layouts.pageWrapper')
 
 @section('content')
-<form method="POST" action="{{ route('login') }}">
+
+@include('partials.jumboTitle',['title' => 'Login'])
+
+<div class="container">
+    <form method="POST" action="{{ route('login') }}">
     {{ csrf_field() }}
+    
+        <label for="email">Email address</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="email@example.com" required autofocus>
 
-    <label for="email">E-mail</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-    @if ($errors->has('email'))
+        <br>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <br>
+
         <span class="error">
-          {{ $errors->first('email') }}
+            @if($errors->all())
+            @foreach($errors->all() as $error)
+            <div class="alert alert-danger" role="alert">
+                {{$error}}
+            </div>
+            @endforeach
+            @endif
         </span>
-    @endif
 
-    <label for="password" >Password</label>
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-        <span class="error">
-            {{ $errors->first('password') }}
-        </span>
-    @endif
+        <label>
+            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+        </label>
 
-    <label>
-        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-    </label>
+        &nbsp;
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
-    <button type="submit">
-        Login
-    </button>
-    <a class="button button-outline" href="{{ route('register') }}">Register</a>
-</form>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ url('register') }}">New around here? Sign up</a>
+        <a class="dropdown-item" href="#">Forgot password?</a>
+    </form>
+    <br>
+</div>
 @endsection

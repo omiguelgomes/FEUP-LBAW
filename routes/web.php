@@ -26,8 +26,12 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 //Page to go to by default
 Route::get('/', 'HomeController@show');
 
+<<<<<<< HEAD
 //Regular pages
 Route::get('home', 'HomeController@show');
+=======
+Route::get('home', 'HomeController@show')->name('home');
+>>>>>>> 08184efb404a97a0ab988ef727f03283e0538aae
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
 Route::get('wishlist', 'WishlistController@show');

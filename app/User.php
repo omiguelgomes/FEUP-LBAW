@@ -87,4 +87,6 @@ class User extends Authenticatable
     protected $hidden = [
         'pass', 'isAdmin',
     ];
+
+    
 }

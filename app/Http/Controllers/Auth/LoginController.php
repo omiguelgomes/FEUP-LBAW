@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -37,12 +39,41 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function getUser(){
+    public function getUser()
+    {
         return $request->user();
     }
 
+<<<<<<< HEAD
     public function home() {
         return redirect('login');
+=======
+    public function home()
+    {
+        return redirect('/home');
+>>>>>>> 08184efb404a97a0ab988ef727f03283e0538aae
     }
 
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+
+        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL))
+            return redirect()->back()->withInput()->withErrors(['The email entered is not valid']); 
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('home');
+        }
+
+        return redirect()->back()->withInput()->withErrors(['The email and password do not match']); 
+    }
 }

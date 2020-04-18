@@ -56,7 +56,9 @@
             <h5><b>{{$product->price}}€</b></h5>
             </div>
             <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-primary">Add to Cart</button>&nbsp;&nbsp;
+                <a href="{{ url('/product/'.$product->id.'/cart') }}" class="button btn-primary rounded p-1 mx-1">
+                    Add to Cart
+                </a>
                 <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="cart_image">
             </div>
         </div>

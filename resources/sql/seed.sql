@@ -489,7 +489,7 @@ insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
 
 /* users */
 
-insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'tkohnen0@ycombinator.com', '2016-02-27', 'f1816fd50f9c029bf7f0b3fd99fe80170cb', 18);
+insert into users (name, email, birthDate, pass, imageID) values ('Tynan Kohnen', 'miguelrgomes1698@gmail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 18);
 insert into users (name, email, birthDate, pass, imageID) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '1df9f0c195a54038c0437244c86f89ea752', 17);
 insert into users (name, email, birthDate, pass, imageID) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', 'f0967d8a2b50d1cb31b22ac9b8959a9f003', 19);
 insert into users (name, email, birthDate, pass, imageID) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', 'dea4b3c8182eeb9f4374411d22b70ac262c', 20);

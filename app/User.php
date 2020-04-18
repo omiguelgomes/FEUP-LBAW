@@ -50,17 +50,19 @@ class User extends Authenticatable
     public function purchases()
     {
         $purchasesList = $this->hasMany('App\Purchase', 'userid')->get();
-        $purchases = [];
         $purchases['Awaiting Payment'] = [];
         $purchases['Processing'] = [];
         $purchases['Sent'] = [];
         $purchases['Delivered'] = [];
-
+        
         foreach($purchasesList as $purchase)
         {
-        array_push($purchases[$purchase->state['pstate']], $purchase->details());
+            foreach($purchase->details() as $product)
+            {
+                array_push($purchases[$purchase->state['pstate']], $product);
+            }
         }
-
+        
         return $purchases;
     }
 

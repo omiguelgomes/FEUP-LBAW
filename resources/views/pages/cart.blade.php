@@ -19,10 +19,14 @@
 
         <div class="d-flex">
             <div class="p-2 bd-highlight">
-                <button type="button" class="btn btn-primary bg-white text-primary">Continue shopping</button>
+                <button type="button" class="btn btn-primary">Continue shopping</button>
             </div>
             <div class="ml-auto p-2 bd-highlight">
-                <button type="button" class="btn btn-primary">Proceed with purchase</button>
+                @if(count($cart['products']) > 0)
+                    <a href="{{ url('/cart/buy') }}" class="button btn-primary rounded p-1 m-5">
+                        Proceed with purchase
+                    </a>
+                @endif
             </div>
         </div>
 

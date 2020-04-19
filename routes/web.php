@@ -44,6 +44,7 @@ Route::get('product/{id}', 'ProductController@show');
 //Wishlist
 Route::get('wishlist', 'WishlistController@show');
 Route::get('wishlist/remove/{id}', 'WishlistController@remove');
+Route::get('product/{id}/wishlist', 'WishlistController@add');
 
 
 

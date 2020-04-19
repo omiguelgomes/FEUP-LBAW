@@ -61,6 +61,11 @@
                 </a>
                 <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="cart_image">
             </div>
+            <div class="col d-flex justify-content-center">
+                <a href="{{ url('/product/'.$product->id.'/wishlist') }}" class="button btn-primary rounded p-1 mx-1">
+                    Add to Wishlist
+                </a>
+            </div>
         </div>
     
         <div class="row d-flex justify-content-center my-5">

@@ -29,4 +29,18 @@ class WishlistController extends Controller
 
       return redirect('wishlist');
     }
+
+    public function add($id)
+    {
+      //should probably make some verification to this id beforehand
+      if (!Auth::check()) 
+        return redirect('/register');
+      else
+          $user = Auth::user();
+
+        DB::insert('insert into wishlist (productid, userid) values (:pid, :uid)',
+      ['pid' => $id, 'uid' => $user->id]);
+      
+      return redirect('wishlist');
+    } 
 }

@@ -27,7 +27,7 @@
                     <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary ml-1 px-1"> Add to cart <i class="fas fa-cart-arrow-down"></i></a>
                   </div>
 
-                  <a href="#" class="btn text-danger my-3">Remove from wishlist</a>
+                  <a href="{{ url('wishlist/remove/'.$product->id)}}" class="btn text-danger my-3">Remove from wishlist</a>
               </div>
           </div>
         </div>

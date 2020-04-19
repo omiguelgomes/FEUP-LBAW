@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Wishlist;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class WishlistController extends Controller
 {
@@ -15,5 +15,18 @@ class WishlistController extends Controller
       $user = Auth::user();
       $wishlist = $user->wishlist();
       return view('pages.wishlist')->with('wishlist', $wishlist);
+    }
+
+    public function remove($id)
+    {
+      //temporary so it doesn't break while auth is incomplete
+      if (!Auth::check()) 
+          $user = User::find(1);
+      else
+          $user = Auth::user();
+
+      DB::delete('delete from wishlist where productid = :pid and userid = :uid', ['pid' => $id, 'uid' => $user->id]);
+
+      return redirect('wishlist');
     }
 }

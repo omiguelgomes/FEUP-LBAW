@@ -29,7 +29,6 @@ Route::get('/', 'HomeController@show');
 Route::get('home', 'HomeController@show')->name('home');
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
-Route::get('wishlist', 'WishlistController@show');
 Route::get('adminPage', 'AdminProfileController@show');
 
 //Cart
@@ -41,6 +40,11 @@ Route::get('cart/remove/{id}', 'CartController@remove');
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
+
+//Wishlist
+Route::get('wishlist', 'WishlistController@show');
+Route::get('wishlist/remove/{id}', 'WishlistController@remove');
+
 
 
 Route::get('search', 'SearchController@show');

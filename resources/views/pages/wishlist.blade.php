@@ -23,7 +23,7 @@
 
                   {{-- cant center this for every size, always breaks fsr --}}
                   <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="#" class="btn btn-primary mr-1 px-1"> Buy now <i class="fas fa-euro-sign"></i></a>
+                    <a href="{{ url('/product/'.$product->id.'/buy')}}" class="btn btn-primary mr-1 px-1"> Buy now <i class="fas fa-euro-sign"></i></a>
                     <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary ml-1 px-1"> Add to cart <i class="fas fa-cart-arrow-down"></i></a>
                   </div>
 

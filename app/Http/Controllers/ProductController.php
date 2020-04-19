@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\PurchaseState;
+use App\Purchase;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,16 +18,34 @@ class ProductController extends Controller
       return view('pages.product')->with('product', $product);
     }
 
-    public function buyProduct($productID, $statusID, $paid, $quantity)
+    public function buy($id)
     {
-      $id = Auth()::id;
-      $product = Product::findOrFail($productID);
-      $val = $quantity * $product->price;
+      //temporary so it doesn't break while auth is incomplete
+      if (!Auth::check()) 
+          $user = User::find(1);
+      else
+          $user = Auth::user();
 
-      DB::transaction(function()
-      {
-        $newPurchase = Purchase::create($val, $statusID, $paid, $id);
-        $newPP = ProductPurchase::create($productID, $newPurchase->id, $quantity);
-      });
+      $product = Product::find($id);
+
+      $newPs = new PurchaseState();
+      $newPs->statechangedate = date("Y-m-d");
+      $newPs->comment = "Please Pay!";
+      $newPs->pstate = "Awaiting Payment";
+      $newPs->save();
+
+      $newPurchase = new Purchase();
+      $newPurchase->val = $product->price;
+      $newPurchase->statusid = $newPs->id;
+      //hard-coded payed by card
+      $newPurchase->paid = 1;
+      $newPurchase->userid = $user->id;
+      $newPurchase->purchasedate = date("Y-m-d");
+      $newPurchase->save();
+
+      DB::insert('insert into product_purchase (productid, purchaseid, quantity) values (:pid, :puid, 1)',
+      ['pid' => $product->id, 'puid' => $newPurchase->id]);
+
+      return redirect('purchase_history');
     }
 }

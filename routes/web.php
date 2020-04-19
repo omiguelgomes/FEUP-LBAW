@@ -38,8 +38,11 @@ Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
 Route::get('cart/remove/{id}', 'CartController@remove');
 
-
+//Product
+Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
+
+
 Route::get('search', 'SearchController@show');
 Route::get('profile', 'ProfileController@show');
 Route::get('purchase_history', 'PurchaseHistoryController@show');

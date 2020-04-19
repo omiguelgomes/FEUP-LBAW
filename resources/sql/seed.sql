@@ -66,7 +66,7 @@ create table address
 create table brand
 (
     id      serial primary key,
-    name  text           not null,
+    name  text           not null unique,
     imageID integer unique not null references image (id) on delete cascade
 );
 
@@ -85,14 +85,14 @@ create table cpu
 create table ram
 (
     id    serial primary key,
-    value integer not null,
+    value integer not null unique,
     constraint value check (value > 0)
 );
 
 create table waterproofing
 (
     id    serial primary key,
-    value text not null
+    value text not null unique
 );
 
 create table os
@@ -112,48 +112,48 @@ create table gpu
 create table screenSize
 (
     id    serial primary key,
-    value double precision not null,
+    value double precision not null unique,
     constraint value check (value > (0)::double precision)
 );
 
 create table weight
 (
     id    serial primary key,
-    value double precision not null,
+    value double precision not null unique,
     constraint value check (value > (0)::double precision)
 );
 
 create table storage
 (
     id    serial primary key,
-    value integer not null,
+    value integer not null unique,
     constraint value check (value > 0)
 );
 
 create table battery
 (
     id    serial primary key,
-    value integer not null,
+    value integer not null unique,
     constraint value check (value > 0)
 );
 
 create table screenRes
 (
     id    serial primary key,
-    value text not null
+    value text not null unique
 );
 
 create table cameraRes
 (
     id    serial primary key,
-    value double precision not null,
+    value double precision not null unique,
     constraint value check (value > (0)::double precision)
 );
 
 create table fingerprintType
 (
     id    serial primary key,
-    value text not null
+    value text not null unique
 );
 
 create table product
@@ -166,7 +166,7 @@ create table product
     brandID           integer          not null references brand (id) on delete cascade,
     cpuID             integer          not null references cpu (id) on delete cascade,
     ramID             integer          not null references ram (id) on delete cascade,
-    waterProofingID        integer          not null references waterProofing (id) on delete cascade,
+    waterProofingID   integer          not null references waterProofing (id) on delete cascade,
     osID              integer          not null references os (id) on delete cascade,
     gpuID             integer          not null references gpu (id) on delete cascade,
     screenSizeID      integer          not null references screenSize (id) on delete cascade,

@@ -89,7 +89,6 @@ class CartController extends Controller
       else
           $user = Auth::user();
 
-      //DB::delete('delete from cart where userid = :uid', ['uid' => $user->id]);
       DB::delete('delete from cart where productid = :pid and userid = :uid', ['pid' => $id, 'uid' => $user->id]);
 
       return redirect('cart');

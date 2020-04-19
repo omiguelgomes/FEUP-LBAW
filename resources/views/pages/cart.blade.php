@@ -19,7 +19,9 @@
 
         <div class="d-flex">
             <div class="p-2 bd-highlight">
-                <button type="button" class="btn btn-primary">Continue shopping</button>
+                <a class="btn btn-primary" href="{{url('home')}}">
+                    Continue shopping
+                </a>
             </div>
             <div class="ml-auto p-2 bd-highlight">
                 @if(count($cart['products']) > 0)

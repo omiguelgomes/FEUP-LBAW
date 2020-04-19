@@ -28,9 +28,9 @@
         <td>{{$product['quantity']}}</td>
         <td>{{$product->price*$product['quantity']}}€</td>
 
-        @if($xButton == 'true')
+        @if($xButton == 'cart')
             <td>
-                <a href="#" class="thumbnail">
+                <a class="thumbnail" href="{{url('cart/remove/'.$product->id)}}">
                     <i class="far fa-times-circle fa-2x ml-4"></i>
                 </a>
             </td>

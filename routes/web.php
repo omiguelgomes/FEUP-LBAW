@@ -36,6 +36,7 @@ Route::get('adminPage', 'AdminProfileController@show');
 Route::get('cart', 'CartController@show');
 Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
+Route::get('cart/remove/{id}', 'CartController@remove');
 
 
 Route::get('product/{id}', 'ProductController@show');

@@ -7,7 +7,7 @@
 <div class="container">
         <table class="table">
             
-                @include('partials.phoneList',['products' => $cart['products'], 'xButton' => 'true'])
+                @include('partials.phoneList',['products' => $cart['products'], 'xButton' => 'cart'])
                 <tr>
                     <th scope="row" colspan="5" class="text-right">Shipping Costs: 0.00 €</th>
                 </tr>

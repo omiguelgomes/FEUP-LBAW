@@ -10,6 +10,7 @@ Use App\Cart;
 use App\ProductPurchase;
 use App\Purchase;
 use App\PurchaseState;
+use App\Product;
 
 class CartController extends Controller
 {
@@ -78,6 +79,20 @@ class CartController extends Controller
       }
 
       return redirect('purchase_history');
+    }
+
+    public function remove($id)
+    {
+      //temporary so it doesn't break while auth is incomplete
+      if (!Auth::check()) 
+          $user = User::find(1);
+      else
+          $user = Auth::user();
+
+      //DB::delete('delete from cart where userid = :uid', ['uid' => $user->id]);
+      DB::delete('delete from cart where productid = :pid and userid = :uid', ['pid' => $id, 'uid' => $user->id]);
+
+      return redirect('cart');
     }
 
     

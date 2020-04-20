@@ -22,9 +22,9 @@ Route::post('register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('addProduct', function () {
-    return view('pages.addProduct');
-});
+//Create product
+Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
+Route::post('admin/product/add', 'ProductController@create')->name('create_product');
 
 //Page to go to by default
 Route::get('/', 'HomeController@show');
@@ -32,7 +32,7 @@ Route::get('/', 'HomeController@show');
 Route::get('home', 'HomeController@show')->name('home');
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
-Route::get('adminPage', 'AdminProfileController@show');
+Route::get('admin', 'AdminProfileController@show');
 
 //Cart
 Route::get('cart', 'CartController@show');

@@ -11,7 +11,12 @@ class Brand extends Model
   protected $table = 'public.brand';
 
   public function image()
-    {
+  {
         return $this->belongsTo('App\Image', 'imageid');
-    }
+  }
+
+  public static function list()
+  {
+    return $brands = Brand::pluck('name', 'id');
+  }
 }

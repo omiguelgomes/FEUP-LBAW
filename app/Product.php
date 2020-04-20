@@ -10,6 +10,7 @@ class Product extends Model
 {
     //Table name
     protected $table = 'public.product';
+    public $timestamps  = false;
     
     public function brand()
     {

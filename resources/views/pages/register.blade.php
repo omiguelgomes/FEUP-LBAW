@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <a class="text-danger">* Campos Obrigatórios</a>
+            <a class="text-danger">* Mandatory Fields</a>
             <br><br>
             <button type="button" class="btn btn-primary">Create my account</button>
 

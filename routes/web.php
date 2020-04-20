@@ -22,6 +22,9 @@ Route::post('register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('addProduct', function () {
+    return view('pages.addProduct');
+});
 
 //Page to go to by default
 Route::get('/', 'HomeController@show');
@@ -40,6 +43,7 @@ Route::get('cart/remove/{id}', 'CartController@remove');
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
+
 
 //Wishlist
 Route::get('wishlist', 'WishlistController@show');

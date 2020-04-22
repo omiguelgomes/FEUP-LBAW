@@ -31,16 +31,16 @@ class CartController extends Controller
           $user = Auth::user();
 
       
-      $cart = DB::select('select * from cart where userid = :id and productid = :pid', ['id' => $user->id, 'pid' => $id]);
+      $cart = DB::select('select * from cart where user_id = :id and product_id = :pid', ['id' => $user->id, 'pid' => $id]);
 
       if(count($cart) > 0)
       {
-        DB::update('update cart set quant = :quant where userid = :uid and productid = :pid',
+        DB::update('update cart set quant = :quant where user_id = :uid and product_id = :pid',
          ['quant' => $cart[0]->quant + 1, 'uid' => $user->id, 'pid' => $id]);
       }
       else
       {
-        DB::insert('insert into cart (productid, userid, quant) values (:pid, :uid, 1)',
+        DB::insert('insert into cart (product_id, user_id, quant) values (:pid, :uid, 1)',
       ['pid' => $id, 'uid' => $user->id]);
       }
       
@@ -65,16 +65,16 @@ class CartController extends Controller
 
       $newPurchase = new Purchase();
       $newPurchase->val = $cart['total'];
-      $newPurchase->statusid = $newPs->id;
+      $newPurchase->status_id = $newPs->id;
       //hard-coded payed by card
       $newPurchase->paid = 1;
-      $newPurchase->userid = $user->id;
+      $newPurchase->user_id = $user->id;
       $newPurchase->purchasedate = date("Y-m-d");
       $newPurchase->save();
 
       foreach($cart['products'] as $product)
       {
-        DB::insert('insert into product_purchase (productid, purchaseid, quantity) values (:pid, :puid, :quant)',
+        DB::insert('insert into product_purchase (product_id, purchase_id, quantity) values (:pid, :puid, :quant)',
       ['pid' => $product->id, 'puid' => $newPurchase->id, 'quant' => $product->quantity]);
       }
 
@@ -89,7 +89,7 @@ class CartController extends Controller
       else
           $user = Auth::user();
 
-      DB::delete('delete from cart where productid = :pid and userid = :uid', ['pid' => $id, 'uid' => $user->id]);
+      DB::delete('delete from cart where product_id = :pid and user_id = :uid', ['pid' => $id, 'uid' => $user->id]);
 
       return redirect('cart');
     }

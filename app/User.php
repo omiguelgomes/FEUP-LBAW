@@ -11,24 +11,24 @@ class User extends Authenticatable
 
     public function wishlist()
     {
-        $list = $this->hasMany('App\Wishlist', 'userid')->get();
+        $list = $this->hasMany('App\Wishlist')->get();
         $productList = [];
         foreach($list as $item)
         {
-            array_push($productList, Product::find($item['productid']));
+            array_push($productList, Product::find($item['product_id']));
         }
         return $productList;
     }
 
     public function cart()
     {
-        $list = $this->hasMany('App\Cart', 'userid')->get();
+        $list = $this->hasMany('App\Cart')->get();
         $productList = [];
         $productList['products'] = [];
         $total = 0;
         foreach($list as $item)
         {
-            $product = Product::find($item['productid']);
+            $product = Product::find($item['product_id']);
             $product['quantity'] = $item['quant'];
             $total += $product['quantity'] * $product['price'];
             array_push($productList['products'], $product);
@@ -39,17 +39,17 @@ class User extends Authenticatable
 
     public function address()
     {
-        return $this->hasOne('App\Address', 'userid');
+        return $this->hasOne('App\Address');
     }
 
     public function image()
     {
-        return $this->belongsTo('App\Image', 'imageid');
+        return $this->belongsTo('App\Image');
     }
 
     public function purchases()
     {
-        $purchasesList = $this->hasMany('App\Purchase', 'userid')->get();
+        $purchasesList = $this->hasMany('App\Purchase')->get();
         $purchases['Awaiting Payment'] = [];
         $purchases['Processing'] = [];
         $purchases['Sent'] = [];

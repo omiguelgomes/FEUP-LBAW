@@ -25,7 +25,7 @@ class WishlistController extends Controller
       else
           $user = Auth::user();
 
-      DB::delete('delete from wishlist where productid = :pid and userid = :uid', ['pid' => $id, 'uid' => $user->id]);
+      DB::delete('delete from wishlist where product_id = :pid and user_id = :uid', ['pid' => $id, 'uid' => $user->id]);
 
       return redirect('wishlist');
     }
@@ -38,7 +38,7 @@ class WishlistController extends Controller
       else
           $user = Auth::user();
 
-        DB::insert('insert into wishlist (productid, userid) values (:pid, :uid)',
+        DB::insert('insert into wishlist (product_id, user_id) values (:pid, :uid)',
       ['pid' => $id, 'uid' => $user->id]);
       
       return redirect('wishlist');

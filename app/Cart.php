@@ -16,6 +16,6 @@ class Cart extends Model
 
   //make variables alterable
   protected $fillable = [
-    'userID', 'productID', 'quant' 
+    'user_id', 'product_id', 'quant' 
   ];
 }

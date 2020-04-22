@@ -36,14 +36,14 @@ class ProductController extends Controller
 
       $newPurchase = new Purchase();
       $newPurchase->val = $product->price;
-      $newPurchase->statusid = $newPs->id;
+      $newPurchase->status_id = $newPs->id;
       //hard-coded payed by card
       $newPurchase->paid = 1;
-      $newPurchase->userid = $user->id;
+      $newPurchase->user_id = $user->id;
       $newPurchase->purchasedate = date("Y-m-d");
       $newPurchase->save();
 
-      DB::insert('insert into product_purchase (productid, purchaseid, quantity) values (:pid, :puid, 1)',
+      DB::insert('insert into product_purchase (product_id, purchase_id, quantity) values (:pid, :puid, 1)',
       ['pid' => $product->id, 'puid' => $newPurchase->id]);
 
       return redirect('purchase_history');
@@ -90,7 +90,7 @@ class ProductController extends Controller
       $product->fingerprinttypeid = $finger;
       $product->save();
       
-      DB::insert('insert into image_product (productID, imageID) values (:pid, :iid);',
+      DB::insert('insert into image_product (product_id, image_id) values (:pid, :iid);',
       ['pid' => $product->id, 'iid' => 1]);
 
       return redirect('product/'.$product->id);

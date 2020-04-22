@@ -12,7 +12,7 @@ class Brand extends Model
 
   public function image()
   {
-        return $this->belongsTo('App\Image', 'imageid');
+    return $this->belongsTo('App\Image');
   }
 
   public static function list()

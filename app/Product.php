@@ -14,17 +14,17 @@ class Product extends Model
     
     public function brand()
     {
-        return $this->belongsTo('App\Brand', 'brandid');
+        return $this->belongsTo('App\Brand');
     }
 
     public function ratings()
     {
-        return $this->hasMany('App\Rating', 'productid');
+        return $this->hasMany('App\Rating');
     }
 
     public function image()
     {
-        $images = $this->hasMany('App\ImageProduct', 'productid')->get();
+        $images = $this->hasMany('App\ImageProduct')->get();
         $paths = [];
         foreach($images as $image)
         {
@@ -33,29 +33,30 @@ class Product extends Model
         return $paths;
     }
 
+    //dado que o nome desta funcao nao e o do atributo a retornar, nao podemos omitir o nome da coluna em belongsTo
     public function specs()
     {
         $specs = [];
-        $specs['cpu'] = $this->belongsTo('App\Specs\Cpu', 'cpuid')->first();
-        $specs['ram'] = $this->belongsTo('App\Specs\Ram', 'ramid')->first();
-        $specs['waterproofing'] = $this->belongsTo('App\Specs\WaterProofing', 'waterproofingid')->first();
-        $specs['os'] = $this->belongsTo('App\Specs\Os', 'osid')->first();
-        $specs['gpu'] = $this->belongsTo('App\Specs\Gpu', 'gpuid')->first();
-        $specs['screensize'] = $this->belongsTo('App\Specs\ScreenSize', 'screensizeid')->first();
-        $specs['weight'] = $this->belongsTo('App\Specs\Weight', 'weightid')->first();
-        $specs['storage'] = $this->belongsTo('App\Specs\Storage', 'storageid')->first();
-        $specs['battery'] = $this->belongsTo('App\Specs\Battery', 'batteryid')->first();
-        $specs['weight'] = $this->belongsTo('App\Specs\Weight', 'weightid')->first();
-        $specs['screenres'] = $this->belongsTo('App\Specs\ScreenRes', 'screenresid')->first();
-        $specs['camerares'] = $this->belongsTo('App\Specs\CameraRes', 'cameraresid')->first();
-        $specs['fingerprint'] = $this->belongsTo('App\Specs\FingerprintType', 'fingerprinttypeid')->first();
+        $specs['cpu'] = $this->belongsTo('App\Specs\Cpu', 'cpu_id')->first();
+        $specs['ram'] = $this->belongsTo('App\Specs\Ram', 'ram_id')->first();
+        $specs['waterproofing'] = $this->belongsTo('App\Specs\WaterProofing', 'waterproofing_id')->first();
+        $specs['os'] = $this->belongsTo('App\Specs\Os', 'os_id')->first();
+        $specs['gpu'] = $this->belongsTo('App\Specs\Gpu', 'gpu_id')->first();
+        $specs['screensize'] = $this->belongsTo('App\Specs\ScreenSize', 'screensize_id')->first();
+        $specs['weight'] = $this->belongsTo('App\Specs\Weight', 'weight_id')->first();
+        $specs['storage'] = $this->belongsTo('App\Specs\Storage', 'storage_id')->first();
+        $specs['battery'] = $this->belongsTo('App\Specs\Battery', 'battery_id')->first();
+        $specs['weight'] = $this->belongsTo('App\Specs\Weight', 'weight_id')->first();
+        $specs['screenres'] = $this->belongsTo('App\Specs\ScreenRes', 'screenres_id')->first();
+        $specs['camerares'] = $this->belongsTo('App\Specs\CameraRes', 'camerares_id')->first();
+        $specs['fingerprint'] = $this->belongsTo('App\Specs\FingerprintType', 'fingerprinttype_id')->first();
 
         return $specs;
     }
 
     public function rating()
     {
-        $ratingList = $this->hasMany('App\Rating', 'productid')->get();
+        $ratingList = $this->hasMany('App\Rating')->get();
         $score = 0;
 
         if (count($ratingList) == 0)

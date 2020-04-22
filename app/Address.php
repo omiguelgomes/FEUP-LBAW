@@ -12,7 +12,11 @@ class Address extends Model
 
   public function city()
   {
-      $city = $this->belongsTo('App\City', 'cityid')->get();
-      return $city[0]->name;
+      return $this->belongsTo('App\City');
+  }
+
+  public function country()
+  {
+    return $this->belongsTo('App\Country');
   }
 }

@@ -15,11 +15,8 @@
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
-
-
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register')->name('register');
-
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //Create product
@@ -28,11 +25,6 @@ Route::post('admin/product/add', 'ProductController@create')->name('create_produ
 
 //Page to go to by default
 Route::get('/', 'HomeController@show');
-
-Route::get('home', 'HomeController@show')->name('home');
-Route::get('about', 'AboutController@show');
-Route::get('FAQ', 'FAQController@show');
-Route::get('admin', 'AdminProfileController@show');
 
 //Cart
 Route::get('cart', 'CartController@show');
@@ -44,14 +36,20 @@ Route::get('cart/remove/{id}', 'CartController@remove');
 Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
 
-
 //Wishlist
 Route::get('wishlist', 'WishlistController@show');
 Route::get('wishlist/remove/{id}', 'WishlistController@remove');
 Route::get('product/{id}/wishlist', 'WishlistController@add');
 
 
-
 Route::get('search', 'SearchController@show');
 Route::get('profile', 'ProfileController@show');
 Route::get('purchase_history', 'PurchaseHistoryController@show');
+Route::get('home', 'HomeController@show')->name('home');
+Route::get('about', 'AboutController@show');
+Route::get('FAQ', 'FAQController@show');
+Route::get('admin', 'AdminProfileController@show');
+
+
+//temp
+Route::get('test', 'HomeController@test');

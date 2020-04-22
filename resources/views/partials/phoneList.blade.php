@@ -25,8 +25,8 @@
                 <h6 class="card-text">{{$product->brand->name}}</h6>
             </div>
         </td>
-        <td>{{$product['quantity']}}</td>
-        <td>{{$product->price*$product['quantity']}}€</td>
+        <td>{{$product->pivot->quant}}</td>
+        <td>{{$product->price*$product->pivot->quant}}€</td>
 
         @if($xButton == 'cart')
             <td>

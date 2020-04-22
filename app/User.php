@@ -9,64 +9,6 @@ class User extends Authenticatable
 {
     protected $table = 'public.users';
 
-    public function wishlist()
-    {
-        $list = $this->hasMany('App\Wishlist')->get();
-        $productList = [];
-        foreach($list as $item)
-        {
-            array_push($productList, Product::find($item['product_id']));
-        }
-        return $productList;
-    }
-
-    public function cart()
-    {
-        $list = $this->hasMany('App\Cart')->get();
-        $productList = [];
-        $productList['products'] = [];
-        $total = 0;
-        foreach($list as $item)
-        {
-            $product = Product::find($item['product_id']);
-            $product['quantity'] = $item['quant'];
-            $total += $product['quantity'] * $product['price'];
-            array_push($productList['products'], $product);
-        }
-        $productList['total'] = $total;
-        return $productList;
-    }
-
-    public function address()
-    {
-        return $this->hasOne('App\Address');
-    }
-
-    public function image()
-    {
-        return $this->belongsTo('App\Image');
-    }
-
-    public function purchases()
-    {
-        $purchasesList = $this->hasMany('App\Purchase')->get();
-        $purchases['Awaiting Payment'] = [];
-        $purchases['Processing'] = [];
-        $purchases['Sent'] = [];
-        $purchases['Delivered'] = [];
-        
-        foreach($purchasesList as $purchase)
-        {
-            foreach($purchase->details() as $product)
-            {
-                array_push($purchases[$purchase->state['pstate']], $product);
-            }
-        }
-        
-        return $purchases;
-    }
-
-
     use Notifiable;
 
     // Don't add create and update timestamps in database.
@@ -87,8 +29,31 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'isAdmin',
+        'password', 'isAdmin'
     ];
 
-    
+    public function cart()
+    {
+        return $this->belongsToMany('App\Product', 'cart')->withPivot('quant');
+    }
+
+    public function wishlist()
+    {
+        return $this->belongsToMany('App\Product', 'wishlist');
+    }
+
+    public function address()
+    {
+        return $this->hasOne('App\Address');
+    }
+
+    public function image()
+    {
+        return $this->belongsTo('App\Image');
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany('App\Purchase', 'user_id');
+    }
 }

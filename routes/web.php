@@ -49,7 +49,3 @@ Route::get('home', 'HomeController@show')->name('home');
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
 Route::get('admin', 'AdminProfileController@show');
-
-
-//temp
-Route::get('test', 'HomeController@test');

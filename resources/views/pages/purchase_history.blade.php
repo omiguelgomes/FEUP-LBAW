@@ -4,10 +4,10 @@
 @include('partials.jumboTitle',['title' => 'Purchase History'])
 
 <div class="container">
-    @foreach($products as $status => $product)
+    @foreach($products as $product)
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
-                <h4>Orders {{$status}}</h4>
+                <h4>Orders {{$product->state->pstate}}</h4>
             </div>      
         </div>
         <br>

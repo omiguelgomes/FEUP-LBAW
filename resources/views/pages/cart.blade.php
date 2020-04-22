@@ -7,12 +7,14 @@
 <div class="container">
         <table class="table">
             
-                @include('partials.phoneList',['products' => $cart['products'], 'xButton' => 'cart'])
+                @include('partials.phoneList',['products' => $cart, 'xButton' => 'cart'])
                 <tr>
                     <th scope="row" colspan="5" class="text-right">Shipping Costs: 0.00 €</th>
                 </tr>
                 <tr>
-                    <th scope="row" colspan="5" class="text-right">TOTAL PURCHASE: {{$cart['total']}} €</th>
+                    <th scope="row" colspan="5" class="text-right">TOTAL PURCHASE: {{$cart->sum(function ($product) {
+                        return $product->price * $product->pivot->quant;
+                    })}} €</th>
                 </tr>
             </tbody>
         </table>
@@ -24,7 +26,7 @@
                 </a>
             </div>
             <div class="ml-auto p-2 bd-highlight">
-                @if(count($cart['products']) > 0)
+                @if(count($cart) > 0)
                     <a href="{{ url('/cart/buy') }}" class="button btn-primary rounded p-1 m-5">
                         Proceed with purchase
                     </a>

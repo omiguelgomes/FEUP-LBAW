@@ -196,8 +196,7 @@ create table cart
 (
     product_id integer references product (id) on delete cascade,
     user_id    integer references users (id) on delete cascade,
-    quant     integer not null,
-    constraint quant check (quant > 0),
+    quant     integer not null default 1,
     primary key (product_id, user_id)
 );
 
@@ -219,7 +218,7 @@ create table purchasestate
 create table payment
 (
     id     serial primary key,
-    "type" pay_method not null
+    "type" pay_method not null 
 );
 
 create table purchase

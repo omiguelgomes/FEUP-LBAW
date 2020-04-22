@@ -11,6 +11,8 @@ class Product extends Model
     //Table name
     protected $table = 'public.product';
     public $timestamps  = false;
+
+    protected $hidden = ['pivot'];
     
     public function brand()
     {
@@ -71,4 +73,20 @@ class Product extends Model
 
         return round($score/count($ratingList), 1);
     }
+
+    public function wishlistUsers()
+    {
+        return $this->belongsToMany('App\User', 'wishlist');
+    }
+
+    public function cartUsers()
+    {
+        return $this->belongsToMany('App\User', 'cart');
+    }
+
+    public function purchases()
+    {
+        return $this->belongsToMany('App\Purchase', 'product_purchase');
+    }
+
 }

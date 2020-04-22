@@ -10,24 +10,14 @@ class Purchase extends Model
   public $timestamps  = false;
   protected $table = 'public.purchase';
 
-  public function state()
+  public function status()
   {
     return $this->belongsTo('App\PurchaseState', 'status_id');
   }
 
-  public function details()
+  public function products()
   {
-    $pPurchase = $this->hasMany('App\ProductPurchase', 'purchase_id')->get();
-    $returnList = [];
-
-    foreach($pPurchase as $pp)
-    {
-      $newItem = [];
-      $newItem = $pp->belongsTo('App\Product', 'product_id')->get()->first();
-      $newItem['quantity'] = $pp->quantity;
-      array_push($returnList, $newItem);
-    }
-    return $returnList;
-
+    return $this->belongsToMany('App\Product', 'product_purchase');
   }
+
 }

@@ -9,8 +9,10 @@ class ProfileController extends Controller
 {
     public function show()
     {
-      if (!Auth::check()) return redirect('/register');
-      $user = Auth::user();
+      if (!Auth::check()) 
+        return redirect('/register');
+      else
+          $user = Auth::user();
       return view('pages.profile')->with('user', $user);
     }
 }

@@ -20,9 +20,8 @@ class ProductController extends Controller
 
     public function buy($id)
     {
-      //temporary so it doesn't break while auth is incomplete
       if (!Auth::check()) 
-          $user = User::find(1);
+        return redirect('/register');
       else
           $user = Auth::user();
 

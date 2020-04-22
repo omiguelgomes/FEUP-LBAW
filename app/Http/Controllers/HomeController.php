@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use App\Purchase;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -12,11 +13,5 @@ class HomeController extends Controller
       //get 10 first products from db. should be replaced with query for the hottest products
       $hotProducts = Product::get()->take(10);
       return view('pages.homePage')->with('hotProducts', $hotProducts);
-    }
-
-    public function test()
-    {
-      $user = Purchase::find(1);
-      return $user;
     }
 }

@@ -9,7 +9,7 @@ class Rating extends Model
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
 
-  protected $table = 'public.rating';
+  protected $table = 'rating';
 
   public function user()
   {

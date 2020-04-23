@@ -8,7 +8,7 @@ class Weight extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.weight';
+  protected $table = 'weight';
 
   public static function list()
   {

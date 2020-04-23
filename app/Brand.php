@@ -8,7 +8,7 @@ class Brand extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.brand';
+  protected $table = 'brand';
 
   public function image()
   {

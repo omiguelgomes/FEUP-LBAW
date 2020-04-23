@@ -8,7 +8,7 @@ class CamRes extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.camerares';
+  protected $table = 'camerares';
 
   public static function list()
   {

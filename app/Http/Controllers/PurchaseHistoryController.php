@@ -13,9 +13,15 @@ class PurchaseHistoryController extends Controller
         return redirect('/register');
       else
           $user = Auth::user();
-      //this has all the info to show. purchase history needs to be changed as the prof asked
+      
+      //all purchases for the given user
       return dd($user->purchases);
+      //all proucts for a given purchase
+      return dd($user->purchases->first()->products);
+      //status of a certain purchase
       return $user->purchases->first()->status;
-      return view('pages.purchase_history')->with('products', $user->purchases);
+      //total value of a certain purchase
+      return dd($user->purchases->first()->val);
+      return view('pages.purchase_history')->with('purchases', $user->purchases);
     }
 }

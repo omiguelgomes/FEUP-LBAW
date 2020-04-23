@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class FAQ extends Model
 {
     //Table name
-    protected $table = 'public.faq';
+    protected $table = 'faq';
 }

@@ -9,7 +9,7 @@ use App\Specs\WaterProofing;
 class Product extends Model
 {
     //Table name
-    protected $table = 'public.product';
+    protected $table = 'product';
     public $timestamps  = false;
 
     protected $hidden = ['pivot'];

@@ -8,7 +8,7 @@ class PurchaseState extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.purchasestate';
+  protected $table = 'purchasestate';
 
   protected $fillable = [
     'statechangedate', 'comment', 'pstate'

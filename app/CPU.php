@@ -8,7 +8,7 @@ class CPU extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.cpu';
+  protected $table = 'cpu';
 
   public static function list()
   {

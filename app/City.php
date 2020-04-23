@@ -8,7 +8,7 @@ class City extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.city';
+  protected $table = 'city';
 
   public function country()
   {

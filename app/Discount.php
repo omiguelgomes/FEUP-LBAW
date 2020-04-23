@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Discount extends Model
 {
     protected $table = 'discount';
+    protected $hidden = ['pivot'];
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;

@@ -46,6 +46,12 @@ class Product extends Model
 
     public function discounts()
     {
+        return $this->belongsToMany('App\Discount', 'discount_product')->where('begindate', '<=', date("Y-m-d"))->
+        where('enddate', '>=', date("Y-m-d"));
+    }
+
+    public function allDiscounts()
+    {
         return $this->belongsToMany('App\Discount', 'discount_product');
     }
 

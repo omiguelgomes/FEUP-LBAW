@@ -15,13 +15,13 @@ class PurchaseHistoryController extends Controller
           $user = Auth::user();
       
       //all purchases for the given user
-      return dd($user->purchases);
+      return ($user->purchases);
       //all proucts for a given purchase
-      return dd($user->purchases->first()->products);
+      return ($user->purchases->first()->products);
       //status of a certain purchase
       return $user->purchases->first()->status;
       //total value of a certain purchase
-      return dd($user->purchases->first()->val);
+      return ($user->purchases->first()->val);
       return view('pages.purchase_history')->with('purchases', $user->purchases);
     }
 }

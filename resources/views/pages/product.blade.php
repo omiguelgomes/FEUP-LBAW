@@ -13,7 +13,13 @@
                         <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="max-height: 100px;">
                         </div>
                         <div class="p-2 bd-highlight">
-                        <h5>Rating: {{$product->rating()}}</h5>
+                        <h5>
+                            @if(count($product->ratings) == 0)
+                                No ratings
+                            @else
+                                {{round($product->ratings->sum('val')/count($product->ratings), 1)}}
+                            @endif
+                        </h5>
                         </div>
                         <div class="p-2 bd-highlight">
                             <i class="fas fa-star"></i>

@@ -24,6 +24,30 @@ class Product extends Model
         return $this->hasMany('App\Rating');
     }
 
+    public function wishlistUsers()
+    {
+        return $this->belongsToMany('App\User', 'wishlist');
+    }
+
+    public function cartUsers()
+    {
+        return $this->belongsToMany('App\User', 'cart');
+    }
+
+    public function purchases()
+    {
+        return $this->belongsToMany('App\Purchase', 'product_purchase');
+    }
+
+    public function images()
+    {
+        return $this->belongsToMany('App\Image', 'App\ImageProduct');
+    }
+
+
+
+    /*  SPECS   */
+
     public function cpu()
     {
         return $this->belongsTo('App\Specs\Cpu');
@@ -72,43 +96,4 @@ class Product extends Model
     {
         return $this->belongsTo('App\Specs\FingerprintType');
     }
-    
-    public function rating()
-    {
-        $ratingList = $this->hasMany('App\Rating')->get();
-        $score = 0;
-
-        if (count($ratingList) == 0)
-        {
-            return "No ratings";
-        }
-
-        foreach($ratingList as $rating)
-        {
-            $score += (int)$rating['val'];
-        }
-
-        return round($score/count($ratingList), 1);
-    }
-
-    public function wishlistUsers()
-    {
-        return $this->belongsToMany('App\User', 'wishlist');
-    }
-
-    public function cartUsers()
-    {
-        return $this->belongsToMany('App\User', 'cart');
-    }
-
-    public function purchases()
-    {
-        return $this->belongsToMany('App\Purchase', 'product_purchase');
-    }
-
-    public function images()
-    {
-        return $this->belongsToMany('App\Image', 'App\ImageProduct');
-    }
-
 }

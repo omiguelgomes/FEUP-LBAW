@@ -8,8 +8,7 @@ class ProductPurchase extends Model
 {
   public $timestamps  = false;
   protected $table = 'public.product_purchase';
-  protected $primaryKey = null;
-  public $incrementing = false;
-  protected $fillable = array('product_id', 'purchase_id');
-  //check if all these are necessary
+  protected $fillable = [
+    'product_id', 'purchase_id', 'quantity'
+  ];
 }

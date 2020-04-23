@@ -50,32 +50,26 @@ class CartController extends Controller
 
       $cart = $user->cart;
 
-      // adicionar atributos por array em vez de ser um por linha
-      $newPs = new PurchaseState();
-      $newPs->statechangedate = date("Y-m-d");
-      $newPs->comment = "Please Pay!";
-      $newPs->pstate = "Awaiting Payment";
-      $newPs->save();
-
-      $newPurchase = new Purchase();
-      $newPurchase->val = $cart->sum(function ($product) {
-        return $product->price * $product->pivot->quant;
-      });
-
-      $newPurchase->status_id = $newPs->id;
-      //hard-coded payed by card
-      $newPurchase->paid = 1;
-      $newPurchase->user_id = $user->id;
-      $newPurchase->purchasedate = date("Y-m-d");
-      $newPurchase->save();
+      $newPs = PurchaseState::create([
+        'statechangedate' => date("Y-m-d"),
+        'comment' => "Please Pay!",
+        'pstate' => "Awaiting Payment",
+      ]);
+      
+      $newPurchase = Purchase::create([
+        'val' => $cart->sum(function ($product) {
+          return $product->price * $product->pivot->quant;
+        }), 
+        'status_id' => $newPs->id,
+        'paid' => 1,
+        'user_id' => $user->id,
+        'purchasedate' => date("Y-m-d")
+      ]);
 
       foreach($cart as $product)
       {
-        $newProductPurchase = new ProductPurchase();
-        $newProductPurchase->product_id = $product->id;
-        $newProductPurchase->purchase_id = $newPurchase->id;
-        $newProductPurchase->quantity = $product->pivot->quant;
-        $newProductPurchase->save();
+        $newPurchase->products()->attach($product->id, 
+        ['quantity' => $product->pivot->quant]);
       }
 
       return redirect('purchase_history');

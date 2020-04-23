@@ -24,38 +24,55 @@ class Product extends Model
         return $this->hasMany('App\Rating');
     }
 
-    public function image()
+    public function cpu()
     {
-        $images = $this->hasMany('App\ImageProduct')->get();
-        $paths = [];
-        foreach($images as $image)
-        {
-            array_push($paths, $image->image->path);
-        }
-        return $paths;
+        return $this->belongsTo('App\Specs\Cpu');
     }
-
-    //dado que o nome desta funcao nao e o do atributo a retornar, nao podemos omitir o nome da coluna em belongsTo
-    public function specs()
+    public function ram()
     {
-        $specs = [];
-        $specs['cpu'] = $this->belongsTo('App\Specs\Cpu', 'cpu_id')->first();
-        $specs['ram'] = $this->belongsTo('App\Specs\Ram', 'ram_id')->first();
-        $specs['waterproofing'] = $this->belongsTo('App\Specs\WaterProofing', 'waterproofing_id')->first();
-        $specs['os'] = $this->belongsTo('App\Specs\Os', 'os_id')->first();
-        $specs['gpu'] = $this->belongsTo('App\Specs\Gpu', 'gpu_id')->first();
-        $specs['screensize'] = $this->belongsTo('App\Specs\ScreenSize', 'screensize_id')->first();
-        $specs['weight'] = $this->belongsTo('App\Specs\Weight', 'weight_id')->first();
-        $specs['storage'] = $this->belongsTo('App\Specs\Storage', 'storage_id')->first();
-        $specs['battery'] = $this->belongsTo('App\Specs\Battery', 'battery_id')->first();
-        $specs['weight'] = $this->belongsTo('App\Specs\Weight', 'weight_id')->first();
-        $specs['screenres'] = $this->belongsTo('App\Specs\ScreenRes', 'screenres_id')->first();
-        $specs['camerares'] = $this->belongsTo('App\Specs\CameraRes', 'camerares_id')->first();
-        $specs['fingerprint'] = $this->belongsTo('App\Specs\FingerprintType', 'fingerprinttype_id')->first();
-
-        return $specs;
+        return $this->belongsTo('App\Specs\Ram');
     }
-
+    public function waterproofing()
+    {
+        return $this->belongsTo('App\Specs\WaterProofing');
+    }
+    public function os()
+    {
+        return $this->belongsTo('App\Specs\Os');
+    }
+    public function gpu()
+    {
+        return $this->belongsTo('App\Specs\Gpu');
+    }
+    public function screensize()
+    {
+        return $this->belongsTo('App\Specs\ScreenSize');
+    }
+    public function weight()
+    {
+        return $this->belongsTo('App\Specs\Weight');
+    }
+    public function storage()
+    {
+        return $this->belongsTo('App\Specs\Storage');
+    }
+    public function battery()
+    {
+        return $this->belongsTo('App\Specs\Battery');
+    }
+    public function screenres()
+    {
+        return $this->belongsTo('App\Specs\ScreenRes');
+    }
+    public function camerares()
+    {
+        return $this->belongsTo('App\Specs\CameraRes');
+    }
+    public function fingerprinttype()
+    {
+        return $this->belongsTo('App\Specs\FingerprintType');
+    }
+    
     public function rating()
     {
         $ratingList = $this->hasMany('App\Rating')->get();
@@ -87,6 +104,11 @@ class Product extends Model
     public function purchases()
     {
         return $this->belongsToMany('App\Purchase', 'product_purchase');
+    }
+
+    public function images()
+    {
+        return $this->belongsToMany('App\Image', 'App\ImageProduct');
     }
 
 }

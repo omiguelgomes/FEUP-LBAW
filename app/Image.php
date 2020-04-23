@@ -10,8 +10,8 @@ class Image extends Model
   public $timestamps  = false;
   protected $table = 'public.image';
 
-  public function imageProduct()
+  public function products()
   {
-      return $this->belongsTo('App\ImageProduct');
+      return $this->belongsToMany('App\Product', 'App\ImageProduct');
   }
 }

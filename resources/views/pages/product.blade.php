@@ -27,17 +27,17 @@
             <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="20000" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    @for($count = 1; $count < count($product->image()); $count++)
+                    @for($count = 1; $count < count($product->images); $count++)
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{$count}}"></li>
                     @endfor
                 </ol>
                 <div class="carousel-inner pb-5 center-block">
                      <div class="carousel-item active">
-                        <img class="d-block" src="{{ asset('images/'.$product->image()[0]) }}" alt="First Slide">
+                        <img class="d-block" src="{{ asset('images/'.$product->images->first()->path) }}" alt="First Slide">
                     </div>
-                    @for($count = 1; $count < count($product->image()); $count++)
+                    @for($count = 1; $count < count($product->images); $count++)
                         <div class="carousel-item">
-                            <img class="d-block " src="{{ asset('images/'.$product->image()[$count]) }}" alt="Slide">
+                            <img class="d-block " src="{{ asset('images/'.$product->images[$count]->path) }}" alt="Slide">
                         </div>
                     @endfor
                 </div>  
@@ -93,7 +93,7 @@
                 </div>
             @endforeach
         </div>
-        @include('partials.specsTable',['specs' => $product->specs()])
+        @include('partials.specsTable',['product' => $product])
         
     <!-- Make carousel indicators and controls black -->
     <style>

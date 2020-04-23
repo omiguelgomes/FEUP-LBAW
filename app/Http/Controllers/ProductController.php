@@ -27,71 +27,53 @@ class ProductController extends Controller
 
       $product = Product::find($id);
 
-      $newPs = new PurchaseState();
-      $newPs->statechangedate = date("Y-m-d");
-      $newPs->comment = "Please Pay!";
-      $newPs->pstate = "Awaiting Payment";
-      $newPs->save();
+      $newPs = PurchaseState::create([
+        'statechangedate' => date("Y-m-d"),
+        'comment' => "Please Pay!",
+        'pstate' => "Awaiting Payment",
+      ]);
 
-      $newPurchase = new Purchase();
-      $newPurchase->val = $product->price;
-      $newPurchase->status_id = $newPs->id;
-      //hard-coded payed by card
-      $newPurchase->paid = 1;
-      $newPurchase->user_id = $user->id;
-      $newPurchase->purchasedate = date("Y-m-d");
-      $newPurchase->save();
+      $newPurchase = Purchase::create([
+        'val' => $product->price, 
+        'status_id' => $newPs->id,
+        'paid' => 1,
+        'user_id' => $user->id,
+        'purchasedate' => date("Y-m-d")
+      ]);
 
-      DB::insert('insert into product_purchase (product_id, purchase_id, quantity) values (:pid, :puid, 1)',
-      ['pid' => $product->id, 'puid' => $newPurchase->id]);
+      $newPurchase->products()->attach($product->id, 
+      ['quantity' => 1]);
 
       return redirect('purchase_history');
     }
 
     public function create(Request $request)
     {
-      $model = $request->input('inputName');
-      $brand = $request->inputBrand;
-      $price = $request->inputPrice;
-      $stock = $request->inputStock;
-      $os = $request->inputOS;
-      $cat = $request->inputCat;
-      $cpu = $request->inputCPUname;
-      $gpu = $request->inputGPU;
-      $ram = $request->inputRAM;
-      $size = $request->inputScreen;
-      $storage = $request->inputStorage;
-      $battery = $request->inputBattery;
-      $weight = $request->inputWeight;
-      $water = $request->inputWater;
-      $res = $request->inputSreenRes;
-      $camRes = $request->inputCamRes;
-      $finger = $request->inputFinger;
-
+      $newProduct = Product::create(
+        [
+          'model' => $request->inputName,
+          'brand_id' => $request->inputBrand,
+          'price' => $request->inputPrice,
+          'stock' => $request->inputStock,
+          'os_id' => $request->inputOS,
+          'category' => $request->inputCat,
+          'cpu_id' => $request->inputCPUname,
+          'gpu_id' => $request->inputGPU,
+          'ram_id' => $request->inputRAM,
+          'screensize_id' => $request->inputScreen,
+          'storage_id' => $request->inputStorage,
+          'battery_id' => $request->inputBattery,
+          'weight_id' => $request->inputWeight,
+          'waterproofing_id' => $request->inputWater,
+          'screenres_id' => $request->inputSreenRes,
+          'camerares_id' => $request->inputCamRes,
+          'fingerprinttype_id' => $request->inputFinger
+        ]
+        );
       
-      $product = new Product();
-      $product->stock = $stock;
-      $product->price = $price;
-      $product->model = $model;
-      $product->category = $cat;
-      $product->brandid = $brand;
-      $product->cpuid = $cpu;
-      $product->ramid = $ram;
-      $product->waterproofingid = $water;
-      $product->osid = $os;
-      $product->gpuid = $gpu;
-      $product->screensizeid = $size;
-      $product->weightid = $weight;
-      $product->storageid = $storage;
-      $product->batteryid = $battery;
-      $product->screenresid = $res;
-      $product->cameraresid = $camRes;
-      $product->fingerprinttypeid = $finger;
-      $product->save();
-      
-      DB::insert('insert into image_product (product_id, image_id) values (:pid, :iid);',
-      ['pid' => $product->id, 'iid' => 1]);
+      //temp, while no image upload is done
+      $newProduct->images->attach(1);
 
-      return redirect('product/'.$product->id);
+      return redirect('product/'.$newProduct->id);
     }
 }

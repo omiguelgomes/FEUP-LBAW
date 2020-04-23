@@ -12,6 +12,6 @@ class GPU extends Model
 
   public static function list()
   {
-    return $brands = GPU::pluck('name', 'id');
+    return GPU::pluck('name', 'id');
   }
 }

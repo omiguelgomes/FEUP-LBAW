@@ -12,6 +12,6 @@ class ScreenRes extends Model
 
   public static function list()
   {
-    return $res = screenRes::pluck('value', 'id');
+    return screenRes::pluck('value', 'id');
   }
 }

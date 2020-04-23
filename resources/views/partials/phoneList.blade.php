@@ -17,7 +17,7 @@
     <tr>
         <td>
             <a href="{{ url('product/'.$product->id) }}">
-            <img src="{{ asset('images/'.$product->image()[0]) }}" alt="..." style="width:80px;">
+            <img src="{{ asset('images/'.$product->images->first()->path)}}" alt="..." style="width:80px;">
         </td>
         <td>
             <div class="card-body">

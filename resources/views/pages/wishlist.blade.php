@@ -16,7 +16,9 @@
       @foreach($wishlist as $product)
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
           <div class="card mx-1 my-1">
-              <img class="card-img" src="{{ asset('images/'.$product->image()[0]) }}" alt="Card image cap">
+            <a href="{{ url('product/'.$product->id) }}">
+              <img class="card-img" src="{{ asset('images/'.$product->images->first()->path)}}" alt="Card image cap">
+            </a>
               <div class="card-body ">
 
                   <h5 class="card-title">{{$product->model}}</h5>

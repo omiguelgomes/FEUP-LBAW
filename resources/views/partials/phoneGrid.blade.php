@@ -6,7 +6,7 @@
                 <div class="col-4 col-sm-4 col-md-4 col-lg-2 mx-2 my-2 d-flex align-content-stretch">
                     <div class="card text-center  vertical-align" >
                         <a href="{{ url('product/'.$product->id) }}" >
-                        <img class="card-img-top" src="{{ asset('images/'.$product->image()[0]) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}" alt="Card image cap">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">{{$product->model}}</h5>

@@ -12,6 +12,6 @@ class CPU extends Model
 
   public static function list()
   {
-    return $brands = CPU::pluck('name', 'id');
+    return CPU::pluck('name', 'id');
   }
 }

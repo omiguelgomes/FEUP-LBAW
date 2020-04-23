@@ -12,6 +12,6 @@ class OS extends Model
 
   public static function list()
   {
-    return $brands = OS::pluck('name', 'id');
+    return OS::pluck('name', 'id');
   }
 }

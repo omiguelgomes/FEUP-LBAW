@@ -12,6 +12,6 @@ class Weight extends Model
 
   public static function list()
   {
-    return $brands = Weight::pluck('value', 'id');
+    return Weight::pluck('value', 'id');
   }
 }

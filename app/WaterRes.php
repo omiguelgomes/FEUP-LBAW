@@ -12,6 +12,6 @@ class WaterRes extends Model
 
   public static function list()
   {
-    return $brands = WaterRes::pluck('value', 'id');
+    return WaterRes::pluck('value', 'id');
   }
 }

@@ -12,6 +12,6 @@ class ScreenSize extends Model
 
   public static function list()
   {
-    return $brands = ScreenSize::pluck('value', 'id');
+    return ScreenSize::pluck('value', 'id');
   }
 }

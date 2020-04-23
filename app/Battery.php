@@ -12,6 +12,6 @@ class Battery extends Model
 
   public static function list()
   {
-    return $brands = Battery::pluck('value', 'id');
+    return Battery::pluck('value', 'id');
   }
 }

@@ -12,6 +12,6 @@ class CamRes extends Model
 
   public static function list()
   {
-    return $cams = CamRes::pluck('value', 'id');
+    return CamRes::pluck('value', 'id');
   }
 }

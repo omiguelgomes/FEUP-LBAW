@@ -17,6 +17,6 @@ class Brand extends Model
 
   public static function list()
   {
-    return $brands = Brand::pluck('name', 'id');
+    return Brand::pluck('name', 'id');
   }
 }

@@ -12,6 +12,6 @@ class FingerPrintType extends Model
 
   public static function list()
   {
-    return $cams = FingerPrintType::pluck('value', 'id');
+    return FingerPrintType::pluck('value', 'id');
   }
 }

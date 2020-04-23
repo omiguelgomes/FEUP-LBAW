@@ -12,6 +12,6 @@ class RAM extends Model
 
   public static function list()
   {
-    return $brands = RAM::pluck('value', 'id');
+    return RAM::pluck('value', 'id');
   }
 }

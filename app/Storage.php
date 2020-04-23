@@ -12,6 +12,6 @@ class Storage extends Model
 
   public static function list()
   {
-    return $brands = Storage::pluck('value', 'id');
+    return Storage::pluck('value', 'id');
   }
 }

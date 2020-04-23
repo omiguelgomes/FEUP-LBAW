@@ -780,10 +780,10 @@ insert into wishlist (product_id, user_id) values (9, 9);
 /* discount */
 
 insert into discount (val, beginDate, endDate) values (0.10, '2020-04-23', '2021-05-12');
-insert into discount (val, beginDate, endDate) values (0.20, '2021-04-17', '2021-05-02');
-insert into discount (val, beginDate, endDate) values (0.30, '2021-05-10', '2021-05-26');
-insert into discount (val, beginDate, endDate) values (0.40, '2021-06-14', '2021-06-18');
-insert into discount (val, beginDate, endDate) values (0.50, '2021-07-04', '2021-07-16');
+insert into discount (val, beginDate, endDate) values (0.20, '2019-04-17', '2021-05-02');
+insert into discount (val, beginDate, endDate) values (0.30, '2018-05-10', '2021-05-26');
+insert into discount (val, beginDate, endDate) values (0.40, '2018-06-14', '2021-06-18');
+insert into discount (val, beginDate, endDate) values (0.50, '2019-07-04', '2021-07-16');
 
 /* discount product */
 

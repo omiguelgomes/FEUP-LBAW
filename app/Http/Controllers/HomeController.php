@@ -37,7 +37,12 @@ class HomeController extends Controller
             return true;
           }
         }
-      )->take($max);
+      )->sortBy(
+        function($product)
+        {
+          return $product->discounts->first()->val;
+        }
+      )->reverse()->take($max);
     }
       
 }

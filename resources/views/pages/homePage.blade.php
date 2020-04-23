@@ -46,18 +46,24 @@
 </div>
 
 <div class="container">
-    <nav>
-        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="new-tab" href="#">Hot</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="best-tab" href="#">New</a>
-            </li>
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home" aria-selected="true">Hot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="promotions-tab" data-toggle="tab" href="#promotions" role="tab" aria-controls="contact" aria-selected="false">Promotions</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="hot" role="tabpanel" aria-labelledby="hot-tab">
+            @include('partials.phoneGrid',['products' => $hotProducts])
         </div>
-    </nav>
-    {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}
-    @include('partials.phoneGrid',['products' => $hotProducts])
+
+        <div class="tab-pane fade" id="promotions" role="tabpanel" aria-labelledby="promotions-tab">
+            @include('partials.phoneGrid',['products' => $discountProducts])
+        </div>
+      </div>
+        {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}
 </div>
     
 <!-- Make carousel indicators and controls black -->
@@ -77,15 +83,15 @@
 
 {{-- DOENST WORK --}}
 <script>
-//     $('#nav-tab li:first-child a').on('click', function(e) {
-//         e.preventDefault()
-//         $(this).tab('show')
-//     })
+    $('#nav-tab li:first-child a').on('click', function(e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
 
-//     $('#nav-tab a').on('click', function(e) {
-//         e.preventDefault()
-//         $(this).tab('show')
-//     })
-// </script>
+    $('#nav-tab a').on('click', function(e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+ </script>
 
 @endsection

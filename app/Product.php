@@ -50,15 +50,22 @@ class Product extends Model
         where('enddate', '>=', date("Y-m-d"));
     }
 
+    //includes discounts from the past
     public function allDiscounts()
     {
         return $this->belongsToMany('App\Discount', 'discount_product');
     }
 
-    public function discountPrice()
+    //override access to attribute price, so that it is updated with the discount
+    public function getPriceAttribute($price)
     {
-        return round($this->price * (1-$this->discounts->first()->val), 2);
+        if(count($this->discounts) > 0)
+        {
+            return round($price * (1-$this->discounts->first()->val), 2);
+        }
+        return $price;
     }
+    
 
 
     /*  SPECS   */

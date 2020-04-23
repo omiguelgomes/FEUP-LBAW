@@ -58,18 +58,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-around">
+            <div class="col d-flex justify-content-center">
                 @if(count($product->discounts) > 0)
-                    <h5><b>
-                        {{$product->discountPrice()}}€
-                    </b></h5>
-                    <a style="text-decoration: line-through;">
+                    <h2><b>
                         {{$product->price}}€
+                    </b></h2>
+                    <a style="text-decoration: line-through;">
+                        <sup>{{round($product->price / (1-$product->discounts->first()->val), 2)}}€</sup>
                     </a>
                 @else
-                    <h5><b>
+                    <h2><b>
                         {{$product->price}}€
-                    </b></h5>
+                    </b></h2>
                 @endif
             </div>
             <div class="col d-flex justify-content-center">

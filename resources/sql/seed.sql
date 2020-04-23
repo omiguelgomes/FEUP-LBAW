@@ -746,6 +746,7 @@ insert into product_purchase (product_id, purchase_id, quantity) values (5, 9, 3
 insert into product_purchase (product_id, purchase_id, quantity) values (2, 10, 2);
 
 
+
 /* cart */
 
 insert into cart (product_id, user_id, quant) values (1, 1, 1);

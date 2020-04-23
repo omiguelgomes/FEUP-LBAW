@@ -44,6 +44,15 @@ class Product extends Model
         return $this->belongsToMany('App\Image', 'App\ImageProduct');
     }
 
+    public function discounts()
+    {
+        return $this->belongsToMany('App\Discount', 'discount_product');
+    }
+
+    public function discountPrice()
+    {
+        return round($this->price * (1-$this->discounts->first()->val), 2);
+    }
 
 
     /*  SPECS   */

@@ -58,8 +58,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-center">
-            <h5><b>{{$product->price}}€</b></h5>
+            <div class="col d-flex justify-content-around">
+                @if(count($product->discounts) > 0)
+                    <h5><b>
+                        {{$product->discountPrice()}}€
+                    </b></h5>
+                    <a style="text-decoration: line-through;">
+                        {{$product->price}}€
+                    </a>
+                @else
+                    <h5><b>
+                        {{$product->price}}€
+                    </b></h5>
+                @endif
             </div>
             <div class="col d-flex justify-content-center">
                 <a href="{{ url('/product/'.$product->id.'/cart') }}" class="button btn-primary rounded p-1 mx-1">

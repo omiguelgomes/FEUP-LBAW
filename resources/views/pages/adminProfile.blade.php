@@ -26,13 +26,13 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email<a class="text-danger">*</a></label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="joaopaulo_n@hotmail.com" readonly>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="{{$user->email}}" readonly>
                     <br>
                     <label for="inputPassword4">Password<a class="text-danger">*</a></label>
                     <input type="password" class="form-control" id="inputPassword4" placeholder="**********" readonly>
                     <br>
-                    <label for="inputAge">Age</label>
-                    <input type="number" class="form-control" id="inputAge" placeholder="20" readonly>
+                    <label for="inputAge">Birth date</label>
+                <input type="number" class="form-control" id="inputAge" placeholder="{{$user->birthdate}}" readonly>
                 </div>
             </div>
             <a class="text-danger">* Campos Obrigatórios</a>
@@ -702,8 +702,9 @@
         </div>
 
         <div class="p-2">
-            <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
-
+            <a href="{{ url('/admin/product/add') }}">
+                <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
+            </a>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\CPU;
 use App\RAM;
@@ -20,7 +21,13 @@ class AdminProfileController extends Controller
 {
     public function show()
     {
-      return view('pages.adminProfile');
+      //should be changed with policies so only admins can come in
+      if (!Auth::check()) 
+        return redirect('/register');
+      else
+          $user = Auth::user();
+
+      return view('pages.adminProfile')->with('user', $user);
     }
 
     public function showProductCreateForm()

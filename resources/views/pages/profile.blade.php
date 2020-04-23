@@ -22,8 +22,13 @@
                     <a href="#" class="">Change Photo</a>
                     @if (Auth::check())
                     <div class="row">
-                        <a class="button" href="{{ url('/logout') }}"> Logout    </a> <span>{{$user->name }}</span>
+                        <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{$user->name }}</span>
                     </div>
+                        @if($user->isadmin)
+                            <div class="row">
+                                <a class="button" href="{{ url('/admin') }}"> Admin page </a>
+                            </div>    
+                        @endif
                     @endif
                 </div>
                 <div class="form-group col-md-6">

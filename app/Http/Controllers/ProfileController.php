@@ -13,6 +13,7 @@ class ProfileController extends Controller
         return redirect('/register');
       else
           $user = Auth::user();
+
       return view('pages.profile')->with('user', $user);
     }
 }

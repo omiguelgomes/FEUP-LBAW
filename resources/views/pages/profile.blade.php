@@ -11,11 +11,15 @@
                 <div class="p-1">
                     <h3>Personal Information</h3>
                 </div>
-                <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary"><i class="far fa-edit"></i></button></div>
+                <div class="btn-group">
+                    <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary"><i class="far fa-edit"></i></button></div>
+                    @if($user->isadmin)
+                       <a href="{{ url('/admin') }}"> <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary">Management Area</button></div> </a>   
+                    @endif
+                </div>
             </div>
 
             <div class="form-row">
-              
                 <div class="form-group col-md-4 text-center">
                     <br><br>
                     <img src="{{ asset('/images/'.$user->image->path) }}" class="rounded mx-auto d-block" alt="imagempadrao" style="max-height: 300px;">
@@ -24,11 +28,6 @@
                     <div class="row">
                         <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{$user->name }}</span>
                     </div>
-                        @if($user->isadmin)
-                            <div class="row">
-                                <a class="button" href="{{ url('/admin') }}"> Admin page </a>
-                            </div>    
-                        @endif
                     @endif
                 </div>
                 <div class="form-group col-md-6">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\CPU;
 use App\RAM;
@@ -16,6 +18,7 @@ use App\Brand;
 use App\ScreenRes;
 use App\CamRes;
 use App\FingerPrintType;
+use App\Image;
 
 class AdminProfileController extends Controller
 {
@@ -27,7 +30,47 @@ class AdminProfileController extends Controller
       else
           $user = Auth::user();
 
-      return view('pages.adminProfile')->with('user', $user);
+      
+      $brands = Brand::list();
+
+      return view('pages.adminProfile', compact('user', 'brands'));
+    }
+
+    public function destroyBrand($id)
+    {
+      $brand = Brand::findOrFail($id);
+      $brand->delete();
+
+      return redirect()->to('admin'.'/#brands');
+    }
+
+    public function createBrand(Request $request)
+    {
+     
+      $this->validate($request, array(
+        'inputName' => 'required',
+        'inputFile' => 'image|mimes:jpeg,png,jpg|max:2048',
+      ));
+
+      $name = $request->inputName;
+      $brand = new Brand();
+      $brand->name = $name;
+      
+      if($request->hasFile('inputFile')){
+        $image = $request->file('inputFile');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $filename);
+        
+        $img = new Image();
+        $img->description = "$name brand image";
+        $img->path = '/public/images' . $filename;
+        $img->save();
+        $brand->image_id = $img->id;
+      };
+
+      $brand->save();
+
+      return redirect()->to('admin'.'/#brands');
     }
 
     public function showProductCreateForm()

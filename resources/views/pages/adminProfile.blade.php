@@ -508,7 +508,7 @@
 
     <!-- BRANDS -->
 
-    <br>
+    <br> <a href="#brands"></a>
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Brands</h4>
@@ -517,15 +517,30 @@
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
-
-        <div class="ml-auto p-2">
-            <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
-
-        </div>
     </div>
 
     <div class="collapse" id="tabelbrands">
-
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_brand') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row col-md-4">
+                    <input id="inputName" type="text" name="inputName" class="form-control ml-2" placeholder="Name" required autofocus>
+                    @if ($errors->has('inputName'))
+                    <span class="error">
+                        {{ $errors->first('inputName') }}
+                    </span>
+                    @endif
+                </div>
+                <div class="custom-file col-md-4">
+                    <input type="file" class="custom-file-input" name="inputFile" id="inputFile" required>
+                    <label class="custom-file-label" for="inputFile">Choose file</label>
+                </div>
+                <div class="form-row col-md-2  ml-auto p-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
             <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
@@ -540,66 +555,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($brands as $id => $name)
                     <tr>
-                        <td>Apple</td>
-                        <td><a href="#" class="thumbnail">
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/brands/delete/'.$id) }}" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>
-                    <tr>
-                        <td>Samsung</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Huawei</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Asus</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Xiaomi</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Apple</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Samsung</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Huawei</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Asus</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Xiaomi</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -1004,6 +967,12 @@
 
 <script>
     $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+
+
+    $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 </script>
 
 <style>

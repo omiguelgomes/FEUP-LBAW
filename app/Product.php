@@ -13,6 +13,7 @@ class Product extends Model
     public $timestamps  = false;
 
     protected $hidden = ['pivot'];
+    protected $fillable =['model'];
     
     public function brand()
     {

@@ -1,17 +1,16 @@
 <?php
 
-namespace App;
-
+namespace App\Specs;
 use Illuminate\Database\Eloquent\Model;
 
-class GPU extends Model
+class FingerPrintType extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.gpu';
+  protected $table = 'public.fingerprinttype';
 
   public static function list()
   {
-    return GPU::pluck('name', 'id');
+    return FingerPrintType::pluck('value', 'id');
   }
 }

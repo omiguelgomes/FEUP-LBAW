@@ -5,20 +5,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-use App\CPU;
-use App\RAM;
-use App\WaterRes;
-use App\OS;
-use App\GPU;
-use App\ScreenSize;
-use App\Weight;
-use App\Storage;
-use App\Battery;
+use App\Specs\CPU;
+use App\Specs\RAM;
+use App\Specs\WaterRes;
+use App\Specs\OS;
+use App\Specs\GPU;
+use App\Specs\ScreenSize;
+use App\Specs\Weight;
+use App\Specs\Storage;
+use App\Specs\Battery;
+use App\Specs\ScreenRes;
+use App\Specs\CamRes;
+use App\Specs\FingerPrintType;
+use App\Specs\Image;
 use App\Brand;
-use App\ScreenRes;
-use App\CamRes;
-use App\FingerPrintType;
-use App\Image;
 
 class AdminProfileController extends Controller
 {

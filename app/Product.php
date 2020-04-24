@@ -90,23 +90,23 @@ class Product extends Model
 
     public function cpu()
     {
-        return $this->belongsTo('App\Specs\Cpu');
+        return $this->belongsTo('App\Specs\CPU');
     }
     public function ram()
     {
-        return $this->belongsTo('App\Specs\Ram');
+        return $this->belongsTo('App\Specs\RAM');
     }
     public function waterproofing()
     {
-        return $this->belongsTo('App\Specs\WaterProofing');
+        return $this->belongsTo('App\Specs\WaterRes');
     }
     public function os()
     {
-        return $this->belongsTo('App\Specs\Os');
+        return $this->belongsTo('App\Specs\OS');
     }
     public function gpu()
     {
-        return $this->belongsTo('App\Specs\Gpu');
+        return $this->belongsTo('App\Specs\GPU');
     }
     public function screensize()
     {
@@ -130,10 +130,10 @@ class Product extends Model
     }
     public function camerares()
     {
-        return $this->belongsTo('App\Specs\CameraRes');
+        return $this->belongsTo('App\Specs\CamRes');
     }
     public function fingerprinttype()
     {
-        return $this->belongsTo('App\Specs\FingerprintType');
+        return $this->belongsTo('App\Specs\FingerPrintType');
     }
 }

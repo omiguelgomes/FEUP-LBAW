@@ -1,17 +1,16 @@
 <?php
 
-namespace App;
-
+namespace App\Specs;
 use Illuminate\Database\Eloquent\Model;
 
-class Storage extends Model
+class CamRes extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
-  protected $table = 'public.storage';
+  protected $table = 'camerares';
 
   public static function list()
   {
-    return Storage::pluck('value', 'id');
+    return CamRes::pluck('value', 'id');
   }
 }

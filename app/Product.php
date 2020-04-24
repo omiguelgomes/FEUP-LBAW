@@ -13,7 +13,24 @@ class Product extends Model
     public $timestamps  = false;
 
     protected $hidden = ['pivot'];
-    protected $fillable =['model'];
+    protected $fillable =[
+    'stock', 
+    'price',
+    'model',
+    'category',
+    'brand_id',
+    'cpu_id',
+    'ram_id',
+    'waterproofing_id',
+    'os_id',
+    'gpu_id',
+    'screensize_id',
+    'weight_id',
+    'storage_id',
+    'battery_id',
+    'screenres_id',
+    'camerares_id',
+    'fingerprinttype_id'];
     
     public function brand()
     {

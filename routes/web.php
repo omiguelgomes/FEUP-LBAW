@@ -52,5 +52,13 @@ Route::get('FAQ', 'FAQController@show');
 
 //Management
 Route::get('admin', 'AdminProfileController@show');
+
 Route::get('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
+Route::get('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
+Route::get('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
+Route::get('admin/water/delete/{id}', 'AdminProfileController@destroyWater');
+
 Route::post('admin/brands/add', 'AdminProfileController@createBrand')->name('create_brand');
+Route::post('admin/cpu/add', 'AdminProfileController@createCPU')->name('create_cpu');
+Route::post('admin/ram/add', 'AdminProfileController@createRAM')->name('create_ram');
+Route::post('admin/water/add', 'AdminProfileController@createWater')->name('create_water');

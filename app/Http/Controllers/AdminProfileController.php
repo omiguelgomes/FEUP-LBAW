@@ -31,17 +31,54 @@ class AdminProfileController extends Controller
           $user = Auth::user();
 
       
+      $cpu = CPU::list();
+      $ram = RAM::list();
+      $water = WaterRes::list();
+      $os = OS::list();
+      $gpu = GPU::list();
+      $screen = ScreenSize::list();
+      $weight = Weight::list();
+      $storage = Storage::list();
+      $battery = Battery::list();
       $brands = Brand::list();
+      $screenRes = ScreenRes::list();
+      $cams = CamRes::list();
+      $fingers = FingerPrintType::list();
 
-      return view('pages.adminProfile', compact('user', 'brands'));
+      return view('pages.adminProfile', 
+      compact('user', 'cpu', 'ram', 'water', 'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers'));
     }
 
     public function destroyBrand($id)
     {
-      $brand = Brand::findOrFail($id);
+      $brand = Brand::find($id);
       $brand->delete();
 
-      return redirect()->to('admin'.'/#brands');
+      return redirect()->to('admin');
+    }
+
+    public function destroyCPU($id)
+    {
+      $cpu = CPU::find($id);
+      $cpu->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyRAM($id)
+    {
+      $ram = RAM::find($id);
+      $ram->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyWater($id)
+    {
+      $water = WaterRes::find($id);
+      $water->delete();
+
+      return redirect()->to('admin');
     }
 
     public function createBrand(Request $request)
@@ -52,9 +89,8 @@ class AdminProfileController extends Controller
         'inputFile' => 'image|mimes:jpeg,png,jpg|max:2048',
       ));
 
-      $name = $request->inputName;
       $brand = new Brand();
-      $brand->name = $name;
+      $brand->name = $request->inputName;
       
       if($request->hasFile('inputFile')){
         $image = $request->file('inputFile');
@@ -70,7 +106,37 @@ class AdminProfileController extends Controller
 
       $brand->save();
 
-      return redirect()->to('admin'.'/#brands');
+      return redirect()->to('admin');
+    }
+
+    public function createCPU(Request $request)
+    {
+        $cpu = new CPU();
+        $cpu->freq = $request->inputFreq;
+        $cpu->cores = $request->inputCores;
+        $cpu->threads = $request->inputThreads;
+        $cpu->name = $request->inputName;
+        $cpu->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createRAM(Request $request)
+    {
+        $ram = new RAM();
+        $ram->value = $request->inputName;
+        $ram->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createWater(Request $request)
+    {
+        $water = new WaterRes();
+        $water->value = $request->inputName;
+        $water->save();
+
+        return redirect()->to('admin');
     }
 
     public function showProductCreateForm()

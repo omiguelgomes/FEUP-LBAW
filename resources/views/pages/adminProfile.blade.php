@@ -506,151 +506,6 @@
         </div>
     </div>
 
-    <!-- BRANDS -->
-
-    <br> <a href="#brands"></a>
-    <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Brands</h4>
-        </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelbrands" aria-expanded="false" aria-controls="tabelbrands">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
-    </div>
-
-    <div class="collapse" id="tabelbrands">
-        <div class="row-form">
-            <form class="form-inline" method="POST" action="{{ route('create_brand') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
-                <div class="form-row col-md-4">
-                    <input id="inputName" type="text" name="inputName" class="form-control ml-2" placeholder="Name" required autofocus>
-                    @if ($errors->has('inputName'))
-                    <span class="error">
-                        {{ $errors->first('inputName') }}
-                    </span>
-                    @endif
-                </div>
-                <div class="custom-file col-md-4">
-                    <input type="file" class="custom-file-input" name="inputFile" id="inputFile" required>
-                    <label class="custom-file-label" for="inputFile">Choose file</label>
-                </div>
-                <div class="form-row col-md-2  ml-auto p-2">
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
-                </div>
-            </form>
-        </div>
-        <br>
-        <div class="form-group input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-        </div>
-
-        <div class="table-overflow">
-            <table id="tabela" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($brands as $id => $name)
-                    <tr>
-                        <td>{{$name}}</td>
-                        <td><a href="{{ url('admin/brands/delete/'.$id) }}" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Specs -->
-
-    <br>
-    <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Specifications</h4>
-        </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelspecs" aria-expanded="false" aria-controls="tabelspecs">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
-
-        <div class="ml-auto p-2">
-            <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
-
-        </div>
-    </div>
-
-    <div class="collapse" id="tabelspecs">
-
-        {{-- DOENS'T MAKE SENSE TO SEARCH SPECS BY TEXT --}}
-
-        {{-- <div class="form-group input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-        </div> --}}
-
-        <div class="table-overflow">
-            <table id="tabela" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Required</th>
-                        <th>Type</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ram</td>
-                        <td><i class="fas fa-exclamation"></i></td>
-                        <td>Slider</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Model</td>
-                        <td>&nbsp;</td>
-                        <td>Checkbox</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Color</td>
-                        <td>&nbsp;</td>
-                        <td>Checkbox</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Storage Capacity</td>
-                        <td><i class="fas fa-exclamation"></i></td>
-                        <td>Slider</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Price</td>
-                        <td><i class="fas fa-exclamation"></i></td>
-                        <td>Slider</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
     <!-- Manage Products -->
     <br>
     <div class="d-flex p-3 mb-2 bg-light text-dark">
@@ -957,6 +812,279 @@
 
         </div>
     </div>
+
+    <br>
+    <h3 class="text-center p-3 mb-2 bg-warning text-white ">Brands and Specifications</h3>
+    <br>
+
+    <!-- BRANDS -->
+
+    <a href="#brands"></a><!--attemp at ancor link...-->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Brands</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelbrands" aria-expanded="false" aria-controls="tabelbrands">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelbrands">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_brand') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row col-md-4">
+                    <input id="inputName" type="text" name="inputName" class="form-control ml-2" placeholder="Name" required autofocus>
+                    @if ($errors->has('inputName'))
+                    <span class="error">
+                        {{ $errors->first('inputName') }}
+                    </span>
+                    @endif
+                </div>
+                <div class="custom-file col-md-4">
+                    <input type="file" class="custom-file-input" name="inputFile" id="inputFile" required>
+                    <label class="custom-file-label" for="inputFile">Choose file</label>
+                </div>
+                <div class="form-row col-md-2  ml-auto p-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($brands as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/brands/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- CPU -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>CPU Models</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelCPU" aria-expanded="false" aria-controls="tabelCPU">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelCPU">
+        <div class="row-form">
+            <form class="form" method="POST" action="{{ route('create_cpu') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <input id="inputFreq" type="number" name="inputFreq" class="form-control" placeholder="Frequency" required autofocus>
+                        @if ($errors->has('inputFreq'))
+                        <span class="error">
+                            {{ $errors->first('inputFreq') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-row col-md-6">
+                        <input id="inputCores" type="number" name="inputCores" class="form-control ml-1" placeholder="Cores" required autofocus>
+                        @if ($errors->has('inputCores'))
+                        <span class="error">
+                            {{ $errors->first('inputCores') }}
+                        </span>
+                        @endif
+                    </div>
+
+                    <div class="form-row col-md-6">
+                        <input id="inputThreads" type="number" name="inputThreads" class="form-control ml-3" placeholder="Threads" required autofocus>
+                        @if ($errors->has('inputThreads'))
+                        <span class="error">
+                            {{ $errors->first('inputThreads') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group text-center  p-10">
+                    <button class="btn btn-block btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($cpu as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/cpu/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- RAM -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>RAM Modules</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelRAM" aria-expanded="false" aria-controls="tabelRAM">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelRAM">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_ram') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="RAM amount" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($ram as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/ram/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Water -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Water Resistance ratings</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelWater" aria-expanded="false" aria-controls="tabelWater">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelWater">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_water') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Rating" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($water as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/water/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 {{-- NOT SURE IF THIS WORKS --}}

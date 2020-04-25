@@ -478,7 +478,7 @@ insert into users (name, email, birthDate, password, image_id) values ('Karlens 
 insert into users (name, email, birthDate, password, image_id) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
 insert into users (name, email, birthDate, password, image_id) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
 insert into users (name, email, birthDate, password, image_id) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 19, true); /* Pass: 1234*/
+insert into users (name, email, birthDate, password, image_id, isAdmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 19, true); /* Pass: 1234*/ /* id = 20 */
 
 /* country */
 
@@ -727,6 +727,7 @@ insert into purchase (val, status_id, paid, user_id, purchasedate) values (829.9
 insert into purchase (val, status_id, paid, user_id, purchasedate) values (1090.37, 10, 1, 1, '2010-12-17');
 insert into purchase (val, status_id, paid, user_id, purchasedate) values (1200.37, 11, 1, 1, '2010-12-18');
 insert into purchase (val, status_id, paid, user_id, purchasedate) values (100.37, 12, 1, 1, '2010-12-19');
+insert into purchase (val, status_id, paid, user_id, purchasedate) values (2728.99, 12, 1, 20, '2019-12-19');
 
 
 /* product_purchase */
@@ -744,7 +745,8 @@ insert into product_purchase (product_id, purchase_id, quantity) values (11, 7, 
 insert into product_purchase (product_id, purchase_id, quantity) values (10, 8, 1);
 insert into product_purchase (product_id, purchase_id, quantity) values (5, 9, 3);
 insert into product_purchase (product_id, purchase_id, quantity) values (2, 10, 2);
-
+insert into product_purchase (product_id, purchase_id, quantity) values (5, 11, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (7, 11, 1);
 
 
 /* cart */

@@ -32,6 +32,9 @@ Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
 Route::get('cart/remove/{id}', 'CartController@remove');
 
+//Purchase
+Route::get('purchase/{id}', 'PurchaseController@show');
+
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');

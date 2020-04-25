@@ -81,6 +81,79 @@ class AdminProfileController extends Controller
       return redirect()->to('admin');
     }
 
+    public function destroyOS($id)
+    {
+      $os = OS::find($id);
+      $os->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyGPU($id)
+    {
+      $gpu = GPU::find($id);
+      $gpu->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyScreenSize($id)
+    {
+      $screen = ScreenSize::find($id);
+      $screen->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyWeight($id)
+    {
+      $w = Weight::find($id);
+      $w->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyStorage($id)
+    {
+      $st = Storage::find($id);
+      $st->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyBattery($id)
+    {
+      $bat = Battery::find($id);
+      $bat->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyScreenRes($id)
+    {
+      $screen = ScreenRes::find($id);
+      $screen->delete();
+
+      return redirect()->to('admin');
+    }
+
+
+    public function destroyCam($id)
+    {
+      $cam = CamRes::find($id);
+      $cam->delete();
+
+      return redirect()->to('admin');
+    }
+
+    public function destroyFinger($id)
+    {
+      $finger = FingerPrintType::find($id);
+      $finger->delete();
+
+      return redirect()->to('admin');
+    }
+
     public function createBrand(Request $request)
     {
      
@@ -135,6 +208,89 @@ class AdminProfileController extends Controller
         $water = new WaterRes();
         $water->value = $request->inputName;
         $water->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createOS(Request $request)
+    {
+        $os = new OS();
+        $os->name = $request->inputName;
+        $os->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createGPU(Request $request)
+    {
+        $gpu = new GPU();
+        $gpu->name = $request->inputName;
+        $gpu->vram = $request->inputVram;
+        $gpu->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createScreenSize(Request $request)
+    {
+        $ss = new ScreenSize();
+        $ss->value = $request->inputName;
+        $ss->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createWeight(Request $request)
+    {
+        $item = new Weight();
+        $item->value = $request->inputName;
+        $item->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createStorage(Request $request)
+    {
+        $item = new Storage();
+        $item->value = $request->inputName;
+        $item->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createBattery(Request $request)
+    {
+        $item = new Battery();
+        $item->value = $request->inputName;
+        $item->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createScreenRes(Request $request)
+    {
+        $item = new ScreenRes();
+        $item->value = $request->inputName;
+        $item->save();
+
+        return redirect()->to('admin');
+    }
+
+
+    public function createCam(Request $request)
+    {
+        $item = new CamRes();
+        $item->value = $request->inputName;
+        $item->save();
+
+        return redirect()->to('admin');
+    }
+
+    public function createFinger(Request $request)
+    {
+        $item = new FingerPrintType();
+        $item->value = $request->inputName;
+        $item->save();
 
         return redirect()->to('admin');
     }

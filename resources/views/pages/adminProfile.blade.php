@@ -906,7 +906,7 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <input id="inputFreq" type="number" name="inputFreq" class="form-control" placeholder="Frequency" required autofocus>
+                        <input id="inputFreq" type="number" step="0.01" name="inputFreq" class="form-control" placeholder="Frequency" required autofocus>
                         @if ($errors->has('inputFreq'))
                         <span class="error">
                             {{ $errors->first('inputFreq') }}
@@ -1076,6 +1076,546 @@
                     <tr>
                         <td>{{$name}}</td>
                         <td><a href="{{ url('admin/water/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Water -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Operating Systems</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelOS" aria-expanded="false" aria-controls="tabelOS">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelOS">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_os') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Operating System" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($os as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/os/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- GPU -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>GPU Models</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelGPU" aria-expanded="false" aria-controls="tabelGPU">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelGPU">
+        <div class="row-form">
+            <form class="form" method="POST" action="{{ route('create_gpu') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <input id="inputVram" type="number" name="inputVram" class="form-control" placeholder="Vram" required autofocus>
+                        @if ($errors->has('inputVram'))
+                        <span class="error">
+                            {{ $errors->first('inputVram') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group text-center  p-10">
+                    <button class="btn btn-block btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($gpu as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/gpu/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Screen size -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Screen Size Types</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelSSize" aria-expanded="false" aria-controls="tabelSSize">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelSSize">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_screensize') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="number" step="0.01" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($screen as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/screensize/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Weight -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Weight Values</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelWeight" aria-expanded="false" aria-controls="tabelWeight">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelWeight">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_weight') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="number" step="0.01" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($weight as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/weight/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Storage -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Device Storage</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelStorage" aria-expanded="false" aria-controls="tabelStorage">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelStorage">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_storage') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($storage as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/storage/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Battery -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Battery Size</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelBattery" aria-expanded="false" aria-controls="tabelBattery">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelBattery">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_battery') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($battery as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/battery/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Screen Resolution -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Screen Resolution values</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelScreenRes" aria-expanded="false" aria-controls="tabelScreenRes">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelScreenRes">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_screenres') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Value" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($screenRes as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/screenres/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Camera Resolution -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Camera Resolution values</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelCamRes" aria-expanded="false" aria-controls="tabelCamRes">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelCamRes">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_cam') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Value" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($cams as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/cam/delete/'.$id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Fingerprints -->
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="p-2">
+            <h4>Fingerprint Types</h4>
+        </div>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelFinger" aria-expanded="false" aria-controls="tabelFinger">
+                <i class="fas fa-sort-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelFinger">
+        <div class="row-form">
+            <form class="form-inline" method="POST" action="{{ route('create_finger') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Type" required autofocus>
+                        @if ($errors->has('inputName'))
+                        <span class="error">
+                            {{ $errors->first('inputName') }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <br>
+                <div class="form-group ml-2">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($fingers as $id => $name)
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td><a href="{{ url('admin/finger/delete/'.$id) }}" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>

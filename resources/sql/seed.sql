@@ -7,7 +7,7 @@ CREATE SCHEMA public;
 -------------------------------------------------------------------
 create domain TODAY as date not null default ('now'::text)::date;
 create type category_type as enum ('Phones', 'Tablets');
-create type purchase_state as enum ('Awaiting Payment', 'Processing', 'Sent', 'Delivered');
+create type purchase_state as enum ('Awaiting Payment', 'Payment in-store', 'Processing', 'Sent', 'Delivered');
 create type pay_method as enum ('Tranferencia Bancaria', 'Paypal');
 
 

@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="row-12">
     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home" aria-selected="true">Hot</a>

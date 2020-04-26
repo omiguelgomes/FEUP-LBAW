@@ -7,9 +7,9 @@
                     <div class="row justify-content-center pb-2">
                         <h1 class="display-4"><b>{{$product->model}}</b></h1>
                     </div>
-                    <div class="d-flex bd-highlight mb-3">
+                    <div class="d-flex bd-highlight">
     
-                        <div class="mr-auto p-2 bd-highlight">
+                        <div class="mr-auto bd-highlight">
                         <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="max-height: 100px;">
                         </div>
                         <div class="p-2 bd-highlight">

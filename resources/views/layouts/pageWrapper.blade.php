@@ -32,10 +32,18 @@
                 <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
             </a>
 
-
-            <a class="nav-item nav-link" href="{{ url('profile') }}">
-                <img src="{{ asset('/images/user.svg') }}" width="30" height="30" alt="">
-            </a>
+            <div class="btn-group">
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
+                  </button>
+                  <div class="dropdown-menu" style="right: 0; left: auto;">
+                    <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
+                    <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
+                    <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
+                  </div>
+                </div>
+              </div>
         </nav>
     </div>
 

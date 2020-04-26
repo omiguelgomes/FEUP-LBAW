@@ -18,7 +18,7 @@ class PurchaseController extends Controller {
       else
           $user = Auth::user();
 
-       $purchase = Purchase::findOrFail($id);
+      $purchase = Purchase::findOrFail($id);
       return view('pages.purchase')->with('purchase', $purchase);
     }
 

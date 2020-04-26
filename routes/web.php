@@ -34,6 +34,7 @@ Route::get('cart/remove/{id}', 'CartController@remove');
 
 //Purchase
 Route::get('purchase/{id}', 'PurchaseController@show');
+Route::get('purchase_history', 'PurchaseHistoryController@show');
 
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');
@@ -47,7 +48,6 @@ Route::get('product/{id}/wishlist', 'WishlistController@add');
 
 Route::get('search', 'SearchController@show');
 Route::get('profile', 'ProfileController@show');
-Route::get('purchase_history', 'PurchaseHistoryController@show');
 
 //static pages
 Route::get('about', 'AboutController@show');

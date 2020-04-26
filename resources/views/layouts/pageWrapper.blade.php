@@ -58,16 +58,16 @@
             <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">Phone
         </a>
     </nav>
-    
-        <div class="row">
-            <div class="col-6 bg-light text-center" style="padding-right: -15px; padding-left: -15px;">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-3 bg-light text-center" style="padding-right: -15px; padding-left: -15px;">
                 <h5 style="color: black;">Contact us</h5>
                 <p>+345 925515415</p>
                 <p>support@uphone.com</p>
                 <p>R. Dr. Roberto Frias, 4200-465 Porto</p>
             </div>
             
-            <div class="col-6 bg-light text-center">
+            <div class="col-3 bg-light text-center">
                 <h5 style="color: black;">Support</h5>
                 <br>
                 <a href="{{ url('FAQ') }}" class="font-weight-bold">FAQ</a>
@@ -77,6 +77,7 @@
                 <a class="font-weight-bold" href="{{ url('about') }}">About us</a>
             </div> 
         </div>
+    </div>
 
 </footer>
 </html>

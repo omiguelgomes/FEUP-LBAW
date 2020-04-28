@@ -14,6 +14,6 @@ class PurchaseHistoryController extends Controller
       else
           $user = Auth::user();
   
-      return view('pages.purchase_history')->with('purchases', $user->purchases);
+      return view('pages.purchase_history')->with('purchases', $user->purchases()->get()->sortByDesc('purchasedate'));
     }
 }

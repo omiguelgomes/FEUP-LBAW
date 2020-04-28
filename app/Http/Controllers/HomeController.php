@@ -18,12 +18,12 @@ class HomeController extends Controller
 
     function hotProducts($max)
     {
-      $products = Product::all()->sortBy(
+      $products = Product::all()->sortByDesc(
         function($product)
         {
           return count($product->purchases);
         }
-      )->reverse()->take($max);
+      )->take($max);
       return $products;
     }
 
@@ -37,12 +37,12 @@ class HomeController extends Controller
             return true;
           }
         }
-      )->sortBy(
+      )->sortByDesc(
         function($product)
         {
           return $product->discounts->first()->val;
         }
-      )->reverse()->take($max);
+      )->take($max);
     }
       
 }

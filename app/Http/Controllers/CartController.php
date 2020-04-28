@@ -41,6 +41,7 @@ class CartController extends Controller
       return redirect('cart');
     } 
 
+    // REFRACTOR THIS, USE FUNCTION IN PRODUCT CONTROLLER
     public function buy()
     {
       if (!Auth::check()) 
@@ -53,7 +54,7 @@ class CartController extends Controller
       $newPs = PurchaseState::create([
         'statechangedate' => date("Y-m-d"),
         'comment' => "Please Pay!",
-        'pstate' => "Awaiting Payment",
+        'pstate' => "Processing",
       ]);
       
       $newPurchase = Purchase::create([

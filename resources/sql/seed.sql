@@ -703,13 +703,13 @@ insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, wa
 
 /* purchase State */
 
-insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-13', 'payment please!','Awaiting Payment');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-13', 'payment please!','Sent');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-14', 'please wait, in process','Processing');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-15', 'shipped with success','Delivered');
-insert into purchasestate (statechangedate, "comment", pstate) values ('2017-07-16', 'payment please!','Awaiting Payment');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2017-07-16', 'payment please!','Delivered');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2018-05-17', 'please wait, in process','Processing');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2016-02-18', 'shipped with success','Sent');
-insert into purchasestate (statechangedate, "comment", pstate) values ('2019-01-16', 'payment please!','Awaiting Payment');
+insert into purchasestate (statechangedate, "comment", pstate) values ('2019-01-16', 'payment please!','Processing');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2015-04-17', 'please wait, in process','Processing');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2015-08-18', 'shipped with success','Sent');
 insert into purchasestate (statechangedate, "comment", pstate) values ('2012-05-12', 'shipped with success','Sent');

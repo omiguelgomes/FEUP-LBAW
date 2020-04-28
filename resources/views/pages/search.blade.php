@@ -3,20 +3,12 @@
 
 @include('partials.jumboTitle',['title' => 'Search'])
 
-
 <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 
 
-<nav class="navbar navbar-expand-lg shadow navbar-light">
-    <button class="navbar-toggler d-block" type="button" id="navToggle">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
-        <i class="fas fa-search" aria-hidden="true"></i>
-    </form>
+{{-- <nav class="navbar navbar-expand-lg shadow navbar-light">
     <div class="navbar-collapse offcanvas-collapse mt-4 ">
         <div class="row">
             <div class="col-md-4 col-lg-3">
@@ -63,10 +55,15 @@
                 </div>
             </div>
         </div>
-</nav>
+</nav> --}}
 <div class="container">
-    {{-- SEARCH RESULTS IN HERE --}}
+    <div class="row">
+        <input type="text" id="myInput" onkeyup="{{$products}} = myFunction({{$products}})"
+            placeholder="Search for names..">
+    </div>
+    <div class="row">
+        @include('partials.phoneGrid',['products' => $products])
+    </div>
 </div>
-</div>
-</div>
+
 @endsection

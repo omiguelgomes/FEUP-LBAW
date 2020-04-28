@@ -1,9 +1,8 @@
- @extends('layouts.pageWrapper')
- @section('content')  
+@extends('layouts.pageWrapper')
+@section('content')
 
- @include('partials.jumboTitle',['title' => 'Admin Page'])
+@include('partials.jumboTitle',['title' => 'Admin Page'])
 
-{{-- NOT SURE IF THIS WORKS --}}
 <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
 
 <div class="container">
@@ -14,25 +13,27 @@
                 <div class="p-1">
                     <h3>Personal Information</h3>
                 </div>
-                <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary"><i class="far fa-edit"></i></button></div>
+                <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary"><i
+                            class="far fa-edit"></i></button></div>
             </div>
             <br>
 
             <div class="form-row">
                 <div class="form-group col-md-4 text-center">
                     <br><br>
-                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="rounded mx-auto d-block" alt="imagempadrao" width="150" height="150">
+                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="rounded mx-auto d-block"
+                        alt="imagempadrao" width="150" height="150">
                     <a href="#" class="">Change Photo</a>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email<a class="text-danger">*</a></label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="{{$user->email}}" readonly>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="{{$user->email}}" readonly>
                     <br>
                     <label for="inputPassword4">Password<a class="text-danger">*</a></label>
                     <input type="password" class="form-control" id="inputPassword4" placeholder="**********" readonly>
                     <br>
                     <label for="inputAge">Birth date</label>
-                <input type="number" class="form-control" id="inputAge" placeholder="{{$user->birthdate}}" readonly>
+                    <input type="number" class="form-control" id="inputAge" placeholder="{{$user->birthdate}}" readonly>
                 </div>
             </div>
             <a class="text-danger">* Campos Obrigatórios</a>
@@ -56,7 +57,8 @@
         <div class="p-2">
             <h4>Client Accounts</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#clientAccounts" aria-expanded="false" aria-controls="clientAccounts">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#clientAccounts" aria-expanded="false" aria-controls="clientAccounts">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -176,7 +178,8 @@
         <div class="p-2">
             <h4>Admin Accounts</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#adminsAccounts" aria-expanded="false" aria-controls="adminsAccounts">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#adminsAccounts" aria-expanded="false" aria-controls="adminsAccounts">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -306,7 +309,8 @@
         <div class="p-2">
             <h4>Orders</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelorders" aria-expanded="false" aria-controls="tabelorders">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelorders" aria-expanded="false" aria-controls="tabelorders">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -340,7 +344,8 @@
                     <tr class="clickable">
                         <td>
                             <div class="row-fluid summary">
-                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse"
+                                    data-target="#orderdetail">
                                     <i class="fas fa-sort-down"></i>
                                 </button>
                             </div>
@@ -373,7 +378,8 @@
                     <tr class="clickable">
                         <td>
                             <div class="row-fluid summary">
-                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail2">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse"
+                                    data-target="#orderdetail2">
                                     <i class="fas fa-sort-down"></i>
                                 </button>
                             </div>
@@ -406,7 +412,8 @@
                     <tr class="clickable">
                         <td>
                             <div class="row-fluid summary">
-                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail3">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse"
+                                    data-target="#orderdetail3">
                                     <i class="fas fa-sort-down"></i>
                                 </button>
                             </div>
@@ -439,7 +446,8 @@
                     <tr class="clickable">
                         <td>
                             <div class="row-fluid summary">
-                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail4">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse"
+                                    data-target="#orderdetail4">
                                     <i class="fas fa-sort-down"></i>
                                 </button>
                             </div>
@@ -472,7 +480,8 @@
                     <tr class="clickable">
                         <td>
                             <div class="row-fluid summary">
-                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse" data-target="#orderdetail5">
+                                <button class="btn btn-primary bg-white border-white" data-toggle="collapse"
+                                    data-target="#orderdetail5">
                                     <i class="fas fa-sort-down"></i>
                                 </button>
                             </div>
@@ -534,7 +543,8 @@
         <div class="p-2">
             <h4>Sales</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelsales" aria-expanded="false" aria-controls="tabelsales">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelsales" aria-expanded="false" aria-controls="tabelsales">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -624,7 +634,8 @@
         <div class="p-2">
             <h4>Banner</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#banner" aria-expanded="false" aria-controls="banner">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#banner" aria-expanded="false" aria-controls="banner">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -645,7 +656,8 @@
 
                 <div class="col-7">
 
-                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000"
+                        data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -671,11 +683,13 @@
                                 </a>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -699,7 +713,8 @@
         <div class="p-2">
             <h4>FAQs</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#FAQs" aria-expanded="false" aria-controls="FAQs">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#FAQs" aria-expanded="false" aria-controls="FAQs">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -719,7 +734,8 @@
                     <h5>How do I track my order?</h5>
                 </div>
                 <div class="p-4">
-                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#FAQs1" aria-expanded="false" aria-controls="FAQs1">
+                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse"
+                        data-target="#FAQs1" aria-expanded="false" aria-controls="FAQs1">
                         <i class="fas fa-sort-down"></i>
                     </button>
                 </div>
@@ -728,13 +744,19 @@
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
                     <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> 
+                        <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="collapse" id="FAQs1">
-                <p>All orders despatched with DPD are now trackable. Tracking updates will be provided by our delivery partner, with the links to follow your parcel. If your tracking number begins with RML, unfortunately, we are unable to track these parcels at present. Most parcels will reach their destination within 2 weeks, however, some destinations may require additional time allowed for parcels to arrive. As most parcels will reach their destination within 2 weeks, we are unable to query your parcel before this time. If this time has passed and you have still not received your parcel please contact our Customer Care Team.</p>
+                <p>All orders despatched with DPD are now trackable. Tracking updates will be provided by our delivery
+                    partner, with the links to follow your parcel. If your tracking number begins with RML,
+                    unfortunately, we are unable to track these parcels at present. Most parcels will reach their
+                    destination within 2 weeks, however, some destinations may require additional time allowed for
+                    parcels to arrive. As most parcels will reach their destination within 2 weeks, we are unable to
+                    query your parcel before this time. If this time has passed and you have still not received your
+                    parcel please contact our Customer Care Team.</p>
             </div>
 
 
@@ -743,7 +765,8 @@
                     <h5>How long will my order take to arrive?</h5>
                 </div>
                 <div class="p-4">
-                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#FAQs2" aria-expanded="false" aria-controls="FAQs2">
+                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse"
+                        data-target="#FAQs2" aria-expanded="false" aria-controls="FAQs2">
                         <i class="fas fa-sort-down"></i>
                     </button>
                 </div>
@@ -752,13 +775,16 @@
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
                     <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> 
+                        <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="collapse" id="FAQs2">
-                <p>Generally our international parcels will arrive within 7 working days. However if your parcels tracking ID begins with RML, we advise that you allow up to 2 weeks to account for any postal delays within your country. Please note that UK Bank Holidays, Saturday and Sunday are not classed as working days.</p>
+                <p>Generally our international parcels will arrive within 7 working days. However if your parcels
+                    tracking ID begins with RML, we advise that you allow up to 2 weeks to account for any postal delays
+                    within your country. Please note that UK Bank Holidays, Saturday and Sunday are not classed as
+                    working days.</p>
             </div>
 
 
@@ -767,7 +793,8 @@
                     <h5>What do I do if there is a problem with my delivery?</h5>
                 </div>
                 <div class="p-4">
-                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#FAQs3" aria-expanded="false" aria-controls="FAQs3">
+                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse"
+                        data-target="#FAQs3" aria-expanded="false" aria-controls="FAQs3">
                         <i class="fas fa-sort-down"></i>
                     </button>
                 </div>
@@ -776,8 +803,8 @@
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
                     <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> 
+                        <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                    </a>
                 </div>
             </div>
 
@@ -791,7 +818,8 @@
                     <h5>What is your online security policy?</h5>
                 </div>
                 <div class="p-4">
-                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse" data-target="#FAQs5" aria-expanded="false" aria-controls="FAQs5">
+                    <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse"
+                        data-target="#FAQs5" aria-expanded="false" aria-controls="FAQs5">
                         <i class="fas fa-sort-down"></i>
                     </button>
                 </div>
@@ -800,13 +828,16 @@
                         <i class="far fa-times-circle fa-2x"></i>
                     </a>
                     <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> 
+                        <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="collapse" id="FAQs5">
-                <p>We want to make sure that you are safe and secure when you are shopping with us online. As part of our commitment to this, we perform random checks on orders and this means that you may need to prove your identity. Customers will be contacted by phone or email and will have up to 24 hours to provide us with the required information.</p>
+                <p>We want to make sure that you are safe and secure when you are shopping with us online. As part of
+                    our commitment to this, we perform random checks on orders and this means that you may need to prove
+                    your identity. Customers will be contacted by phone or email and will have up to 24 hours to provide
+                    us with the required information.</p>
             </div>
 
 
@@ -819,12 +850,14 @@
 
     <!-- BRANDS -->
 
-    <a href="#brands"></a><!--attemp at ancor link...-->
+    <a href="#brands"></a>
+    <!--attemp at ancor link...-->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Brands</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelbrands" aria-expanded="false" aria-controls="tabelbrands">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelbrands" aria-expanded="false" aria-controls="tabelbrands">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -833,9 +866,10 @@
     <div class="collapse" id="tabelbrands">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_brand') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row col-md-4">
-                    <input id="inputName" type="text" name="inputName" class="form-control ml-2" placeholder="Name" required autofocus>
+                    <input id="inputName" type="text" name="inputName" class="form-control ml-2" placeholder="Name"
+                        required autofocus>
                     @if ($errors->has('inputName'))
                     <span class="error">
                         {{ $errors->first('inputName') }}
@@ -885,7 +919,8 @@
         <div class="p-2">
             <h4>CPU Models</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelCPU" aria-expanded="false" aria-controls="tabelCPU">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelCPU" aria-expanded="false" aria-controls="tabelCPU">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -894,10 +929,11 @@
     <div class="collapse" id="tabelCPU">
         <div class="row-form">
             <form class="form" method="POST" action="{{ route('create_cpu') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name" required autofocus>
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -906,7 +942,8 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <input id="inputFreq" type="number" step="0.01" name="inputFreq" class="form-control" placeholder="Frequency" required autofocus>
+                        <input id="inputFreq" type="number" step="0.01" name="inputFreq" class="form-control"
+                            placeholder="Frequency" required autofocus>
                         @if ($errors->has('inputFreq'))
                         <span class="error">
                             {{ $errors->first('inputFreq') }}
@@ -916,7 +953,8 @@
                 </div>
                 <div class="form-row">
                     <div class="form-row col-md-6">
-                        <input id="inputCores" type="number" name="inputCores" class="form-control ml-1" placeholder="Cores" required autofocus>
+                        <input id="inputCores" type="number" name="inputCores" class="form-control ml-1"
+                            placeholder="Cores" required autofocus>
                         @if ($errors->has('inputCores'))
                         <span class="error">
                             {{ $errors->first('inputCores') }}
@@ -925,7 +963,8 @@
                     </div>
 
                     <div class="form-row col-md-6">
-                        <input id="inputThreads" type="number" name="inputThreads" class="form-control ml-3" placeholder="Threads" required autofocus>
+                        <input id="inputThreads" type="number" name="inputThreads" class="form-control ml-3"
+                            placeholder="Threads" required autofocus>
                         @if ($errors->has('inputThreads'))
                         <span class="error">
                             {{ $errors->first('inputThreads') }}
@@ -972,7 +1011,8 @@
         <div class="p-2">
             <h4>RAM Modules</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelRAM" aria-expanded="false" aria-controls="tabelRAM">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelRAM" aria-expanded="false" aria-controls="tabelRAM">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -981,10 +1021,11 @@
     <div class="collapse" id="tabelRAM">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_ram') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="RAM amount" required autofocus>
+                        <input id="inputName" type="number" name="inputName" class="form-control"
+                            placeholder="RAM amount" required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1031,7 +1072,8 @@
         <div class="p-2">
             <h4>Water Resistance ratings</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelWater" aria-expanded="false" aria-controls="tabelWater">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelWater" aria-expanded="false" aria-controls="tabelWater">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1040,10 +1082,11 @@
     <div class="collapse" id="tabelWater">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_water') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Rating" required autofocus>
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Rating"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1090,7 +1133,8 @@
         <div class="p-2">
             <h4>Operating Systems</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelOS" aria-expanded="false" aria-controls="tabelOS">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelOS" aria-expanded="false" aria-controls="tabelOS">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1099,10 +1143,11 @@
     <div class="collapse" id="tabelOS">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_os') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Operating System" required autofocus>
+                        <input id="inputName" type="text" name="inputName" class="form-control"
+                            placeholder="Operating System" required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1149,7 +1194,8 @@
         <div class="p-2">
             <h4>GPU Models</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelGPU" aria-expanded="false" aria-controls="tabelGPU">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelGPU" aria-expanded="false" aria-controls="tabelGPU">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1158,10 +1204,11 @@
     <div class="collapse" id="tabelGPU">
         <div class="row-form">
             <form class="form" method="POST" action="{{ route('create_gpu') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name" required autofocus>
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1170,7 +1217,8 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <input id="inputVram" type="number" name="inputVram" class="form-control" placeholder="Vram" required autofocus>
+                        <input id="inputVram" type="number" name="inputVram" class="form-control" placeholder="Vram"
+                            required autofocus>
                         @if ($errors->has('inputVram'))
                         <span class="error">
                             {{ $errors->first('inputVram') }}
@@ -1217,7 +1265,8 @@
         <div class="p-2">
             <h4>Screen Size Types</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelSSize" aria-expanded="false" aria-controls="tabelSSize">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelSSize" aria-expanded="false" aria-controls="tabelSSize">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1225,11 +1274,13 @@
 
     <div class="collapse" id="tabelSSize">
         <div class="row-form">
-            <form class="form-inline" method="POST" action="{{ route('create_screensize') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            <form class="form-inline" method="POST" action="{{ route('create_screensize') }}"
+                enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" step="0.01" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        <input id="inputName" type="number" step="0.01" name="inputName" class="form-control"
+                            placeholder="Size" required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1276,7 +1327,8 @@
         <div class="p-2">
             <h4>Weight Values</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelWeight" aria-expanded="false" aria-controls="tabelWeight">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelWeight" aria-expanded="false" aria-controls="tabelWeight">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1285,10 +1337,11 @@
     <div class="collapse" id="tabelWeight">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_weight') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" step="0.01" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        <input id="inputName" type="number" step="0.01" name="inputName" class="form-control"
+                            placeholder="Size" required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1335,7 +1388,8 @@
         <div class="p-2">
             <h4>Device Storage</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelStorage" aria-expanded="false" aria-controls="tabelStorage">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelStorage" aria-expanded="false" aria-controls="tabelStorage">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1343,11 +1397,13 @@
 
     <div class="collapse" id="tabelStorage">
         <div class="row-form">
-            <form class="form-inline" method="POST" action="{{ route('create_storage') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            <form class="form-inline" method="POST" action="{{ route('create_storage') }}"
+                enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1394,7 +1450,8 @@
         <div class="p-2">
             <h4>Battery Size</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelBattery" aria-expanded="false" aria-controls="tabelBattery">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelBattery" aria-expanded="false" aria-controls="tabelBattery">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1402,11 +1459,13 @@
 
     <div class="collapse" id="tabelBattery">
         <div class="row-form">
-            <form class="form-inline" method="POST" action="{{ route('create_battery') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            <form class="form-inline" method="POST" action="{{ route('create_battery') }}"
+                enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size" required autofocus>
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1453,7 +1512,8 @@
         <div class="p-2">
             <h4>Screen Resolution values</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelScreenRes" aria-expanded="false" aria-controls="tabelScreenRes">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelScreenRes" aria-expanded="false" aria-controls="tabelScreenRes">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1461,11 +1521,13 @@
 
     <div class="collapse" id="tabelScreenRes">
         <div class="row-form">
-            <form class="form-inline" method="POST" action="{{ route('create_screenres') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            <form class="form-inline" method="POST" action="{{ route('create_screenres') }}"
+                enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Value" required autofocus>
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Value"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1512,7 +1574,8 @@
         <div class="p-2">
             <h4>Camera Resolution values</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelCamRes" aria-expanded="false" aria-controls="tabelCamRes">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelCamRes" aria-expanded="false" aria-controls="tabelCamRes">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1521,10 +1584,11 @@
     <div class="collapse" id="tabelCamRes">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_cam') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Value" required autofocus>
+                        <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Value"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}
@@ -1571,7 +1635,8 @@
         <div class="p-2">
             <h4>Fingerprint Types</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse" data-target="#tabelFinger" aria-expanded="false" aria-controls="tabelFinger">
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelFinger" aria-expanded="false" aria-controls="tabelFinger">
                 <i class="fas fa-sort-down"></i>
             </button>
         </div>
@@ -1580,10 +1645,11 @@
     <div class="collapse" id="tabelFinger">
         <div class="row-form">
             <form class="form-inline" method="POST" action="{{ route('create_finger') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+                {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Type" required autofocus>
+                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Type"
+                            required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
                             {{ $errors->first('inputName') }}

@@ -8,10 +8,10 @@
             <a class="btn btn-secondary w-100" href="{{ url('search') }}" role="button">Tablets</a>
         </div>
         <div class="btn-group w-100 justify-content-center">
-        <a class="btn btn-secondary w-100" href="#" role="button">Brands</a>
+            <a class="btn btn-secondary w-100" href="#" role="button">Brands</a>
         </div>
         <div class="btn-group w-100 justify-content-center">
-        <a class="btn btn-secondary w-100" href="#" role="button">Phones</a>
+            <a class="btn btn-secondary w-100" href="#" role="button">Phones</a>
         </div>
     </div>
 </div>
@@ -48,13 +48,15 @@
 <div class="row-12">
     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home" aria-selected="true">Hot</a>
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home"
+                aria-selected="true">Hot</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="promotions-tab" data-toggle="tab" href="#promotions" role="tab" aria-controls="contact" aria-selected="false">Promotions</a>
+            <a class="nav-link" id="promotions-tab" data-toggle="tab" href="#promotions" role="tab"
+                aria-controls="contact" aria-selected="false">Promotions</a>
         </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
+    </ul>
+    <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="hot" role="tabpanel" aria-labelledby="hot-tab">
             @include('partials.phoneGrid',['products' => $hotProducts])
         </div>
@@ -62,10 +64,10 @@
         <div class="tab-pane fade" id="promotions" role="tabpanel" aria-labelledby="promotions-tab">
             @include('partials.phoneGrid',['products' => $discountProducts])
         </div>
-      </div>
-        {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}
+    </div>
+    {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}
 </div>
-    
+
 <!-- Make carousel indicators and controls black -->
 <style>
     .carousel-control-next,
@@ -92,6 +94,6 @@
         e.preventDefault()
         $(this).tab('show')
     })
- </script>
+</script>
 
 @endsection

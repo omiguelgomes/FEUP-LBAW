@@ -6,8 +6,7 @@
 
 <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
-
-<script type="text/javascript" src="{{ URL::asset('js/slider.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 
 
 <nav class="navbar navbar-expand-lg shadow navbar-light">
@@ -65,21 +64,9 @@
             </div>
         </div>
 </nav>
-    <div class="container">
-            {{-- SEARCH RESULTS IN HERE --}}
-    </div>
+<div class="container">
+    {{-- SEARCH RESULTS IN HERE --}}
 </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        console.log("document is ready");
-        $('[data-toggle="offcanvas"], #navToggle').on('click', function() {
-            $('.offcanvas-collapse').toggleClass('open')
-        })
-    });
-    window.onload = function() {
-        console.log("window is loaded");
-    };
-</script>
+</div>
 @endsection

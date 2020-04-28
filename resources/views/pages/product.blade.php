@@ -1,3 +1,4 @@
+<link href="{{ asset('css/product.css') }}" rel="stylesheet">
 @extends('layouts.pageWrapper')
 @section('content')
 <div class="container">
@@ -123,41 +124,4 @@
 
         </div>
     </div>
-
-    <!-- Make carousel indicators and controls black -->
-    <style>
-        .nav-pills>li>a.active {
-            background-color: black !important;
-            color: white !important;
-        }
-
-        .nav-pills>li>a:hover {
-            color: black !important;
-        }
-
-        .nav-link-color {
-            color: black;
-        }
-
-        .carousel-control-next,
-        .carousel-control-prev,
-        .carousel-indicators {
-            filter: invert(100%);
-        }
-
-        /* should be a better way to limit size */
-        .carousel-item>* {
-            /* width: auto;
-            height: auto;
-            max-width: inherit;
-            object-fit: cover;
-            margin: auto;  */
-            max-height: 300px;
-        }
-
-        .fa-star {
-            color: #f7aa31;
-        }
-    </style>
-
     @endsection

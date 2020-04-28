@@ -83,8 +83,16 @@ class Product extends Model
         }
         return $price;
     }
-    
 
+    public function originalPrice()
+    {
+        return round($this->price / (1-$this->discounts->first()->val), 2);
+    }
+
+    public function averageRating()
+    {
+        return round($this->ratings->average('val'), 1);
+    }    
 
     /*  SPECS   */
 

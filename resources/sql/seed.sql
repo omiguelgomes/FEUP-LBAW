@@ -456,6 +456,8 @@ insert into image (description, path) values ('user_ph3', 'userpic3.jpg');
 insert into image (description, path) values ('user_ph4', 'userpic4.jpg');
 insert into image (description, path) values ('user_ph5', 'userpic5.jpg');
 insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
+insert into image (description, path) values ('phone_a70-2', 'sa70-2.jpg');
+
 
 /* users */
 
@@ -804,6 +806,7 @@ insert into discount_product (product_id, discount_id) values (9, 1);
 
 insert into image_product (product_id, image_id) values (1, 6);
 insert into image_product (product_id, image_id) values (2, 7);
+insert into image_product (product_id, image_id) values (2, 24);
 insert into image_product (product_id, image_id) values (3, 8);
 insert into image_product (product_id, image_id) values (4, 9);
 insert into image_product (product_id, image_id) values (5, 10);

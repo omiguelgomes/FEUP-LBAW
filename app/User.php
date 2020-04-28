@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function address()
     {
-        return $this->hasOne('App\Address');
+        return $this->hasMany('App\Address');
     }
 
     public function image()

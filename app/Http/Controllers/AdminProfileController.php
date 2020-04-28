@@ -17,7 +17,7 @@ use App\Specs\Battery;
 use App\Specs\ScreenRes;
 use App\Specs\CamRes;
 use App\Specs\FingerPrintType;
-use App\Specs\Image;
+use App\Image;
 use App\Brand;
 
 class AdminProfileController extends Controller
@@ -171,7 +171,7 @@ class AdminProfileController extends Controller
         $image->move(public_path('images'), $filename);
         
         $img = new Image();
-        $img->description = "$name brand image";
+        $img->description = "$brand->name brand image";
         $img->path = '/public/images' . $filename;
         $img->save();
         $brand->image_id = $img->id;

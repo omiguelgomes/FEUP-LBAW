@@ -3,67 +3,35 @@
 @section('content')
 
 @include('partials.jumboTitle',['title' => 'Purchase History'])
-@foreach($purchases as $purchase)
-<div class="container px-1 px-md-4 mx-auto">
-    <div class="card px-5">
-        <div class="row d-flex justify-content-around px-3 top">
-            <div class="d-flex">
-                <a href="{{url('purchase/'.$purchase->id)}}">
-                    <h5>ORDER <span class="text-primary font-weight-bold">#{{$purchase->id}}</span></h5>
-                </a>
-            </div>
-        </div> <!-- Add class 'active' to progress -->
-        <div class="row d-flex">
-            <div class="col-12">
-                <ul id="progressbar" class="text-center" style="display: flex; justify-content: center;">
-                    @if($purchase->status->pstate == 'Processing')
-                    <li class="active step0"></li>
-                    <li class="step0"></li>
-                    <li class="step0"></li>
-                    @endif
-                    @if($purchase->status->pstate == 'Sent')
-                    <li class="active step0"></li>
-                    <li class="active step0"></li>
-                    <li class="step0"></li>
-                    @endif
+<div class="container d-flex">
+    <div class="row justify-content-right">
+        @foreach($purchases as $purchase)
+        <div class="card text-center m-3">
+            <h5 class="card-title py-2"> <b> ORDER #{{$purchase->id}}</b></h5>
+            <div class="card-body">
+                <div class="image-grid-container p-2">
+                    @foreach($purchase->products as $product)
+                    <img class="card-img-top" src="{{asset('images/'.$product->images->first()->path)}}"
+                        alt="Card image cap">
+                    @endforeach
+                </div>
+                <p class="card-text">
+                    <h5>Order status: </h5>
                     @if($purchase->status->pstate == 'Delivered')
-                    <li class="active step0"></li>
-                    <li class="active step0"></li>
-                    <li class="active step0"></li>
+                    <h5 class="text-success">{{$purchase->status->pstate}}</h5>
+                    @elseif($purchase->status->pstate == 'Sent')
+                    <h5 class="text-warning">{{$purchase->status->pstate}}</h5>
+                    @elseif($purchase->status->pstate == 'Processing')
+                    <h5 class="text-primary">{{$purchase->status->pstate}}</h5>
+                    @elseif($purchase->status->pstate == 'Awaiting Payment')
+                    <h5 class="text-danger">{{$purchase->status->pstate}}</h5>
                     @endif
-                </ul>
+                    <h5>Purchase date: {{$purchase->purchasedate}}</h5>
+                </p>
+                <a href="{{url('purchase/'.$purchase->id)}}" class="btn btn-primary stretched-link">See details</a>
             </div>
         </div>
-        <div class="row justify-content-around top">
-            <div class="row d-flex icon-content"> <img class="icon" src="{{asset('images/order_shipped.png')}}">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Order<br>Shipped</p>
-                </div>
-            </div>
-            <div class="row d-flex icon-content"> <img class="icon" src="{{asset('images/order_coming.png')}}">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Order<br>En Route</p>
-                </div>
-            </div>
-            <div class="row d-flex icon-content"> <img class="icon" src="{{asset('images/order_arrived.png')}}">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Order<br>Arrived</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-around">
-            @foreach($purchase->products as $product)
-            <div class="col-4 col-sm-4 col-md-4 col-lg-2 mx-2">
-                <div class="text-center my-2">
-                    <a href="{{ url('product/'.$product->id) }}">
-                        <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
-                            alt="Card image cap">
-                    </a>
-                </div>
-            </div>
-            @endforeach
-        </div>
+        @endforeach
     </div>
 </div>
-@endforeach
 @endsection

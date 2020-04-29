@@ -15,6 +15,11 @@ class Brand extends Model
     return $this->belongsTo('App\Image');
   }
 
+  public function products()
+  {
+    return $this->hasMany('App\Product');
+  }
+
   public static function list()
   {
     return Brand::pluck('name', 'id');

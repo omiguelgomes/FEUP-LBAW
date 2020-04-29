@@ -8,7 +8,7 @@
             <a class="btn btn-secondary w-100" href="{{ url('search') }}" role="button">Tablets</a>
         </div>
         <div class="btn-group w-100 justify-content-center">
-            <a class="btn btn-secondary w-100" href="#" role="button">Brands</a>
+            <a class="btn btn-secondary w-100" href="{{url('brands')}}" role="button">Brands</a>
         </div>
         <div class="btn-group w-100 justify-content-center">
             <a class="btn btn-secondary w-100" href="#" role="button">Phones</a>
@@ -58,11 +58,15 @@
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="hot" role="tabpanel" aria-labelledby="hot-tab">
-            @include('partials.phoneGrid',['products' => $hotProducts])
+            <div class="col-12">
+                @include('partials.phoneGrid',['products' => $hotProducts])
+            </div>
         </div>
 
         <div class="tab-pane fade" id="promotions" role="tabpanel" aria-labelledby="promotions-tab">
-            @include('partials.phoneGrid',['products' => $discountProducts])
+            <div class="col-12">
+                @include('partials.phoneGrid',['products' => $discountProducts])
+            </div>
         </div>
     </div>
     {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}

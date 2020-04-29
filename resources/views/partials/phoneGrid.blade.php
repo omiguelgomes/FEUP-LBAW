@@ -4,7 +4,7 @@
         <div class="card text-center  vertical-align">
             <a href="{{ url('product/'.$product->id) }}">
                 <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
-                    alt="Card image cap">
+                    alt="Card image cap" style="width: 100%;">
             </a>
             <div class="card-body">
                 <h5 class="card-title">{{$product->brand->name}}</h5>

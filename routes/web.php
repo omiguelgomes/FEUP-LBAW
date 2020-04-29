@@ -18,9 +18,6 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-//Create product
-Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
-Route::post('admin/product/add', 'ProductController@create')->name('create_product');
 
 //Page to go to by default + home
 Route::get('/', 'HomeController@show');
@@ -45,8 +42,12 @@ Route::get('wishlist', 'WishlistController@show');
 Route::get('wishlist/remove/{id}', 'WishlistController@remove');
 Route::get('product/{id}/wishlist', 'WishlistController@add');
 
-
+//Search
 Route::get('search', 'SearchController@show');
+Route::get('search/{brandName}', 'SearchController@show');//should return the search page with the brand name checkbox ticked
+Route::get('brands', 'BrandController@show');
+
+//Profile
 Route::get('profile', 'ProfileController@show');
 
 //static pages
@@ -55,7 +56,6 @@ Route::get('FAQ', 'FAQController@show');
 
 //Management
 Route::get('admin', 'AdminProfileController@show');
-
 Route::get('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
 Route::get('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
 Route::get('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
@@ -83,3 +83,7 @@ Route::post('admin/battery/add', 'AdminProfileController@createBattery')->name('
 Route::post('admin/screenres/add', 'AdminProfileController@createScreenRes')->name('create_screenres');
 Route::post('admin/cam/add', 'AdminProfileController@createCam')->name('create_cam');
 Route::post('admin/finger/add', 'AdminProfileController@createFinger')->name('create_finger');
+
+//Create product
+Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
+Route::post('admin/product/add', 'ProductController@create')->name('create_product');

@@ -22,4 +22,6 @@ class SearchController extends Controller
     return view('pages.search',
     compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products'));
   }
+
+
 }

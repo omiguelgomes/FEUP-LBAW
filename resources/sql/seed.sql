@@ -434,7 +434,7 @@ create index fingerprinttype_product on fingerprinttype using hash(id);
 /* image */
 
 insert into image (description, path) values ('user_default', 'profilepadrao.jpg');
-insert into image (description, path) values ('brand_apple', 'apple.jpg');
+insert into image (description, path) values ('brand_apple', 'apple.png');
 insert into image (description, path) values ('brand_samsung', 'samsung.png');
 insert into image (description, path) values ('brand_xiaomi', 'xiaomi.png');
 insert into image (description, path) values ('brand_huawei', 'huawei.png');

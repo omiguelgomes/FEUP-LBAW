@@ -57,11 +57,10 @@
         </div>
 </nav> --}}
 <div class="container">
-    <div class="row">
-        <input type="text" id="myInput" onkeyup="{{$products}} = myFunction({{$products}})"
-            placeholder="Search for names..">
+    <div class="row justify-content-around">
+        <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for products..">
     </div>
-    <div class="row">
+    <div class="row-12">
         @include('partials.phoneGrid',['products' => $products])
     </div>
 </div>

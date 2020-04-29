@@ -7,62 +7,99 @@
 <link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 
-
-{{-- <nav class="navbar navbar-expand-lg shadow navbar-light">
-    <div class="navbar-collapse offcanvas-collapse mt-4 ">
-        <div class="row">
-            <div class="col-md-4 col-lg-3">
-                <div class="filters d-flex flex-column">
-                    <h5>Filters</h5>
-                    <h6>Brand</h6>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <p>Apple</p>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <p>Samsung</p>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <p>Google</p>
-                        </label>
-                    </div>
-                    <h6>Storage</h6>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <p>256 GB</p>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <p>128 GB</p>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <p>64 GB</p>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-</nav> --}}
 <div class="container">
     <div class="row justify-content-around">
         <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for products..">
     </div>
-    <div class="row-12">
-        @include('partials.phoneGrid',['products' => $products])
-    </div>
-</div>
+    <div class="row justify-content-around">
+        <div class="col-2">
+            <div class="filters d-flex flex-column p-0">
+                <h5>Filters</h5>
 
-@endsection
+                <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">Brands <i
+                        class="fa fa-caret-down"></i></a>
+                <div id="brands" class="collapse">
+                    @foreach($brands as $brand)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            <p>{{$brand->name}}</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+
+                <a href="#storage" data-toggle="collapse" class="btn btn-secondary my-1">Storage <i
+                        class="fa fa-caret-down"></i></a>
+                <div id="storage" class="collapse">
+                    @foreach($storage as $st)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            <p>{{$st->value}} GB</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+
+                <a href="#ram" data-toggle="collapse" class="btn btn-secondary my-1">RAM <i
+                        class="fa fa-caret-down"></i></a>
+                <div id="ram" class="collapse">
+                    @foreach($ram as $rm)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            <p>{{$rm->value}} GB</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+
+                <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">FingerPrint Scanner <i
+                        class="fa fa-caret-down"></i></a>
+                <div id="fingerprint" class="collapse">
+                    @foreach($fingers as $finger)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            <p>{{$finger->value}}</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+
+                <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">Water Resistance <i
+                        class="fa fa-caret-down"></i></a>
+                <div id="waterres" class="collapse">
+                    @foreach($water as $wr)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            <p>{{$wr->value}}</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="col-8 col-sm-8 col-md-8 col-lg-10 col-xl-10">
+            <div class="row" id="phone-grid">
+                @foreach($products as $product)
+                <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">
+                    <div class="card text-center  vertical-align">
+                        <a href="{{ url('product/'.$product->id) }}">
+                            <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
+                                alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{$product->brand->name}}</h5>
+                            <h5 class="card-title">{{$product->model}}</h5>
+                            <a href="{{ url('product/'.$product->id) }}" class="btn btn-secondary w-75">See</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endsection

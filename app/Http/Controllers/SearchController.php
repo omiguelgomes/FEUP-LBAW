@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App;
 
 class SearchController extends Controller
@@ -23,5 +23,10 @@ class SearchController extends Controller
     compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products'));
   }
 
+  public function brandsFiltered(Request $request)
+  {
+    $brands = $_GET['brands'];
+    return "HEÇÇÇÇÇÇÇÇÇOOOOOOOOOO";
+  }
 
 }

@@ -27,7 +27,8 @@ Route::get('home', 'HomeController@show')->name('home');
 Route::get('cart', 'CartController@show');
 Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
-Route::get('cart/remove/{id}', 'CartController@remove');
+Route::post('cart/remove', 'CartController@remove');
+
 
 //Purchase
 Route::get('purchase/{id}', 'PurchaseController@show');
@@ -44,8 +45,9 @@ Route::get('product/{id}/wishlist', 'WishlistController@add');
 
 //Search
 Route::get('search', 'SearchController@show');
-Route::get('search/{brandName}', 'SearchController@show');//should return the search page with the brand name checkbox ticked
+Route::get('search/{brandName}', 'SearchController@show'); //should return the search page with the brand name checkbox ticked
 Route::get('brands', 'BrandController@show');
+Route::post('search/filter', 'SearchController@brandsFiltered');
 
 //Profile
 Route::get('profile', 'ProfileController@show');

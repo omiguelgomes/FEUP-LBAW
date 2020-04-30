@@ -12,7 +12,6 @@
     </tr>
 </thead>
 <tbody>
-
     @foreach($products as $product)
     <tr>
         <td>
@@ -30,18 +29,17 @@
         <td>{{$product->pivot->quant}}</td>
 
         @else
-            <td>{{$product->pivot->quantity}} </td>
+        <td>{{$product->pivot->quantity}} </td>
         @endif
 
         @if($xButton == 'cart')
         <td>{{$product->price*$product->pivot->quant}}€</td>
         <td>
-            <a class="thumbnail" href="{{url('cart/remove/'.$product->id)}}">
+            <a class="remove_item" value="{{$product->id}}">
                 <i class="far fa-times-circle fa-2x ml-4"></i>
             </a>
         </td>
         @endif
-
-
     </tr>
     @endforeach
+</tbody>

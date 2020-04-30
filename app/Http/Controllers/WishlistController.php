@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Wishlist;
+
 use Illuminate\Support\Facades\Auth;
 
 class WishlistController extends Controller

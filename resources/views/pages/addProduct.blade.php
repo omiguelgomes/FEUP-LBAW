@@ -6,15 +6,23 @@
 
 <div class="container">
     <div class="row-form">
-        <form method="POST" action="{{ route('create_product') }}">
+        <form method="POST" action="{{ route('create_product') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <h3>Product Information</h3>
             <div class="form-row">
                 <div class="form-group col-md-6 text-center">
                     <br><br>
-                    <img src="{{ asset('/images/mi9.jpg') }}" class="rounded mx-auto d-block" alt="imagempadrao"
-                        width="150" height="150">
-                    <a href="#" class="">Change Photo</a>
+                    <label for="inputImg">Product Images<a class="text-danger"> *</a></label>
+                    <br>
+                    <div class="custom-file col-md-6">
+                        <input type="file" class="custom-file-input" name="inputImg[]" id="inputImg" multiple="multiple" required>
+                        <label class="custom-file-label" for="inputImg">Choose file</label>
+                    </div>
+                    @if ($errors->has('inputImg'))
+                    <span class="error">
+                        {{ $errors->first('inputImg') }}
+                    </span>
+                    @endif
                 </div>
 
                 <div class="form-group col-md-6">
@@ -111,52 +119,6 @@
                 </span>
                 @endif
             </div>
-
-            <!--  |||not needed unless creating new cpu|||
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputCPUfreq">CPU Frequency (gHz)<a class="text-danger"> *</a></label>
-                    <br>
-                    <input id="inputCPUfreq" type="number" class="form-control" name="inputCPUfreq" required>
-                    @if ($errors->has('inputCPUfreq'))
-                    <span class="error">
-                        {{ $errors->first('inputCPUfreq') }}
-                    </span>
-                    @endif
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputCPUcores">CPU Cores<a class="text-danger"> *</a></label>
-                    <br>
-                    <select class="form-control" id="inputCPUcores" type="number" required>
-                        <option>2</option>
-                        <option>4</option>
-                        <option>8</option>
-                        <option>16</option>
-                    </select>
-                    @if ($errors->has('inputCPUcores'))
-                    <span class="error">
-                        {{ $errors->first('inputCPUcores') }}
-                    </span>
-                    @endif
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputCPUthreads">CPU Threads<a class="text-danger"> *</a></label>
-                    <br>
-                    <select class="form-control" id="inputBrand" type="number" required>
-                        <option>4</option>
-                        <option>8</option>
-                        <option>16</option>
-                        <option>32</option>
-                    </select>
-                    @if ($errors->has('inputCPUthreads'))
-                    <span class="error">
-                        {{ $errors->first('inputCPUthreads') }}
-                    </span>
-                    @endif
-                </div>
-            </div>
-            -->
 
             <br>
 

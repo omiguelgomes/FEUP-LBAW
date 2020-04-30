@@ -159,7 +159,7 @@ class AdminProfileController extends Controller
      
       $this->validate($request, array(
         'inputName' => 'required',
-        'inputFile' => 'image|mimes:jpeg,png,jpg|max:2048',
+        'inputFile' => 'image|mimes:jpeg,png,jpg,JPG|max:2048',
       ));
 
       $brand = new Brand();
@@ -172,7 +172,7 @@ class AdminProfileController extends Controller
         
         $img = new Image();
         $img->description = "$brand->name brand image";
-        $img->path = '/public/images' . $filename;
+        $img->path = $filename;
         $img->save();
         $brand->image_id = $img->id;
       };

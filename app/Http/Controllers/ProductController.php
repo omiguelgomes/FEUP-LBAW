@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\PurchaseState;
 use App\Purchase;
+use App\Image;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -69,9 +71,23 @@ class ProductController extends Controller
       'camerares_id' => $request->inputCamRes,
       'fingerprinttype_id' => $request->inputFinger]);
 
-      //temp, while no image upload is done
-      $newProduct->images()->attach(1);
-      
+      if($request->hasFile('inputImg')) {
+        $allowedExtensions = ['jpg', 'JPG', 'png', 'jpeg'];
+
+        $files = $request->file('inputImg');
+        
+        foreach($files as $file){
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('images'), $filename);
+        
+        $img = new Image();
+        $img->description = "$newProduct->model product image";
+        $img->path = $filename;
+        $img->save();
+        $newProduct->images()->attach($img->id);
+        }
+      }
+    
       return redirect('product/'.$newProduct->id);
     }
 }

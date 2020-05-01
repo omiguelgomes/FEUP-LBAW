@@ -50,33 +50,26 @@
     <br>
 
     <div class="btn-group btn-group-lg w-100 pb-5" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#accounts">Accounts</button>
-        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#orders">Orders</button>
-        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#products">Products</button>
-        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#brandsandspecs">Brands and Specifications</button>
-        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#other">Other</button>
+        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#accounts" aria-expanded="true" aria-controls="accounts">Accounts</button>
+        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#orders" aria-expanded="false" aria-controls="orders">Orders</button>
+        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#products" aria-expanded="false" aria-controls="products">Products</button>
+        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#brandsandspecs" aria-expanded="false" aria-controls="brandsandspecs">Brands and Specifications</button>
+        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#other" aria-expanded="false" aria-controls="other">Other</button>
     </div>
     <br>
 
     <!-- Client Accounts -->
-    <div class="collapse" id="accounts">
+    <div class="collapse show" id="accounts">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Client Accounts</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
-                data-target="#clientAccounts" aria-expanded="true" aria-controls="clientAccounts">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
-
         <div class="ml-auto p-2">
             <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
 
         </div>
     </div>
 
-    <div class="collapse" id="clientAccounts">
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -175,7 +168,6 @@
 
                 </tbody>
             </table>
-        </div>
     </div>
 
     <!-- Admin Accounts -->
@@ -185,11 +177,7 @@
         <div class="p-2">
             <h4>Admin Accounts</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
-                data-target="#adminsAccounts" aria-expanded="false" aria-controls="adminsAccounts">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
+        
 
         <div class="ml-auto p-2">
             <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
@@ -197,7 +185,6 @@
         </div>
     </div>
 
-    <div class="collapse" id="adminsAccounts">
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -308,7 +295,6 @@
             </table>
         </div>
     </div>
-    </div>
 
     <!-- ORDERS -->
 
@@ -317,11 +303,6 @@
         <div class="p-2">
             <h4>Orders</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
-                data-target="#tabelorders" aria-expanded="false" aria-controls="tabelorders">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
 
         <div class="ml-auto p-2">
             <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
@@ -329,7 +310,6 @@
         </div>
     </div>
 
-    <div class="collapse" id="tabelorders">
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -522,7 +502,6 @@
             </table>
         </div>
     </div>
-    </div>
 
     <!-- Manage Products -->
     <div class="collapse" id="products">
@@ -551,19 +530,12 @@
         <div class="p-2">
             <h4>Sales</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
-                data-target="#tabelsales" aria-expanded="false" aria-controls="tabelsales">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
 
         <div class="ml-auto p-2">
             <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
 
         </div>
     </div>
-
-    <div class="collapse" id="tabelsales">
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -633,7 +605,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
     </div>
 
     <!-- BRANDS -->
@@ -858,7 +829,7 @@
     <!-- Water -->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
-            <h4>Water Resistance ratings</h4>
+            <h4>Water Resistance Ratings</h4>
         </div>
         <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
                 data-target="#tabelWater" aria-expanded="false" aria-controls="tabelWater">
@@ -1298,7 +1269,7 @@
     <!-- Screen Resolution -->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
-            <h4>Screen Resolution values</h4>
+            <h4>Screen Resolution Values</h4>
         </div>
         <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
                 data-target="#tabelScreenRes" aria-expanded="false" aria-controls="tabelScreenRes">
@@ -1360,7 +1331,7 @@
     <!-- Camera Resolution -->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
-            <h4>Camera Resolution values</h4>
+            <h4>Camera Resolution Values</h4>
         </div>
         <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
                 data-target="#tabelCamRes" aria-expanded="false" aria-controls="tabelCamRes">
@@ -1487,16 +1458,8 @@
         <div class="p-2">
             <h4>Banner</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
-                data-target="#banner" aria-expanded="false" aria-controls="banner">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
 
     </div>
-
-    <div class="collapse" id="banner">
-
         <div class="row-12 py-3">
 
             <div class="row align-items-center justify-content-md-center">
@@ -1555,7 +1518,6 @@
                     </button>
                 </div>
 
-            </div>
         </div>
     </div>
 
@@ -1566,11 +1528,6 @@
         <div class="p-2">
             <h4>FAQs</h4>
         </div>
-        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
-                data-target="#FAQs" aria-expanded="false" aria-controls="FAQs">
-                <i class="fas fa-sort-down"></i>
-            </button>
-        </div>
 
         <div class="ml-auto p-2">
             <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
@@ -1578,8 +1535,6 @@
         </div>
     </div>
 
-
-    <div class="collapse" id="FAQs">
         <div class="table-overflow">
 
             <div class="d-flex">
@@ -1695,7 +1650,6 @@
 
 
         </div>
-    </div>
     </div>
 
 </div>

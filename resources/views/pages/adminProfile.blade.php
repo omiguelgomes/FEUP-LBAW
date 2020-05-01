@@ -504,22 +504,69 @@
     </div>
 
     <!-- Manage Products -->
+    <br>
     <div class="collapse" id="products">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-
-        <div class="mr-auto p-2">
+        <div class="p-2">
             <h4>Manage Products</h4>
         </div>
-        <div class="p-2">
-            <a class="nav-item nav-link" href="#">
-                <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
-            </a>
+        <div class="p-2"> <button class="btn btn-primary bg-light border-light" type="button" data-toggle="collapse"
+                data-target="#tabelProducts" aria-expanded="false" aria-controls="tabelProducts">
+                <i class="fas fa-sort-down"></i>
+            </button>
         </div>
-
-        <div class="p-2">
+        <div class="ml-auto p-2">
             <a href="{{ url('/admin/product/add') }}">
                 <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
             </a>
+        </div>
+    </div>
+
+    <div class="collapse" id="tabelProducts">
+        <br>
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
+        </div>
+
+        <div class="table-overflow">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stock</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($products as $item)
+                    <tr>
+                        <td>{{$item->model}}</td>
+                        <td>
+                            <form class="form-inline" method="POST" action="{{ url('admin/product/update/'.$item->id) }}">
+                                {{ csrf_field() }}
+                                <div class="form-row col-xs-2">
+                                    <input id="inputStock" type="number" min="0" max="10000" name="inputStock" class="form-control" value='{{ $item->stock }}' 
+                                    required autofocus>
+                                    @if ($errors->has('inputStock'))
+                                    <span class="error">
+                                        {{ $errors->first('inputStock') }}
+                                    </span>
+                                    @endif
+                                </div>
+                                <div class="form-row p-2">
+                                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </form>
+                        </td>
+                        <td><a href="{{ url('admin/product/delete/'.$item->id) }}" class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            </a> 
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 

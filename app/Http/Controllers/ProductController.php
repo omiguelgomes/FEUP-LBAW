@@ -90,4 +90,18 @@ class ProductController extends Controller
     
       return redirect('product/'.$newProduct->id);
     }
+
+    public function update($id, Request $request) {
+
+      Product::where('id', $id)->update((array('stock' => $request->inputStock)));
+
+      return redirect()->to('admin');
+    }
+
+    public function delete($id) {
+      $product = Product::find($id);
+      $product->delete();
+
+      return redirect()->to('admin');
+    }
 }

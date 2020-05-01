@@ -86,6 +86,9 @@ Route::post('admin/screenres/add', 'AdminProfileController@createScreenRes')->na
 Route::post('admin/cam/add', 'AdminProfileController@createCam')->name('create_cam');
 Route::post('admin/finger/add', 'AdminProfileController@createFinger')->name('create_finger');
 
-//Create product
+//Manage product
 Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
 Route::post('admin/product/add', 'ProductController@create')->name('create_product');
+Route::get('admin/product/delete/{id}', 'ProductController@delete');
+Route::post('admin/product/update/{id}', 'ProductController@update');
+

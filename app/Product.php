@@ -31,6 +31,11 @@ class Product extends Model
     'screenres_id',
     'camerares_id',
     'fingerprinttype_id'];
+
+    public static function list()
+  {
+    return Product::select('id', 'stock', 'model')->get();
+  }
     
     public function brand()
     {

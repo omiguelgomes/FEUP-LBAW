@@ -28,6 +28,8 @@ Route::get('cart', 'CartController@show');
 Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
 Route::post('cart/remove', 'CartController@remove');
+Route::post('cart/increment', 'CartController@increment');
+Route::post('cart/decrement', 'CartController@decrement');
 
 
 //Purchase

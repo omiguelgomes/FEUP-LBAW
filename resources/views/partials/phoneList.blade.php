@@ -26,10 +26,17 @@
         </td>
 
         @if($xButton == 'cart')
-        <td>{{$product->pivot->quant}}</td>
+        <td>{{$product->pivot->quant}}
+            <a class="increment_item" value="{{$product->id}}">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+            <a class="decrement_item" value="{{$product->id}}">
+                <i class="fas fa-minus-circle"></i>
+            </a>
+        </td>
 
         @else
-        <td>{{$product->pivot->quantity}} </td>
+        <td>{{$product->pivot->quantity}}</td>
         @endif
 
         @if($xButton == 'cart')

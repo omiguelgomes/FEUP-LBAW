@@ -28,6 +28,8 @@ Route::get('cart', 'CartController@show');
 Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
 Route::post('cart/remove', 'CartController@remove');
+Route::post('cart/increment', 'CartController@increment');
+Route::post('cart/decrement', 'CartController@decrement');
 
 
 //Purchase
@@ -39,9 +41,9 @@ Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
 
 //Wishlist
-Route::get('wishlist', 'WishlistController@show');
-Route::get('wishlist/remove/{id}', 'WishlistController@remove');
+Route::post('wishlist/remove', 'WishlistController@remove');
 Route::get('product/{id}/wishlist', 'WishlistController@add');
+Route::get('wishlist', 'WishlistController@show');
 
 //Search
 Route::get('search', 'SearchController@show');

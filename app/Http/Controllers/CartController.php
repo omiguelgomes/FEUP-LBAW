@@ -38,6 +38,7 @@ class CartController extends Controller
       $cart->pivot->quant += 1;
       $cart->pivot->save();
     }
+
     return redirect('cart');
   }
 
@@ -84,5 +85,33 @@ class CartController extends Controller
     else
       $user = Auth::user();
     $user->cart()->detach($request->id);
+  }
+
+  public function increment(Request $request)
+  {
+    if (!Auth::check())
+      return redirect('/register');
+    else
+      $user = Auth::user();
+
+    $cart = $user->cart()->find($request->id);
+    $cart->pivot->quant += 1;
+    $cart->pivot->save();
+  }
+
+  public function decrement(Request $request)
+  {
+    if (!Auth::check())
+      return redirect('/register');
+    else
+      $user = Auth::user();
+
+    $cart = $user->cart()->find($request->id);
+    if ($cart->pivot->quant <= 1) {
+      $user->cart()->detach($request->id);
+    } else {
+      $cart->pivot->quant -= 1;
+      $cart->pivot->save();
+    }
   }
 }

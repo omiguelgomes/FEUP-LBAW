@@ -1,12 +1,6 @@
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-
 function filter() {
   // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
+  var input, filter, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   row = document.getElementById("phone-grid");
@@ -22,26 +16,3 @@ function filter() {
     }
   }
 }
-
-$(document).ready(function () {
-  $("#apply_filter").on('click', function () {
-    var selectedBrands = [];
-    $(".brandCheckBox").each(
-      function () {
-        if ($(this).is(":checked")) {
-          selectedBrands.push($(this).val());
-        }
-      })
-    $.ajax({
-      url: "search/filter",
-      type: 'GET',
-      data: {
-        brands: selectedBrands
-      },
-      success: function (response) {
-        $('#something').html(response);
-      }
-    })
-
-  })
-});

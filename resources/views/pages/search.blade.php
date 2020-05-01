@@ -6,12 +6,13 @@
 {{-- <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}"> --}}
 <link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/filter.js') }}"></script>
 
 <div class="container">
     <div class="row justify-content-around">
         <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for products..">
     </div>
-    <div class="row justify-content-around">
+    <div class="row">
         {{-- NOTA: AJUSTAR TAMANHO COLUNAS --}}
         <div class="col-2">
             <div class="filters d-flex flex-column p-0">
@@ -23,7 +24,7 @@
                     @foreach($brands as $brand)
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="brandCheckBox" value="{{$brand->id}}">
+                            <input type="checkbox" class="brandCheckBox" value="{{$brand->name}}">
                         </label>
                         <p>{{$brand->name}}</p>
                     </div>
@@ -94,8 +95,8 @@
                         alt="Card image cap">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">{{$product->brand->name}}</h5>
-                    <h5 class="card-title">{{$product->model}}</h5>
+                    <h5 class="card-title-brand">{{$product->brand->name}}</h5>
+                    <h5 class="card-title-model">{{$product->model}}</h5>
                     <a href="{{ url('product/'.$product->id) }}" class="btn btn-secondary w-75">See</a>
                 </div>
             </div>

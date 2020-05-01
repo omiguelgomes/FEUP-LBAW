@@ -1,14 +1,20 @@
 function filter() {
   // Declare variables
   var input, filter, i, txtValue;
+  //what is written in the search bar
   input = document.getElementById("myInput");
+  //toUpper case so the search isnt case sensitive
   filter = input.value.toUpperCase();
+
   row = document.getElementById("phone-grid");
   card = row.getElementsByClassName("card");
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < card.length; i++) {
-    title = card[i].getElementsByClassName("card-title");
-    txtValue = title[0].innerHTML + " " + title[1].innerHTML;
+    model = card[i].getElementsByClassName("card-title-model");
+    brand = card[i].getElementsByClassName("card-title-brand");
+    //text to be matched
+    txtValue = model[0].innerHTML + " " + brand[0].innerHTML;
+    //if the text matches, display content
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       card[i].parentElement.style.display = "";
     } else {

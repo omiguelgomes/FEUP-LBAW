@@ -22,8 +22,8 @@
             <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}" alt="Card image cap">
           </a>
           <div class="card-body">
-            <h5 class="card-title">{{$product->brand->name}}</h5>
-            <h5 class="card-title">{{$product->model}}</h5>
+            <h5 class="card-title-brand">{{$product->brand->name}}</h5>
+            <h5 class="card-title-model">{{$product->model}}</h5>
             <div class="btn-group" role="group" aria-label="Basic example">
               <a href="{{ url('/product/'.$product->id.'/buy')}}" class="btn btn-primary mr-1 px-1"> Buy now <i
                   class="fas fa-euro-sign"></i></a>

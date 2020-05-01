@@ -17,9 +17,9 @@ $(document).ready(function () {
 
     if (selectedBrands.length) {
       $(".card-title-brand").each(
-
         function () {
-          console.log(selectedBrands);
+          product = JSON.parse($(this).attr('value'));
+          console.log(product);
           $(this).parent().parent().parent().hide(); //hide card
           for (var i = 0; i < selectedBrands.length; i++) {
             if ($(this).text().toUpperCase() == selectedBrands[i].toUpperCase()) { //if brand matches any of the ticked boxes
@@ -28,23 +28,5 @@ $(document).ready(function () {
           }
         })
     }
-    //else {
-    //   $(".card-title-brand").each(
-    //     function () {
-    //       $(this).parent().parent().show();
-    //     }
-    //   )
-    // }
-    // $.ajax({
-    //   url: "search/filter",
-    //   type: 'GET',
-    //   data: {
-    //     brands: selectedBrands
-    //   },
-    //   success: function (response) {
-    //     $('#something').html(response);
-    //   }
-    // })
-
   })
 });

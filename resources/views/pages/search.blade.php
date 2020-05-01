@@ -95,7 +95,7 @@
                         alt="Card image cap">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title-brand">{{$product->brand->name}}</h5>
+                    <h5 class="card-title-brand" value="{{$product}}">{{$product->brand->name}}</h5>
                     <h5 class="card-title-model">{{$product->model}}</h5>
                     <a href="{{ url('product/'.$product->id) }}" class="btn btn-secondary w-75">See</a>
                 </div>

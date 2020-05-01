@@ -279,7 +279,7 @@ begin
 		from purchase, product_purchase, users
 		where product_purchase.purchase_id = purchase.id and
 		New.user_id = purchase.user_id and
-		New.id = product_purchase.product_id
+		New.product_id = product_purchase.product_id
 	)
 	then raise exception 'You cannot review a product you have not bought!';
 	end if;
@@ -438,6 +438,11 @@ insert into image (description, path) values ('brand_apple', 'apple.png');
 insert into image (description, path) values ('brand_samsung', 'samsung.png');
 insert into image (description, path) values ('brand_xiaomi', 'xiaomi.png');
 insert into image (description, path) values ('brand_huawei', 'huawei.png');
+insert into image (description, path) values ('brand_oneplus', 'oneplus.png');
+insert into image (description, path) values ('brand_honor', 'honor.png');
+insert into image (description, path) values ('brand_oppo', 'oppo.png');
+insert into image (description, path) values ('brand_motorola', 'motorola.png');
+
 insert into image (description, path) values ('phone_a50', 'sa50.jpg');
 insert into image (description, path) values ('phone_a70', 'sa70.jpg');
 insert into image (description, path) values ('phone_tabS6', 'tabs6.jpg');
@@ -458,29 +463,50 @@ insert into image (description, path) values ('user_ph5', 'userpic5.jpg');
 insert into image (description, path) values ('user_ph6', 'userpic6.jpg');
 insert into image (description, path) values ('phone_a70-2', 'sa70-2.jpg');
 
+insert into image (description, path) values ('iphone_6s', 'iphone_6s.jpg');
+insert into image (description, path) values ('iphone_x', 'iphone_x.jpg');
+insert into image (description, path) values ('xiaomi_mi5s', 'xiaomi_mi5s.jpg');
+insert into image (description, path) values ('xiaomi_minote10', 'xiaomi_minote10.jpg');
+insert into image (description, path) values ('xiaomi_mi9t', 'xiaomi_mi9t.jpg');
+insert into image (description, path) values ('xiaomi_redminote6', 'xiaomi_redminote6.jpg');
+insert into image (description, path) values ('huawei_matex', 'huawei_matex.jpg');
+insert into image (description, path) values ('huawei_p30', 'huawei_p30.jpg');
+insert into image (description, path) values ('huawei_mate30pro', 'huawei_mate30pro.jpg');
+insert into image (description, path) values ('oneplus_5t', 'oneplus_5t.jpg');
+insert into image (description, path) values ('oneplus_6', 'oneplus_6.jpg');
+insert into image (description, path) values ('oneplus_6t', 'oneplus_6t.jpg');
+insert into image (description, path) values ('oneplus_7', 'oneplus_7.jpg');
+insert into image (description, path) values ('oneplus_8', 'oneplus_8.jpg');
+insert into image (description, path) values ('honor_play', 'honor_play.jpg');
+insert into image (description, path) values ('honor_8x', 'honor_8x.jpg');
+insert into image (description, path) values ('honor_20', 'honor_20.jpg');
+insert into image (description, path) values ('honor_9', 'honor_9.jpg');
+insert into image (description, path) values ('honor_9x', 'honor_9x.jpg');
+
+
 
 /* users */
 
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 18, true); /* Pass: 123456 (é igual em todas abaixo)*/
-insert into users (name, email, birthDate, password, image_id) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
-insert into users (name, email, birthDate, password, image_id) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
-insert into users (name, email, birthDate, password, image_id) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
-insert into users (name, email, birthDate, password, image_id) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
-insert into users (name, email, birthDate, password, image_id) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 22);
-insert into users (name, email, birthDate, password, image_id) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
-insert into users (name, email, birthDate, password, image_id) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
-insert into users (name, email, birthDate, password, image_id) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.pt', '2016-10-29', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
-insert into users (name, email, birthDate, password, image_id) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
-insert into users (name, email, birthDate, password, image_id) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
-insert into users (name, email, birthDate, password, image_id) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 18);
-insert into users (name, email, birthDate, password, image_id) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
-insert into users (name, email, birthDate, password, image_id) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
-insert into users (name, email, birthDate, password, image_id) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
-insert into users (name, email, birthDate, password, image_id) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 22);
-insert into users (name, email, birthDate, password, image_id) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 21);
-insert into users (name, email, birthDate, password, image_id) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 20);
-insert into users (name, email, birthDate, password, image_id) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 19);
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 19, true); /* Pass: 1234*/ /* id = 20 */
+insert into users (name, email, birthDate, password, image_id, isAdmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 23, true); /* Pass: 123456 (é igual em todas abaixo)*/
+insert into users (name, email, birthDate, password, image_id) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
+insert into users (name, email, birthDate, password, image_id) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
+insert into users (name, email, birthDate, password, image_id) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 26);
+insert into users (name, email, birthDate, password, image_id) values ('Aldis Loren', 'aloren4@mediafire.com', '2019-01-22', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 27);
+insert into users (name, email, birthDate, password, image_id) values ('Wake Martinovsky', 'wmartinovsky5@so-net.ne.jp', '2011-10-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 26);
+insert into users (name, email, birthDate, password, image_id) values ('Wood Lages', 'wlages6@constantcontact.com', '2018-05-30', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
+insert into users (name, email, birthDate, password, image_id) values ('Reginald Chiommienti', 'rchiommienti7@fc2.com', '2020-02-17', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
+insert into users (name, email, birthDate, password, image_id) values ('Lynda Baskeyfield', 'lbaskeyfield8@google.pt', '2016-10-29', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 23);
+insert into users (name, email, birthDate, password, image_id) values ('Mikey Tunnah', 'mtunnah9@japanpost.jp', '2019-02-25', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
+insert into users (name, email, birthDate, password, image_id) values ('Lonni Enderson', 'lendersona@walmart.com', '2018-04-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
+insert into users (name, email, birthDate, password, image_id) values ('Michaeline Dake', 'mdakeb@yahoo.com', '2017-12-26', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 26);
+insert into users (name, email, birthDate, password, image_id) values ('Jaquenetta Trevethan', 'jtrevethanc@php.net', '2010-05-14', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 27);
+insert into users (name, email, birthDate, password, image_id) values ('Aurel Garnall', 'agarnalld@lycos.com', '2013-09-28', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 26);
+insert into users (name, email, birthDate, password, image_id) values ('Carlyle Fevier', 'cfevierf@ucla.edu', '2015-03-19', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
+insert into users (name, email, birthDate, password, image_id) values ('Karlens Bambery', 'kbamberyg@aol.com', '2012-11-24', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
+insert into users (name, email, birthDate, password, image_id) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 23);
+insert into users (name, email, birthDate, password, image_id) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
+insert into users (name, email, birthDate, password, image_id) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
+insert into users (name, email, birthDate, password, image_id, isAdmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 26, true); /* Pass: 1234*/ /* id = 20 */
 
 /* country */
 
@@ -556,6 +582,10 @@ insert into brand (name, image_id) values ('Apple', 2);
 insert into brand (name, image_id) values ('Samsung', 3);
 insert into brand (name, image_id) values ('Xiaomi', 4);
 insert into brand (name, image_id) values ('Huawei', 5);
+insert into brand (name, image_id) values ('OnePlus', 6);
+insert into brand (name, image_id) values ('Honor', 7);
+insert into brand (name, image_id) values ('Oppo', 8);
+insert into brand (name, image_id) values ('Motorola', 9);
 
 /* waterProofing */
 
@@ -701,6 +731,31 @@ insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, wa
 insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (12, 569, 'Mi 9', 'Phones',                     3, 2, 3, 1, 5, 4, 6, 2, 4, 5, 1, 6, 1);
 insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
 
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 198.99, 'iPhone 6s', 'Phones',             1, 3, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 829.99, 'iPhone X', 'Phones',              1, 3, 3, 4, 5, 6, 2, 1, 1, 2, 3, 4, 5);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 123.99, 'Mi 5s', 'Phones',                 3, 3, 2, 1, 2, 3, 2, 3, 4, 5, 4, 2, 1);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 122.99, 'Mi Note 10', 'Phones',            3, 2, 1, 2, 3, 4, 5, 8, 2, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 329.99, 'Mi 9t', 'Phones',                 3, 6, 4, 3, 5, 3, 6, 10, 5, 10, 2, 5, 1);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 224.99, 'Redmi Note 6', 'Phones',          3, 1, 2, 4, 4, 6, 6, 10, 4, 1, 1, 3, 2);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 1029.99, 'Huawei Mate X', 'Phones',        4, 2, 3, 4, 2, 6, 6, 5, 4, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 629.99, 'P30', 'Phones',                   4, 3, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 829.99, 'Mate 30', 'Phones',               4, 7, 3, 1, 5, 1, 6, 3, 4, 10, 3, 6, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 229.99, '5t', 'Phones',                    5, 2, 3, 2, 4, 2, 2, 10, 4, 1, 3, 5, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 329.99, '6', 'Phones',                     5, 7, 3, 4, 4, 3, 2, 2, 4, 1, 3, 5, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 422.99, '6t', 'Phones',                    5, 7, 3, 4, 3, 4, 4, 3, 4, 1, 3, 5, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 529.99, '7', 'Phones',                     5, 5, 3, 4, 4, 5, 8, 10, 4, 1, 3, 5, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 729.99, '8', 'Phones',                     5, 7, 3, 2, 1, 6, 2, 1, 4, 1, 3, 5, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 219.99, 'Play', 'Phones',                  6, 5, 3, 4, 4, 6, 7, 9, 2, 3, 2, 1, 4);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 119.99, '8x', 'Phones',                    6, 5, 3, 4, 4, 5, 6, 9, 1, 3, 3, 1, 4);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 300.99, '20', 'Phones',                    6, 5, 3, 3, 2, 2, 2, 7, 2, 3, 1, 1, 4);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 111.99, '9', 'Phones',                     6, 5, 3, 1, 3, 6, 2, 9, 1, 2, 2, 1, 4);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 270.99, '9x', 'Phones',                    6, 5, 3, 4, 4, 1, 9, 5, 2, 3, 2, 1, 4);
+
+
+
+
+
+
 /* purchase State */
 
 insert into purchasestate (statechangedate, "comment", pstate) values ('2012-12-13', 'payment please!','Sent');
@@ -734,21 +789,21 @@ insert into purchase (val, status_id, paid, user_id, purchasedate) values (2728.
 
 /* product_purchase */
 
-insert into product_purchase (product_id, purchase_id, quantity) values (1, 1, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (2, 1, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (3, 1, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (4, 2, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (5, 2, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (6, 4, 2);
-insert into product_purchase (product_id, purchase_id, quantity) values (7, 3, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (8, 5, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (9, 6, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (11, 7, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (10, 8, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (5, 9, 3);
-insert into product_purchase (product_id, purchase_id, quantity) values (2, 10, 2);
-insert into product_purchase (product_id, purchase_id, quantity) values (5, 11, 1);
-insert into product_purchase (product_id, purchase_id, quantity) values (7, 11, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (21, 1, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (22, 1, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (23, 1, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (24, 2, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (25, 2, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (26, 4, 2);
+insert into product_purchase (product_id, purchase_id, quantity) values (27, 3, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (28, 5, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (29, 6, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (1, 7, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (30, 8, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (25, 9, 3);
+insert into product_purchase (product_id, purchase_id, quantity) values (22, 10, 2);
+insert into product_purchase (product_id, purchase_id, quantity) values (25, 11, 1);
+insert into product_purchase (product_id, purchase_id, quantity) values (27, 11, 1);
 
 
 /* cart */
@@ -800,30 +855,57 @@ insert into discount_product (product_id, discount_id) values (6, 1);
 insert into discount_product (product_id, discount_id) values (7, 1);
 insert into discount_product (product_id, discount_id) values (8, 2);
 insert into discount_product (product_id, discount_id) values (9, 1);
-
+insert into discount_product (product_id, discount_id) values (26, 5);
+insert into discount_product (product_id, discount_id) values (18, 5);
+insert into discount_product (product_id, discount_id) values (25, 5);
+insert into discount_product (product_id, discount_id) values (24, 4);
+insert into discount_product (product_id, discount_id) values (14, 5);
+insert into discount_product (product_id, discount_id) values (28, 3);
+insert into discount_product (product_id, discount_id) values (19, 4);
 
 /* image_product */
 
-insert into image_product (product_id, image_id) values (1, 6);
-insert into image_product (product_id, image_id) values (2, 7);
-insert into image_product (product_id, image_id) values (2, 24);
-insert into image_product (product_id, image_id) values (3, 8);
-insert into image_product (product_id, image_id) values (4, 9);
-insert into image_product (product_id, image_id) values (5, 10);
-insert into image_product (product_id, image_id) values (6, 11);
-insert into image_product (product_id, image_id) values (7, 12);
-insert into image_product (product_id, image_id) values (8, 13);
-insert into image_product (product_id, image_id) values (9, 14);
-insert into image_product (product_id, image_id) values (10, 15);
-insert into image_product (product_id, image_id) values (11, 16);
+insert into image_product (product_id, image_id) values (1, 10);
+insert into image_product (product_id, image_id) values (2, 11);
+insert into image_product (product_id, image_id) values (2, 28);
+insert into image_product (product_id, image_id) values (3, 12);
+insert into image_product (product_id, image_id) values (4, 13);
+insert into image_product (product_id, image_id) values (5, 14);
+insert into image_product (product_id, image_id) values (6, 15);
+insert into image_product (product_id, image_id) values (7, 16);
+insert into image_product (product_id, image_id) values (8, 17);
+insert into image_product (product_id, image_id) values (9, 18);
+insert into image_product (product_id, image_id) values (10, 19);
+insert into image_product (product_id, image_id) values (11, 20);
+
+insert into image_product (product_id, image_id) values (12, 29);
+insert into image_product (product_id, image_id) values (13, 30);
+insert into image_product (product_id, image_id) values (14, 31);
+insert into image_product (product_id, image_id) values (15, 32);
+insert into image_product (product_id, image_id) values (16, 33);
+insert into image_product (product_id, image_id) values (17, 34);
+insert into image_product (product_id, image_id) values (18, 35);
+insert into image_product (product_id, image_id) values (19, 36);
+insert into image_product (product_id, image_id) values (20, 37);
+insert into image_product (product_id, image_id) values (21, 38);
+insert into image_product (product_id, image_id) values (22, 39);
+insert into image_product (product_id, image_id) values (23, 40);
+insert into image_product (product_id, image_id) values (24, 41);
+insert into image_product (product_id, image_id) values (25, 42);
+insert into image_product (product_id, image_id) values (26, 43);
+insert into image_product (product_id, image_id) values (27, 44);
+insert into image_product (product_id, image_id) values (28, 45);
+insert into image_product (product_id, image_id) values (29, 46);
+insert into image_product (product_id, image_id) values (30, 47);
+
+
 
 /* rating */
 
-insert into rating (id, user_id, product_id, "content", val) values ('1', '1', '1', 'ok!!!', '1');
-insert into rating (id, user_id, product_id, "content", val) values ('2', '1', '5', 'great!!!', '2');
-insert into rating (id, user_id, product_id, "content", val) values ('3', '1', '4', 'good phone', '3');
-insert into rating (id, user_id, product_id, "content", val) values ('4', '2', '4', 'yess!! i love it', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('5', '2', '5', 'bad quality!', '5'); 
-insert into rating (id, user_id, product_id, "content", val) values ('6', '4', '3', 'ok', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('7', '3', '4', 'very nice', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('8', '5', '9', 'terrible', '4'); 
+insert into rating (id, user_id, product_id, "content", val) values ('1', '1', '21', 'ok!!!', '1');
+insert into rating (id, user_id, product_id, "content", val) values ('2', '1', '25', 'great!!!', '2');
+insert into rating (id, user_id, product_id, "content", val) values ('3', '2', '24', 'good phone', '3');
+insert into rating (id, user_id, product_id, "content", val) values ('4', '2', '24', 'yess!! i love it', '4');
+insert into rating (id, user_id, product_id, "content", val) values ('5', '2', '25', 'bad quality!', '5'); 
+insert into rating (id, user_id, product_id, "content", val) values ('6', '1', '23', 'ok', '4');
+insert into rating (id, user_id, product_id, "content", val) values ('8', '6', '29', 'terrible', '4'); 

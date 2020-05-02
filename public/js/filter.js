@@ -19,7 +19,8 @@ $(document).ready(function () {
     var selectedFingerPrints = [];
     var selectedWr = [];
 
-    $(".form-check-label").find("input:checked").each( //get values of ticked checkboxes
+    //get values of ticked checkboxes filter
+    $(".form-check").find("input:checked").each(
       function () {
         if ($(this).attr('class') == "brandCheckbox")
           selectedBrands.push($(this).attr("value"));

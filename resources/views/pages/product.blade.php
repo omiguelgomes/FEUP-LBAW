@@ -2,15 +2,15 @@
 @extends('layouts.pageWrapper')
 @section('content')
 <div class="container-fluid">
+    {{-- whole page row --}}
     <div class="row justify-content-center">
+        {{-- left side title col --}}
         <div class="col-4">
             <div class="jumbotron">
                 <div class="mr-auto bd-highlight">
                     <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="max-height: 100px;">
                 </div>
-
                 <h1 class="display-4"><b>{{$product->model}}</b></h1>
-
                 <div class="p-2 bd-highlight">
                     <h5>
                         @if(count($product->ratings) == 0)
@@ -25,9 +25,10 @@
                 </div>
             </div>
         </div>
-
+        {{-- top right side col --}}
         <div class="col-8">
-            <div class="row bt-4">
+            <div class="row">
+                {{-- phone carousel col --}}
                 <div class="col-12 mx-auto">
                     <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="20000"
                         data-ride="carousel">
@@ -61,7 +62,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-4 m-0">
+                {{-- phone price cart wishlist col --}}
+                <div class="col-4 px-0">
                     @if(count($product->discounts) > 0)
                     <h2><b>
                             {{$product->price}}€
@@ -75,13 +77,13 @@
                         </b></h2>
                     @endif
                 </div>
-                <div class="col-4 m-0">
+                <div class="col-4 px-0">
                     <a href="{{ url('/product/'.$product->id.'/cart') }}" class="button btn-primary rounded p-1 mx-1">
                         Add to Cart
                     </a>
                     <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="cart_image">
                 </div>
-                <div class="col-4 m-0">
+                <div class="col-4 px-0">
                     <a href="{{ url('/product/'.$product->id.'/wishlist') }}"
                         class="button btn-primary rounded p-1 mx-1">
                         Add to Wishlist
@@ -90,7 +92,7 @@
 
             </div>
         </div>
-
+        {{-- comments and specs --}}
         <div class="col-10">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">

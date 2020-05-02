@@ -13,8 +13,6 @@
         <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for products..">
     </div>
     <div class="row">
-        {{-- NOTA: AJUSTAR TAMANHO COLUNAS --}}
-        {{-- <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10"> --}}
         <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
             <div class="filters d-flex flex-column p-0">
                 <h5>Filters</h5>

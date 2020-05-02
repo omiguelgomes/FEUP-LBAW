@@ -14,7 +14,8 @@
     </div>
     <div class="row">
         {{-- NOTA: AJUSTAR TAMANHO COLUNAS --}}
-        <div class="col-2">
+        {{-- <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10"> --}}
+        <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
             <div class="filters d-flex flex-column p-0">
                 <h5>Filters</h5>
 
@@ -87,7 +88,7 @@
 <input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
 </div>
 </div>
-<div class="col-8 col-sm-8 col-md-8 col-lg-10 col-xl-10">
+<div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
     <div class="row" id="phone-grid">
         @foreach($products as $product)
         <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">

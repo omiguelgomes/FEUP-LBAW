@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Specs;
+
 use Illuminate\Database\Eloquent\Model;
 
 class CPU extends Model

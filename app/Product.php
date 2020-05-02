@@ -11,32 +11,36 @@ class Product extends Model
     //Table name
     protected $table = 'product';
     public $timestamps  = false;
-
-    protected $hidden = ['pivot'];
-    protected $fillable =[
-    'stock', 
-    'price',
-    'model',
-    'category',
-    'brand_id',
-    'cpu_id',
-    'ram_id',
-    'waterproofing_id',
-    'os_id',
-    'gpu_id',
-    'screensize_id',
-    'weight_id',
-    'storage_id',
-    'battery_id',
-    'screenres_id',
-    'camerares_id',
-    'fingerprinttype_id'];
+    protected $hidden = [
+        'pivot', 'battery_id', 'brand_id',
+        'camerares_id', 'cpu_id', 'gpu_id', 'os_id', 'ram_id', 'screenres_id',
+        'screensize_id', 'storage_id', 'waterproofing_id', 'weight_id'
+    ];
+    protected $fillable = [
+        'stock',
+        'price',
+        'model',
+        'category',
+        'brand_id',
+        'cpu_id',
+        'ram_id',
+        'waterproofing_id',
+        'os_id',
+        'gpu_id',
+        'screensize_id',
+        'weight_id',
+        'storage_id',
+        'battery_id',
+        'screenres_id',
+        'camerares_id',
+        'fingerprinttype_id'
+    ];
 
     public static function list()
-  {
-    return Product::select('id', 'stock', 'model')->get();
-  }
-    
+    {
+        return Product::select('id', 'stock', 'model')->get();
+    }
+
     public function brand()
     {
         return $this->belongsTo('App\Brand');
@@ -69,8 +73,7 @@ class Product extends Model
 
     public function discounts()
     {
-        return $this->belongsToMany('App\Discount', 'discount_product')->where('begindate', '<=', date("Y-m-d"))->
-        where('enddate', '>=', date("Y-m-d"));
+        return $this->belongsToMany('App\Discount', 'discount_product')->where('begindate', '<=', date("Y-m-d"))->where('enddate', '>=', date("Y-m-d"));
     }
 
     //includes discounts from the past
@@ -82,24 +85,28 @@ class Product extends Model
     //override access to attribute price, so that it is updated with the discount
     public function getPriceAttribute($price)
     {
-        if(count($this->discounts) > 0)
-        {
-            return round($price * (1-$this->discounts->first()->val), 2);
+        if (count($this->discounts) > 0) {
+            return round($price * (1 - $this->discounts->first()->val), 2);
         }
         return $price;
     }
 
     public function originalPrice()
     {
-        return round($this->price / (1-$this->discounts->first()->val), 2);
+        return round($this->price / (1 - $this->discounts->first()->val), 2);
     }
 
     public function averageRating()
     {
         return round($this->ratings->average('val'), 1);
-    }    
+    }
 
     /*  SPECS   */
+
+    public function getCpuDetailsAttribute()
+    {
+        return $this->cpu;
+    }
 
     public function cpu()
     {

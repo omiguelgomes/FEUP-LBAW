@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App;
 
@@ -17,16 +18,13 @@ class SearchController extends Controller
 
     $screen = App\Specs\ScreenSize::all();
     $battery = App\Specs\Battery::all();
-    $products = App\Product::all();
-
-    return view('pages.search',
-    compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products'));
+    $products = App\Product::with([
+      'ram', 'waterProofing', 'screensize', 'storage',
+      'battery', 'fingerprinttype', 'brand'
+    ])->get();
+    return view(
+      'pages.search',
+      compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products')
+    );
   }
-
-  public function brandsFiltered(Request $request)
-  {
-    $brands = $_GET['brands'];
-    return "HEÇÇÇÇÇÇÇÇÇOOOOOOOOOO";
-  }
-
 }

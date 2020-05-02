@@ -31,8 +31,20 @@
                     @endforeach
                 </div>
 
-                {{-- <a href="#storage" data-toggle="collapse" class="btn btn-secondary my-1">Storage <i
+                <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">FingerPrint Scanner <i
                         class="fa fa-caret-down"></i></a>
+                <div id="fingerprint" class="collapse">
+                    @foreach($fingers as $finger)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="fingerprintCheckBox" value="{{$finger->value}}">
+                            <p>{{$finger->value}}</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+                {{-- <a href="#storage" data-toggle="collapse" class="btn btn-secondary my-1">Storage <i
+                    class="fa fa-caret-down"></i></a>
                 <div id="storage" class="collapse">
                     @foreach($storage as $st)
                     <div class="form-check">
@@ -42,34 +54,22 @@
                 </label>
             </div>
             @endforeach
-        </div>
+        </div> --}}
 
-        <a href="#ram" data-toggle="collapse" class="btn btn-secondary my-1">RAM <i class="fa fa-caret-down"></i></a>
+        {{-- <a href="#ram" data-toggle="collapse" class="btn btn-secondary my-1">RAM <i class="fa fa-caret-down"></i></a>
         <div id="ram" class="collapse">
             @foreach($ram as $rm)
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input">
                     <p>{{$rm->value}} GB</p>
-                </label>
-            </div>
-            @endforeach
-        </div>
+        </label>
+    </div>
+    @endforeach
+</div> --}}
 
-        <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">FingerPrint Scanner <i
-                class="fa fa-caret-down"></i></a>
-        <div id="fingerprint" class="collapse">
-            @foreach($fingers as $finger)
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    <p>{{$finger->value}}</p>
-                </label>
-            </div>
-            @endforeach
-        </div>
 
-        <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">Water Resistance <i
+{{-- <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">Water Resistance <i
                 class="fa fa-caret-down"></i></a>
         <div id="waterres" class="collapse">
             @foreach($water as $wr)
@@ -77,13 +77,13 @@
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input">
                     <p>{{$wr->value}}</p>
-                </label>
-            </div>
-            @endforeach
-        </div> --}}
+</label>
+</div>
+@endforeach
+</div> --}}
 
-        <input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
-    </div>
+<input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
+</div>
 </div>
 <div class="col-8 col-sm-8 col-md-8 col-lg-10 col-xl-10">
     <div class="row" id="phone-grid">
@@ -95,7 +95,7 @@
                         alt="Card image cap">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title-brand" value="{{$product}}">{{$product->brand->name}}</h5>
+                    <h5 class="card-title" value="{{$product->toJson()}}">{{$product->brand->name}}</h5>
                     <h5 class="card-title-model">{{$product->model}}</h5>
                     <a href="{{ url('product/'.$product->id) }}" class="btn btn-secondary w-75">See</a>
                 </div>

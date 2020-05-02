@@ -43,6 +43,20 @@
                     </div>
                     @endforeach
                 </div>
+
+                <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">Water Resistance <i
+                        class="fa fa-caret-down"></i></a>
+                <div id="waterres" class="collapse">
+                    @foreach($water as $wr)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="wrCheckbox" value="{{$wr->value}}">
+                            <p>{{$wr->value}}</p>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+
                 {{-- <a href="#storage" data-toggle="collapse" class="btn btn-secondary my-1">Storage <i
                     class="fa fa-caret-down"></i></a>
                 <div id="storage" class="collapse">
@@ -69,18 +83,6 @@
 </div> --}}
 
 
-{{-- <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">Water Resistance <i
-                class="fa fa-caret-down"></i></a>
-        <div id="waterres" class="collapse">
-            @foreach($water as $wr)
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    <p>{{$wr->value}}</p>
-</label>
-</div>
-@endforeach
-</div> --}}
 
 <input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
 </div>

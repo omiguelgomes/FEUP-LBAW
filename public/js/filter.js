@@ -7,6 +7,7 @@ $.ajaxSetup({
 
 $(document).ready(function () {
   $("#apply_filter").on('click', function () { //when you click on apply_filter
+
     //by default, show all products
     $(".card-title").each(
       function () {
@@ -14,23 +15,31 @@ $(document).ready(function () {
       }
     );
 
-
     var selectedBrands = [];
     var selectedFingerPrints = [];
-    $(".brandCheckBox").each( //get values of ticked checkboxes
+    var selectedWr = [];
+    $(".brandCheckBox").each( //get values of ticked brand checkboxes
       function () {
         if ($(this).is(":checked")) {
           selectedBrands.push($(this).val());
         }
       })
 
-    $(".fingerprintCheckBox").each( //get values of ticked checkboxes
+    $(".fingerprintCheckBox").each( //get values of ticked fingerprint checkboxes
       function () {
         if ($(this).is(":checked")) {
           selectedFingerPrints.push($(this).val());
         }
       })
 
+    $(".wrCheckbox").each( //get values of ticked fingerprint checkboxes
+      function () {
+        if ($(this).is(":checked")) {
+          selectedWr.push($(this).val());
+        }
+      })
+
+    //filter by brand
     if (selectedBrands.length) {
       $(".card-title").each(
         function () {
@@ -46,6 +55,7 @@ $(document).ready(function () {
         })
     }
 
+    //filter by fingerprint type
     if (selectedFingerPrints.length) {
       $(".card-title").each(
         function () {
@@ -53,6 +63,22 @@ $(document).ready(function () {
           product = JSON.parse($(this).attr('value'));
           for (var i = 0; i < selectedFingerPrints.length; i++) {
             if (product.fingerprinttype.value.toUpperCase() == selectedFingerPrints[i].toUpperCase()) { //if brand matches any of the ticked boxes
+              matches = true;
+            }
+          }
+          if (!matches)
+            $(this).parent().parent().parent().hide();
+        })
+    }
+
+    //filter by water resistance
+    if (selectedWr.length) {
+      $(".card-title").each(
+        function () {
+          var matches = false;
+          product = JSON.parse($(this).attr('value'));
+          for (var i = 0; i < selectedWr.length; i++) {
+            if (product.water_proofing.value.toUpperCase() == selectedWr[i].toUpperCase()) { //if brand matches any of the ticked boxes
               matches = true;
             }
           }

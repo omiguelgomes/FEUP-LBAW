@@ -24,7 +24,7 @@
                     @foreach($brands as $brand)
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="brandCheckBox" value="{{$brand->name}}">
+                            <input type="checkbox" class="brandCheckbox" value="{{$brand->name}}">
                         </label>
                         <p>{{$brand->name}}</p>
                     </div>
@@ -37,7 +37,7 @@
                     @foreach($fingers as $finger)
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="fingerprintCheckBox" value="{{$finger->value}}">
+                            <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->value}}">
                             <p>{{$finger->value}}</p>
                         </label>
                     </div>

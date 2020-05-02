@@ -18,25 +18,17 @@ $(document).ready(function () {
     var selectedBrands = [];
     var selectedFingerPrints = [];
     var selectedWr = [];
-    $(".brandCheckBox").each( //get values of ticked brand checkboxes
-      function () {
-        if ($(this).is(":checked")) {
-          selectedBrands.push($(this).val());
-        }
-      })
 
-    $(".fingerprintCheckBox").each( //get values of ticked fingerprint checkboxes
+    $(".form-check-label").find("input:checked").each( //get values of ticked checkboxes
       function () {
-        if ($(this).is(":checked")) {
-          selectedFingerPrints.push($(this).val());
-        }
-      })
+        if ($(this).attr('class') == "brandCheckbox")
+          selectedBrands.push($(this).attr("value"));
 
-    $(".wrCheckbox").each( //get values of ticked fingerprint checkboxes
-      function () {
-        if ($(this).is(":checked")) {
-          selectedWr.push($(this).val());
-        }
+        if ($(this).attr('class') == "fingerprintCheckbox")
+          selectedFingerPrints.push($(this).attr("value"));
+
+        if ($(this).attr('class') == "wrCheckbox")
+          selectedWr.push($(this).attr("value"));
       })
 
     //filter by brand

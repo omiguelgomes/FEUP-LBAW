@@ -7,6 +7,14 @@ $.ajaxSetup({
 
 $(document).ready(function () {
   $("#apply_filter").on('click', function () { //when you click on apply_filter
+    //by default, show all products
+    $(".card-title").each(
+      function () {
+        $(this).parent().parent().parent().show();
+      }
+    );
+
+
     var selectedBrands = [];
     var selectedFingerPrints = [];
     $(".brandCheckBox").each( //get values of ticked checkboxes
@@ -27,27 +35,29 @@ $(document).ready(function () {
       $(".card-title").each(
         function () {
           product = JSON.parse($(this).attr('value'));
-          $(this).parent().parent().parent().hide(); //hide card
+          var matches = false;
           for (var i = 0; i < selectedBrands.length; i++) {
             if (product.brand.name.toUpperCase() == selectedBrands[i].toUpperCase()) { //if brand matches any of the ticked boxes
-              $(this).parent().parent().parent().show(); //show card
+              matches = true;
             }
           }
+          if (!matches)
+            $(this).parent().parent().parent().hide();
         })
     }
 
     if (selectedFingerPrints.length) {
       $(".card-title").each(
         function () {
+          var matches = false;
           product = JSON.parse($(this).attr('value'));
-          $(this).parent().parent().parent().hide(); //hide card
           for (var i = 0; i < selectedFingerPrints.length; i++) {
-            // console.log(product.fingerprinttype.value.toUpperCase());
-            // console.log(selectedFingerPrints[i].toUpperCase());
             if (product.fingerprinttype.value.toUpperCase() == selectedFingerPrints[i].toUpperCase()) { //if brand matches any of the ticked boxes
-              $(this).parent().parent().parent().show(); //show card
+              matches = true;
             }
           }
+          if (!matches)
+            $(this).parent().parent().parent().hide();
         })
     }
   })

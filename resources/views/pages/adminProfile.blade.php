@@ -1,54 +1,13 @@
 @extends('layouts.pageWrapper')
 @section('content')
 
+<script type="text/javascript" src="{{ URL::asset('js/product.js') }}"></script>
+
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
 <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
 
 <div class="container">
-
-    <div class="row-form">
-        <form>
-            <div class="d-flex">
-                <div class="p-1">
-                    <h3>Personal Information</h3>
-                </div>
-                <div class="ml-auto p-1"><button type="button" class="btn btn-small btn-primary"><i
-                            class="far fa-edit"></i></button></div>
-            </div>
-            <br>
-
-            <div class="form-row">
-                <div class="form-group col-md-4 text-center">
-                    <br><br>
-                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="rounded mx-auto d-block"
-                        alt="imagempadrao" width="150" height="150">
-                    <a href="#" class="">Change Photo</a>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email<a class="text-danger">*</a></label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="{{$user->email}}" readonly>
-                    <br>
-                    <label for="inputPassword4">Password<a class="text-danger">*</a></label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="**********" readonly>
-                    <br>
-                    <label for="inputAge">Birth date</label>
-                    <input type="number" class="form-control" id="inputAge" placeholder="{{$user->birthdate}}" readonly>
-                </div>
-            </div>
-            <a class="text-danger">* Campos Obrigatórios</a>
-            <br><br>
-            <button type="button" class="btn btn-primary" disabled>Change</button>&nbsp;&nbsp;
-            <a class="text-danger align-middle" href="#"> Delete Account</a>
-
-        </form>
-    </div>
-    <br>
-
-    <!--------------------- MANAGEMENT ----------------------------->
-
-    <br>
-
     <div class="btn-group btn-group-lg w-100 pb-5" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#accounts" aria-expanded="true" aria-controls="accounts">Accounts</button>
         <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#orders" aria-expanded="false" aria-controls="orders">Orders</button>
@@ -529,8 +488,8 @@
             <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
         </div>
 
-        <div class="table-overflow">
-            <table id="tabela" class="table table-hover">
+        <div class="table-overflow" id="productContainer">
+            <table id="tabela" class="table table-hover productTable">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -543,7 +502,7 @@
                     <tr>
                         <td>{{$item->model}}</td>
                         <td>
-                            <form class="form-inline" method="POST" action="{{ url('admin/product/update/'.$item->id) }}">
+                            <form class="form-inline" id="productFormID" method="POST" action="{{ url('admin/product/update/'.$item->id) }}">
                                 {{ csrf_field() }}
                                 <div class="form-row col-xs-2">
                                     <input id="inputStock" type="number" min="0" max="10000" name="inputStock" class="form-control" value='{{ $item->stock }}' 
@@ -559,7 +518,7 @@
                                 </div>
                             </form>
                         </td>
-                        <td><a href="{{ url('admin/product/delete/'.$item->id) }}" class="thumbnail">
+                        <td><a class="productDelete" value='{{$item->id}}' class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> 
                         </td>

@@ -91,6 +91,6 @@ Route::post('admin/finger/add', 'AdminProfileController@createFinger')->name('cr
 //Manage product
 Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
 Route::post('admin/product/add', 'ProductController@create')->name('create_product');
-Route::get('admin/product/delete/{id}', 'ProductController@delete');
+Route::delete('admin/product/delete/{id}', 'ProductController@delete');
 Route::post('admin/product/update/{id}', 'ProductController@update');
 

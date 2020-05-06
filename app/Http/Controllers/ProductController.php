@@ -93,15 +93,13 @@ class ProductController extends Controller
 
     public function update($id, Request $request) {
 
-      Product::where('id', $id)->update((array('stock' => $request->inputStock)));
-
-      return redirect()->to('admin');
+      Product::where('id', $id)->update((array('stock' => $request->stock)));
     }
 
     public function delete($id) {
       $product = Product::find($id);
       $product->delete();
 
-      return redirect()->to('admin');
+      return $product;
     }
 }

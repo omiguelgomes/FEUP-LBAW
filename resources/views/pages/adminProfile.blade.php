@@ -1,7 +1,7 @@
 @extends('layouts.pageWrapper')
 @section('content')
 
-<script type="text/javascript" src="{{ URL::asset('js/product.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
 
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
@@ -488,7 +488,7 @@
             <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
         </div>
 
-        <div class="table-overflow" id="productContainer">
+        <div class="table-overflow productContainer" id="productContainer">
             <table id="tabela" class="table table-hover productTable">
                 <thead>
                     <tr>
@@ -499,13 +499,13 @@
                 </thead>
                 <tbody>
                     @foreach($products as $item)
-                    <tr>
+                    <tr id="{{$item->id}}">
                         <td>{{$item->model}}</td>
                         <td>
-                            <form class="form-inline" id="productFormID" method="POST" action="{{ url('admin/product/update/'.$item->id) }}">
+                            <form class="form-inline productForm" id="productFormID" method="POST" action="{{ url('admin/product/update/'.$item->id) }}">
                                 {{ csrf_field() }}
                                 <div class="form-row col-xs-2">
-                                    <input id="inputStock" type="number" min="0" max="10000" name="inputStock" class="form-control" value='{{ $item->stock }}' 
+                                    <input id="inputStock" type="number" min="0" max="10000" name="inputStock" class="form-control productStock" value='{{ $item->stock }}' 
                                     required autofocus>
                                     @if ($errors->has('inputStock'))
                                     <span class="error">

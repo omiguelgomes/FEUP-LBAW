@@ -86,6 +86,8 @@ function productDeleteHandler(){
     let product = JSON.parse(this.responseText);
     let element = document.getElementById(product.id);
     element.remove();
+
+    alert("Deleted " + product.model);
 }
 
 addEventListeners();

@@ -60,7 +60,7 @@ Route::get('FAQ', 'FAQController@show');
 
 //Management
 Route::get('admin', 'AdminProfileController@show');
-Route::get('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
+Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
 Route::get('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
 Route::get('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
 Route::get('admin/water/delete/{id}', 'AdminProfileController@destroyWater');

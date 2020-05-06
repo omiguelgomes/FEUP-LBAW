@@ -2,6 +2,7 @@
 @section('content')
 
 <script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
 
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
@@ -666,9 +667,9 @@
                 </thead>
                 <tbody>
                     @foreach($brands as $id => $name)
-                    <tr>
+                    <tr id='{{$id}}'>
                         <td>{{$name}}</td>
-                        <td><a href="{{ url('admin/brands/delete/'.$id) }}" class="thumbnail">
+                        <td><a class="brandDelete" value="{{$id}}" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>

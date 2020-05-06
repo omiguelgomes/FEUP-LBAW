@@ -55,7 +55,7 @@ class AdminProfileController extends Controller
       $brand = Brand::find($id);
       $brand->delete();
 
-      return redirect()->to('admin');
+      return $brand;
     }
 
     public function destroyCPU($id)

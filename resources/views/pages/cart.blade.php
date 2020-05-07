@@ -5,7 +5,7 @@
 
 
 <div class="container" id="table_container">
-    <div class="container" id="product_table">
+    <div class="container" id="table-responsive">
         <table class="table">
             @include('partials.phoneList',['products' => $cart->sortBy('model'), 'xButton' => 'cart'])
             <tr>
@@ -16,18 +16,16 @@
                     return $product->price * $product->pivot->quant;
                 })}} €</th>
             </tr>
-            </tbody>
-
         </table>
         <div class="d-flex">
-            <div class="p-2 bd-highlight">
+            <div class="ml-auto p-2 bd-highlight">
                 <a class="btn btn-primary" href="{{url('home')}}">
                     Continue shopping
                 </a>
             </div>
             <div class="ml-auto p-2 bd-highlight">
                 @if(count($cart) > 0)
-                <a href="{{ url('/cart/buy') }}" class="button btn-primary rounded p-1 m-5">
+                <a href="{{ url('/cart/buy') }}" class="btn btn-primary">
                     Proceed with purchase
                 </a>
                 @endif

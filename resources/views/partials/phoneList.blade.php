@@ -4,7 +4,7 @@
         <th scope="col">Products</th>
         <th scope="col">Quantity</th>
 
-        @if($xButton == 'true')
+        @if($xButton == 'cart')
         <th scope="col">Price</th>
         <th scope="col">Remove</th>
         @endif
@@ -16,7 +16,7 @@
     <tr>
         <td>
             <a href="{{ url('product/'.$product->id) }}">
-                <img src="{{ asset('images/'.$product->images->first()->path)}}" alt="..." style="width:80px;">
+                <img src="{{ asset('images/'.$product->images->first()->path)}}" alt="..." style="height:20%;">
         </td>
         <td>
             <div class="card-body">

@@ -52,6 +52,11 @@ class CartController extends Controller
 
     $cart = $user->cart;
 
+    //alert with 'cart empty'!
+    if (count($cart) == 0) {
+      return redirect('cart');
+    }
+
     $newPs = PurchaseState::create([
       'statechangedate' => date("Y-m-d"),
       'comment' => "Please Pay!",

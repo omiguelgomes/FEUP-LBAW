@@ -1,24 +1,49 @@
-//stuff to make ajax requests work
 $.ajaxSetup({
   headers: {
-    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-  },
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
 });
 
-//Remove from cart
-$(document).ready(function () {
-  //so that these functions don't try to run before the page is loaded
-  $(document).on("click", "#remove_item", function () {
-    //when you click element with class remove_item
-    $.ajax({
-      //create request
-      type: "POST",
-      url: "/wishlist/remove/", //name of route to call
-      data: {
-        //data given in request key: value
-        id: $(this).attr("value"),
-      },
-    });
-    $("#grid-container").load("wishlist #phone-grid"); //reload #product_table, put it inside of #table_container
+
+function addEventListeners() {
+
+  let wishlistDeleters = document.getElementsByClassName("wishlistDelete");
+  [].forEach.call(wishlistDeleters, function (deleter) {
+    deleter.addEventListener('click', sendWishlistDeleteRequest);
   });
-});
+}
+
+function encodeForAjax(data) {
+  if (data == null) return null;
+  return Object.keys(data).map(function (k) {
+    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+  }).join('&');
+}
+
+function sendAjaxRequest(method, url, data, handler) {
+  let request = new XMLHttpRequest();
+
+  request.open(method, url, true);
+  request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.addEventListener('load', handler);
+  request.send(encodeForAjax(data));
+}
+
+function sendWishlistDeleteRequest(event) {
+  event.preventDefault();
+  let id = this.getAttribute("value");
+  sendAjaxRequest('delete', 'wishlist/delete/' + id, null, wishlistDeleteHandler);
+}
+
+function wishlistDeleteHandler() {
+  if (this.status != 200) {
+    window.location = '/wishlist';
+    alert("Failed to remove from wishlist :'(");
+  }
+
+  let element = document.getElementById(this.responseText);
+  element.remove();
+}
+
+addEventListeners();

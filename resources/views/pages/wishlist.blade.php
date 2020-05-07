@@ -1,7 +1,6 @@
 @extends('layouts.pageWrapper')
 @section('content')
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/wishlist.js') }}"></script>
 
 @include('partials.jumboTitle',['title' => 'Wishlist'])
 
@@ -16,8 +15,9 @@
 
     <div class="row" id="phone-grid">
       @foreach($wishlist as $product)
-      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-        <div class="card text-center  vertical-align">
+      {{-- this id must be the product's id --}}
+      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3" id="{{$product->id}}">
+        <div class="card text-center vertical-align">
           <a href="{{ url('product/'.$product->id) }}">
             <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}" alt="Card image cap">
           </a>
@@ -30,7 +30,8 @@
               <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary ml-1 px-1"> Add to cart <i
                   class="fas fa-cart-arrow-down"></i></a>
             </div>
-            <a class="btn text-danger my-3" id="remove_item" value="{{$product->id}}">Remove from wishlist</a>
+            {{-- must mantain wishlistDelete in classname to work --}}
+            <a class="btn text-danger my-3 wishlistDelete" value="{{$product->id}}">Remove from wishlist</a>
           </div>
         </div>
       </div>
@@ -39,4 +40,6 @@
   </div>
 
 </div>
+{{-- must be in the bottom to load properly --}}
+<script type="text/javascript" src="{{ URL::asset('js/wishlist.js') }}"></script>
 @endsection

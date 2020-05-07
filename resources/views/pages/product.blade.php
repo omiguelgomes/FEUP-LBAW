@@ -16,13 +16,12 @@
                 </ol>
                 <div class="carousel-inner pb-5 center-block text-center">
                     <div class="carousel-item active">
-                        <img class="center-block" src="{{ asset('images/'.$product->images->first()->path) }}"
-                            alt="First Slide">
+                        <img src="{{ asset('images/'.$product->images->first()->path) }}" alt="First Slide">
                     </div>
                     @for($count = 1; $count < count($product->images); $count++)
                         <div class="carousel-item">
                             <img class="center-block" src="{{ asset('images/'.$product->images[$count]->path) }}"
-                                alt="Slide">
+                                alt={{"Slide ".$count}}>
                         </div>
                         @endfor
                 </div>

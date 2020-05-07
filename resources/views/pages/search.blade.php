@@ -84,9 +84,12 @@
 
 
 <input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
+<script>
+    var test = {{$products}};
+</script>
 </div>
 </div>
-<div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
+<div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10" id="phone-grid-container">
     <div class="row" id="phone-grid">
         @foreach($products as $product)
         <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">
@@ -95,6 +98,11 @@
                     <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
                         alt="Card image cap">
                 </a>
+                <h1>
+                    <script>
+                        console.log("hello");
+                    </script>
+                </h1>
                 <div class="card-body">
                     <h5 class="card-title" value="{{$product->toJson()}}">{{$product->brand->name}}</h5>
                     <h5 class="card-title-model">{{$product->model}}</h5>

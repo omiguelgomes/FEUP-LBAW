@@ -18,14 +18,16 @@ class WishlistController extends Controller
     return view('pages.wishlist')->with('wishlist', $wishlist);
   }
 
-  public function remove(Request $request)
+  public function delete($id)
   {
     if (!Auth::check())
       return redirect('/register');
     else
       $user = Auth::user();
 
-    $user->wishlist()->detach($request->id);
+    $user->wishlist()->detach($id);
+
+    return $id;
   }
 
   public function add($id)

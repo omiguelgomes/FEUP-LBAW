@@ -41,7 +41,7 @@ Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
 
 //Wishlist
-Route::post('wishlist/remove', 'WishlistController@remove');
+Route::delete('wishlist/delete/{id}', 'WishlistController@delete');
 Route::get('product/{id}/wishlist', 'WishlistController@add');
 Route::get('wishlist', 'WishlistController@show');
 
@@ -93,4 +93,3 @@ Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
 Route::post('admin/product/add', 'ProductController@create')->name('create_product');
 Route::delete('admin/product/delete/{id}', 'ProductController@delete');
 Route::post('admin/product/update/{id}', 'ProductController@update');
-

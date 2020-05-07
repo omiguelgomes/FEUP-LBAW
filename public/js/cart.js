@@ -19,7 +19,7 @@ $(document).ready(function () {
         id: $(this).attr("value"),
       },
     });
-    $("#table_container").load("cart #product_table"); //reload #product_table, put it inside of #table_container
+    $("#table_container").load("cart #table-responsive"); //reload #table-resposnsive, put it inside of #table_container
   });
 
   //Decrement quantity
@@ -31,7 +31,7 @@ $(document).ready(function () {
         id: $(this).attr("value"),
       },
     });
-    $("#table_container").load("cart #product_table");
+    $("#table_container").load("cart #table-responsive");
   });
 
   //Increment quantity
@@ -43,6 +43,6 @@ $(document).ready(function () {
         id: $(this).attr("value"),
       },
     });
-    $("#table_container").load("cart #product_table");
+    $("#table_container").load("cart #table-responsive");
   });
 });

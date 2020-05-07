@@ -21,6 +21,4 @@ function filter() {
       card[i].parentElement.style.display = "none";
     }
   }
-  test = [];
-  $("#phone-grid-container").load("search #phone-grid"); //reload #table-resposnsive, put it inside of #table_container
 }

@@ -83,7 +83,8 @@
 
 
 
-<input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
+<input class="btn btn-primary" type="button" id="apply_filter" value="Apply Filters" />
+<input class="btn btn-primary my-2" type="button" id="clear_filter" value="Clear Filters" />
 </div>
 </div>
 <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10" id="phone-grid-container">

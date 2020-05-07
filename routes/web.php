@@ -61,7 +61,7 @@ Route::get('FAQ', 'FAQController@show');
 //Management
 Route::get('admin', 'AdminProfileController@show');
 Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
-Route::get('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
+Route::delete('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
 Route::get('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
 Route::get('admin/water/delete/{id}', 'AdminProfileController@destroyWater');
 Route::get('admin/os/delete/{id}', 'AdminProfileController@destroyOS');
@@ -75,7 +75,7 @@ Route::get('admin/cam/delete/{id}', 'AdminProfileController@destroyCam');
 Route::get('admin/finger/delete/{id}', 'AdminProfileController@destroyFinger');
 
 Route::post('admin/brands/add', 'AdminProfileController@createBrand')->name('create_brand');
-Route::post('admin/cpu/add', 'AdminProfileController@createCPU')->name('create_cpu');
+Route::post('admin/cpu/add', 'AdminProfileController@createCPU');
 Route::post('admin/ram/add', 'AdminProfileController@createRAM')->name('create_ram');
 Route::post('admin/water/add', 'AdminProfileController@createWater')->name('create_water');
 Route::post('admin/os/add', 'AdminProfileController@createOS')->name('create_os');

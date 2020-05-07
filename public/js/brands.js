@@ -89,11 +89,11 @@ function createBrand(brand) {
     new_brand.setAttribute('id', brand.id);
     new_brand.innerHTML = 
     `<td>${brand.name}</td>
-        <td><a class="delete thumbnail">
+        <td><a class="brandDelete thumbnail">
             <i class="far fa-times-circle fa-2x ml-4"></i>
     </a> </td>`;
   
-    new_item.querySelector('a.delete').addEventListener('click', sendDeleteBrandRequest);
+    new_item.querySelector('a.brandDelete').addEventListener('click', sendDeleteBrandRequest);
   
     return new_item;
   }

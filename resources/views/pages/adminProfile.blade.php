@@ -3,6 +3,7 @@
 
 <script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/cpu.js') }}" defer></script>
 
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
@@ -616,8 +617,6 @@
 
     <!-- BRANDS -->
     <div class="collapse" id="brandsandspecs">
-    <a href="#brands"></a>
-    <!--attemp at ancor link...-->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
             <h4>Brands</h4>
@@ -694,11 +693,11 @@
 
     <div class="collapse" id="tabelCPU">
         <div class="row-form">
-            <form class="form" method="POST" action="{{ route('create_cpu') }}" enctype="multipart/form-data">
+            <form class="cpuForm form" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name"
+                        <input id="inputCPUName" type="text" name="inputCPUName" class="form-control" placeholder="Name"
                             required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
@@ -758,11 +757,11 @@
                         <th>Remove</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="cpuTableBody">
                     @foreach($cpu as $id => $name)
-                    <tr>
+                    <tr class="cpu" id='{{$id}}'>
                         <td>{{$name}}</td>
-                        <td><a href="{{ url('admin/cpu/delete/'.$id) }}" class="thumbnail">
+                        <td><a value="{{$id}}" class="cpuDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>

@@ -4,27 +4,6 @@ $.ajaxSetup({
     }
   });
 
-// $(document).ready(function () {
-//         //delete product
-//         $(document).on('click', '.productDelete', function() {
-
-//             let id = $(this).attr("value");
-//             $.ajax({
-//                 type: "GET",
-//                 url: "admin/product/delete/" + id,
-//                 success: function(responseData, textStatus, jqXHR) {
-//                     alert("Deleted Product")
-//                 },
-//                 error: function(jqXHR, textStatus, errorThrown) {
-//                     console.log(errorThrown);
-//                 }
-//                 });
-
-//                 $("#productContainer").load("admin .productTable");
-
-//         });
-// });
-
 function addEventListeners() {
     let productCheckers = document.getElementsByClassName("productForm");
     [].forEach.call(productCheckers, function(checker) {

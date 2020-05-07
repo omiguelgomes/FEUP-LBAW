@@ -63,7 +63,7 @@ class AdminProfileController extends Controller
       $cpu = CPU::find($id);
       $cpu->delete();
 
-      return redirect()->to('admin');
+      return $cpu;
     }
 
     public function destroyRAM($id)
@@ -186,13 +186,13 @@ class AdminProfileController extends Controller
     public function createCPU(Request $request)
     {
         $cpu = new CPU();
-        $cpu->freq = $request->inputFreq;
-        $cpu->cores = $request->inputCores;
-        $cpu->threads = $request->inputThreads;
-        $cpu->name = $request->inputName;
+        $cpu->freq = $request->freq;
+        $cpu->cores = $request->cores;
+        $cpu->threads = $request->threads;
+        $cpu->name = $request->name;
         $cpu->save();
 
-        return redirect()->to('admin');
+        return $cpu;
     }
 
     public function createRAM(Request $request)

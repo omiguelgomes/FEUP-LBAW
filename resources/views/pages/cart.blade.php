@@ -1,6 +1,5 @@
 @extends('layouts.pageWrapper')
 @section('content')
-<script type="text/javascript" src="{{ URL::asset('js/cart.js') }}"></script>
 @include('partials.jumboTitle',['title' => 'Cart'])
 
 
@@ -34,4 +33,6 @@
 
     </div>
 </div>
+{{-- script must be here for js to work --}}
+<script type="text/javascript" src="{{ URL::asset('js/cart.js') }}"></script>
 @endsection

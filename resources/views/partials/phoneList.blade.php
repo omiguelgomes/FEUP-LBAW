@@ -13,7 +13,7 @@
 </thead>
 <tbody>
     @foreach($products as $product)
-    <tr>
+    <tr id="{{$product->id}}">
         <td>
             <a href="{{ url('product/'.$product->id) }}">
                 <img src="{{ asset('images/'.$product->images->first()->path)}}" alt="..." style="height:20%;">
@@ -42,7 +42,8 @@
         @if($xButton == 'cart')
         <td>{{$product->price*$product->pivot->quant}}€</td>
         <td>
-            <a class="remove_item" value="{{$product->id}}">
+            {{-- class must be cartDeleter for it to work --}}
+            <a class="cartDeleter" value="{{$product->id}}">
                 <i class="far fa-times-circle fa-2x ml-4"></i>
             </a>
         </td>

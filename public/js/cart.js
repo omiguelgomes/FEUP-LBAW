@@ -1,48 +1,49 @@
-//stuff to make ajax requests work
 $.ajaxSetup({
   headers: {
-    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-  },
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
 });
 
-//Remove from cart
-$(document).ready(function () {
-  //so that these functions don't try to run before the page is loaded
-  $(document).on("click", ".remove_item", function () {
-    //when you click element with class remove_item
-    $.ajax({
-      //create request
-      type: "POST",
-      url: "/cart/remove/", //name of route to call
-      data: {
-        //data given in request key: value
-        id: $(this).attr("value"),
-      },
-    });
-    $("#table_container").load("cart #table-responsive"); //reload #table-resposnsive, put it inside of #table_container
-  });
+function encodeForAjax(data) {
+  if (data == null) return null;
+  return Object.keys(data).map(function (k) {
+    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+  }).join('&');
+}
 
-  //Decrement quantity
-  $(document).on("click", ".decrement_item", function () {
-    $.ajax({
-      type: "POST",
-      url: "/cart/decrement/",
-      data: {
-        id: $(this).attr("value"),
-      },
-    });
-    $("#table_container").load("cart #table-responsive");
-  });
+function sendAjaxRequest(method, url, data, handler) {
+  let request = new XMLHttpRequest();
 
-  //Increment quantity
-  $(document).on("click", ".increment_item", function () {
-    $.ajax({
-      type: "POST",
-      url: "/cart/increment/",
-      data: {
-        id: $(this).attr("value"),
-      },
-    });
-    $("#table_container").load("cart #table-responsive");
+  request.open(method, url, true);
+  request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.addEventListener('load', handler);
+  request.send(encodeForAjax(data));
+}
+
+function addEventListeners() {
+
+  let cartDeleters = document.getElementsByClassName("cartDeleter");
+  [].forEach.call(cartDeleters, function (deleter) {
+    deleter.addEventListener('click', sendCartDeleteRequest);
   });
-});
+  console.log(cartDeleters);
+}
+
+function sendCartDeleteRequest(event) {
+  event.preventDefault();
+  let id = this.getAttribute("value");
+  sendAjaxRequest('delete', 'cart/delete/' + id, null, cartDeleteHandler);
+}
+
+function cartDeleteHandler() {
+  if (this.status != 200) {
+    window.location = '/cart';
+    alert("Failed to remove from cart :'(");
+  }
+
+  let element = document.getElementById(this.responseText);
+  element.remove();
+}
+
+addEventListeners();

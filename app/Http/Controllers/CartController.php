@@ -83,13 +83,14 @@ class CartController extends Controller
     return redirect('purchase_history');
   }
 
-  public function remove(Request $request)
+  public function delete($id)
   {
     if (!Auth::check())
       return redirect('/register');
     else
       $user = Auth::user();
-    $user->cart()->detach($request->id);
+    $user->cart()->detach($id);
+    return $id;
   }
 
   public function increment(Request $request)

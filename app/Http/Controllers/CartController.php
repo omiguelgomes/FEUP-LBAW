@@ -93,31 +93,34 @@ class CartController extends Controller
     return $id;
   }
 
-  public function increment(Request $request)
+  public function increment($id)
   {
     if (!Auth::check())
       return redirect('/register');
     else
       $user = Auth::user();
 
-    $cart = $user->cart()->find($request->id);
+    $cart = $user->cart()->find($id);
     $cart->pivot->quant += 1;
     $cart->pivot->save();
+
+    return $id;
   }
 
-  public function decrement(Request $request)
+  public function decrement($id)
   {
     if (!Auth::check())
       return redirect('/register');
     else
       $user = Auth::user();
 
-    $cart = $user->cart()->find($request->id);
+    $cart = $user->cart()->find($id);
     if ($cart->pivot->quant <= 1) {
-      $user->cart()->detach($request->id);
+      $user->cart()->detach($id);
     } else {
       $cart->pivot->quant -= 1;
       $cart->pivot->save();
     }
+    return $id;
   }
 }

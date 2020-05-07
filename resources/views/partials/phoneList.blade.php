@@ -26,27 +26,29 @@
         </td>
 
         @if($xButton == 'cart')
-        <td>{{$product->pivot->quant}}
-            <a class="increment_item" value="{{$product->id}}">
+        <td>
+            {{-- classes must be exactly these --}}
+            <a class="quantity">{{$product->pivot->quant}}</a>
+            <a class="cartIncrementer" value="{{$product->id}}">
                 <i class="fas fa-plus-circle"></i>
             </a>
-            <a class="decrement_item" value="{{$product->id}}">
+            <a class="cartDecrementer" value="{{$product->id}}">
                 <i class="fas fa-minus-circle"></i>
             </a>
         </td>
 
-        @else
-        <td>{{$product->pivot->quantity}}</td>
-        @endif
-
-        @if($xButton == 'cart')
-        <td>{{$product->price*$product->pivot->quant}}€</td>
+        <td>
+            <a class="productTotal">{{$product->price*$product->pivot->quant}}</a>
+            <a>€</a>
+        </td>
         <td>
             {{-- class must be cartDeleter for it to work --}}
             <a class="cartDeleter" value="{{$product->id}}">
                 <i class="far fa-times-circle fa-2x ml-4"></i>
             </a>
         </td>
+        @else
+        <td>{{$product->pivot->quantity}}</td>
         @endif
     </tr>
     @endforeach

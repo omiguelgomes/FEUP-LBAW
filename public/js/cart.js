@@ -27,13 +27,32 @@ function addEventListeners() {
   [].forEach.call(cartDeleters, function (deleter) {
     deleter.addEventListener('click', sendCartDeleteRequest);
   });
-  console.log(cartDeleters);
+  let cartIncrementers = document.getElementsByClassName("cartIncrementer");
+  [].forEach.call(cartIncrementers, function (incrementer) {
+    incrementer.addEventListener('click', sendCartIncrementRequest);
+  });
+  let cartDecrementers = document.getElementsByClassName("cartDecrementer");
+  [].forEach.call(cartDecrementers, function (decrementer) {
+    decrementer.addEventListener('click', sendCartDecrementRequest);
+  });
 }
 
 function sendCartDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
   sendAjaxRequest('delete', 'cart/delete/' + id, null, cartDeleteHandler);
+}
+
+function sendCartIncrementRequest(event) {
+  event.preventDefault();
+  let id = this.getAttribute("value");
+  sendAjaxRequest('put', 'cart/increment/' + id, null, cartIncrementHandler);
+}
+
+function sendCartDecrementRequest(event) {
+  event.preventDefault();
+  let id = this.getAttribute("value");
+  sendAjaxRequest('put', 'cart/decrement/' + id, null, cartDecrementHandler);
 }
 
 function cartDeleteHandler() {
@@ -44,6 +63,45 @@ function cartDeleteHandler() {
 
   let element = document.getElementById(this.responseText);
   element.remove();
+}
+
+function cartIncrementHandler() {
+  if (this.status != 200) {
+    window.location = '/cart';
+    alert("Failed to increment item from cart :'(");
+  }
+
+  let card = document.getElementById(this.responseText);
+  let quantity = card.getElementsByClassName("quantity")[0];
+
+  let price = card.getElementsByClassName("productTotal")[0];
+  let priceDiff = (Number(price.innerHTML) / Number(quantity.innerHTML));
+  price.innerHTML = (Number(price.innerHTML) + priceDiff).toFixed(2);
+
+  quantity.innerHTML = Number(quantity.innerHTML) + 1;
+
+  let total = document.getElementById("total");
+  total.innerHTML = Number(total.innerHTML) + priceDiff;
+
+}
+
+function cartDecrementHandler() {
+  if (this.status != 200) {
+    window.location = '/cart';
+    alert("Failed to decrement item from cart :'(");
+  }
+
+  let card = document.getElementById(this.responseText);
+  let quantity = card.getElementsByClassName("quantity")[0];
+
+  let price = card.getElementsByClassName("productTotal")[0];
+  let priceDiff = (Number(price.innerHTML) / Number(quantity.innerHTML));
+  price.innerHTML = (Number(price.innerHTML) - priceDiff).toFixed(2);
+
+  quantity.innerHTML = Number(quantity.innerHTML) - 1;
+
+  let total = document.getElementById("total");
+  total.innerHTML = (Number(total.innerHTML) - priceDiff).toFixed(2);
 }
 
 addEventListeners();

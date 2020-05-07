@@ -11,9 +11,17 @@
                 <th scope="row" colspan="5" class="text-right">Shipping Costs: 0.00 €</th>
             </tr>
             <tr>
-                <th scope="row" colspan="5" class="text-right">TOTAL PURCHASE: {{$cart->sum(function ($product) {
-                    return $product->price * $product->pivot->quant;
-                })}} €</th>
+                <th scope="row" colspan="5" class="text-right">
+                    <a>
+                        TOTAL PURCHASE:
+                    </a>
+                    <a id="total">{{$cart->sum(function ($product) {
+                        return $product->price * $product->pivot->quant;
+                        })}}</a>
+                    <a>
+                        €
+                    </a>
+                </th>
             </tr>
         </table>
         <div class="d-flex">

@@ -507,7 +507,7 @@
                     </thead>
                     <tbody>
                         @foreach($products as $item)
-                        <tr id="{{$item->id}}">
+                        <tr id="product-{{$item->id}}">
                             <td>{{$item->model}}</td>
                             <td>
                                 <form class="form-inline productForm" id="productFormID" method="POST"
@@ -529,7 +529,7 @@
                                     </div>
                                 </form>
                             </td>
-                            <td><a class="productDelete" value='{{$item->id}}' class="thumbnail">
+                            <td><a value='{{$item->id}}' class="productDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>
                                 </a>
                             </td>
@@ -623,8 +623,9 @@
         </div>
     </div>
 
-    <!-- BRANDS -->
     <div class="collapse" id="brandsandspecs">
+
+        <!--Brands-->
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
                 <h4>Brands</h4>
@@ -675,9 +676,9 @@
                     </thead>
                     <tbody>
                         @foreach($brands as $id => $name)
-                        <tr id='{{$id}}'>
+                        <tr class="brand" id='brand-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a class="brandDelete" value="{{$id}}" class="thumbnail">
+                            <td><a value="{{$id}}" class="brandDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>
                                 </a> </td>
                         </tr>
@@ -686,7 +687,6 @@
                 </table>
             </div>
         </div>
-
 
         <!-- CPU -->
         <div class="d-flex p-3 mb-2 bg-light text-dark">
@@ -768,7 +768,7 @@
                     </thead>
                     <tbody class="cpuTableBody">
                         @foreach($cpu as $id => $name)
-                        <tr class="cpu" id='{{$id}}'>
+                        <tr class="cpu" id='cpu-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="cpuDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>
@@ -829,7 +829,7 @@
                     </thead>
                     <tbody class="ramTableBody">
                         @foreach($ram as $id => $name)
-                        <tr class="ram" id='{{$id}}'>
+                        <tr class="ram" id='ram-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="ramDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>

@@ -4,6 +4,7 @@
 <script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/cpu.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/ram.js') }}" defer></script>
 
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
@@ -532,7 +533,6 @@
     </div>
 
     <!-- Sales -->
-
     <br>
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="p-2">
@@ -785,11 +785,11 @@
 
     <div class="collapse" id="tabelRAM">
         <div class="row-form">
-            <form class="form-inline" method="POST" action="{{ route('create_ram') }}" enctype="multipart/form-data">
+            <form class="ramForm form-inline" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input id="inputName" type="number" name="inputName" class="form-control"
+                        <input id="inputRAMName" type="number" name="inputRAMName" class="form-control"
                             placeholder="RAM amount" required autofocus>
                         @if ($errors->has('inputName'))
                         <span class="error">
@@ -818,11 +818,11 @@
                         <th>Remove</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="ramTableBody">
                     @foreach($ram as $id => $name)
-                    <tr>
+                    <tr class="ram" id='{{$id}}'>
                         <td>{{$name}}</td>
-                        <td><a href="{{ url('admin/ram/delete/'.$id) }}" class="thumbnail">
+                        <td><a value="{{$id}}" class="ramDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> </td>
                     </tr>

@@ -62,7 +62,7 @@ Route::get('FAQ', 'FAQController@show');
 Route::get('admin', 'AdminProfileController@show');
 Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
 Route::delete('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
-Route::get('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
+Route::delete('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
 Route::get('admin/water/delete/{id}', 'AdminProfileController@destroyWater');
 Route::get('admin/os/delete/{id}', 'AdminProfileController@destroyOS');
 Route::get('admin/gpu/delete/{id}', 'AdminProfileController@destroyGPU');

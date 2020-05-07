@@ -71,7 +71,7 @@ class AdminProfileController extends Controller
       $ram = RAM::find($id);
       $ram->delete();
 
-      return redirect()->to('admin');
+      return $ram;
     }
 
     public function destroyWater($id)
@@ -198,10 +198,10 @@ class AdminProfileController extends Controller
     public function createRAM(Request $request)
     {
         $ram = new RAM();
-        $ram->value = $request->inputName;
+        $ram->value = $request->value;
         $ram->save();
 
-        return redirect()->to('admin');
+        return $ram;
     }
 
     public function createWater(Request $request)

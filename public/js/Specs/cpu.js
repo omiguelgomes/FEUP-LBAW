@@ -42,7 +42,6 @@ function sendCPUCreateRequest(event) {
     let cores = this.querySelector('input[name=inputCores]').value;
     let threads = this.querySelector('input[name=inputThreads]').value;
 
-    console.log(name, freq, cores, threads);
     sendAjaxRequest('post', 'admin/cpu/add', 
     {
         name: name,
@@ -61,7 +60,6 @@ function sendCPUDeleteRequest (event) {
 }
 
 function cpuCreateHandler(){
-    console.log(this.responseText);
     if (this.status != 201){ 
         window.location = '/admin';
         alert("Failed to create CPU :'(");

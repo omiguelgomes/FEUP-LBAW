@@ -35,6 +35,10 @@ class Product extends Model
         'camerares_id',
         'fingerprinttype_id'
     ];
+    protected $with = [
+        'ram', 'waterProofing', 'screensize', 'storage',
+        'battery', 'fingerprinttype', 'brand'
+    ];
 
     public static function list()
     {

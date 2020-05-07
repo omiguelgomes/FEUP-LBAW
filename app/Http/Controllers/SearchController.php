@@ -18,10 +18,7 @@ class SearchController extends Controller
 
     $screen = App\Specs\ScreenSize::all();
     $battery = App\Specs\Battery::all();
-    $products = App\Product::with([
-      'ram', 'waterProofing', 'screensize', 'storage',
-      'battery', 'fingerprinttype', 'brand'
-    ])->get();
+    $products = App\Product::paginate(20);
     return view(
       'pages.search',
       compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products')

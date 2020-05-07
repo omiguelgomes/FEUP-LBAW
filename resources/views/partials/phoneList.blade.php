@@ -47,6 +47,7 @@
                 <i class="far fa-times-circle fa-2x ml-4"></i>
             </a>
         </td>
+
         @else
         <td>{{$product->pivot->quantity}}</td>
         @endif

@@ -84,9 +84,6 @@
 
 
 <input class="btn btn-primary" type="button" id="apply_filter" value="submit" />
-<script>
-    var test = {{$products}};
-</script>
 </div>
 </div>
 <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10" id="phone-grid-container">
@@ -98,11 +95,6 @@
                     <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
                         alt="Card image cap">
                 </a>
-                <h1>
-                    <script>
-                        console.log("hello");
-                    </script>
-                </h1>
                 <div class="card-body">
                     <h5 class="card-title" value="{{$product->toJson()}}">{{$product->brand->name}}</h5>
                     <h5 class="card-title-model">{{$product->model}}</h5>
@@ -112,6 +104,7 @@
         </div>
         @endforeach
     </div>
+    {{$products->links()}}
 </div>
 </div>
 @endsection

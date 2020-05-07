@@ -81,7 +81,7 @@ function cartIncrementHandler() {
   quantity.innerHTML = Number(quantity.innerHTML) + 1;
 
   let total = document.getElementById("total");
-  total.innerHTML = Number(total.innerHTML) + priceDiff;
+  total.innerHTML = (Number(total.innerHTML) + priceDiff).toFixed(2);
 
 }
 

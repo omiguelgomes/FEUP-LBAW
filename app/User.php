@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'birthdate', 'password' 
+        'name', 'email', 'birthdate', 'password'
     ];
 
     /**
@@ -65,5 +65,15 @@ class User extends Authenticatable
     public function purchases()
     {
         return $this->hasMany('App\Purchase', 'user_id');
+    }
+
+    public function hasBought($id)
+    {
+        return count($this->purchases->pluck('products')->flatten()->where('id', '=', $id)) > 0;
+    }
+
+    public function ratings()
+    {
+        return $this->belongsToMany('App\Product', 'rating');
     }
 }

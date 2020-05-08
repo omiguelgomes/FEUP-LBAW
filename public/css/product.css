@@ -30,3 +30,15 @@
 .fa-star {
     color: #f7aa31;
 }
+
+/* add comment */
+.pb-cmnt-container {
+    font-family: Lato;
+}
+
+.pb-cmnt-textarea {
+    resize: none;
+    padding: 20px;
+    width: 100%;
+    border: 1px solid #F2F2F2;
+}

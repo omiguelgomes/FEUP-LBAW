@@ -39,6 +39,7 @@ Route::get('purchase_history', 'PurchaseHistoryController@show');
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
+Route::put('product/{id}/add_review', 'ProductController@addReview');
 
 //Wishlist
 Route::delete('wishlist/delete/{id}', 'WishlistController@delete');

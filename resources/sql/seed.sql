@@ -183,11 +183,11 @@ create table product
 
 create table rating
 (
-    id     integer primary key references product (id) on delete cascade,
+    id     serial primary key,
     user_id integer          not null references users (id) on delete cascade,
     product_id integer not null references product(id) on delete cascade,
-    "content" text    not null,
-    val    double precision not null,
+    content text    default '',
+    val    double precision default 1,
     constraint val check (val > (0)::double precision and val <= (5)::double precision)
 );
 
@@ -901,11 +901,11 @@ insert into image_product (product_id, image_id) values (30, 47);
 
 
 /* rating */
-
-insert into rating (id, user_id, product_id, "content", val) values ('1', '1', '21', 'ok!!!', '1');
-insert into rating (id, user_id, product_id, "content", val) values ('2', '1', '25', 'great!!!', '2');
-insert into rating (id, user_id, product_id, "content", val) values ('3', '2', '24', 'good phone', '3');
-insert into rating (id, user_id, product_id, "content", val) values ('4', '2', '24', 'yess!! i love it', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('5', '2', '25', 'bad quality!', '5'); 
-insert into rating (id, user_id, product_id, "content", val) values ('6', '1', '23', 'ok', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('8', '6', '29', 'terrible', '4'); 
+--temp to test create comment
+-- insert into rating (id, user_id, product_id, content, val) values ('1', '1', '21', 'ok!!!', '1');
+insert into rating (id, user_id, product_id, content, val) values ('2', '1', '25', 'great!!!', '2');
+insert into rating (id, user_id, product_id, content, val) values ('3', '2', '24', 'good phone', '3');
+insert into rating (id, user_id, product_id, content, val) values ('4', '2', '24', 'yess!! i love it', '4');
+insert into rating (id, user_id, product_id, content, val) values ('5', '2', '25', 'bad quality!', '5'); 
+insert into rating (id, user_id, product_id, content, val) values ('6', '1', '23', 'ok', '4');
+insert into rating (id, user_id, product_id, content, val) values ('8', '6', '29', 'terrible', '4'); 

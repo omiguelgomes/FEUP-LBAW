@@ -19,7 +19,7 @@
                 <div id="brands" class="collapse">
                     @foreach($brands as $brand)
                     <div class="form-check">
-                        <input type="checkbox" class="brandCheckbox" value="{{$brand->name}}">
+                        <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}">
                         <label class="form-check-label">
                             {{$brand->name}}
                         </label>
@@ -32,7 +32,7 @@
                 <div id="fingerprint" class="collapse">
                     @foreach($fingers as $finger)
                     <div class="form-check">
-                        <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->value}}">
+                        <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}">
                         <label class=" form-check-label">
                             {{$finger->value}}
                         </label>
@@ -45,7 +45,7 @@
                 <div id="waterres" class="collapse">
                     @foreach($water as $wr)
                     <div class="form-check">
-                        <input type="checkbox" class="wrCheckbox" value="{{$wr->value}}">
+                        <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}">
                         <label class="form-check-label">
                             {{$wr->value}}
                         </label>

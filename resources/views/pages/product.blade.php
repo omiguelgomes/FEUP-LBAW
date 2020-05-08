@@ -82,8 +82,6 @@
                     </a>
                 </div>
             </div>
-
-
         </div>
 
         {{-- comments and specs --}}
@@ -103,25 +101,47 @@
                     @include('partials.specsTable',['product' => $product])
                 </div>
                 <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
-                    @if(count($product->ratings) < 1) <h4 class="text-center">This product doesn't have comments yet!
-                        </h4>
-                        @else
-                        @foreach($product->ratings as $rating)
-                        <div class="container py-3">
-                            <div class="media">
-                                <img src="{{ asset('/images/'.$rating->user->image->path) }}"
-                                    class="align-self-start mr-3" style="max-height: 100px;">
-                                <div class="media-body">
-                                    <h5 class="mt-0">{{$rating->val}}/5
-                                        <i class="fas fa-star"></i>
-                                    </h5>
-                                    <p>
-                                        {{$rating->content}}
-                                    </p>
+                    {{-- Add comment --}}
+                    @if($user->hasBought($product->id))
+                    <div class="container pb-cmnt-container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="panel panel-info">
+                                    <div class="panel-body">
+                                        {{-- needs this id for add comment to work --}}
+                                        <textarea placeholder="Add a review!" class="pb-cmnt-textarea"
+                                            id="reviewInput"></textarea>
+                                        <button class="btn btn-primary pull-right" type="button"
+                                            id="reviewSubmit">Share</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                    </div>
+                    @endif
+                    {{-- Product comments --}}
+                    @if(count($product->ratings) < 1) <h4 class="text-center">This product doesn't have comments yet!
+                        </h4>
+                        @else
+                        {{-- must maintain class name --}}
+                        <div class="commentContainer">
+                            @foreach($product->ratings as $rating)
+                            <div class="container py-3">
+                                <div class="media">
+                                    <img src="{{ asset('/images/'.$rating->user->image->path) }}"
+                                        class="align-self-start mr-3" style="max-height: 100px;">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">{{$rating->val}}/5
+                                            <i class="fas fa-star"></i>
+                                        </h5>
+                                        <p>
+                                            {{$rating->content}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                         @endif
                 </div>
 
@@ -129,4 +149,5 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ URL::asset('js/product.js') }}"></script>
 @endsection

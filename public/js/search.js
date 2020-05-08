@@ -53,8 +53,33 @@ function sendAjaxRequest(method, url, data, handler) {
 
 function sendApplyFiltersRequest(event) {
   event.preventDefault();
+  brandCheckboxes = document.getElementsByClassName('brandCheckbox');
+  brandIds = [];
+  for (var i = 0; i < brandCheckboxes.length; i++) {
+    if (brandCheckboxes[i].checked) {
+      brandIds.push(Number(brandCheckboxes[i].value));
+    }
+  }
+
+  fingerCheckboxes = document.getElementsByClassName('fingerprintCheckbox');
+  fingerIds = [];
+  for (var i = 0; i < fingerCheckboxes.length; i++) {
+    if (fingerCheckboxes[i].checked) {
+      fingerIds.push(Number(fingerCheckboxes[i].value));
+    }
+  }
+
+  waterCheckboxes = document.getElementsByClassName('wrCheckbox');
+  waterIds = [];
+  for (var i = 0; i < waterCheckboxes.length; i++) {
+    if (waterCheckboxes[i].checked) {
+      waterIds.push(Number(waterCheckboxes[i].value));
+    }
+  }
   sendAjaxRequest('post', 'search/filter', {
-    brands: 1
+    brands: brandIds,
+    fingers: fingerIds,
+    waters: waterIds
   }, searchFilterHanlder);
 }
 

@@ -2,6 +2,7 @@
 @section('content')
 
 <script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/users.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/cpu.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/ram.js') }}" defer></script>
@@ -53,19 +54,19 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class='userTableBody'>
                     @foreach($clients as $client)
-                    <tr>
+                    <tr class='client' id='client-{{$client->id}}'>
                         <td>{{$client->name}}</td>
                         <td>{{$client->email}}</td>
                         <td>
-                            <a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <a class="userPromoter thumbnail" value='{{$client->id}}'>
+                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a>
                         </td>
                         <td>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            <a href="#" value='{{$client->id}}' class="thumbnail">
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a> 
                         </td>
                     </tr>
@@ -94,16 +95,16 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Demote from Admin</th>
+                        <th>Demote</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="adminTableBody">
                     @foreach($admins as $admin)
-                    <tr>
+                    <tr class='admin' id='admin-{{$admin->id}}'>
                         <td>{{$admin->name}}</td>
                         <td>{{$admin->email}}</td>
                         <td>
-                        <a href="#" class="thumbnail">
+                        <a class="userDemoter thumbnail" value='{{$admin->id}}'>
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a>
                         </td>

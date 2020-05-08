@@ -30,7 +30,7 @@ create table users
     birthdate date        not null default ('now'::text)::date,
     password      varchar        not null,
     image_id integer not null references image(id) on delete cascade default 1,
-    isAdmin   boolean default false
+    isadmin   boolean default false
 );
 
 create table faq
@@ -487,7 +487,7 @@ insert into image (description, path) values ('honor_9x', 'honor_9x.jpg');
 
 /* users */
 
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 23, true); /* Pass: 123456 (é igual em todas abaixo)*/
+insert into users (name, email, birthDate, password, image_id, isadmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 23, true); /* Pass: 123456 (é igual em todas abaixo)*/
 insert into users (name, email, birthDate, password, image_id) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
 insert into users (name, email, birthDate, password, image_id) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
 insert into users (name, email, birthDate, password, image_id) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 26);
@@ -506,7 +506,7 @@ insert into users (name, email, birthDate, password, image_id) values ('Karlens 
 insert into users (name, email, birthDate, password, image_id) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 23);
 insert into users (name, email, birthDate, password, image_id) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
 insert into users (name, email, birthDate, password, image_id) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 26, true); /* Pass: 1234*/ /* id = 20 */
+insert into users (name, email, birthDate, password, image_id, isadmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 26, true); /* Pass: 1234*/ /* id = 20 */
 
 /* country */
 

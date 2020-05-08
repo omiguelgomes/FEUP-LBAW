@@ -49,222 +49,72 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Promote</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($clients as $client)
                     <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i></a>
+                        <td>{{$client->name}}</td>
+                        <td>{{$client->email}}</td>
+                        <td>
                             <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                                <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i></a>
+                        <td>
                             <a href="#" class="thumbnail">
                                 <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
+                            </a> 
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
         <!-- Admin Accounts -->
-
         <br>
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
                 <h4>Admin Accounts</h4>
             </div>
-
-
             <div class="ml-auto p-2">
                 <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
-
             </div>
         </div>
-
-
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
             <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
         </div>
-
         <div class="table-overflow">
             <table id="tabela" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Demote from Admin</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($admins as $admin)
                     <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
+                        <td>{{$admin->name}}</td>
+                        <td>{{$admin->email}}</td>
+                        <td>
+                        <a href="#" class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 
     <!-- ORDERS -->
-
     <div class="collapse" id="orders">
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
@@ -623,6 +473,7 @@
         </div>
     </div>
 
+    <!--Brands and Specs area-->
     <div class="collapse" id="brandsandspecs">
 
         <!--Brands-->

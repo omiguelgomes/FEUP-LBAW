@@ -74,20 +74,36 @@ function productDeleteHandler() {
 
 function sendReviewCreateRequest(event) {
     event.preventDefault();
-    // sendAjaxRequest('PUT', window.location.pathname + '/add_review', {
-    //     content: document.getElementById('reviewInput').value,
-    //     val: 2
-    // }, reviewCreateHandler);
-    // var newDiv = document.createElement("div");
-
-    // document.getElementsByClassName("commentContainer").innerHTML += newDiv;
+    let rating = 3;
+    var text = document.getElementById('reviewInput').value;
+    sendAjaxRequest('PUT', window.location.pathname + '/add_review', {
+        content: text,
+        val: rating
+    }, reviewCreateHandler);
 }
 
 function reviewCreateHandler() {
-    if (this.status == 200) {
-        console.log(this.responseText);
+    if (this.status != 200) {
+        alert("Could not post your comment :(");
+    } else {
+        var jsonResponse = JSON.parse(this.responseText);
+        console.log(jsonResponse.user_image_path);
+        document.getElementsByClassName("commentContainer")[0].innerHTML =
+            `<div class="container py-3">
+            <div class="media">
+                <img src="/images/` + jsonResponse.user_image_path + `"
+                    class="align-self-start mr-3" style="max-height: 100px;">
+                    <div class="media-body">
+                        <h5 class = "mt-0"> ` + jsonResponse.val + ` / 5
+                            <i class="fas fa-star"></i>
+                        </h5>
+                        <p>` + jsonResponse.content + `</p>
+                    </div>
+            </div>
+        </div>` + document.getElementsByClassName("commentContainer")[0].innerHTML;
+
+        document.getElementById("addComment").style.display = "none";
     }
-    console.log(this.responseText);
 }
 
 addEventListeners();

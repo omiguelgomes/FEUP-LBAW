@@ -113,12 +113,22 @@ class ProductController extends Controller
 
   public function addReview($id, Request $request)
   {
+    if ($request->content == null) {
+      // make this return error
+      // return response()->json(['error' => 'Error msg'], 100);
+    }
     $newRating = Rating::create([
       'user_id' => Auth::user()->id,
       'product_id' => $id,
       'content' => $request->content,
       'val' => $request->val
     ]);
-    return $request;
+
+    return json_encode([
+      'user_image_path' => Auth::user()->image->path,
+      'product_id' => $id,
+      'content' => $request->content,
+      'val' => $request->val
+    ]);
   }
 }

@@ -103,7 +103,7 @@
                 <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
                     {{-- Add comment --}}
                     @if($user->hasBought($product->id))
-                    <div class="container pb-cmnt-container">
+                    <div class="container pb-cmnt-container" id="addComment">
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="panel panel-info">

@@ -90,14 +90,14 @@ function cpuDeleteHandler() {
     }
 
     let cpu = JSON.parse(this.responseText);
-    let element = document.getElementById(cpu.id);
+    let element = document.getElementById('cpu-' + cpu.id);
     element.remove();
 }
 
 function createCPU(cpu) {
     let new_cpu = document.createElement('tr');
     new_cpu.classList.add('cpu');
-    new_cpu.setAttribute('id', cpu.id);
+    new_cpu.setAttribute('id', 'cpu-' + cpu.id);
     new_cpu.innerHTML =
         `
     <td>${cpu.name}</td>
@@ -106,7 +106,7 @@ function createCPU(cpu) {
     </a> </td>
     `;
 
-    new_cpu.querySelector('a.cpuDelete').addEventListener('click', sendDeleteCPURequest);
+    new_cpu.querySelector('a.cpuDelete').addEventListener('click', sendCPUDeleteRequest);
 
     return new_cpu;
 }

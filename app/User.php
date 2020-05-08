@@ -29,8 +29,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'isAdmin'
+        'password', 'isadmin'
     ];
+
+    public static function list_admins()
+    {
+        return User::select('id', 'name', 'email')->where("isadmin", true)->get();;
+    }
+
+    public static function list_users()
+    {
+        return User::select('id', 'name', 'email')->where("isadmin", false)->get();;
+    }
 
     public function cart()
     {

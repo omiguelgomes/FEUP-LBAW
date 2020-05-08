@@ -2,6 +2,7 @@
 @section('content')
 
 <script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/users.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/cpu.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/ram.js') }}" defer></script>
@@ -49,222 +50,72 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Promote</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i></a>
-                            <a href="#" class="thumbnail">
+                <tbody class='userTableBody'>
+                    @foreach($clients as $client)
+                    <tr class='client' id='client-{{$client->id}}'>
+                        <td>{{$client->name}}</td>
+                        <td>{{$client->email}}</td>
+                        <td>
+                            <a class="userPromoter thumbnail" value='{{$client->id}}'>
                                 <i class="fas fa-pencil-alt fa-2x ml-2"></i>
                             </a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i></a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
+                        <td>
+                            <a href="#" value='{{$client->id}}' class="thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
+                            </a> 
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
         <!-- Admin Accounts -->
-
         <br>
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
                 <h4>Admin Accounts</h4>
             </div>
-
-
             <div class="ml-auto p-2">
                 <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
-
             </div>
         </div>
-
-
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
             <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
         </div>
-
         <div class="table-overflow">
             <table id="tabela" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Demote</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
+                <tbody class="adminTableBody">
+                    @foreach($admins as $admin)
+                    <tr class='admin' id='admin-{{$admin->id}}'>
+                        <td>{{$admin->name}}</td>
+                        <td>{{$admin->email}}</td>
+                        <td>
+                        <a class="userDemoter thumbnail" value='{{$admin->id}}'>
                                 <i class="far fa-times-circle fa-2x ml-4"></i>
                             </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>João Nunes</td>
-                        <td>joaon@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>João Riberio</td>
-                        <td>joaor@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Eduardo Campos</td>
-                        <td>eduardoc@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel Gomes</td>
-                        <td>miguelg@mail.com</td>
-                        <td><a href="#" class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a>
-                            <a href="#" class="thumbnail">
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a> </td>
-                        </td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 
     <!-- ORDERS -->
-
     <div class="collapse" id="orders">
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
@@ -507,7 +358,7 @@
                     </thead>
                     <tbody>
                         @foreach($products as $item)
-                        <tr id="{{$item->id}}">
+                        <tr id="product-{{$item->id}}">
                             <td>{{$item->model}}</td>
                             <td>
                                 <form class="form-inline productForm" id="productFormID" method="POST"
@@ -529,7 +380,7 @@
                                     </div>
                                 </form>
                             </td>
-                            <td><a class="productDelete" value='{{$item->id}}' class="thumbnail">
+                            <td><a value='{{$item->id}}' class="productDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>
                                 </a>
                             </td>
@@ -623,8 +474,10 @@
         </div>
     </div>
 
-    <!-- BRANDS -->
+    <!--Brands and Specs area-->
     <div class="collapse" id="brandsandspecs">
+
+        <!--Brands-->
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
                 <h4>Brands</h4>
@@ -675,9 +528,9 @@
                     </thead>
                     <tbody>
                         @foreach($brands as $id => $name)
-                        <tr id='{{$id}}'>
+                        <tr class="brand" id='brand-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a class="brandDelete" value="{{$id}}" class="thumbnail">
+                            <td><a value="{{$id}}" class="brandDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>
                                 </a> </td>
                         </tr>
@@ -686,7 +539,6 @@
                 </table>
             </div>
         </div>
-
 
         <!-- CPU -->
         <div class="d-flex p-3 mb-2 bg-light text-dark">
@@ -768,7 +620,7 @@
                     </thead>
                     <tbody class="cpuTableBody">
                         @foreach($cpu as $id => $name)
-                        <tr class="cpu" id='{{$id}}'>
+                        <tr class="cpu" id='cpu-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="cpuDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>
@@ -829,7 +681,7 @@
                     </thead>
                     <tbody class="ramTableBody">
                         @foreach($ram as $id => $name)
-                        <tr class="ram" id='{{$id}}'>
+                        <tr class="ram" id='ram-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="ramDelete thumbnail">
                                     <i class="far fa-times-circle fa-2x ml-4"></i>

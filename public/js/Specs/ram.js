@@ -47,13 +47,11 @@ function sendRAMCreateRequest(event) {
 function sendRAMDeleteRequest(event) {
     event.preventDefault();
     let id = this.getAttribute("value");
-    console.log(id)
 
     sendAjaxRequest('delete', 'admin/ram/delete/' + id, null, ramDeleteHandler);
 }
 
 function ramCreateHandler() {
-    console.log(this.responseText);
     if (this.status != 201) {
         window.location = '/admin';
         alert("Failed to create RAM :'(");
@@ -79,15 +77,14 @@ function ramDeleteHandler() {
     }
 
     let ram = JSON.parse(this.responseText);
-    console.log(ram.id);
-    let element = document.getElementById(ram.id);
+    let element = document.getElementById('ram-' + ram.id);
     element.remove();
 }
 
 function createRAM(ram) {
     let new_ram = document.createElement('tr');
     new_ram.classList.add('ram');
-    new_ram.setAttribute('id', ram.id);
+    new_ram.setAttribute('id', 'ram-' + ram.id);
     new_ram.innerHTML =
         `
     <td>${ram.value}</td>

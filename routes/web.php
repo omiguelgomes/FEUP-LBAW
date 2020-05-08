@@ -58,7 +58,8 @@ Route::get('profile', 'ProfileController@show');
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
 
-//Management
+//--------------------------------------------Management------------------------------------
+//Delete stuff
 Route::get('admin', 'AdminProfileController@show');
 Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
 Route::delete('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
@@ -74,6 +75,7 @@ Route::get('admin/screenres/delete/{id}', 'AdminProfileController@destroyScreenR
 Route::get('admin/cam/delete/{id}', 'AdminProfileController@destroyCam');
 Route::get('admin/finger/delete/{id}', 'AdminProfileController@destroyFinger');
 
+//Create stuff
 Route::post('admin/brands/add', 'AdminProfileController@createBrand')->name('create_brand');
 Route::post('admin/cpu/add', 'AdminProfileController@createCPU');
 Route::post('admin/ram/add', 'AdminProfileController@createRAM')->name('create_ram');
@@ -93,3 +95,7 @@ Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
 Route::post('admin/product/add', 'ProductController@create')->name('create_product');
 Route::delete('admin/product/delete/{id}', 'ProductController@delete');
 Route::post('admin/product/update/{id}', 'ProductController@update');
+
+//Manage users
+Route::post('admin/users/promote/{id}', 'UserController@promote');
+Route::post('admin/users/demote/{id}', 'UserController@demote');

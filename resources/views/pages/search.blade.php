@@ -4,9 +4,6 @@
 @include('partials.jumboTitle',['title' => 'Search'])
 
 {{-- <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}"> --}}
-<link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
-<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/filter.js') }}"></script>
 
 <div class="container">
     <div class="row justify-content-around">
@@ -83,8 +80,8 @@
 
 
 
-<input class="btn btn-primary" type="button" id="apply_filter" value="Apply Filters" />
-<input class="btn btn-primary my-2" type="button" id="clear_filter" value="Clear Filters" />
+<input class="btn btn-primary" type="button" id="applyFilters" value="Apply Filters" />
+<input class=" btn btn-primary my-2" type="button" id="clear_filter" value="Clear Filters" />
 </div>
 </div>
 <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10" id="phone-grid-container">
@@ -108,4 +105,5 @@
     {{$products->links()}}
 </div>
 </div>
+<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 @endsection

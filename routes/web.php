@@ -49,7 +49,7 @@ Route::get('wishlist', 'WishlistController@show');
 Route::get('search', 'SearchController@show');
 Route::get('search/{brandName}', 'SearchController@show'); //should return the search page with the brand name checkbox ticked
 Route::get('brands', 'BrandController@show');
-Route::post('search/filter', 'SearchController@brandsFiltered');
+Route::post('search/filter', 'SearchController@filterResults');
 
 //Profile
 Route::get('profile', 'ProfileController@show');

@@ -24,4 +24,9 @@ class SearchController extends Controller
       compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products')
     );
   }
+
+  public function filterResults(Request $request)
+  {
+    return $request->brands;
+  }
 }

@@ -61,8 +61,18 @@ function cartDeleteHandler() {
     alert("Failed to remove from cart :'(");
   }
 
-  let element = document.getElementById(this.responseText);
-  element.remove();
+  //card of the current product
+  let card = document.getElementById(this.responseText);
+  //quantity of the current product
+  let quantity = card.getElementsByClassName("quantity")[0];
+  //total of the current product (price*quantity)
+  let price = card.getElementsByClassName("productTotal")[0];
+  //cart total
+  let total = document.getElementById("total");
+  //reduce total by the product total, of the product deleted
+  total.innerHTML = (Number(total.innerHTML) - price.innerHTML).toFixed(2);
+
+  card.remove();
 }
 
 function cartIncrementHandler() {

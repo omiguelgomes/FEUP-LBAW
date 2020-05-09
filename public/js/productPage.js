@@ -37,18 +37,26 @@ function sendAjaxRequest(method, url, data, handler) {
 
 function sendReviewCreateRequest(event) {
     event.preventDefault();
-    let stars = document.getElementsByClassName("rating");
-    let rating = 0;
-    for (var i = 0; i < stars.length; i++) {
-        if (stars[i].classList.contains("fas")) {
-            rating += 1;
+    var text = document.getElementById('reviewInput').value;
+    if (text == "") {
+        alert("Your comment must not be empty!");
+    } else {
+        let stars = document.getElementsByClassName("rating");
+        let rating = 0;
+        for (var i = 0; i < stars.length; i++) {
+            if (stars[i].classList.contains("fas")) {
+                rating += 1;
+            }
+        }
+        if (rating == 0) {
+            alert("You must select a rating!");
+        } else {
+            sendAjaxRequest('PUT', window.location.pathname + '/add_review', {
+                content: text,
+                val: rating
+            }, reviewCreateHandler);
         }
     }
-    var text = document.getElementById('reviewInput').value;
-    sendAjaxRequest('PUT', window.location.pathname + '/add_review', {
-        content: text,
-        val: rating
-    }, reviewCreateHandler);
 }
 
 function reviewCreateHandler() {
@@ -72,8 +80,12 @@ function reviewCreateHandler() {
         </div>` + document.getElementsByClassName("commentContainer")[0].innerHTML;
 
         document.getElementById("addComment").style.display = "none";
-        document.getElementById("noComments").style.display = "none";
-        document.getElementById("noRatings").innerHTML = jsonResponse.val + `<i class="fas fa-star"></i>`;
+
+        if (document.getElementById("noComments") != null) {
+            document.getElementById("noComments").style.display = "none";
+            document.getElementById("noRatings").innerHTML = jsonResponse.val + `<i class="fas fa-star"></i>`;
+        }
+
     }
 }
 

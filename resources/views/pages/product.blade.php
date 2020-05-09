@@ -54,11 +54,11 @@
                     <div class="p-2 bd-highlight">
                         <h5>
                             @if(count($product->ratings) == 0)
-                            No ratings
+                            <a id="noRatings">No ratings</a>
                             @else
                             {{$product->averageRating()}}
-                            @endif
                             <i class="fas fa-star"></i>
+                            @endif
                         </h5>
                     </div>
                 </div>

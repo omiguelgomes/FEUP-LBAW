@@ -70,6 +70,7 @@ function reviewCreateHandler() {
 
         document.getElementById("addComment").style.display = "none";
         document.getElementById("noComments").style.display = "none";
+        document.getElementById("noRatings").innerHTML = jsonResponse.val + `<i class="fas fa-star"></i>`;
     }
 }
 

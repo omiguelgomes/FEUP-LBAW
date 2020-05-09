@@ -5,8 +5,8 @@
     {{-- whole page row --}}
     <div class="row">
         {{-- left side phone image col --}}
-        <div class="col-5">
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="20000"
+        <div class="col-12 col-lg-5">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000"
                 data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -37,47 +37,44 @@
         </div>
 
         {{-- top right side col --}}
-        <div class="col-7">
-            <div class="row h-100 align-items-center">
-                {{-- title col --}}
-                <div class="col-3">
+        <div class="col-12 col-lg-7">
+            <div class="row align-items-center">
+                {{-- brand col --}}
+                <div class="col-5 col-lg-4">
                     <div class="bd-highlight">
-                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="max-height: 100px;">
+                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 {{-- model col --}}
-                <div class="col-6">
-                    <h1 class="display-4"><b>{{$product->model}}</b></h1>
+                <div class="col-5 col-lg-6 text-center">
+                    <h1>{{$product->model}}</h1>
                 </div>
                 {{-- ratings --}}
-                <div class="col-3">
-                    <div class="p-2 bd-highlight">
-                        <h5>
-                            @if(count($product->ratings) == 0)
-                            <a id="noRatings">No ratings</a>
-                            @else
-                            {{$product->averageRating()}}
-                            <i class="fas fa-star"></i>
-                            @endif
-                        </h5>
-                    </div>
+                <div class="col-2">
+                    <h5>
+                        @if(count($product->ratings) == 0)
+                        <a id="noRatings">No ratings</a>
+                        @else
+                        {{$product->averageRating()}}
+                        <i class="fas fa-star"></i>
+                        @endif
+                    </h5>
                 </div>
                 {{-- price --}}
-                <div class="col-4">
+                <div class="col-12 col-sm-4 text-center mb-3">
                     <h2><b>{{$product->price}}€ </b></h2>
                     @if(count($product->discounts) > 0)
                     <sup style="text-decoration: line-through;">{{$product->originalPrice()}}€</sup>
                     @endif
                 </div>
                 {{-- cart wishlist buttons --}}
-                <div class="col-8">
-                    <a href="{{ url('/product/'.$product->id.'/cart') }}" class="button btn-primary rounded p-1 mx-1">
+                <div class="col-12 col-sm-8 text-center mb-3">
+                    <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary rounded">
                         Add to Cart
                     </a>
                     <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="cart_image">
 
-                    <a href="{{ url('/product/'.$product->id.'/wishlist') }}"
-                        class="button btn-primary rounded p-1 ml-5">
+                    <a href="{{ url('/product/'.$product->id.'/wishlist') }}" class="btn btn-primary rounded ml-2">
                         Add to Wishlist
                     </a>
                 </div>

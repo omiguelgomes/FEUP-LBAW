@@ -29,7 +29,6 @@ function filter() {
 }
 
 function addEventListeners() {
-
   let applyBtn = document.getElementById("applyFilters");
   applyBtn.addEventListener('click', sendApplyFiltersRequest);
 }

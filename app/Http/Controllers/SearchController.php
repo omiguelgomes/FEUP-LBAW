@@ -27,6 +27,6 @@ class SearchController extends Controller
 
   public function filterResults(Request $request)
   {
-    return $request->brands;
+    return $request;
   }
 }

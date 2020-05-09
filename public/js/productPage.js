@@ -5,14 +5,17 @@ $.ajaxSetup({
 });
 
 function addEventListeners() {
-    //create comment from product page
-    let reviewSubmit = document.getElementById('reviewSubmit');
-    reviewSubmit.addEventListener('click', sendReviewCreateRequest);
 
-    let stars = document.getElementsByClassName("rating");
-    [].forEach.call(stars, function (star) {
-        star.addEventListener('mouseover', selectRating);
-    });
+    if (document.getElementById("addComment") != null) {
+        //create comment from product page
+        let reviewSubmit = document.getElementById('reviewSubmit');
+        reviewSubmit.addEventListener('click', sendReviewCreateRequest);
+
+        let stars = document.getElementsByClassName("rating");
+        [].forEach.call(stars, function (star) {
+            star.addEventListener('mouseover', selectRating);
+        });
+    }
 }
 
 function encodeForAjax(data) {

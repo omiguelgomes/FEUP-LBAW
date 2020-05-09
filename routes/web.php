@@ -100,3 +100,6 @@ Route::post('admin/product/update/{id}', 'ProductController@update');
 //Manage users
 Route::post('admin/users/promote/{id}', 'UserController@promote');
 Route::post('admin/users/demote/{id}', 'UserController@demote');
+
+//Manage Orders
+Route::post('admin/orders/update/{id}', 'PurchaseController@update');

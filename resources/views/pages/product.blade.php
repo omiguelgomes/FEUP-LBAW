@@ -149,5 +149,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ URL::asset('js/product.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/productPage.js') }}"></script>
 @endsection

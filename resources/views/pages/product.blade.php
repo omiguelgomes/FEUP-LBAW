@@ -102,15 +102,23 @@
                 </div>
                 <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
                     {{-- Add comment --}}
-                    @if($user->hasBought($product->id))
+                    @if($canRate)
+
                     <div class="container pb-cmnt-container" id="addComment">
                         <div class="row">
+                            <div class="col-12">
+                                <i class="rating far fa-star" id="star1" value="1"></i>
+                                <i class="rating far fa-star" id="star2" value="2"></i>
+                                <i class="rating far fa-star" id="star3" value="3"></i>
+                                <i class="rating far fa-star" id="star4" value="4"></i>
+                                <i class="rating far fa-star" id="star5" value="5"></i>
+                            </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="panel panel-info">
                                     <div class="panel-body">
                                         {{-- needs this id for add comment to work --}}
-                                        <textarea placeholder="Add a review!" class="pb-cmnt-textarea"
-                                            id="reviewInput"></textarea>
+                                        <textarea placeholder="Add a review! Don't forget to select a rating"
+                                            class="pb-cmnt-textarea" id="reviewInput"></textarea>
                                         <button class="btn btn-primary pull-right" type="button"
                                             id="reviewSubmit">Share</button>
                                     </div>
@@ -120,11 +128,13 @@
                     </div>
                     @endif
                     {{-- Product comments --}}
-                    @if(count($product->ratings) < 1) <h4 class="text-center">This product doesn't have comments yet!
-                        </h4>
-                        @else
-                        {{-- must maintain class name --}}
-                        <div class="commentContainer">
+                    <div class="commentContainer">
+                        @if(count($product->ratings) < 1) <h4 class="text-center" id="noComments">This product doesn't
+                            have
+                            comments
+                            yet!</h4>
+                            @else
+                            {{-- must maintain class name --}}
                             @foreach($product->ratings as $rating)
                             <div class="container py-3">
                                 <div class="media">
@@ -141,8 +151,8 @@
                                 </div>
                             </div>
                             @endforeach
-                        </div>
-                        @endif
+                            @endif
+                    </div>
                 </div>
 
             </div>

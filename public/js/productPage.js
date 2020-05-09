@@ -8,6 +8,11 @@ function addEventListeners() {
     //create comment from product page
     let reviewSubmit = document.getElementById('reviewSubmit');
     reviewSubmit.addEventListener('click', sendReviewCreateRequest);
+
+    let stars = document.getElementsByClassName("rating");
+    [].forEach.call(stars, function (star) {
+        star.addEventListener('mouseover', selectRating);
+    });
 }
 
 function encodeForAjax(data) {
@@ -29,7 +34,13 @@ function sendAjaxRequest(method, url, data, handler) {
 
 function sendReviewCreateRequest(event) {
     event.preventDefault();
-    let rating = 3;
+    let stars = document.getElementsByClassName("rating");
+    let rating = 0;
+    for (var i = 0; i < stars.length; i++) {
+        if (stars[i].classList.contains("fas")) {
+            rating += 1;
+        }
+    }
     var text = document.getElementById('reviewInput').value;
     sendAjaxRequest('PUT', window.location.pathname + '/add_review', {
         content: text,
@@ -42,7 +53,7 @@ function reviewCreateHandler() {
         alert("Could not post your comment :(");
     } else {
         var jsonResponse = JSON.parse(this.responseText);
-        console.log(jsonResponse.user_image_path);
+
         document.getElementsByClassName("commentContainer")[0].innerHTML =
             `<div class="container py-3">
             <div class="media">
@@ -58,7 +69,22 @@ function reviewCreateHandler() {
         </div>` + document.getElementsByClassName("commentContainer")[0].innerHTML;
 
         document.getElementById("addComment").style.display = "none";
+        document.getElementById("noComments").style.display = "none";
     }
+}
+
+function selectRating() {
+    let stars = document.getElementsByClassName("rating");
+    for (var i = 0; i < stars.length; i++) {
+        if (stars[i].attributes.value.nodeValue < this.attributes.value.nodeValue) {
+            stars[i].classList.add("fas");
+        } else {
+            if (stars[i].attributes.value.nodeValue > this.attributes.value.nodeValue) {
+                stars[i].classList.remove("fas");
+            }
+        }
+    }
+    this.classList.add("fas");
 }
 
 addEventListeners();

@@ -18,9 +18,9 @@ class ProductController extends Controller
   public function show($id)
   {
     $product = Product::findOrFail($id);
+    $canRate = Auth::user()->hasBought($product->id) && (!Auth::user()->hasReviewed($id));
 
-    return view('pages.product')->with(['product' => $product, 'user' => Auth::user()]);
-    return $this->addReviewTemp("some text", $id);
+    return view('pages.product')->with(['product' => $product, 'user' => Auth::user(), 'canRate' => $canRate]);
   }
 
   public function buy($id)

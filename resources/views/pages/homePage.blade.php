@@ -69,7 +69,6 @@
             </div>
         </div>
     </div>
-    {{-- NOTA: FIXAR TAMANHO DE CARDS DENTRO DA PHONEGRID, ALTURA VARIA COM A IMAGEM ATM --}}
 </div>
 
 <!-- Make carousel indicators and controls black -->
@@ -79,25 +78,5 @@
     .carousel-indicators {
         filter: invert(100%);
     }
-
-    @media only screen and (max-width: 600px) {
-        .carousel-item {
-            width: 600px;
-        }
-    }
 </style>
-
-{{-- DOENST WORK --}}
-<script>
-    $('#nav-tab li:first-child a').on('click', function(e) {
-        e.preventDefault()
-        $(this).tab('show')
-    })
-
-    $('#nav-tab a').on('click', function(e) {
-        e.preventDefault()
-        $(this).tab('show')
-    })
-</script>
-
 @endsection

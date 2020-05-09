@@ -37,8 +37,8 @@
         </div>
 
         {{-- top right side col --}}
-        <div class="col-12 col-lg-7">
-            <div class="row align-items-center my-auto">
+        <div class="col-12 col-lg-7 align-self-center">
+            <div class="row align-items-center my-auto row-grid">
                 {{-- brand col --}}
                 <div class="col-5 col-lg-4">
                     <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" class="img-fluid">

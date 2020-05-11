@@ -77,7 +77,7 @@ function brandDeleteHandler(){
     }
 
     let brand = JSON.parse(this.responseText);
-    let element = document.getElementById(brand.id);
+    let element = document.getElementById('brand-' + brand.id);
     element.remove();
 
     alert("Deleted " + brand.name);
@@ -86,14 +86,14 @@ function brandDeleteHandler(){
 function createBrand(brand) {
     let new_brand = document.createElement('tr');
     new_brand.classList.add('brand');
-    new_brand.setAttribute('id', brand.id);
+    new_brand.setAttribute('id', 'brand-' + brand.id);
     new_brand.innerHTML = 
     `<td>${brand.name}</td>
         <td><a class="brandDelete thumbnail">
             <i class="far fa-times-circle fa-2x ml-4"></i>
     </a> </td>`;
   
-    new_item.querySelector('a.brandDelete').addEventListener('click', sendDeleteBrandRequest);
+    new_item.querySelector('a.brandDelete').addEventListener('click', sendBrandDeleteRequest);
   
     return new_item;
   }

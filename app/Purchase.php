@@ -13,9 +13,17 @@ class Purchase extends Model
     'val', 'status_id', 'paid', 'user_id', 'purchasedate'
   ];
 
+  public static function list() {
+    return Purchase::all();
+  }
+
   public function status()
   {
     return $this->belongsTo('App\PurchaseState', 'status_id');
+  }
+
+  public function user() {
+    return $this->belongsTo('App\User', 'user_id');
   }
 
   public function products()

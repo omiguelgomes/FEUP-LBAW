@@ -39,6 +39,7 @@ Route::get('purchase_history', 'PurchaseHistoryController@show');
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');
 Route::get('product/{id}', 'ProductController@show');
+Route::put('product/{id}/add_review', 'ProductController@addReview');
 
 //Wishlist
 Route::delete('wishlist/delete/{id}', 'WishlistController@delete');
@@ -49,7 +50,7 @@ Route::get('wishlist', 'WishlistController@show');
 Route::get('search', 'SearchController@show');
 Route::get('search/{brandName}', 'SearchController@show'); //should return the search page with the brand name checkbox ticked
 Route::get('brands', 'BrandController@show');
-Route::post('search/filter', 'SearchController@brandsFiltered');
+Route::post('search/filter', 'SearchController@filterResults');
 
 //Profile
 Route::get('profile', 'ProfileController@show')->name('profile');
@@ -59,7 +60,8 @@ Route::post('profile','ProfileController@profileUpdate')->name('profile.update')
 Route::get('about', 'AboutController@show');
 Route::get('FAQ', 'FAQController@show');
 
-//Management
+//--------------------------------------------Management------------------------------------
+//Delete stuff
 Route::get('admin', 'AdminProfileController@show');
 Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
 Route::delete('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
@@ -75,6 +77,7 @@ Route::get('admin/screenres/delete/{id}', 'AdminProfileController@destroyScreenR
 Route::get('admin/cam/delete/{id}', 'AdminProfileController@destroyCam');
 Route::get('admin/finger/delete/{id}', 'AdminProfileController@destroyFinger');
 
+//Create stuff
 Route::post('admin/brands/add', 'AdminProfileController@createBrand')->name('create_brand');
 Route::post('admin/cpu/add', 'AdminProfileController@createCPU');
 Route::post('admin/ram/add', 'AdminProfileController@createRAM')->name('create_ram');
@@ -94,3 +97,10 @@ Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
 Route::post('admin/product/add', 'ProductController@create')->name('create_product');
 Route::delete('admin/product/delete/{id}', 'ProductController@delete');
 Route::post('admin/product/update/{id}', 'ProductController@update');
+
+//Manage users
+Route::post('admin/users/promote/{id}', 'UserController@promote');
+Route::post('admin/users/demote/{id}', 'UserController@demote');
+
+//Manage Orders
+Route::post('admin/orders/update/{id}', 'PurchaseController@update');

@@ -6,6 +6,7 @@ use App\Product;
 use App\PurchaseState;
 use App\Purchase;
 use App\Image;
+use App\Rating;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,45 +15,54 @@ use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
-    public function show($id)
-    {
-      $product = Product::findOrFail($id);
-      return view('pages.product')->with('product', $product);
+  public function show($id)
+  {
+    $product = Product::findOrFail($id);
+
+    if (!Auth::check()) {
+      $canRate = false;
+    } else {
+      $canRate = Auth::user()->hasBought($product->id) && (!Auth::user()->hasReviewed($id));
     }
 
-    public function buy($id)
-    {
-      if (!Auth::check()) 
-        return redirect('/register');
-      else
-          $user = Auth::user();
+    return view('pages.product')->with(['product' => $product, 'canRate' => $canRate]);
+  }
 
-      $product = Product::find($id);
+  public function buy($id)
+  {
+    if (!Auth::check())
+      return redirect('/register');
+    else
+      $user = Auth::user();
 
-      $newPs = PurchaseState::create([
-        'statechangedate' => date("Y-m-d"),
-        'comment' => "Please Pay!",
-        'pstate' => "Processing",
-      ]);
+    $product = Product::find($id);
 
-      $newPurchase = Purchase::create([
-        'val' => $product->price, 
-        'status_id' => $newPs->id,
-        'paid' => 1,
-        'user_id' => $user->id,
-        'purchasedate' => date("Y-m-d")
-      ]);
+    $newPs = PurchaseState::create([
+      'statechangedate' => date("Y-m-d"),
+      'comment' => "Please Pay!",
+      'pstate' => "Processing",
+    ]);
 
-      $newPurchase->products()->attach($product->id, 
-      ['quantity' => 1]);
+    $newPurchase = Purchase::create([
+      'val' => $product->price,
+      'status_id' => $newPs->id,
+      'paid' => 1,
+      'user_id' => $user->id,
+      'purchasedate' => date("Y-m-d")
+    ]);
 
-      return redirect('purchase_history');
-    }
+    $newPurchase->products()->attach(
+      $product->id,
+      ['quantity' => 1]
+    );
 
-    public function create(Request $request)
-    {
-      
-      $newProduct = Product::create([
+    return redirect('purchase_history');
+  }
+
+  public function create(Request $request)
+  {
+
+    $newProduct = Product::create([
       'stock' => $request->inputStock,
       'price' => $request->inputPrice,
       'model' => $request->input('inputName'),
@@ -69,37 +79,61 @@ class ProductController extends Controller
       'battery_id' => $request->inputBattery,
       'screenres_id' => $request->inputSreenRes,
       'camerares_id' => $request->inputCamRes,
-      'fingerprinttype_id' => $request->inputFinger]);
+      'fingerprinttype_id' => $request->inputFinger
+    ]);
 
-      if($request->hasFile('inputImg')) {
-        $allowedExtensions = ['jpg', 'JPG', 'png', 'jpeg'];
+    if ($request->hasFile('inputImg')) {
+      $allowedExtensions = ['jpg', 'JPG', 'png', 'jpeg'];
 
-        $files = $request->file('inputImg');
-        
-        foreach($files as $file){
+      $files = $request->file('inputImg');
+
+      foreach ($files as $file) {
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('images'), $filename);
-        
+
         $img = new Image();
         $img->description = "$newProduct->model product image";
         $img->path = $filename;
         $img->save();
         $newProduct->images()->attach($img->id);
-        }
       }
-    
-      return redirect('product/'.$newProduct->id);
     }
 
-    public function update($id, Request $request) {
+    return redirect('product/' . $newProduct->id);
+  }
 
-      Product::where('id', $id)->update((array('stock' => $request->stock)));
+  public function update($id, Request $request)
+  {
+
+    Product::where('id', $id)->update((array('stock' => $request->stock)));
+  }
+
+  public function delete($id)
+  {
+    $product = Product::find($id);
+    $product->delete();
+
+    return $product;
+  }
+
+  public function addReview($id, Request $request)
+  {
+    if ($request->content == null) {
+      // make this return error
+      // return response()->json(['error' => 'Error msg'], 100);
     }
+    $newRating = Rating::create([
+      'user_id' => Auth::user()->id,
+      'product_id' => $id,
+      'content' => $request->content,
+      'val' => $request->val
+    ]);
 
-    public function delete($id) {
-      $product = Product::find($id);
-      $product->delete();
-
-      return $product;
-    }
+    return json_encode([
+      'user_image_path' => Auth::user()->image->path,
+      'product_id' => $id,
+      'content' => $request->content,
+      'val' => $request->val
+    ]);
+  }
 }

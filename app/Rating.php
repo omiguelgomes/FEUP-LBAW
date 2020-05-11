@@ -11,8 +11,10 @@ class Rating extends Model
 
   protected $table = 'rating';
 
+  protected $fillable = ['user_id', 'product_id', 'content', 'val'];
+
   public function user()
   {
     return $this->belongsTo('App\User');
   }
-} 
+}

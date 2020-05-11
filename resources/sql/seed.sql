@@ -30,7 +30,7 @@ create table users
     birthdate date        not null default ('now'::text)::date,
     password      varchar        not null,
     image_id integer not null references image(id) on delete cascade default 1,
-    isAdmin   boolean default false
+    isadmin   boolean default false
 );
 
 create table faq
@@ -183,11 +183,11 @@ create table product
 
 create table rating
 (
-    id     integer primary key references product (id) on delete cascade,
+    id     serial primary key,
     user_id integer          not null references users (id) on delete cascade,
     product_id integer not null references product(id) on delete cascade,
-    "content" text    not null,
-    val    double precision not null,
+    content text    default '',
+    val    double precision default 1,
     constraint val check (val > (0)::double precision and val <= (5)::double precision)
 );
 
@@ -487,7 +487,7 @@ insert into image (description, path) values ('honor_9x', 'honor_9x.jpg');
 
 /* users */
 
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 23, true); /* Pass: 123456 (é igual em todas abaixo)*/
+insert into users (name, email, birthDate, password, image_id, isadmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 23, true); /* Pass: 123456 (é igual em todas abaixo)*/
 insert into users (name, email, birthDate, password, image_id) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
 insert into users (name, email, birthDate, password, image_id) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
 insert into users (name, email, birthDate, password, image_id) values ('Leigha Gravet', 'lgravet3@dedecms.com', '2012-08-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 26);
@@ -506,7 +506,7 @@ insert into users (name, email, birthDate, password, image_id) values ('Karlens 
 insert into users (name, email, birthDate, password, image_id) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 23);
 insert into users (name, email, birthDate, password, image_id) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
 insert into users (name, email, birthDate, password, image_id) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
-insert into users (name, email, birthDate, password, image_id, isAdmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 26, true); /* Pass: 1234*/ /* id = 20 */
+insert into users (name, email, birthDate, password, image_id, isadmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 26, true); /* Pass: 1234*/ /* id = 20 */
 
 /* country */
 
@@ -901,11 +901,9 @@ insert into image_product (product_id, image_id) values (30, 47);
 
 
 /* rating */
-
-insert into rating (id, user_id, product_id, "content", val) values ('1', '1', '21', 'ok!!!', '1');
-insert into rating (id, user_id, product_id, "content", val) values ('2', '1', '25', 'great!!!', '2');
-insert into rating (id, user_id, product_id, "content", val) values ('3', '2', '24', 'good phone', '3');
-insert into rating (id, user_id, product_id, "content", val) values ('4', '2', '24', 'yess!! i love it', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('5', '2', '25', 'bad quality!', '5'); 
-insert into rating (id, user_id, product_id, "content", val) values ('6', '1', '23', 'ok', '4');
-insert into rating (id, user_id, product_id, "content", val) values ('8', '6', '29', 'terrible', '4'); 
+--temp to test create comment
+insert into rating (user_id, product_id, content, val) values ('2', '24', 'good phone', '3');
+insert into rating (user_id, product_id, content, val) values ('2', '24', 'yess!! i love it', '4');
+insert into rating (user_id, product_id, content, val) values ('2', '25', 'bad quality!', '5'); 
+insert into rating (user_id, product_id, content, val) values ('1', '23', 'ok', '4');
+insert into rating (user_id, product_id, content, val) values ('6', '29', 'terrible', '4'); 

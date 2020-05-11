@@ -20,6 +20,8 @@ use App\Specs\FingerPrintType;
 use App\Image;
 use App\Brand;
 use App\Product;
+use App\User;
+use App\Purchase;
 
 class AdminProfileController extends Controller
 {
@@ -31,6 +33,9 @@ class AdminProfileController extends Controller
       else
           $user = Auth::user();
 
+      $admins = User::list_admins();
+      $clients = User::list_users();
+      $orders = Purchase::list();
       $products = Product::list();
       $cpu = CPU::list();
       $ram = RAM::list();
@@ -47,7 +52,7 @@ class AdminProfileController extends Controller
       $fingers = FingerPrintType::list();
 
       return view('pages.adminProfile', 
-      compact('user', 'products', 'cpu', 'ram', 'water', 'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers'));
+      compact('user', 'admins', 'clients', 'orders', 'products', 'cpu', 'ram', 'water', 'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers'));
     }
 
     public function destroyBrand($id)

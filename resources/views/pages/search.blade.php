@@ -4,9 +4,6 @@
 @include('partials.jumboTitle',['title' => 'Search'])
 
 {{-- <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}"> --}}
-<link rel="stylesheet" href="{{ URL::asset('css/filters.css') }}">
-<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/filter.js') }}"></script>
 
 <div class="container">
     <div class="row justify-content-around">
@@ -22,7 +19,7 @@
                 <div id="brands" class="collapse">
                     @foreach($brands as $brand)
                     <div class="form-check">
-                        <input type="checkbox" class="brandCheckbox" value="{{$brand->name}}">
+                        <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}">
                         <label class="form-check-label">
                             {{$brand->name}}
                         </label>
@@ -35,7 +32,7 @@
                 <div id="fingerprint" class="collapse">
                     @foreach($fingers as $finger)
                     <div class="form-check">
-                        <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->value}}">
+                        <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}">
                         <label class=" form-check-label">
                             {{$finger->value}}
                         </label>
@@ -48,7 +45,7 @@
                 <div id="waterres" class="collapse">
                     @foreach($water as $wr)
                     <div class="form-check">
-                        <input type="checkbox" class="wrCheckbox" value="{{$wr->value}}">
+                        <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}">
                         <label class="form-check-label">
                             {{$wr->value}}
                         </label>
@@ -83,8 +80,8 @@
 
 
 
-<input class="btn btn-primary" type="button" id="apply_filter" value="Apply Filters" />
-<input class="btn btn-primary my-2" type="button" id="clear_filter" value="Clear Filters" />
+<input class="btn btn-primary" type="button" id="applyFilters" value="Apply Filters" />
+<input class=" btn btn-primary my-2" type="button" id="clear_filter" value="Clear Filters" />
 </div>
 </div>
 <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10" id="phone-grid-container">
@@ -108,4 +105,5 @@
     {{$products->links()}}
 </div>
 </div>
+<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 @endsection

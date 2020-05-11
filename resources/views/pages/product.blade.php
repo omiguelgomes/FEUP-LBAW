@@ -5,8 +5,8 @@
     {{-- whole page row --}}
     <div class="row">
         {{-- left side phone image col --}}
-        <div class="col-5">
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="20000"
+        <div class="col-12 col-lg-5">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000"
                 data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -37,53 +37,46 @@
         </div>
 
         {{-- top right side col --}}
-        <div class="col-7">
-            <div class="row h-100 align-items-center">
-                {{-- title col --}}
-                <div class="col-3">
-                    <div class="bd-highlight">
-                        <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" style="max-height: 100px;">
-                    </div>
+        <div class="col-12 col-lg-7 align-self-center">
+            <div class="row align-items-center my-auto row-grid">
+                {{-- brand col --}}
+                <div class="col-5 col-lg-4">
+                    <img src="{{asset('images/'.$product->brand->image->path)}}" alt="" class="img-fluid">
                 </div>
                 {{-- model col --}}
-                <div class="col-6">
-                    <h1 class="display-4"><b>{{$product->model}}</b></h1>
+                <div class="col-5 col-lg-6 text-center" style="font-size:5vw;">
+                    {{$product->model}}
                 </div>
                 {{-- ratings --}}
-                <div class="col-3">
-                    <div class="p-2 bd-highlight">
-                        <h5>
-                            @if(count($product->ratings) == 0)
-                            No ratings
-                            @else
-                            {{$product->averageRating()}}
-                            @endif
-                            <i class="fas fa-star"></i>
-                        </h5>
-                    </div>
+                <div class="col-2">
+                    <h4>
+                        @if(count($product->ratings) == 0)
+                        <a id="noRatings">No ratings</a>
+                        @else
+                        {{$product->averageRating()}}
+                        <i class="fas fa-star"></i>
+                        @endif
+                    </h4>
                 </div>
                 {{-- price --}}
-                <div class="col-4">
+                <div class="col-12 col-sm-4 text-center mb-3">
                     <h2><b>{{$product->price}}€ </b></h2>
                     @if(count($product->discounts) > 0)
                     <sup style="text-decoration: line-through;">{{$product->originalPrice()}}€</sup>
                     @endif
                 </div>
                 {{-- cart wishlist buttons --}}
-                <div class="col-8">
-                    <a href="{{ url('/product/'.$product->id.'/cart') }}" class="button btn-primary rounded p-1 mx-1">
+                <div class="col-12 col-sm-8 text-center mb-3">
+                    <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary rounded">
                         Add to Cart
                     </a>
-                    <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="cart_image">
-
-                    <a href="{{ url('/product/'.$product->id.'/wishlist') }}"
-                        class="button btn-primary rounded p-1 ml-5">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <a href="{{ url('/product/'.$product->id.'/wishlist') }}" class="btn btn-primary rounded ml-2">
                         Add to Wishlist
                     </a>
+                    <i class="fas fa-heart fa-lg"></i>
                 </div>
             </div>
-
-
         </div>
 
         {{-- comments and specs --}}
@@ -103,30 +96,63 @@
                     @include('partials.specsTable',['product' => $product])
                 </div>
                 <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
-                    @if(count($product->ratings) < 1) <h4 class="text-center">This product doesn't have comments yet!
-                        </h4>
-                        @else
-                        @foreach($product->ratings as $rating)
-                        <div class="container py-3">
-                            <div class="media">
-                                <img src="{{ asset('/images/'.$rating->user->image->path) }}"
-                                    class="align-self-start mr-3" style="max-height: 100px;">
-                                <div class="media-body">
-                                    <h5 class="mt-0">{{$rating->val}}/5
-                                        <i class="fas fa-star"></i>
-                                    </h5>
-                                    <p>
-                                        {{$rating->content}}
-                                    </p>
+                    {{-- Add comment --}}
+                    @if($canRate)
+
+                    <div class="container pb-cmnt-container" id="addComment">
+                        <div class="row">
+                            <div class="col-12">
+                                <i class="rating far fa-star" id="star1" value="1"></i>
+                                <i class="rating far fa-star" id="star2" value="2"></i>
+                                <i class="rating far fa-star" id="star3" value="3"></i>
+                                <i class="rating far fa-star" id="star4" value="4"></i>
+                                <i class="rating far fa-star" id="star5" value="5"></i>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="panel panel-info">
+                                    <div class="panel-body">
+                                        {{-- needs this id for add comment to work --}}
+                                        <textarea placeholder="Add a review! Don't forget to select a rating"
+                                            class="pb-cmnt-textarea" id="reviewInput"></textarea>
+                                        <button class="btn btn-primary pull-right" type="button"
+                                            id="reviewSubmit">Share</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                        @endif
+                    </div>
+                    @endif
+                    {{-- Product comments --}}
+                    <div class="commentContainer">
+                        @if(count($product->ratings) < 1) <h4 class="text-center" id="noComments">This product doesn't
+                            have
+                            comments
+                            yet!</h4>
+                            @else
+                            {{-- must maintain class name --}}
+                            @foreach($product->ratings as $rating)
+                            <div class="container py-3">
+                                <div class="media">
+                                    <img src="{{ asset('/images/'.$rating->user->image->path) }}"
+                                        class="align-self-start mr-3" style="max-height: 100px;">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">{{$rating->val}}/5
+                                            <i class="fas fa-star"></i>
+                                        </h5>
+                                        <p>
+                                            {{$rating->content}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                            @endif
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ URL::asset('js/productPage.js') }}"></script>
 @endsection

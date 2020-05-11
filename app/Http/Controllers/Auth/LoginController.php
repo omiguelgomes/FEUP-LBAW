@@ -23,13 +23,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -58,7 +51,7 @@ class LoginController extends Controller
     {
 
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL))
-            return redirect()->back()->withInput()->withErrors(['The email entered is not valid']); 
+            return redirect()->back()->withInput()->withErrors(['The email entered is not valid']);
 
         $credentials = [
             'email' => $request->email,
@@ -66,9 +59,9 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('home');
+            return redirect()->back();
         }
 
-        return redirect()->back()->withInput()->withErrors(['The email and password do not match']); 
+        return redirect()->back()->withInput()->withErrors(['The email and password do not match']);
     }
 }

@@ -2,48 +2,61 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Address;
+use App\City;
+use App\Country;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Address;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function show()
-    {
-      if (!Auth::check()) 
-        return redirect('/register');
-      else
-          $user = Auth::user();
+  public function show()
+  {
+    if (!Auth::check())
+      return redirect('/register');
+    else
+      $user = Auth::user();
 
-      return view('pages.profile')->with('user', $user);
+    return view('pages.profile')->with('user', $user);
+  }
+
+  public function profileUpdate(Request $request)
+  {
+
+    $data = $request->all();
+
+    if ($data['password'] != null)
+      $data['password'] = bcrypt($data['password']);
+    else
+      unset($data['password']);
+
+    $user = Auth::user();
+    $address = Address::find($data['addressID']);
+    $city = City::where('name', '=', $data['city'])->first();
+    $country = Country::where('name', $data['country'])->first();
+
+    if ($country == null) {
+      $country = Country::create([
+        'name' => $data['country'],
+      ]);
+      $country->save();
     }
 
-    public function profileUpdate(Request $request)
-    {
-   
-      $data = $request->all();
-  
-      if($data['password'] != null)
-        $data['password'] = bcrypt($data['password']);
-      else
-        unset($data['password']);       
-     
-      Auth::user()->address->city = $data['city'];
-      Auth::user()->address->street = $data['street'];
-      Auth::user()->address->postalCode = $data['postalcode'];
-      Auth::user()->save();
-     
-      $update = auth()->user()->update($data);
-      
-      if($update)
-        return redirect()
-                        ->route('profile')
-                        ->with('sucess', 'Update Sucess!');
-      
-      return redirect()
-                    ->back()
-                    ->with('error', 'Fail Update Profile!');
+    if ($city == null) {
+      $city = new City;
+      $city->name = $data['city'];
+      $city->country_id = $country->id;
+      $city->save();
     }
+
+    $address->city_id = $city->id;
+    $address->country_id = $country->id;
+
+    $address->street = $data['street'];
+    $address->postalcode = $data['postalcode'];
+    $address->save();
+
+    return $this->show();
+  }
 }

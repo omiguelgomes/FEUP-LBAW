@@ -57,7 +57,7 @@ create table address
 (
     id         serial primary key,
     street     text    not null,
-    postalCode text    not null,
+    postal_code text    not null,
     user_id     integer not null unique references users (id) on delete cascade,
     city_id     integer not null references city (id) on delete cascade,
     country_id  integer not null references country (id) on delete cascade

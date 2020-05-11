@@ -24,11 +24,9 @@
 
                 </div>
             </div>
-            @if (Auth::check())
             <div class="row ml-2">
-                <span>{{$user->name }}</span> &nbsp;<a class="button" href="{{ url('/logout') }}">Logout</a>
+                <span>{{$user->name}}</span> &nbsp;<a class="button" href="{{ url('/logout') }}">Logout</a>
             </div>
-            @endif
 
             <div class="form-row">
                 <div class="form-group col-md-4 text-center">
@@ -66,11 +64,17 @@
                     <input type="text" value='{{$address->city->name}}' name='city' class="form-control" id="inputCity"
                         placeholder="{{$address->city->name}}" readonly>
                 </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCountry">Country<a class="text-danger">*</a></label>
+                    <input type="text" value='{{$address->country->name}}' name='country' class="form-control"
+                        id="inputCountry" placeholder="{{$address->country->name}}" readonly>
+                </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Postal Code<a class="text-danger">*</a></label>
                     <input type="text" value='{{$address->postalcode}}' name='postalcode' class="form-control"
                         id="inputZip" placeholder="{{$address->postalcode}}" readonly>
                 </div>
+                <input type="hidden" name="addressID" value="{{$address->id}}" />
             </div>
 
             <br>

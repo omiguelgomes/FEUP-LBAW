@@ -36,7 +36,7 @@
                     <img src="{{ asset('/images/'.$user->image->path) }}" class="rounded mx-auto d-block"
                         alt="imagempadrao" style="max-height: 300px;">
                     <label class='mt-1' for="image">Change Photo</label>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image" class="form-control" id="fileInput" disabled>
                 </div>
                 <div class="form-group col-md-6">
                     <br>

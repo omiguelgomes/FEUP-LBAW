@@ -9,6 +9,9 @@ function addEventListeners() {
         });
         //enable change button
         document.getElementById('change').removeAttribute("disabled");
+
+        //enable upload photo button
+        document.getElementById('fileInput').removeAttribute('disabled');
     })
 }
 addEventListeners();

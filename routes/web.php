@@ -52,7 +52,8 @@ Route::get('brands', 'BrandController@show');
 Route::post('search/filter', 'SearchController@brandsFiltered');
 
 //Profile
-Route::get('profile', 'ProfileController@show');
+Route::get('profile', 'ProfileController@show')->name('profile');
+Route::post('profile','ProfileController@profileUpdate')->name('profile.update');
 
 //static pages
 Route::get('about', 'AboutController@show');

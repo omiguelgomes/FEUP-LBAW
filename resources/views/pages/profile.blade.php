@@ -29,14 +29,13 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-4 text-center">
+                <div class="form-group col-sm-4 text-center">
                     <br>
-                    <img src="{{ asset('/images/'.$user->image->path) }}" class="rounded mx-auto d-block"
-                        alt="imagempadrao" style="max-height: 300px;">
+                    <img src="{{ asset('/images/'.$user->image->path) }}" class="img-fluid" alt="imagempadrao">
                     <label class='mt-1' for="image">Change Photo</label>
                     <input type="file" name="image" class="form-control" id="fileInput" disabled>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-sm-6">
                     <br>
                     <label for="inputEmail4">Email<a class="text-danger">*</a></label>
                     <input type="email" value='{{$user->email}}' name='email' class="form-control" id="inputEmail4"
@@ -59,17 +58,17 @@
                     placeholder="{{$address->street}}" readonly>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-sm-6">
                     <label for="inputCity">City<a class="text-danger">*</a></label>
                     <input type="text" value='{{$address->city->name}}' name='city' class="form-control" id="inputCity"
                         placeholder="{{$address->city->name}}" readonly>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-sm-6">
                     <label for="inputCountry">Country<a class="text-danger">*</a></label>
                     <input type="text" value='{{$address->country->name}}' name='country' class="form-control"
                         id="inputCountry" placeholder="{{$address->country->name}}" readonly>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-sm-2">
                     <label for="inputZip">Postal Code<a class="text-danger">*</a></label>
                     <input type="text" value='{{$address->postalcode}}' name='postalcode' class="form-control"
                         id="inputZip" placeholder="{{$address->postalcode}}" readonly>

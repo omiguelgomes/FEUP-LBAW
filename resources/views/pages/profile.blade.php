@@ -21,23 +21,24 @@
                                 Area</button></div>
                     </a>
                     @endif
-                    @if (Auth::check())
-                    <div class="row ml-2 mt-2">
-                    <span>{{$user->name }}</span> &nbsp;<a class="button" href="{{ url('/logout') }}">Logout</a> 
-                    </div>
-                    @endif
+                   
                 </div>
             </div>
+            @if (Auth::check())
+             <div class="row ml-2">
+                <span>{{$user->name }}</span> &nbsp;<a class="button" href="{{ url('/logout') }}">Logout</a> 
+              </div>
+                    @endif
            
             <div class="form-row">
                 <div class="form-group col-md-4 text-center">
-                    <br><br>
+                    <br>
                     <img src="{{ asset('/images/'.$user->image->path) }}" class="rounded mx-auto d-block" alt="imagempadrao" style="max-height: 300px;">
                     <label class='mt-1' for="image">Change Photo</label>
                     <input type="file" name="image" class="form-control">                    
                 </div>
                 <div class="form-group col-md-6">
-                    <br><br>
+                    <br>
                     <label for="inputEmail4">Email<a class="text-danger">*</a></label>
                     <input type="email" value='{{$user->email}}' name='email' class="form-control" id="inputEmail4" placeholder="{{$user->email}}" readonly>
                     <br>

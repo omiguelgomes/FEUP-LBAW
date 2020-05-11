@@ -546,26 +546,26 @@ insert into city (name, country_id) values ('Paredes', 14);
 
 /* address */
 
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Calypso', '1121-015', 1, 1, 1);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Mitchell', '4700-001', 2, 2, 2);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Kedzie', '0652-380', 3, 3, 3);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Summerview', '1547-201', 4, 4, 4);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Claremont', '9005-007', 5, 5, 5);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Orin', '2154-212', 6, 6, 6);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Hudson', '7390-094', 7, 7, 7);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Kingsford', '1212-521', 8, 8, 8);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Barnett', '2124-154', 9, 9, 9);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Rieder', '2414-544', 10, 10, 10);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Hudson', '0054-515', 11, 11, 11);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Springs', '1545-174', 12, 12, 12);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Ohio', '0221-512', 13, 13, 13);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Kedzie Ohio', '8680-825', 14, 13, 13);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Ohiozz', '5145-541', 15, 12, 12);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Beilfuss', '4640-210', 16, 10, 10);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Acker', '1241-524', 17, 9, 9);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Sundown', '2540-541', 18, 8, 8);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Dovetail', '5241-545', 19, 7, 7);
-insert into address (street, postalCode, user_id, city_id, country_id) values ('Igreja Velha', '4501-505', 20, 14, 14);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Calypso', '1121-015', 1, 1, 1);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Mitchell', '4700-001', 2, 2, 2);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Kedzie', '0652-380', 3, 3, 3);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Summerview', '1547-201', 4, 4, 4);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Claremont', '9005-007', 5, 5, 5);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Orin', '2154-212', 6, 6, 6);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Hudson', '7390-094', 7, 7, 7);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Kingsford', '1212-521', 8, 8, 8);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Barnett', '2124-154', 9, 9, 9);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Rieder', '2414-544', 10, 10, 10);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Hudson', '0054-515', 11, 11, 11);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Springs', '1545-174', 12, 12, 12);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Ohio', '0221-512', 13, 13, 13);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Kedzie Ohio', '8680-825', 14, 13, 13);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Ohiozz', '5145-541', 15, 12, 12);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Beilfuss', '4640-210', 16, 10, 10);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Acker', '1241-524', 17, 9, 9);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Sundown', '2540-541', 18, 8, 8);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Dovetail', '5241-545', 19, 7, 7);
+insert into address (street, postal_code, user_id, city_id, country_id) values ('Igreja Velha', '4501-505', 20, 14, 14);
 
 /* FAQ */
 

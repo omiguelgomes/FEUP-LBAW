@@ -54,7 +54,7 @@ class ProfileController extends Controller
     $address->country_id = $country->id;
 
     $address->street = $data['street'];
-    $address->postalcode = $data['postalcode'];
+    $address->postal_code = $data['postalcode'];
     $address->save();
 
     return $this->show();

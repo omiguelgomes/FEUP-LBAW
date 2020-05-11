@@ -22,6 +22,7 @@ use App\Brand;
 use App\Product;
 use App\User;
 use App\Purchase;
+use App\FAQ;
 
 class AdminProfileController extends Controller
 {
@@ -50,9 +51,11 @@ class AdminProfileController extends Controller
       $screenRes = ScreenRes::list();
       $cams = CamRes::list();
       $fingers = FingerPrintType::list();
+      $faqs = FAQ::all();
 
       return view('pages.adminProfile', 
-      compact('user', 'admins', 'clients', 'orders', 'products', 'cpu', 'ram', 'water', 'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers'));
+      compact('user', 'admins', 'clients', 'orders', 'products', 'cpu', 'ram', 'water', 
+      'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers', 'faqs'));
     }
 
     public function destroyBrand($id)

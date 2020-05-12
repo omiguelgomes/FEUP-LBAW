@@ -1247,9 +1247,10 @@
             </div>
         </div>
         <div class="table-overflow">
-            <form method="post" action="admin/faq/add" class="faqForm">
-                <input type="text" class="form-control m-2" placeholder="FAQ Title" id="faqTitle" maxlength=100>
-                <textarea name="faqAnswer" class="form-control m-2" id="faqAnswer" cols="20" rows="9" placeholder="FAQ Answer"></textarea>
+            <form method="POST" action="{{ route('create_faq') }}" class="faqForm" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <input type="text" class="form-control m-2" placeholder="FAQ Title" id="question" name="question" maxlength=100>
+                <textarea name="answer" class="form-control m-2" id="answer" cols="20" rows="9" placeholder="FAQ Answer"></textarea>
                 <div class="form-group text-center  p-10">
                     <button class="btn btn-block btn-primary" type="submit">Submit</button>
                 </div>
@@ -1261,7 +1262,7 @@
                 </div>
                 <div class="p-4">
                     <button class="btn btn-primary bg-white border-white" type="button" data-toggle="collapse"
-                        data-target="#FAQs1" aria-expanded="false" aria-controls="FAQs1">
+                        data-target="#faq-{{$faq->id}}" aria-expanded="false" aria-controls="faq-{{$faq->id}}">
                         <i class="fas fa-sort-down"></i>
                     </button>
                 </div>
@@ -1274,7 +1275,7 @@
                     </a>
                 </div>
             </div>
-            <div class="collapse" id="FAQs1">
+            <div class="collapse" id="faq-{{$faq->id}}">
                 <p>{{$faq->answer}}</p>
             </div>
             @endforeach

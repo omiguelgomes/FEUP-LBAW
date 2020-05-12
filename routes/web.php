@@ -104,3 +104,6 @@ Route::post('admin/users/demote/{id}', 'UserController@demote');
 
 //Manage Orders
 Route::post('admin/orders/update/{id}', 'PurchaseController@update');
+
+//Manage static pages
+Route::post('admin/faq/add', 'FAQController@create')->name('create_faq');

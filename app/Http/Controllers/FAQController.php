@@ -24,4 +24,12 @@ class FAQController extends Controller
 
       return redirect()->to('admin');
     }
+
+    public function delete($id)
+  {
+    $faq = FAQ::find($id);
+    $faq->delete();
+
+    return $faq;
+  }
 }

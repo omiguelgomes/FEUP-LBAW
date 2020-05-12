@@ -108,4 +108,5 @@ Route::post('admin/orders/update/{id}', 'PurchaseController@update');
 //Manage static pages
 Route::post('admin/faq/add', 'FAQController@create')->name('create_faq');
 Route::delete('admin/faq/delete/{id}', 'FAQController@delete');
+Route::post('admin/faq/update/{id}', 'FAQController@update');
 

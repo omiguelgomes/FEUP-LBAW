@@ -32,4 +32,12 @@ class FAQController extends Controller
 
     return $faq;
   }
+
+  public function update($id, Request $request)
+  {
+    $faq = FAQ::find($id);
+    $faq->update((array('answer' => $request->answer)));
+
+    return $faq;
+  }
 }

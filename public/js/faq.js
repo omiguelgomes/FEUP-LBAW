@@ -39,7 +39,7 @@ function sendFAQUpdateRequest(event) {
     let id = this.getAttribute("value");
     let answer = document.getElementById(`answer-${id}`).value;
 
-    
+    sendAjaxRequest('post', 'admin/faq/update/' + id, {answer: answer}, faqUpdateHandler);    
 }
 
 function sendFAQtDeleteRequest(event) {
@@ -47,6 +47,15 @@ function sendFAQtDeleteRequest(event) {
     let id = this.getAttribute("value");
 
     sendAjaxRequest('delete', 'admin/faq/delete/' + id, null, faqDeleteHandler);
+}
+
+function faqUpdateHandler() {
+    if (this.status != 200) {
+        window.location = '/admin';
+        alert("Failed to update FAQ :'(");
+    }
+
+    alert('Updated FAQ item.');
 }
 
 function faqDeleteHandler() {

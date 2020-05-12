@@ -70,8 +70,8 @@
                 </div>
                 <div class="form-group col-sm-2">
                     <label for="inputZip">Postal Code<a class="text-danger">*</a></label>
-                    <input type="text" value='{{$address->postalcode}}' name='postalcode' class="form-control"
-                        id="inputZip" placeholder="{{$address->postalcode}}" readonly>
+                    <input type="text" value='{{$address->postal_code}}' name='postalcode' class="form-control"
+                        id="inputZip" placeholder="{{$address->postal_code}}" readonly>
                 </div>
                 <input type="hidden" name="addressID" value="{{$address->id}}" />
             </div>

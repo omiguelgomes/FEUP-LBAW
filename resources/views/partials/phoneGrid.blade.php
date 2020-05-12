@@ -4,7 +4,7 @@
         <div class="card text-center my-auto">
             <a href="{{ url('product/'.$product->id) }}">
             </a>
-            <img class="img-fluid" src="{{ asset('images/'.$product->images->first()->path) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$product->brand->name}}</h5>
                 <h5 class="card-title">{{$product->model}}</h5>

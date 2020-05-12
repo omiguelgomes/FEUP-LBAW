@@ -16,7 +16,9 @@
     <tr id="{{$product->id}}">
         <td>
             <a href="{{ url('product/'.$product->id) }}">
-                <img src="{{ asset('images/'.$product->images->first()->path)}}" alt="..." style="height:20%;">
+                <div class="container">
+                    <img src="{{ asset('images/'.$product->images->first()->path)}}" style="height: 150px;">
+                </div>
         </td>
         <td>
             <div class="card-body">

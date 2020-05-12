@@ -1250,10 +1250,10 @@
         <div class="table-overflow">
             <form method="POST" action="{{ route('create_faq') }}" class="faqForm" enctype="multipart/form-data">
             {{ csrf_field() }}
-                <input type="text" class="form-control w-75 m-2" placeholder="FAQ Title" id="question" name="question" maxlength=100>
-                <textarea name="answer" class="form-control w-75 m-2" id="answer" cols="20" rows="9" placeholder="FAQ Answer"></textarea>
+                <input type="text" class="form-control w-75 mx-auto mb-2" placeholder="FAQ Title" id="question" name="question" maxlength=100>
+                <textarea name="answer" class="form-control w-75 mx-auto mb-2" id="answer" cols="20" rows="9" placeholder="FAQ Answer"></textarea>
                 <div class="form-group text-center  p-10">
-                    <button class="btn btn-block btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-block btn-primary w-75 mx-auto mt-2" type="submit">Submit</button>
                 </div>
             </form>
             @foreach($faqs as $faq)

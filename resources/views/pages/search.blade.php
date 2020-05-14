@@ -16,12 +16,24 @@
             <div class="filters d-flex flex-column p-0">
                 <h5>Filters</h5>
                 <label for="minPrice">
+                    @if(request()['minPrice'] != null)
+                    <a>Min Price: </a> <a id="minPriceLabel">{{request()['minPrice']}}</a>€
+                    <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice"
+                        value={{request()['minPrice']}}>
+                    @else
                     <a>Min Price: </a> <a id="minPriceLabel">1500</a>€
                     <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice">
+                    @endif
                 </label>
                 <label for="maxPrice">
+                    @if(request()['maxPrice'] != null)
+                    <a>Max Price</a> <a id="maxPriceLabel">{{request()['maxPrice']}}</a>€
+                    <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice"
+                        value={{request()['maxPrice']}}>
+                    @else
                     <a>Max Price</a> <a id="maxPriceLabel">1500</a>€
                     <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice">
+                    @endif
                 </label>
 
                 <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">

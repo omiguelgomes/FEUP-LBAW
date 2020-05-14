@@ -3,8 +3,6 @@
 
 @include('partials.jumboTitle',['title' => 'Search'])
 
-{{-- <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}"> --}}
-
 <div class="container">
     <div class="row justify-content-around">
         <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for products..">
@@ -23,6 +21,7 @@
                     <div class="form-check">
                         <label class="form-check-label">
                             {{$brand->name}}
+                            {{-- @if maintains old checkbox state --}}
                             <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}" name="brand[]"
                                 @if(request()['brand'] !=null && in_array($brand->id, request()['brand'])) checked
                             ="checked"@endif> </label> </div> @endforeach </div> <a href="#fingerprint"
@@ -74,6 +73,5 @@
             {{$products->links()}}
         </div>
     </div>
-    {{-- <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script> --}}
     @endsection
 </div>

@@ -57,7 +57,9 @@ class SearchController extends Controller
     }
 
     //Price filter
-    $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
+    if (($request['minPrice'] < $request['maxPrice'])) {
+      $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
+    }
 
     //enable pagination, keep filters for next pages
     $products  = $products->paginate(16)->appends([

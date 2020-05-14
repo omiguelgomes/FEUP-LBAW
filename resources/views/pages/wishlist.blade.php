@@ -1,6 +1,6 @@
 @extends('layouts.pageWrapper')
 @section('content')
-<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/searchBar.js') }}"></script>
 
 @include('partials.jumboTitle',['title' => 'Wishlist'])
 

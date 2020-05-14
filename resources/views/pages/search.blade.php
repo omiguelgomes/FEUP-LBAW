@@ -3,6 +3,8 @@
 
 @include('partials.jumboTitle',['title' => 'Search'])
 
+<link rel="stylesheet" href="{{ asset('/css/search.css') }}">
+
 <div class="container">
     <div class="row justify-content-around">
         <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for products..">
@@ -13,6 +15,14 @@
             {{ csrf_field() }}
             <div class="filters d-flex flex-column p-0">
                 <h5>Filters</h5>
+                <label for="minPrice">
+                    <a>Min Price: </a> <a id="minPriceLabel">1500</a>€
+                    <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice">
+                </label>
+                <label for="maxPrice">
+                    <a>Max Price</a> <a id="maxPriceLabel">1500</a>€
+                    <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice">
+                </label>
 
                 <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">Brands <i
                         class="fa fa-caret-down"></i></a>
@@ -73,5 +83,6 @@
             {{$products->links()}}
         </div>
     </div>
+    <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
     @endsection
 </div>

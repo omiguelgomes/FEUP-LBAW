@@ -56,6 +56,9 @@ class SearchController extends Controller
       $products = $products->whereIn('waterproofing_id', $request['waterRes']);
     }
 
+    //Price filter
+    $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
+
     //enable pagination, keep filters for next pages
     $products  = $products->paginate(16)->appends([
       'brand' => $request['brand'], 'fingerprint' => $request['fingerprint'],

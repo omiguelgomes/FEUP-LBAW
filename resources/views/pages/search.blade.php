@@ -45,10 +45,12 @@
                     <div class="form-check">
                         <label class="form-check-label">
                             {{$brand->name}}
+                            @if(request()['brand'] !=null && in_array($brand->id, request()['brand']))
                             <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}" name="brand[]"
-                                @if(request()['brand'] !=null && in_array($brand->id, request()['brand'])) checked
-                            ="checked"
-                            @endif>
+                                checked="checked">
+                            @else
+                            <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}" name="brand[]">
+                            @endif
                         </label>
                     </div>
                     @endforeach
@@ -62,10 +64,13 @@
                     <div class="form-check">
                         <label class="form-check-label">
                             {{$finger->value}}
+                            @if(request()['fingerprint'] !=null && in_array($finger->id, request()['fingerprint']))
                             <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}"
-                                name="fingerprint[]" @if(request()['fingerprint'] !=null && in_array($finger->id,
-                            request()['fingerprint'])) checked
-                            ="checked"@endif>
+                                name="fingerprint[]" checked="checked">
+                            @else
+                            <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}"
+                                name="fingerprint[]">
+                            @endif
                         </label>
                     </div>
                     @endforeach
@@ -80,10 +85,12 @@
                     <div class="form-check">
                         <label class="form-check-label">
                             {{$wr->value}}
+                            @if(request()['waterRes'] !=null && in_array($wr->id, request()['waterRes']))
                             <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}" name="waterRes[]"
-                                @if(request()['waterRes'] !=null && in_array($wr->value, request()['waterRes']))
-                            checked="checked"
-                            @endif>
+                                checked="checked">
+                            @else
+                            <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}" name="waterRes[]">
+                            @endif
                         </label>
                     </div>
                     @endforeach

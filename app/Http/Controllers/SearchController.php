@@ -56,6 +56,16 @@ class SearchController extends Controller
       $products = $products->whereIn('waterproofing_id', $request['waterRes']);
     }
 
+    if ($request['minRam'] != null) {
+      $rams = App\Specs\RAM::where('value', '>=', pow(2, $request['minRam']))->pluck('id');
+      $products = $products->whereIn('ram_id', $rams);
+    }
+
+    if ($request['minStorage'] != null) {
+      $storages = App\Specs\Storage::where('value', '>=', pow(2, $request['minStorage']))->pluck('id');
+      $products = $products->whereIn('storage_id', $storages);
+    }
+
     //Price filter
     if (($request['minPrice'] < $request['maxPrice'])) {
       $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
@@ -64,8 +74,9 @@ class SearchController extends Controller
     //enable pagination, keep filters for next pages
     $products  = $products->paginate(16)->appends([
       'brand' => $request['brand'], 'fingerprint' => $request['fingerprint'],
-      'waterRes' => $request['waterRes']
+      'waterRes' => $request['waterRes'], 'minRam' => $request['minRam'], 'minStorage' => $request['minStorage']
     ]);
+
     return view(
       'pages.search',
       compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products')

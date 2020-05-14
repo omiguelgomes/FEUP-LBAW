@@ -15,14 +15,16 @@
             {{ csrf_field() }}
             <div class="filters d-flex flex-column p-0">
                 <h5>Filters</h5>
+
+                {{-- PRICE --}}
                 <label for="minPrice">
                     @if(request()['minPrice'] != null)
                     <a>Min Price: </a> <a id="minPriceLabel">{{request()['minPrice']}}</a>€
                     <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice"
                         value={{request()['minPrice']}}>
                     @else
-                    <a>Min Price: </a> <a id="minPriceLabel">1500</a>€
-                    <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice">
+                    <a>Min Price: </a> <a id="minPriceLabel">0</a>€
+                    <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice" value="0">
                     @endif
                 </label>
                 <label for="maxPrice">
@@ -31,11 +33,13 @@
                     <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice"
                         value={{request()['maxPrice']}}>
                     @else
-                    <a>Max Price</a> <a id="maxPriceLabel">1500</a>€
-                    <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice">
+                    <a>Max Price</a> <a id="maxPriceLabel">3000</a>€
+                    <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice"
+                        value="3000">
                     @endif
                 </label>
 
+                {{-- BRANDS --}}
                 <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">
                     Brands
                     <i class="fa fa-caret-down"></i>
@@ -55,6 +59,8 @@
                     </div>
                     @endforeach
                 </div>
+
+                {{-- FINGERPRINT --}}
                 <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">
                     FingerPrint Scanner
                     <i class="fa fa-caret-down"></i>
@@ -75,11 +81,12 @@
                     </div>
                     @endforeach
                 </div>
+
+                {{-- WATERRES --}}
                 <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">
                     Water Resistance
                     <i class="fa fa-caret-down"></i>
                 </a>
-
                 <div id="waterres" class="collapse">
                     @foreach($water as $wr)
                     <div class="form-check">
@@ -95,6 +102,47 @@
                     </div>
                     @endforeach
                 </div>
+
+                {{-- RAM --}}
+                <a href="#ram" data-toggle="collapse" class="btn btn-secondary my-1">
+                    RAM
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                {{-- dont change min and max. value to search is 2^val--}}
+                <div id="ram" class="collapse">
+                    <label for="ram">
+                        @if(request()['minRam'] != null)
+                        <a>Min RAM: </a> <a id="minRamLabel">{{pow(2, request()['minRam'])}}</a>GB
+                        <input type="range" min="1" max="5" class="custom-range" id="minRam" name="minRam"
+                            value={{request()['minRam']}}>
+                        @else
+                        <a>Min Ram: </a> <a id="minRamLabel">2</a>GB
+                        <input type="range" min="1" max="5" class="custom-range" id="minRam" name="minRam" value="1">
+                        @endif
+                    </label>
+                </div>
+
+                {{-- STORAGE --}}
+                <a href="#storage" data-toggle="collapse" class="btn btn-secondary my-1">
+                    Storage
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                {{-- dont change min and max. value to search is 2^val--}}
+                <div id="storage" class="collapse">
+                    <label for="storage">
+                        @if(request()['minStorage'] != null)
+                        <a>Min storage: </a> <a id="minStorageLabel">{{pow(2, request()['minStorage'])}}</a>GB
+                        <input type="range" min="1" max="10" class="custom-range" id="minStorage" name="minStorage"
+                            value={{request()['minStorage']}} step="1">
+                        @else
+                        <a>Min storage: </a> <a id="minStorageLabel">2</a>GB
+                        <input type="range" min="1" max="10" class="custom-range" id="minStorage" name="minStorage"
+                            value="1" step="1">
+                        @endif
+                    </label>
+                </div>
+
+                {{-- submit and clear buttons--}}
                 <button class="btn btn-primary" type="submit" id="applyFilters" value="Apply Filters">
                     Apply Filters
                 </button>

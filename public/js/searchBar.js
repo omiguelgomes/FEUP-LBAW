@@ -1,8 +1,3 @@
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
 //full text search
 function filter() {
   // Declare variables
@@ -27,67 +22,3 @@ function filter() {
     }
   }
 }
-
-function addEventListeners() {
-  let applyBtn = document.getElementById("applyFilters");
-  applyBtn.addEventListener('click', sendApplyFiltersRequest);
-}
-
-function encodeForAjax(data) {
-  if (data == null) return null;
-  return Object.keys(data).map(function (k) {
-    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-  }).join('&');
-}
-
-function sendAjaxRequest(method, url, data, handler) {
-  let request = new XMLHttpRequest();
-
-  request.open(method, url, true);
-  request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  request.addEventListener('load', handler);
-  request.send(encodeForAjax(data));
-}
-
-function sendApplyFiltersRequest(event) {
-  event.preventDefault();
-  brandCheckboxes = document.getElementsByClassName('brandCheckbox');
-  brandIds = [];
-  for (var i = 0; i < brandCheckboxes.length; i++) {
-    if (brandCheckboxes[i].checked) {
-      brandIds.push(Number(brandCheckboxes[i].value));
-    }
-  }
-
-  fingerCheckboxes = document.getElementsByClassName('fingerprintCheckbox');
-  fingerIds = [];
-  for (var i = 0; i < fingerCheckboxes.length; i++) {
-    if (fingerCheckboxes[i].checked) {
-      fingerIds.push(Number(fingerCheckboxes[i].value));
-    }
-  }
-
-  waterCheckboxes = document.getElementsByClassName('wrCheckbox');
-  waterIds = [];
-  for (var i = 0; i < waterCheckboxes.length; i++) {
-    if (waterCheckboxes[i].checked) {
-      waterIds.push(Number(waterCheckboxes[i].value));
-    }
-  }
-  sendAjaxRequest('post', 'search/filter', {
-    brands: brandIds,
-    fingers: fingerIds,
-    waters: waterIds
-  }, searchFilterHanlder);
-}
-
-function searchFilterHanlder() {
-  if (this.status != 200) {
-    // window.location = '/search';
-    alert("Failed to filter results :'(");
-  }
-  console.log(this.responseText);
-}
-
-addEventListeners();

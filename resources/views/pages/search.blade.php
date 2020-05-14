@@ -24,19 +24,27 @@
                     <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice">
                 </label>
 
-                <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">Brands <i
-                        class="fa fa-caret-down"></i></a>
+                <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">
+                    Brands
+                    <i class="fa fa-caret-down"></i>
+                </a>
                 <div id="brands" class="collapse">
                     @foreach($brands as $brand)
                     <div class="form-check">
                         <label class="form-check-label">
                             {{$brand->name}}
-                            {{-- @if maintains old checkbox state --}}
                             <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}" name="brand[]"
                                 @if(request()['brand'] !=null && in_array($brand->id, request()['brand'])) checked
-                            ="checked"@endif> </label> </div> @endforeach </div> <a href="#fingerprint"
-                    data-toggle="collapse" class="btn btn-secondary my-1">FingerPrint Scanner <i
-                        class="fa fa-caret-down"></i></a>
+                            ="checked"
+                            @endif>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+                <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">
+                    FingerPrint Scanner
+                    <i class="fa fa-caret-down"></i>
+                </a>
                 <div id="fingerprint" class="collapse">
                     @foreach($fingers as $finger)
                     <div class="form-check">
@@ -45,20 +53,35 @@
                             <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}"
                                 name="fingerprint[]" @if(request()['fingerprint'] !=null && in_array($finger->id,
                             request()['fingerprint'])) checked
-                            ="checked"@endif> </label> </div> @endforeach </div> <a href="#waterres"
-                    data-toggle="collapse" class="btn btn-secondary my-1">Water Resistance <i
-                        class="fa fa-caret-down"></i></a>
+                            ="checked"@endif>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+                <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">
+                    Water Resistance
+                    <i class="fa fa-caret-down"></i>
+                </a>
+
                 <div id="waterres" class="collapse">
                     @foreach($water as $wr)
                     <div class="form-check">
                         <label class="form-check-label">
                             {{$wr->value}}
-                            <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}" name="waterRes[]" @if(
-                                request()['waterRes'] !=null && in_array($wr->value, request()['waterRes'])) checked
-                            ="checked"@endif> </label> </div> @endforeach </div> <button class="btn btn-primary"
-                    type="submit" id="applyFilters" value="Apply Filters">Apply
-                    Filters</button>
-                {{-- <input class=" btn btn-primary my-2" type="button" id="clear_filter" value="Clear Filters" /> --}}
+                            <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}" name="waterRes[]"
+                                @if(request()['waterRes'] !=null && in_array($wr->value, request()['waterRes']))
+                            checked="checked"
+                            @endif>
+                        </label>
+                    </div>
+                    @endforeach
+                </div>
+                <button class="btn btn-primary" type="submit" id="applyFilters" value="Apply Filters">
+                    Apply Filters
+                </button>
+                <a href="{{url('search')}}" class="btn btn-primary mt-2">
+                    Clear Filters
+                </a>
             </div>
         </form>
 
@@ -84,5 +107,6 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/searchBar.js') }}"></script>
     @endsection
 </div>

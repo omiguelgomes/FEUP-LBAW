@@ -78,5 +78,11 @@
     .carousel-indicators {
         filter: invert(100%);
     }
+
+    .card-img-top{
+   width: 200px; 
+   height: 200px;
+    }
+}
 </style>
 @endsection

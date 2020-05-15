@@ -75,6 +75,11 @@ class Product extends Model
         return $this->belongsToMany('App\Image', 'App\ImageProduct');
     }
 
+    public function description()
+    {
+        return $this->belongsTo('App\Description');
+    }
+
     public function discounts()
     {
         return $this->belongsToMany('App\Discount', 'discount_product')->where('begindate', '<=', date("Y-m-d"))->where('enddate', '>=', date("Y-m-d"));

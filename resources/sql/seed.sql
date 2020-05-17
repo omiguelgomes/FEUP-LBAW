@@ -182,7 +182,7 @@ create table product
     screenres_id       integer          not null references screenres (id) on delete cascade,
     camerares_id       integer          not null references camerares (id) on delete cascade,
     fingerprinttype_id integer          not null references fingerprinttype (id) on delete cascade,
-    description_id text not null,
+    description_id integer not null,
     constraint stock check (stock > 0),
     constraint price check (price > (0)::double precision)
 );
@@ -848,7 +848,7 @@ insert into description (content) values ('The Honor 9X comes with a triple-came
 
 
 /* product */
--- falta price, water
+-- falta water resistance
 insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (67, 349.99, 'Galaxy A50', 'Phones',            2, 1, 1, 1,                 1,  1,  1,  1, 1, 1,  1,  1,  1, 1);
 insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (24, 399.99, 'Galaxy A70', 'Phones',            2, 2, 2, 1,                 1,  2,  2,  2, 1, 2,  2,  2,  1, 2);
 insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (57, 729.99, 'Galaxy Tab S6', 'Tablets',        2, 3, 3, 2,                 1,  3,  3,  3, 2, 3,  3,  3,  1, 3);

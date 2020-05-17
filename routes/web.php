@@ -48,7 +48,7 @@ Route::get('wishlist', 'WishlistController@show');
 
 //Search
 Route::get('search/filter', 'SearchController@filterResults');
-Route::get('search/{brandName}', 'SearchController@show'); //should return the search page with the brand name checkbox ticked
+Route::get('search/{brandName}', 'SearchController@show');
 Route::get('search', 'SearchController@show');
 Route::get('brands', 'BrandController@show');
 

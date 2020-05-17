@@ -43,7 +43,7 @@ class SearchController extends Controller
     $battery = App\Specs\Battery::all();
     $products = App\Product::query();
 
-    //remove products that dont match the filters
+    // //remove products that dont match the filters
     if ($request['brand'] != null) {
       $products = $products->whereIn('brand_id', $request['brand']);
     }
@@ -66,15 +66,23 @@ class SearchController extends Controller
       $products = $products->whereIn('storage_id', $storages);
     }
 
-    //Price filter
-    if (($request['minPrice'] < $request['maxPrice'])) {
+    // //Price filter
+    if ($request['minPrice'] < $request['maxPrice']) {
       $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
+    }
+
+    // //text Search
+    if ($request['textSearch'] != null) {
+      $products = $products->join('brand', 'brand.id', '=', 'product.brand_id')
+        ->join('description', 'description.id', '=', 'product.description_id')
+        ->whereRaw("to_tsvector(product.model || ' ' || brand.name || ' ' || description.content) @@ to_tsquery(?)", [$request['textSearch']]);
     }
 
     //enable pagination, keep filters for next pages
     $products  = $products->paginate(16)->appends([
       'brand' => $request['brand'], 'fingerprint' => $request['fingerprint'],
-      'waterRes' => $request['waterRes'], 'minRam' => $request['minRam'], 'minStorage' => $request['minStorage']
+      'waterRes' => $request['waterRes'], 'minRam' => $request['minRam'],
+      'minStorage' => $request['minStorage'], 'textSearch' => $request['textSearch']
     ]);
 
     return view(

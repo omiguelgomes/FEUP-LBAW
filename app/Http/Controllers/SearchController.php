@@ -78,8 +78,10 @@ class SearchController extends Controller
 
     // //text Search
     if ($request['textSearch'] != null) {
+      //prepare text for tsquery
       $text = explode(" ", $request['textSearch']);
       $text = implode(" & ", $text);
+
       $products = $products->join('brand', 'brand.id', '=', 'product.brand_id')
         ->join('description', 'description.id', '=', 'product.description_id')
         ->whereRaw("to_tsvector(product.model || ' ' || brand.name || ' ' || description.content) @@ to_tsquery('$text')");

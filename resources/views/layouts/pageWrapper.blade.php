@@ -31,24 +31,37 @@
                 Phone
             </a>
 
-            {{-- cart --}}
-            <a class="nav-item nav-link" href="{{ url('cart') }}">
-                <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
-            </a>
-
             {{-- search bar --}}
             <a type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img src="{{ asset('/images/search.svg') }}" width="30" height="30">
             </a>
-            <div class="dropdown-menu" style="right: 0; left: auto;">
+            <div class="dropdown-menu" style="right: 100; left: auto;">
                 <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
                     <input type="text" placeholder="Search..." name="textSearch" class="ml-1">
                     <button class="btn btn-secondary mr-1" type="submit">
                         <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
                     </button>
                 </form>
+                <div class="productGrid">
+                    <div class="card text-center my-auto">
+                        <a href="{{ url('product/12') }}">
+                        </a>
+                        <img class="card-img-top" src="{{ asset('images/iphone_x') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Apple</h5>
+                            <h5 class="card-title">IPhone X</h5>
+                            <a href="{{ url('product/12') }}" class="btn btn-secondary w-75">See</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            {{-- cart --}}
+            <a class="nav-item nav-link" href="{{ url('cart') }}">
+                <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
+            </a>
+
 
             {{-- dropdown --}}
             <div class="btn-group" role="group">

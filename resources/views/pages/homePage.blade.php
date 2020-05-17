@@ -1,5 +1,5 @@
 @extends('layouts.pageWrapper')
-
+<link href="{{ asset('css/homePage.css') }}" rel="stylesheet">
 @section('content')
 
 <div class="row-12">
@@ -70,19 +70,4 @@
         </div>
     </div>
 </div>
-
-<!-- Make carousel indicators and controls black -->
-<style>
-    .carousel-control-next,
-    .carousel-control-prev,
-    .carousel-indicators {
-        filter: invert(100%);
-    }
-
-    .card-img-top{
-   width: 200px; 
-   height: 200px;
-    }
-}
-</style>
 @endsection

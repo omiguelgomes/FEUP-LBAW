@@ -43,8 +43,8 @@
             </a>
             <div class="dropdown-menu" style="right: 0; left: auto;">
                 <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
-                    <input type="text" placeholder="Search..." style="max-width:2000px;" name="textSearch">
-                    <button class="btn btn-secondary" type="submit">
+                    <input type="text" placeholder="Search..." name="textSearch" class="ml-1">
+                    <button class="btn btn-secondary mr-1" type="submit">
                         <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
                     </button>
                 </form>

@@ -71,6 +71,34 @@
                         @endforeach
                     </div>
 
+                    {{-- Phone or tablet --}}
+                    <a href="#deviceType" data-toggle="collapse" class="btn btn-secondary my-1">
+                        Device type
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div id="deviceType" class="collapse">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                Phones
+                                @if(request()['Phones'] != null)
+                                <input type="checkbox" class="phoneCheckBox" value="Phones" name="Phones"
+                                    checked="checked">
+                                @else
+                                <input type="checkbox" class="phoneCheckBox" value="Phones" name="Phones">
+                                @endif
+                            </label>
+                            <label class="form-check-label">
+                                Tablets
+                                @if(request()['Tablets'] !=null)
+                                <input type="checkbox" class="phoneCheckBox" value="Tablets" name="Tablets"
+                                    checked="checked">
+                                @else
+                                <input type="checkbox" class="phoneCheckBox" value="Tablets" name="Tablets">
+                                @endif
+                            </label>
+                        </div>
+                    </div>
+
                     {{-- FINGERPRINT --}}
                     <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">
                         FingerPrint Scanner

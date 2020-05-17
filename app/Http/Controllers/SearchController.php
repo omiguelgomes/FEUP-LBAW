@@ -43,6 +43,11 @@ class SearchController extends Controller
     $battery = App\Specs\Battery::all();
     $products = App\Product::query();
 
+    if ($request['Phones'] != null xor $request['Tablets'] != null) {
+      $deviceType = $request['Phones'] != null ? $request['Phones'] : $request['Tablets'];
+      $products = $products->where('category', '=', $deviceType);
+    }
+
     // //remove products that dont match the filters
     if ($request['brand'] != null) {
       $products = $products->whereIn('brand_id', $request['brand']);

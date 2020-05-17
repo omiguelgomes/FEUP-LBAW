@@ -164,8 +164,6 @@
                 </div>
             </div>
 
-
-
             <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-10" id="phone-grid-container">
                 <div class="row" id="phone-grid">
                     @foreach($products as $product)

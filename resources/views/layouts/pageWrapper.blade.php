@@ -18,37 +18,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{ asset('css/pageWrapper.css') }}" rel="stylesheet">
 </head>
 
 <body>
     {{-- NAVBAR --}}
     <div class="py-3">
         <nav class="navbar navbar-light bg-light">
+            {{-- website name --}}
             <a class="navbar-brand mr-auto ml-4 mt-2 mt-lg-0" href="{{ url('home') }}">
                 <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">
                 Phone
             </a>
 
+            {{-- cart --}}
             <a class="nav-item nav-link" href="{{ url('cart') }}">
                 <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
             </a>
 
-
-            <a class="nav-item nav-link" href="{{ url('search') }}">
-                <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
+            {{-- search bar --}}
+            <a type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img src="{{ asset('/images/search.svg') }}" width="30" height="30">
             </a>
-
-            <div class="btn-group">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
+            <div class="dropdown-menu" style="right: 0; left: auto;">
+                <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
+                    <input type="text" placeholder="Search..." style="max-width:2000px;" name="textSearch">
+                    <button class="btn btn-secondary" type="submit">
+                        <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
                     </button>
-                    <div class="dropdown-menu" style="right: 0; left: auto;">
-                        <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
-                        <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
-                        <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
-                    </div>
+                </form>
+            </div>
+
+            {{-- dropdown --}}
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
+                </button>
+                <div class="dropdown-menu" style="right: 0; left: auto;">
+                    <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
+                    <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
+                    <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
                 </div>
             </div>
         </nav>

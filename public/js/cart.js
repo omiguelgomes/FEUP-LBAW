@@ -112,6 +112,10 @@ function cartDecrementHandler() {
 
   let total = document.getElementById("total");
   total.innerHTML = (Number(total.innerHTML) - priceDiff).toFixed(2);
+
+  if (quantity.innerHTML == 0) {
+    card.remove();
+  }
 }
 
 addEventListeners();

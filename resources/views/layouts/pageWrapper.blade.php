@@ -43,7 +43,7 @@
                         <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
                     </button>
                 </form>
-                <div class="productGrid">
+                <div class="productGrid" onclick="resultPreview()">
                     {{-- <div class="card text-center my-auto">
                         <a href="{{ url('product/12') }}">
                     </a>

@@ -22,6 +22,13 @@ create table image
     path        text not null
 );
 
+create table bannerimage
+(
+    id serial primary key,
+    imgurl text not null,
+    image_id integer not null references image(id) on delete cascade default 21
+);
+
 create table users
 (
     id        serial primary key,
@@ -490,6 +497,10 @@ insert into image (description, path) values ('honor_20', 'honor_20.jpg');
 insert into image (description, path) values ('honor_9', 'honor_9.jpg');
 insert into image (description, path) values ('honor_9x', 'honor_9x.jpg');
 
+/*img banner */
+insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home', 21);
+insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home', 21);
+insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home', 21);
 
 
 /* users */

@@ -48,7 +48,7 @@ Route::get('wishlist', 'WishlistController@show');
 
 //Search
 Route::get('search/filter', 'SearchController@filterResults');
-Route::get('search/{brandName}', 'SearchController@show');
+Route::post('search/textResults', 'SearchController@filterText');
 Route::get('search', 'SearchController@show');
 Route::get('brands', 'BrandController@show');
 

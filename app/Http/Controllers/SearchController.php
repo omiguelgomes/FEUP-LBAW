@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 use App\Product;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
 
 
 class SearchController extends Controller
@@ -35,6 +33,7 @@ class SearchController extends Controller
     $brands = App\Brand::all()->sortBy('name');
     $storage = App\Specs\Storage::all()->sortByDesc('value');
     $ram = App\Specs\RAM::all()->sortByDesc('value');
+
     //fingers checkbox deletes results with fingerprinttype none
     $fingers = App\Specs\FingerPrintType::all()->sortByDesc('value')->where('value', '!=', 'none');
     $water = App\Specs\WaterRes::all()->sortByDesc('value')->where('value', '!=', 'None');
@@ -84,7 +83,7 @@ class SearchController extends Controller
 
       $products = $products->join('brand', 'brand.id', '=', 'product.brand_id')
         ->join('description', 'description.id', '=', 'product.description_id')
-        ->whereRaw("to_tsvector(product.model || ' ' || brand.name || ' ' || description.content) @@ to_tsquery('$text')");
+        ->whereRaw("to_tsvector(product.model || ' ' || brand.name || ' ' || description.content) @@ to_tsquery('$text:*')");
     }
 
     //enable pagination, keep filters for next pages
@@ -98,5 +97,18 @@ class SearchController extends Controller
       'pages.search',
       compact('ram', 'water', 'screen', 'storage', 'battery', 'brands', 'fingers', 'products')
     );
+  }
+
+  public function filterText(Request $request)
+  {
+    //prepare text for tsquery
+    $text = explode(" ", $request->textInput);
+    $text = implode(" & ", $text);
+
+    $products = App\Product::query()->join('brand', 'brand.id', '=', 'product.brand_id')
+      ->join('description', 'description.id', '=', 'product.description_id')
+      ->whereRaw("to_tsvector(product.model || ' ' || brand.name || ' ' || description.content) @@ to_tsquery('$text:*')");
+
+    return $products->get()->take(3)->toJson();
   }
 }

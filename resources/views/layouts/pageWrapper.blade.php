@@ -32,50 +32,41 @@
             </a>
 
             {{-- search bar --}}
-            <a type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('/images/search.svg') }}" width="30" height="30">
-            </a>
-            <div class="dropdown-menu" style="right: 100; left: auto;">
-                <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data" autocomplete="off">
-                    <input type="text" placeholder="Search..." name="textSearch" class="ml-1">
-                    <button class="btn btn-secondary mr-1" type="submit">
-                        <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
-                    </button>
-                </form>
-                <div class="productGrid" onclick="resultPreview()">
-                    {{-- <div class="card text-center my-auto">
-                        <a href="{{ url('product/12') }}">
-                    </a>
-                    <img class="card-img-top" src="{{ asset('images/iphone_x.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Apple</h5>
-                        <h5 class="card-title">IPhone X</h5>
-                        <a href="{{ url('product/12') }}" class="btn btn-secondary w-75">See</a>
-                    </div>
-                </div> --}}
+            <div class="box">
+                <div class="container-2">
+                    <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data"
+                        autocomplete="off">
+                        <div class="inputContainer">
+                            <input type="text" placeholder="Search..." name="textSearch" id="navbarSearch">
+                            <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="" id="searchIcon">
+                        </div>
+                    </form>
+                </div>
             </div>
-    </div>
+            <div class="dropdown-menu" style="right: 100; left: auto;" id="dropdownResults">
+                <div class="productGrid">
+                </div>
+            </div>
 
-    {{-- cart --}}
-    <a class="nav-item nav-link" href="{{ url('cart') }}">
-        <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
-    </a>
+            {{-- cart --}}
+            <a class="nav-item nav-link" href="{{ url('cart') }}">
+                <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
+            </a>
 
 
-    {{-- dropdown --}}
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
-        </button>
-        <div class="dropdown-menu" style="right: 0; left: auto;">
-            <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
-            <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
-            <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
-        </div>
-    </div>
-    </nav>
+            {{-- dropdown --}}
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
+                </button>
+                <div class="dropdown-menu" style="right: 0; left: auto;">
+                    <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
+                    <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
+                    <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
+                </div>
+            </div>
+        </nav>
     </div>
 
 
@@ -114,5 +105,6 @@
     </div>
 
 </footer>
+<script type="text/javascript" src="{{ URL::asset('js/pageWrapper.js') }}"></script>
 
 </html>

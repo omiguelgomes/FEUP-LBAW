@@ -17,7 +17,8 @@
                     </a>
                     <a id="total">{{$cart->sum(function ($product) {
                         return $product->price * $product->pivot->quant;
-                        })}}</a>
+                        })}}
+                    </a>
                     <a>
                         €
                     </a>

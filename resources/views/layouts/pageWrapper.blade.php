@@ -38,7 +38,8 @@
                         autocomplete="off">
                         <div class="inputContainer">
                             <input type="text" placeholder="Search..." name="textSearch" id="navbarSearch">
-                            <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="" id="searchIcon">
+                            <img type="submit" src="{{ asset('/images/search.svg') }}" width="30" height="30" alt=""
+                                id="searchIcon">
                         </div>
                     </form>
                 </div>

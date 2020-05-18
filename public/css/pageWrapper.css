@@ -1,4 +1,4 @@
-input[type=text] {
+#navbarSearch {
   width: 150px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -14,7 +14,7 @@ input[type=text] {
   float: right;
 }
 
-input[type=text]:focus {
+#navbarSearch:focus {
   width: 87%;
 }
 

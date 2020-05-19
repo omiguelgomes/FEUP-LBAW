@@ -57,9 +57,13 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <input class="form-control mr-sm-2" id="navbarSearch" type="text" placeholder="Search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <div class="dropdown-menu" style="right: 100; left: auto;" id="dropdownResults">
+                    <div class="productGrid">
+                    </div>
+                </div>
             </div>
         </nav>
 

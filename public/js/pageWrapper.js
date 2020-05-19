@@ -64,7 +64,7 @@ function getResultHandler() {
 
 function addEventListeners() {
     var searchBar = document.getElementById("navbarSearch");
-    // searchBar.addEventListener('keyup', sendGetResultRequest);
+    searchBar.addEventListener('keyup', sendGetResultRequest);
 }
 
 addEventListeners();

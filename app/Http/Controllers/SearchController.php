@@ -74,6 +74,7 @@ class SearchController extends Controller
     if ($request['minPrice'] < $request['maxPrice']) {
       $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
     }
+    // return $request;
 
     // //text Search
     if ($request['textSearch'] != null) {

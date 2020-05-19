@@ -30,23 +30,23 @@
                     <label for="minPrice">
                         @if(request()['minPrice'] != null)
                         <a>Min Price: </a> <a id="minPriceLabel">{{request()['minPrice']}}</a>€
-                        <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice"
-                            value={{request()['minPrice']}}>
+                        <input type="range" min="0" max="2000" class="custom-range" id="minPrice" name="minPrice"
+                            value={{request()['minPrice']}} step="25">
                         @else
                         <a>Min Price: </a> <a id="minPriceLabel">0</a>€
-                        <input type="range" min="0" max="3000" class="custom-range" id="minPrice" name="minPrice"
-                            value="0">
+                        <input type="range" min="0" max="2000" class="custom-range" id="minPrice" name="minPrice"
+                            value="0" step="25">
                         @endif
                     </label>
                     <label for="maxPrice">
                         @if(request()['maxPrice'] != null)
                         <a>Max Price</a> <a id="maxPriceLabel">{{request()['maxPrice']}}</a>€
-                        <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice"
-                            value={{request()['maxPrice']}}>
+                        <input type="range" min="0" max="2000" class="custom-range" id="maxPrice" name="maxPrice"
+                            value={{request()['maxPrice']}} step="25">
                         @else
-                        <a>Max Price</a> <a id="maxPriceLabel">3000</a>€
-                        <input type="range" min="0" max="3000" class="custom-range" id="maxPrice" name="maxPrice"
-                            value="3000">
+                        <a>Max Price</a> <a id="maxPriceLabel">2000</a>€
+                        <input type="range" min="0" max="2000" class="custom-range" id="maxPrice" name="maxPrice"
+                            value="2000" step="25">
                         @endif
                     </label>
 

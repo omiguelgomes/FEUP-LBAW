@@ -1,9 +1,10 @@
-function readURL(input) {
+function readURL(input, id) {
+  console.log(id);
   if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    let reader = new FileReader();
 
     reader.onload = function (e) {
-      $("#img").attr("src", e.target.result);
+      $("#img-" + id).attr("src", e.target.result);
     };
 
     reader.readAsDataURL(input.files[0]);

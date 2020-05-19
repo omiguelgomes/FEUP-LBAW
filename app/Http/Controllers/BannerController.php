@@ -7,14 +7,34 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 use App\Banner;
+use App\Image;
 
-class FAQController extends Controller
+class BannerController extends Controller
 {
   public function update($id, Request $request)
   {
-    $faq = FAQ::find($id);
-    $faq->update((array('answer' => $request->answer)));
+    print_r($_FILES);
+    $banner = Banner::find($id);
+    $banner->update((array('imgurl' => $request->imgurl)));
+    
+    if($request->hasFile('inputFile')){
+      $this->validate($request, array(
+        'inputFile' => 'image|mimes:jpeg,png,jpg,JPG|max:2048',
+      ));
+      $image = $request->file('inputFile');
+      $filename = time() . '.' . $image->getClientOriginalExtension();
+      $image->move(public_path('images'), $filename);
+      
+      $img = new Image();
+      $img->description = "banner image";
+      $img->path = $filename;
+      $img->save();
+      $banner->image_id = $img->id;
+      print_r('Hello');
+    };
 
-    return $faq;
+    $banner->save();
+
+    return redirect()->to('admin');
   }
 }

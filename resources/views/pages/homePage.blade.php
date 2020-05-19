@@ -1,19 +1,23 @@
 @extends('layouts.pageWrapper')
-
+<link href="{{ asset('css/homePage.css') }}" rel="stylesheet">
 @section('content')
 
 <div class="row-12">
-    <div class="btn-group d-flex justify-content-between ">
-        <div class="btn-group w-100 justify-content-center">
-            <a class="btn btn-secondary w-100" href="{{ url('search') }}" role="button">Tablets</a>
+    <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
+        <div class="btn-group d-flex justify-content-between ">
+            <div class="btn-group w-100 justify-content-center">
+                <button type="submit" class="btn btn-secondary w-100" value="Tablets" name="Tablets">
+                    Tablets</button>
+            </div>
+            <div class="btn-group w-100 justify-content-center">
+                <a class="btn btn-secondary w-100" href="{{url('brands')}}" role="button">Brands</a>
+            </div>
+            <div class="btn-group w-100 justify-content-center">
+                <button type="submit" class="btn btn-secondary w-100" value="Phones" name="Phones">
+                    Phones</button>
+            </div>
         </div>
-        <div class="btn-group w-100 justify-content-center">
-            <a class="btn btn-secondary w-100" href="{{url('brands')}}" role="button">Brands</a>
-        </div>
-        <div class="btn-group w-100 justify-content-center">
-            <a class="btn btn-secondary w-100" href="#" role="button">Phones</a>
-        </div>
-    </div>
+    </form>
 </div>
 
 <div class="row-12 y-3 p-4">
@@ -70,13 +74,4 @@
         </div>
     </div>
 </div>
-
-<!-- Make carousel indicators and controls black -->
-<style>
-    .carousel-control-next,
-    .carousel-control-prev,
-    .carousel-indicators {
-        filter: invert(100%);
-    }
-</style>
 @endsection

@@ -14,7 +14,7 @@ class Product extends Model
     protected $hidden = [
         'pivot', 'battery_id', 'brand_id',
         'camerares_id', 'cpu_id', 'gpu_id', 'os_id', 'ram_id', 'screenres_id',
-        'screensize_id', 'storage_id', 'waterproofing_id', 'weight_id'
+        'screensize_id', 'storage_id', 'waterproofing_id', 'weight_id', 'image_id'
     ];
     protected $fillable = [
         'stock',
@@ -37,7 +37,7 @@ class Product extends Model
     ];
     protected $with = [
         'ram', 'waterProofing', 'screensize', 'storage',
-        'battery', 'fingerprinttype', 'brand'
+        'battery', 'fingerprinttype', 'brand', 'images'
     ];
 
     public static function list()
@@ -73,6 +73,11 @@ class Product extends Model
     public function images()
     {
         return $this->belongsToMany('App\Image', 'App\ImageProduct');
+    }
+
+    public function description()
+    {
+        return $this->belongsTo('App\Description');
     }
 
     public function discounts()

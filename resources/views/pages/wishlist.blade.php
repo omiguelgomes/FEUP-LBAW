@@ -1,6 +1,6 @@
 @extends('layouts.pageWrapper')
 @section('content')
-<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/searchBar.js') }}"></script>
 
 @include('partials.jumboTitle',['title' => 'Wishlist'])
 
@@ -13,7 +13,7 @@
   </nav>
   <div id="grid-container">
 
-    <div class="row" id="phone-grid">
+    <div class="row pb-3" id="phone-grid">
       @foreach($wishlist as $product)
       {{-- this id must be the product's id --}}
       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3" id="{{$product->id}}">
@@ -37,6 +37,7 @@
       </div>
       @endforeach
     </div>
+    {{$wishlist->links()}}
   </div>
 
 </div>

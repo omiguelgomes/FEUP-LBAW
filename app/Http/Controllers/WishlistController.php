@@ -14,7 +14,7 @@ class WishlistController extends Controller
       return redirect('/register');
     else
       $user = Auth::user();
-    $wishlist = $user->wishlist;
+    $wishlist = $user->wishlist()->paginate(8);
     return view('pages.wishlist')->with('wishlist', $wishlist);
   }
 

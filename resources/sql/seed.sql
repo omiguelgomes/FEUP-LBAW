@@ -22,6 +22,13 @@ create table image
     path        text not null
 );
 
+create table bannerimage
+(
+    id serial primary key,
+    imgurl text not null,
+    image_id integer not null references image(id) on delete cascade default 21
+);
+
 create table users
 (
     id        serial primary key,
@@ -156,6 +163,12 @@ create table fingerprinttype
     value text not null unique
 );
 
+create table description
+(
+    id serial primary key,
+    content text not null unique
+);
+
 create table product
 (
     id                serial primary key,
@@ -176,6 +189,7 @@ create table product
     screenres_id       integer          not null references screenres (id) on delete cascade,
     camerares_id       integer          not null references camerares (id) on delete cascade,
     fingerprinttype_id integer          not null references fingerprinttype (id) on delete cascade,
+    description_id integer not null,
     constraint stock check (stock > 0),
     constraint price check (price > (0)::double precision)
 );
@@ -483,6 +497,10 @@ insert into image (description, path) values ('honor_20', 'honor_20.jpg');
 insert into image (description, path) values ('honor_9', 'honor_9.jpg');
 insert into image (description, path) values ('honor_9x', 'honor_9x.jpg');
 
+/*img banner */
+insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home', 21);
+insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home', 21);
+insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home', 21);
 
 
 /* users */
@@ -596,160 +614,282 @@ insert into waterproofing (value) values ('IP53');
 
 /* os */
 
-insert into os (name) values ('Android 10.0');
-insert into os (name) values ('IOS 11');
-insert into os (name) values ('IOS 10');
-insert into os (name) values ('Android 9.0 (Pie)');
-insert into os (name) values ('Android 8.0 (Oreo)');
-insert into os (name) values ('Android 7.0 (Nougat)');
+insert into os (name) values ('Android 10 Samsung One UI');
+insert into os (name) values ('Android 9 Samsung One UI');
+insert into os (name) values ('IPadOS 13');
+insert into os (name) values ('Android 8 EMUI');
+insert into os (name) values ('iOS13');
+insert into os (name) values ('Android 10 MIUI');
+insert into os (name) values ('Android 10 EMUI');
+insert into os (name) values ('Android 6 MIUI');
+insert into os (name) values ('Android 10');
+insert into os (name) values ('Android 8 MIUI');
+insert into os (name) values ('Android 9');
+insert into os (name) values ('Android 9 OxygenOS');
+insert into os (name) values ('Android 10 OxygenOS');
+insert into os (name) values ('Android 9 EMUI');
+insert into os (name) values ('Android 9 Magic UI');
 
 
 
 /* gpu */
 
-insert into gpu (name, vram) values ('Mali-G71 MP2', 2);
-insert into gpu (name, vram) values ('Mali-G72 MP3', 1);
-insert into gpu (name, vram) values ('Adreno 612', 2);
-insert into gpu (name, vram) values ('Mali-450MP4', 1);
-insert into gpu (name, vram) values ('Apple GPU', 8);
-insert into gpu (name, vram) values ('Mali-G77 MP11', 6);
+insert into gpu (name, vram) values ('Mali-G72 MP3', 3);
+insert into gpu (name, vram) values ('Adreno 612', 3);
+insert into gpu (name, vram) values ('Adreno 640', 3);
+insert into gpu (name, vram) values ('Adreno 615', 3);
+insert into gpu (name, vram) values ('Apple 7-core GPU', 3);
+insert into gpu (name, vram) values ('Mali T830 MP2', 3);
+insert into gpu (name, vram) values ('Apple-designed 4 core', 3);
+insert into gpu (name, vram) values ('PowerVR 7XT GT7600 Plus', 3);
+insert into gpu (name, vram) values ('Adreno 650', 3);
+insert into gpu (name, vram) values ('HiSilicon Kirin 990', 3);
+insert into gpu (name, vram) values ('PowerVR GT7600', 3);
+insert into gpu (name, vram) values ('Apple 3-core GPU', 3);
+insert into gpu (name, vram) values ('Adreno 530', 3);
+insert into gpu (name, vram) values ('Adreno 618', 3);
+insert into gpu (name, vram) values ('Adreno 509', 3);
+insert into gpu (name, vram) values ('Mali-G76 MP10', 3);
+insert into gpu (name, vram) values ('Mali-G76 MP16', 3);
+insert into gpu (name, vram) values ('Adreno 540', 3);
+insert into gpu (name, vram) values ('Adreno 630', 3);
+insert into gpu (name, vram) values ('Kryo 585', 3);
+insert into gpu (name, vram) values ('Mali-G72 MP12', 3);
+insert into gpu (name, vram) values ('Mali-G51 MP4', 3);
+insert into gpu (name, vram) values ('Mali-G71 MP8', 3);
 
-/* screenSize */ 
 
-insert into screensize (value) values (6.4);
-insert into screensize (value) values (6.3);
-insert into screensize (value) values (9);
-insert into screensize (value) values (4);
-insert into screensize (value) values (4.5);
-insert into screensize (value) values (6);
-insert into screensize (value) values (10.5);
-insert into screensize (value) values (12.9);
-insert into screensize (value) values (6.7);
 
 /* weight */
 
-insert into weight (value) values (160);
-insert into weight (value) values (150);
-insert into weight (value) values (250);
-insert into weight (value) values (212);
-insert into weight (value) values (120);
+insert into weight (value) values (166);
+insert into weight (value) values (183);
 insert into weight (value) values (420);
 insert into weight (value) values (400);
-insert into weight (value) values (640);
-insert into weight (value) values (225);
+insert into weight (value) values (471);
+insert into weight (value) values (475);
+insert into weight (value) values (226);
+insert into weight (value) values (138);
+insert into weight (value) values (188);
+insert into weight (value) values (208);
+insert into weight (value) values (175);
+insert into weight (value) values (143);
+insert into weight (value) values (174);
+insert into weight (value) values (145);
+insert into weight (value) values (191);
+insert into weight (value) values (182);
+insert into weight (value) values (295);
+insert into weight (value) values (165);
+insert into weight (value) values (196);
+insert into weight (value) values (162);
+insert into weight (value) values (177);
+insert into weight (value) values (185);
 insert into weight (value) values (180);
+insert into weight (value) values (176);
+insert into weight (value) values (155);
+insert into weight (value) values (197);
+
 
 /* storage  */
 
-insert into storage (value) values (32);
-insert into storage (value) values (16);
-insert into storage (value) values (64);
+
 insert into storage (value) values (128);
 insert into storage (value) values (256);
+insert into storage (value) values (64);
 insert into storage (value) values (512);
 
 /* battery */
 
-insert into battery (value) values (5000);
 insert into battery (value) values (4000);
-insert into battery (value) values (3500);
-insert into battery (value) values (3000);
-insert into battery (value) values (2700);
-insert into battery (value) values (7000);
-insert into battery (value) values (9700);
-insert into battery (value) values (2000);
 insert into battery (value) values (4500);
+insert into battery (value) values (7040);
+insert into battery (value) values (7500);
+insert into battery (value) values (3969);
+insert into battery (value) values (1960);
+insert into battery (value) values (4780);
 insert into battery (value) values (3800);
+insert into battery (value) values (1715);
+insert into battery (value) values (2716);
+insert into battery (value) values (3200);
+insert into battery (value) values (5260);
+insert into battery (value) values (3650);
+insert into battery (value) values (4200);
+insert into battery (value) values (3300);
+insert into battery (value) values (3700);
+insert into battery (value) values (4300);
+insert into battery (value) values (3750);
+
 
 
 /* Screen Res */
 
-insert into screenres (value) values ('1080 x 1920');
-insert into screenres (value) values ('720 x 1280');
-insert into screenres (value) values ('1080 x 2340');
-insert into screenres (value) values ('1440 x 2960');
-insert into screenres (value) values ('1440 x 3200');
+insert into screenres (value) values ('2340 x 1080');
+insert into screenres (value) values ('2400 x 1080');
+insert into screenres (value) values ('2560 x 1600');
+insert into screenres (value) values ('2388 x 1668');
+insert into screenres (value) values ('1200 x 1920');
+insert into screenres (value) values ('2688 x 1242');
+insert into screenres (value) values ('1334 x 750');
+insert into screenres (value) values ('3200 x 1440');
+insert into screenres (value) values ('2436 x 1125');
+insert into screenres (value) values ('1920 x 1080');
+insert into screenres (value) values ('2280 x 1080');
+insert into screenres (value) values ('2480 x 2200');
+insert into screenres (value) values ('2160 x 1080');
+
+
+/* screenSize */ 
+
+insert into screensize (value) values (6.4);
+insert into screensize (value) values (6.7);
+insert into screensize (value) values (10.5);
+insert into screensize (value) values (11.0);
+insert into screensize (value) values (10.1);
+insert into screensize (value) values (6.5);
+insert into screensize (value) values (4.7);
+insert into screensize (value) values (6.1);
+insert into screensize (value) values (5.8);
+insert into screensize (value) values (5.2);
+insert into screensize (value) values (6.3);
+insert into screensize (value) values (8.0);
+insert into screensize (value) values (6.6);
+insert into screensize (value) values (6.0);
+
 
 /* cameraRes */
 
-insert into camerares (value) values (5);
-insert into camerares (value) values (12);
-insert into camerares (value) values (8);
-insert into camerares (value) values (16);
 insert into camerares (value) values (25);
 insert into camerares (value) values (32);
 insert into camerares (value) values (13);
-insert into camerares (value) values (2);
-insert into camerares (value) values (64);
+insert into camerares (value) values (12);
+insert into camerares (value) values (8);
+insert into camerares (value) values (108);
 insert into camerares (value) values (50);
+insert into camerares (value) values (48);
+insert into camerares (value) values (40);
+insert into camerares (value) values (16);
+insert into camerares (value) values (20);
+
 
 /* fingerprintType */
 
-insert into fingerprinttype (value) values ('Rear-mounted');
-insert into fingerprinttype (value) values ('Side-mounted');
-insert into fingerprinttype (value) values ('Under display optical sensor');
-insert into fingerprinttype (value) values ('Under display ultrasonic sensor');
+insert into fingerprinttype (value) values ('Under-display');
 insert into fingerprinttype (value) values ('none');
+insert into fingerprinttype (value) values ('Front mounted');
+insert into fingerprinttype (value) values ('Rear mounted');
+insert into fingerprinttype (value) values ('Side mounted');
 
 
 /* cpu */
 
-insert into cpu (freq, cores, threads, name) values (14.2, 4, 8, 'Snapdragon');
-insert into cpu (freq, cores, threads, name) values (16, 4, 8, 'Exynos');
-insert into cpu (freq, cores, threads, name) values (12, 4, 8, 'Apple A12Z Bionic');
-insert into cpu (freq, cores, threads, name) values (5.1, 2, 4, 'Mediatek MT8127');
-insert into cpu (freq, cores, threads, name) values (13, 4, 6, 'Apple A13 Bionic');
-insert into cpu (freq, cores, threads, name) values (10, 2, 4, 'Apple A10 Fusion');
-insert into cpu (freq, cores, threads, name) values (15, 4, 8, 'HiSilicon Kirin');
+insert into cpu (freq, cores, threads, name) values (2.3, 8, 3,	'Samsung Exynos 7 Octa 9610');
+insert into cpu (freq, cores, threads, name) values (2.0, 8, 2,	'Qualcomm Snapdragon 675');
+insert into cpu (freq, cores, threads, name) values (2.8, 8, 2,	'Qualcomm Snapdragon 855');
+insert into cpu (freq, cores, threads, name) values (2.0, 8, 2,	'Qualcomm Snapdragon 670');
+insert into cpu (freq, cores, threads, name) values (2.5, 8, 2,	'Apple A12Z Bionic');
+insert into cpu (freq, cores, threads, name) values (2.4, 8, 4,	'HiSilicon Kirin 659');
+insert into cpu (freq, cores, threads, name) values (2.7, 6, 2,	'Apple A13 Bionic ');
+insert into cpu (freq, cores, threads, name) values (2.3, 4, 2,	'Apple A10 Fusion');
+insert into cpu (freq, cores, threads, name) values (2.8, 8, 2,	'Qualcomm Snapdragon 865');
+insert into cpu (freq, cores, threads, name) values (2.9, 8, 2,	'HiSilicon Kirin 990');
+insert into cpu (freq, cores, threads, name) values (1.8, 2, 1,	'Apple A9');
+insert into cpu (freq, cores, threads, name) values (2.4, 6, 2,	'Apple A11 Bionic ');
+insert into cpu (freq, cores, threads, name) values (2.3, 4, 2,	'Qualcomm Snapdragon 821');
+insert into cpu (freq, cores, threads, name) values (2.2, 8, 5,	'Qualcomm Snapdragon 730G');
+insert into cpu (freq, cores, threads, name) values (2.2, 8, 2,	'Qualcomm Snapdragon 730 ');
+insert into cpu (freq, cores, threads, name) values (1.8, 8, 2,	'Qualcomm Snapdragon 636 ');
+insert into cpu (freq, cores, threads, name) values (2.6, 8, 2,	'HiSilicon Kirin 980');
+insert into cpu (freq, cores, threads, name) values (2.5, 8, 2,	'Qualcomm Snapdragon 835');
+insert into cpu (freq, cores, threads, name) values (2.8, 8, 2,	'Qualcomm Snapdragon 845');
+insert into cpu (freq, cores, threads, name) values (2.4, 8, 2,	'HiSilicon Kirin 970');
+insert into cpu (freq, cores, threads, name) values (2.2, 8, 5,	'HiSilicon Kirin 710');
+insert into cpu (freq, cores, threads, name) values (2.4, 8, 2,	'HiSilicon Kirin 960');
+insert into cpu (freq, cores, threads, name) values (2.2, 8, 2,	'HiSilicon Kirin 710F');
+
 
 
 /* ram */
 
-insert into ram (value) values (12);
 insert into ram (value) values (4);
 insert into ram (value) values (6);
-insert into ram (value) values (2);
-insert into ram (value) values (1);
 insert into ram (value) values (8);
+insert into ram (value) values (2);
+insert into ram (value) values (12);
+insert into ram (value) values (3);
+
 
 /* payment */
 
 insert into payment (type) values ('Tranferencia Bancaria');
 insert into payment (type) values ('Paypal');
 
+/*description*/
+
+insert into description (content) values ('The Samsung Galaxy A50 specifications include a 6.4-inch AMOLED display with 1080 x 2340 pixels resolution, Exynos 9610 processor, 6GB of RAM and triple camera setup on the back. The phone is powered by 4000 mAh battery.');
+insert into description (content) values ('The Samsung Galaxy A70 sports a 6.7-inch Infinity-U display, minimalist bezels, and in-display fingerprint. The phone is powered by octa-core processor, 6 GB RAM, and massive 4500 mAh battery. There is a triple-camera setup on the back and a 32-megapixel front shooter. The Galaxy A70 runs Android 9.0 Pie out of the box.');
+insert into description (content) values ('The Galaxy Tab S6 features a Snapdragon 855 processor, 128 or 256GB internal storage options, and 6 or 8GB RAM. A 10.5-inch Super AMOLED panel with razor-thin bezels, quad AKG-tuned speakers, and an ''all-new'' S Pen are also included.');
+insert into description (content) values ('The Samsung Galaxy Tab S5e specifications include a 10.5-inch display with 1600 x 2560 pixels resolution, Snapdragon 670 processor, 6 GB RAM, and 13-megapixel main rear camera. The tablet is powered by 7040 mAh battery.');
+insert into description (content) values ('The new Apple iPad Pro 11-inch is powered by the new Apple A12Z Bionic chipset accompanied with a variety of storage options (128GB, 256GB,512GB, and 1TB). The most noticeable external change is the presence of a large iPhone 11 Pro-like camera system on the back, which includes two cameras and a powerful 3D sensing system. The 11-inch iPad Pro is available in Space Gray and Silver and starts at $799 with 128GB of storage. The 256GB, 512GB, and 1TB models retail at $899, $1,099, and $1,299 respectively. LTE connectivity is available for an extra $150.');
+insert into description (content) values ('The Huawei MediaPad M5 lite features a quad speakers that have been co-developed with Harman Kardon. Also, the slate comes with Android 8.0 Oreo on board and a large 10.1-inch display with 1920 x 1200 pixels resolution. Although it''s a ''lite'' version of the original MediaPad M5, the new tablet is equipped with a decent Kirin 659 processor, and either 3GB RAM and 32GB storage or 4GB RAM and 64GB storage.');
+insert into description (content) values ('The largest new iPhone has all the features of the iPhone 11 Pro, but comes with a much larger 6.5” display as well as a beefier battery that lasts up to 5 hours longer than the iPhone XS Max. There’s a triple camera setup - a ultra wide-angle F2.4 snapper joins the F1.8 regular and F2.0 telephoto cameras. The 7nm A13 Bionic chip provides a 20% increase in CPU and GPU performance, as well as improved battery life - up to 4 hours more. The iPhone 11 Pro is available in black, white, gold, and midnight green. Prices start at $1099 for the 64GB version, $1249 for the 256GB one, and $1449 for the 512GB one.');
+insert into description (content) values ('The Apple iPhone 7 is the successor to the highly acclaimed iPhone 6s. As such, it brings a multitude of enhancements in key areas, including design, performance, and user experience. While the overall shape and size of the phone have been left intact, there are now glossy and matte black options available. Also, the handset is now IP67-certified, making it water-resistant. On its back, the refined 12MP camera features optical image stabilization, wider aperture of F1.8, and a quad LED TrueTone flash for better low-light performance. Battery life has been given a welcome boost that could provide users around 2 hours of additional use time. The new A10 Fusion chip is up to 40% more powerful than last-year''s A9, yet promises great power efficiency. And while the iPhone 7 lacks an audio jack, the box includes Lightning connector EarPods, as well as a Lightning to 3.5mm adapter.');
+insert into description (content) values ('The Samsung Galaxy S20+ comes with a Snapdragon 865/Exynos 990 chipset, 12GB RAM and 128GB/256GB/512GB of storage, as well as a 4,500mAh battery. Quad-camera setup is on the back of the phone: a 12MP primary sensor, an ultra-wide-angle camera, a telephoto camera, and a Time of Flight sensor. The price of Galaxy S20+ starts at $1200.');
+insert into description (content) values ('Xiaomi Mi 10 offers a 6.7-inch display with a 90HZ refresh rate, a quad-camera setup with a 108MP main and a 4500mAh battery. The phone is powered by Snapdragon 865 chipset, 8GB of RAM and 128GB/256GB storage. The Mi 10 runs Android 10 out of the box.');
+insert into description (content) values ('Huawei P40 is powered by Huawei''s own Kirin 990 chip and a 3800mAh battery. At the front is presented a 6.1-inch OLED display with a 90HZ refresh rate, an in-screen fingerprint sensor, and a dual selfie camera. At the back is a triple-camera setup with an all-new 50-megapixel RYYB main sensor. The phone runs Android 10 (without Google’s apps and services out of the box) available across Europe for 799 euros (starting price for 6GB RAM/128GB storage variant).');
+insert into description (content) values ('Not much has changed on the surface since the Apple iPhone 6 introduced an updated look with a laminated screen and comfortably round corners. This time around, though, Apple is beating its chest for incorporating Series 7000 aluminum instead of the anodized aluminum it''s been traditionally using. The screen on the iPhone 6s is virtually unchanged from what the iPhone 6 brought to the table, but the smartphone has gained 3D Touch control that lets users deliberately choose between a light tap, a press, and a ''deeper'' press, triggering a range of specific controls. Other notable additions include the Apple A9 chipset, and a 12MP rear camera with 4K resolution video recording.');
+insert into description (content) values ('Marking the iPhone''s 10th anniversary, the Apple iPhone X is easily the most advanced iPhone yet. Its stand-out design feature is the HDR-capable OLED display strethcing from edge to edge, while the back is made of glass instead of metal to allow wireless charging. Instead of a traditional fingerprint scanner, the iPhone X uses Face ID facial recognition, while navigation gestures compensate for the lack of a home button. The dual camera at the back allows for 2X optical zoom, and Portrait mode with studio lighting effects is available both when taking selfies and regular photos. iOS 11 runs on it out of the box, introducing augmented reality applications, a redesigned App Store, a new Control Center layout, and a number of UI refinements.');
+insert into description (content) values ('The Xiaomi Mi 5s keeps the same 5.15" 1080p screen with 600 nits of brightness of its predecessor, the Mi 5, but adds a Snapdragon 821 chipset, and a bunch of new tech, both for the company, and overall. The top 4 GB + 128 GB version of the Xiaomi Mi 5s employs a pressure-sensitive display, leveraging the Synaptics touch drivers to tell between a lighter push or a harder press of the cover glass on the display. Next in line for the Mi 5s is the Sense ID ultrasonic fingerprint sensing tech, made by Qualcomm which recognizes fingertips in a fraction of a second while being less prone to damage. The camera on the back of the 5s is a 12 MP affair with the new Sony IMX378 sensor, while the front-facing shooter doles out 4 MP selfies. As for the rest of the specs, there is a USB-C port on the bottom of the phones, as well as Quick Charge 3.0 technology for rapidly topping up the phones.');
+insert into description (content) values ('The Mi Note 10 is not technically a flagship model, packing an upper mid-range Snapdragon 730G processor.Nonetheless, that''s not necessarily bad news because it''s the world-first 108MP sensor with not one but two different telephoto cameras. Coupled with an extra-large 5,260mAh battery, a 6.47-inch 3D curved AMOLED ''edge-to-edge'' screen (with a small notch), 6 GB RAM, 128 gigs of storage, and Android 9.0 Pie, all these make the phone a great bargain for around €400.');
+insert into description (content) values ('Xiaomi Mi 9T is a rebranded Redmi K20 which is a mid-range phone. The handset sports a 6.4-inch AMOLED display, Snapdragon 730 processor, in-screen fingerprint scanner, and triple-camera setup on the back. The Mi 9T runs Android 9.0 Pie, powered by 4000 mAh battery.');
+insert into description (content) values ('The Xiaomi Redmi Note 6 Pro carries a 6.26-inch notched display with a 1080 x 2280 resolution. The same Snapdragon 636 SOC that runs the Redmi Note 5 Pro, is under the hood, along with 4/6 GB of RAM and 64 GB of native storage. This is the first Xiaomi phone to sport four cameras - a 12MP primary camera and a 5MP secondary sensor, on the back, and a 20MP + 2MP combo at the front. A 4000mAh battery keeps the lights on, and Android 8.1 Oreo is pre-installed.');
+insert into description (content) values ('The Mate X is Huawei''s first foldable smartphone with a display that folds in half. At its centerpiece, an OLED screen measures 6.6 inches in diagonal when folded, but offers twice the screen area when fully unfolded. The phone also stands out with support for 5G networks and for Huawei''s 55W fast charging. On the hardware side, a Kirin 980 rocks the show, along with 8GB of RAM and the plentiful 512GB of storage. And the camera arrangement offers all the features one might wish for: a 40MP main shooter backed by a super wide-angle camera, a telephoto lens for zooming, and a ToF sensor for better depth perception.');
+insert into description (content) values ('The Huawei P30 is a high-end Android phone powered by Huawei''s Kirin 980 chip, backed by up to 8GB of RAM and 128GB of storage. A key selling point is the triple camera at the back, comprised of a main, 40MP camera promising great low-light shots, a super wide-angle camera, and a telephoto camera with 3x zoom. The 6.1-inch OLED screen stretches from one corner to the other and is only interrupted by a small notch housing the front, 32MP camera. The 3650mAh battery charges rapidly and supports reverse wireless charging.');
+insert into description (content) values ('The regular Huawei Mate 30 comes along with a flat OLED display that spans across 6.62 inches and has a FHD+ resolution. The 7nm Kirin 990 chipset is powering the phone, along with 8GB of RAM and 128GB of storage. The 4,200mAh battery supports fast 40W wired and 27W wireless charging. There is a triple rear camera on the back, consisting of a 16MP ultra wide-angle (with f/2.2 aperture), 40MP SuperSensing (f/1.8 aperture), and 8MP telephoto camera (f/2.4 aperture), plus a laser focusing sensor. For selfies, Huawei offers a capable 24MP shooter with f/2.0 aperture. The device starts at EUR 799.');
+insert into description (content) values ('OnePlus 5T features an immersive 6" 18:9 AMOLED display and a new dual camera system on the back that will help it take better pictures in low light. It can also take Portrait Mode photos with a blurred background.The fingerprint scanner is on the back and the phone also supports Face Unlock. Good old features like the 3.5mm headphone jack and Dash Charger, the quick charging solution from OnePlus, are still present on the 5T as well.');
+insert into description (content) values ('As all of the company''s previous high-end smartphones, the OnePlus 6 offers great specs at a great price. A tall, 6.3-inch AMOLED display is at its centerpiece, a dual-camera setup enables bokeh effects and high-framerate video, and a Snapdragon 845 provides plenty of processing power. The lightweight user interface has a stock feel, but also brings useful extras like Face Unlock and optional navigation gestures to replace on-screen buttons. The phone is made of glass and metal and is resistant to rain and splashes.');
+insert into description (content) values ('The OnePlus 6T is powerful, yet reasonably priced Android phone. Starting at $550, it offers top-of-the-line specs, including a Snapdragon 845 and up to 8GB of RAM. It is also one of the few smartphones with a fingerprint scanner built right into the display. On the lists of skipped features are a headphone jack, water resistance, and wireless charging. The OnePlus 6T is the company''s first to launch through a US carrier, namely T-Mobile.');
+insert into description (content) values ('Just like previous OnePlus phones, OnePlus 7 is a high-end device at a reasonable price. The phone comes with the powerful Snapdragon 855 chip, 8 RAM and 256 GB of storage. There is a dual-camera setup on the back, as well as a 16-megapixel front shooter. The Oneplus 7 is powered by 3700 mAh battery.');
+insert into description (content) values ('OnePlus 8 is a 5G-ready device that sports a 6.55-inch FHD+ AMOLED display that uses a 90Hz refresh rate, a Snapdragon 865 chipset with either 8 or 12GB of RAM, as well as ultra-fast storage, with either 128 or 256GB of capacity. The device comes with a 4,300mAh battery, ultra fast-charging, and a triple camera setup. Prices start at $699 and $799 for the 8/128 and 12/256GB versions respectively.');
+insert into description (content) values ('The Honor Play comes with a 6.3-inch 19.5:9 display, 4/6 GB of RAM, 64 GB of storage (expandable via microSD) and a Kirin 970 octa-core chip clocked at 2.36 GHz. It comes with an AI powered camera setup consisting of a 16-megapixel main sensor and a 2-megapixel secondary unit. For selfies there is another 16-megapixel front facing unit.');
+insert into description (content) values ('The Honor 8X comes with a 6.5-inch display, 2.2 GHz octa-core processor, 4 GB of RAM, 64/128 GB of storage (expandable via microSD) and Dual-SIM capability. On the back there is a dual-camera setup with 20-megapixel main sensor and a 2-megapixel secondary. Selfies are covered by a 16-megapixel front facing snapper.');
+insert into description (content) values ('The Honor 20 features a 6.3-inch display with 1080 x 2340 pixels resolution, Kirin 980 processor with 6 GB RAM, and 3750 mAh battery. There is a quad-camera setup on the back, with a 48-megapixel main sensor, as well as a 32-megapixel selfie shooter.');
+insert into description (content) values ('The Honor 9 has a dual-camera setup at the back, that consists of one 20MP monochrome sensor and one regular 12MP shooter. This is the exact same setup on the Huawei P10. Other specs include the Kirin 960 chipset paired up with 6GB of RAM. The device ships with the Android 7-based EMUI 5 out of the box.');
+insert into description (content) values ('The Honor 9X comes with a triple-camera configuration, 6.6-inch IPS display, rear-mounted fingerprint sensors, and 4,000 mAh battery. The phone is powered by Kirin 710F processor, 4/6 GB RAM and 64/128 gigs of storage.');
+
+
+
 /* product */
-
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (67, 349.99, 'Galaxy A50', 'Phones',            2, 2, 2, 1, 4, 2, 1, 1, 4, 2, 1, 5, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (24, 470.39, 'Galaxy A70', 'Phones',            2, 1, 3, 1, 1, 3, 2, 1, 4, 3, 1, 6, 1); 
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (57, 749.99, 'Galaxy Tab S6', 'Tablets',        2, 1, 3, 2, 5, 3, 7, 6, 4, 6, 3, 7, 3); 
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (46, 459.99, 'Galaxy Tab S5e', 'Tablets',       2, 1, 2, 2, 4, 3, 7, 7, 4, 6, 3, 7, 2); 
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (14, 1129.00, 'iPad Pro 2020', 'Tablets',       1, 3, 3, 2, 2, 5, 8, 8, 4, 7, 4, 2, 5); 
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (9, 199.99, 'MediaPad T3', 'Tablets',           4, 4, 5, 2, 1, 4, 3, 3, 2, 4, 2, 8, 5); 
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (30, 1599.99, 'iPhone 11 Pro Max', 'Phones',    1, 5, 2, 1, 3, 5, 1, 9, 5, 2, 5, 2, 5); 
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (5, 721, 'iPhone 7', 'Phones',                  1, 6, 4, 3, 2, 5, 5, 5, 1, 8, 2, 2, 4);   
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (9, 1099, 'Galaxy S20+', 'Phones',              2, 1, 6, 1, 1, 6, 9, 10, 4, 9, 3, 9, 4);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (12, 569, 'Mi 9', 'Phones',                     3, 2, 3, 1, 5, 4, 6, 2, 4, 5, 1, 6, 1);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 829.99, 'P40', 'Phones',                   4, 7, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
-
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 198.99, 'iPhone 6s', 'Phones',             1, 3, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 829.99, 'iPhone X', 'Phones',              1, 3, 3, 4, 5, 6, 2, 1, 1, 2, 3, 4, 5);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 123.99, 'Mi 5s', 'Phones',                 3, 3, 2, 1, 2, 3, 2, 3, 4, 5, 4, 2, 1);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 122.99, 'Mi Note 10', 'Phones',            3, 2, 1, 2, 3, 4, 5, 8, 2, 10, 3, 6, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 329.99, 'Mi 9t', 'Phones',                 3, 6, 4, 3, 5, 3, 6, 10, 5, 10, 2, 5, 1);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 224.99, 'Redmi Note 6', 'Phones',          3, 1, 2, 4, 4, 6, 6, 10, 4, 1, 1, 3, 2);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 1029.99, 'Huawei Mate X', 'Phones',        4, 2, 3, 4, 2, 6, 6, 5, 4, 10, 3, 6, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 629.99, 'P30', 'Phones',                   4, 3, 3, 4, 4, 6, 6, 10, 4, 10, 3, 6, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 829.99, 'Mate 30', 'Phones',               4, 7, 3, 1, 5, 1, 6, 3, 4, 10, 3, 6, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 229.99, '5t', 'Phones',                    5, 2, 3, 2, 4, 2, 2, 10, 4, 1, 3, 5, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 329.99, '6', 'Phones',                     5, 7, 3, 4, 4, 3, 2, 2, 4, 1, 3, 5, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 422.99, '6t', 'Phones',                    5, 7, 3, 4, 3, 4, 4, 3, 4, 1, 3, 5, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 529.99, '7', 'Phones',                     5, 5, 3, 4, 4, 5, 8, 10, 4, 1, 3, 5, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 729.99, '8', 'Phones',                     5, 7, 3, 2, 1, 6, 2, 1, 4, 1, 3, 5, 3);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 219.99, 'Play', 'Phones',                  6, 5, 3, 4, 4, 6, 7, 9, 2, 3, 2, 1, 4);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 119.99, '8x', 'Phones',                    6, 5, 3, 4, 4, 5, 6, 9, 1, 3, 3, 1, 4);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 300.99, '20', 'Phones',                    6, 5, 3, 3, 2, 2, 2, 7, 2, 3, 1, 1, 4);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 111.99, '9', 'Phones',                     6, 5, 3, 1, 3, 6, 2, 9, 1, 2, 2, 1, 4);
-insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id) values (10, 270.99, '9x', 'Phones',                    6, 5, 3, 4, 4, 1, 9, 5, 2, 3, 2, 1, 4);
+-- falta water resistance
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (67, 349.99, 'Galaxy A50', 'Phones',            2, 1, 1, 1,                 1,  1,  1,  1, 1, 1,  1,  1,  1, 1);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (24, 399.99, 'Galaxy A70', 'Phones',            2, 2, 2, 1,                 1,  2,  2,  2, 1, 2,  2,  2,  1, 2);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (57, 729.99, 'Galaxy Tab S6', 'Tablets',        2, 3, 3, 2,                 1,  3,  3,  3, 2, 3,  3,  3,  1, 3);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (46, 479.99, 'Galaxy Tab S5e', 'Tablets',       2, 4, 1, 2,                 2,  4,  3,  4, 1, 3,  3,  3,  1, 4);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (14, 799.99, 'iPad Pro 2020', 'Tablets',       1, 5, 2, 2,                 3,  5,  4,  5, 1, 3,  4,  4,  2, 5);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (9, 299.99, 'MediaPad M5 lite', 'Tablets',      4, 6, 1, 2,                 4,  6,  5,  6, 3, 4,  5,  5,  2, 6);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (30, 1099.99, 'iPhone 11 Pro Max', 'Phones',    1, 7, 1, 1,                 5,  7,  6,  7, 3, 5,  6,  4,  2, 7);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (5, 449.99, 'iPhone 7', 'Phones',                  1, 8, 4, 3,                 5,  8,  7,  8, 2, 6,  7,  4,  3, 8); 
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (9, 1199.99, 'Galaxy S20+', 'Phones',              2, 9, 5, 1,                 1,  9,  2,  9,1, 2,  8,  4,  1, 9);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (12, 799.99, 'Mi 10', 'Phones',                    3, 9, 3, 1,                 6,  9,  2,  10, 1, 7,  1,  6,  1, 10);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 829.99, 'P40', 'Phones',                   4, 10, 2, 4,                 7,  10,  8,  11,1, 8,  1,  7,  1, 11);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 198.99, 'iPhone 6s', 'Phones',             1, 11, 4, 4,                 5,  11,  7,  12,1, 9,  7,  4,  3, 12);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 699.99, 'iPhone X', 'Phones',              1, 12, 6, 4,                 5,  12,  9,  3, 2, 10, 9,  4,  2, 13);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 129.99, 'Mi 5s', 'Phones',                 3, 13, 1, 1,                 8,  13,  10, 14, 1, 11, 10, 4,  3, 14);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 599.99, 'Mi Note 10', 'Phones',            3, 14, 2, 2,                 9,  14,  6,  10, 1, 12, 1,  6,  1, 15);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 399.99, 'Mi 9t', 'Phones',                 3, 15, 2, 3,                 9,  14,  1,  15,1, 1,  1,  8,  1, 16);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 299.99, 'Redmi Note 6 Pro', 'Phones',      3, 16, 2, 4,                 10,  15,  11, 16,3, 1,  11, 4,  4, 17);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 2099.99, 'Mate X', 'Phones',               4, 17, 3, 4,                 11,  16,  12, 17, 4, 2,  12, 9,  5, 18);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 699.99, 'P30', 'Phones',                   4, 17, 2, 4,                 7,  16,  8,  18,1, 13, 1,  9,  1, 19);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 999.99, 'Mate 30', 'Phones',               4, 10, 3, 1,                 7,  17,  13, 19, 1, 14, 1,  9,  1, 20);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 129.99, '5t', 'Phones',                    5, 18, 3, 2,                 12,  18,  14, 20,1, 15, 13, 10,  4, 21);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 299.99, '6', 'Phones',                     5, 19, 3, 4,                 12,  19,  11, 21, 2, 15, 11, 10,  4, 22);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 399.99, '6t', 'Phones',                    5, 19, 3, 4,                 12,  19,  1,  22, 2, 16, 1,  10,  1, 23);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 499.99, '7', 'Phones',                     5, 3, 2, 4,                 12,  3,  1,  16,1, 16, 1,  8, 1, 24);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 699.99, '8', 'Phones',                     5, 9, 3, 2,                 13,  20,  6,  23, 1, 17, 2,  8,  1, 25);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 149.99, 'Play', 'Phones',                  6, 20, 2, 4,                 11,  21,  11, 24, 3, 18, 1,  10,  4, 26);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 109.99, '8x', 'Phones',                    6, 21, 1, 4,                 14,  22,  6,  11, 1, 18, 1,  11,  4, 27);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 299.99, '20', 'Phones',                    6, 17, 2, 3,                 15,  16,  11, 13, 1, 18, 1,  8,  1, 28);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 109.99, '9', 'Phones',                     6, 22, 1, 1,                 4,  23,  10, 25, 3, 11, 10, 4,  3, 29);
+insert into product (stock, price, model, category, brand_id, cpu_id, ram_id, waterproofing_id, os_id, gpu_id, screensize_id, weight_id, storage_id, battery_id, screenres_id, camerares_id, fingerprinttype_id, description_id) values (10, 399.99, '9x', 'Phones',                    6, 23, 1, 4,                 14,  22,  13, 26, 3, 1,  1,  10,  2, 30);
 
 
 

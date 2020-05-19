@@ -3,6 +3,7 @@
 
 <script type="text/javascript" src="{{ URL::asset('js/product.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/faq.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/banner.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/users.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/orders.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
@@ -1180,63 +1181,20 @@
 
         </div>
         <div class="row-12 py-3">
-
             <div class="row align-items-center justify-content-md-center">
-
-                <div class="col-auto">
-                    <button type="button" class="btn btn-primary">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-
-                <div class="col-7">
-
-                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000"
-                        data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{ asset('/images/teste.jpg') }}" alt="First slide">
-                                <a href="#" class="thumbnail-carousel">
-                                    <i class="far fa-times-circle fa"></i>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{ asset('/images/teste.jpg') }}" alt="Second slide">
-                                <a href="#" class="thumbnail-carousel">
-                                    <i class="far fa-times-circle fa"></i>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{ asset('/images/teste.jpg') }}" alt="Third slide">
-                                <a href="#" class="thumbnail-carousel">
-                                    <i class="far fa-times-circle fa"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                            data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                            data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                @foreach($banners as $banner)
+                <form class="form-inline" method="POST" action="{{url('/admin/banner/update/'.$banner->id)}}"
+                    enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="col-7 p-2 m-2">
+                        <img id="img-{{$banner->id}}" class="d-block w-100" src="{{ asset('/images/'.$banner->image->path) }}" alt="banner image">
+                        <input type="text" class="form-control w-75 mx-auto m-2" value="{{$banner->imgurl}}" 
+                        placeholder="Image endpoint" id="imgurl" name="imgurl" maxlength=150>
+                        <input type='file' id="{{$banner->id}}" onchange="readURL(this, this.id);" class="custom-file-input-2 m-2" name="inputFile"/>
+                        <button type="submit" class="btn btn-primary">Submit image</button>                   
                     </div>
-                </div>
-
-                <div class="col-auto">
-                    <button type="button" class="btn btn-primary">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-
+                </form>
+                @endforeach
             </div>
         </div>
 

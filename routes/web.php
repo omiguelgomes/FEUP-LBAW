@@ -47,14 +47,14 @@ Route::get('product/{id}/wishlist', 'WishlistController@add');
 Route::get('wishlist', 'WishlistController@show');
 
 //Search
+Route::get('search/filter', 'SearchController@filterResults');
+Route::post('search/textResults', 'SearchController@filterText');
 Route::get('search', 'SearchController@show');
-Route::get('search/{brandName}', 'SearchController@show'); //should return the search page with the brand name checkbox ticked
 Route::get('brands', 'BrandController@show');
-Route::post('search/filter', 'SearchController@filterResults');
 
 //Profile
 Route::get('profile', 'ProfileController@show')->name('profile');
-Route::post('profile','ProfileController@profileUpdate')->name('profile.update');
+Route::post('profile', 'ProfileController@profileUpdate')->name('profile.update');
 
 //static pages
 Route::get('about', 'AboutController@show');
@@ -109,4 +109,5 @@ Route::post('admin/orders/update/{id}', 'PurchaseController@update');
 Route::post('admin/faq/add', 'FAQController@create')->name('create_faq');
 Route::delete('admin/faq/delete/{id}', 'FAQController@delete');
 Route::post('admin/faq/update/{id}', 'FAQController@update');
+Route::post('admin/banner/update/{id}', 'BannerController@update');
 

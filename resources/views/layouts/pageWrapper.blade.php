@@ -18,37 +18,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{ asset('css/pageWrapper.css') }}" rel="stylesheet">
 </head>
 
 <body>
     {{-- NAVBAR --}}
     <div class="py-3">
         <nav class="navbar navbar-light bg-light">
+            {{-- website name --}}
             <a class="navbar-brand mr-auto ml-4 mt-2 mt-lg-0" href="{{ url('home') }}">
                 <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">
                 Phone
             </a>
 
+            {{-- search bar --}}
+            <div class="box">
+                <div class="container-2">
+                    <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data"
+                        autocomplete="off">
+                        <div class="inputContainer">
+                            <input type="text" placeholder="Search..." name="textSearch" id="navbarSearch">
+                            <img type="submit" src="{{ asset('/images/search.svg') }}" width="30" height="30" alt=""
+                                id="searchIcon">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown-menu" style="right: 100; left: auto;" id="dropdownResults">
+                <div class="productGrid">
+                </div>
+            </div>
+
+            {{-- cart --}}
             <a class="nav-item nav-link" href="{{ url('cart') }}">
                 <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
             </a>
 
 
-            <a class="nav-item nav-link" href="{{ url('search') }}">
-                <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
-            </a>
-
-            <div class="btn-group">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
-                    </button>
-                    <div class="dropdown-menu" style="right: 0; left: auto;">
-                        <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
-                        <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
-                        <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
-                    </div>
+            {{-- dropdown --}}
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
+                </button>
+                <div class="dropdown-menu" style="right: 0; left: auto;">
+                    <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
+                    <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
+                    <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
                 </div>
             </div>
         </nav>
@@ -90,5 +106,6 @@
     </div>
 
 </footer>
+<script type="text/javascript" src="{{ URL::asset('js/pageWrapper.js') }}"></script>
 
 </html>

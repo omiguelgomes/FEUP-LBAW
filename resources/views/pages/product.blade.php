@@ -92,23 +92,26 @@
         <div class="col-10 mx-auto my-3">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="home"
-                        aria-selected="true">Comments</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#comments" role="tab"
+                        aria-controls="home">Comments</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" id="specs-tab" data-toggle="tab" href="#specs" role="tab"
-                        aria-controls="contact" aria-selected="false">Specifications</a>
+                    <a class="nav-link" id="specs-tab" data-toggle="tab" href="#specs" role="tab"
+                        aria-controls="contact">Specifications</a>
                 </li>
             </ul>
             <div class="tab-content py-5" id="myTabContent">
-                <div class="tab-pane fade show active" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                <div class="tab-pane fade" id="specs" role="tabpanel" aria-labelledby="specs-tab">
                     @include('partials.specsTable',['product' => $product])
                 </div>
-                <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                <div class="tab-pane fade show active" id="comments" role="tabpanel" aria-labelledby="comments-tab">
                     {{-- Add comment --}}
                     @if($canRate)
-                    <div class="container pb-cmnt-container" id="addComment">
-                        <div class="row">
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" id="addComment">
+                        <div class="toast-header">
+                            <strong class="mr-auto">Add a review!</strong>
+                        </div>
+                        <div class="toast-body">
                             <div class="col-12 my-3">
                                 <i class="rating far fa-star" id="star1" value="1"></i>
                                 <i class="rating far fa-star" id="star2" value="2"></i>
@@ -116,39 +119,40 @@
                                 <i class="rating far fa-star" id="star4" value="4"></i>
                                 <i class="rating far fa-star" id="star5" value="5"></i>
                             </div>
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="panel panel-info">
-                                    <div class="panel-body">
-                                        {{-- needs this id for add comment to work --}}
-                                        <textarea placeholder="Add a review! Don't forget to select a rating"
-                                            class="pb-cmnt-textarea" id="reviewInput"></textarea>
-                                        <button class="btn btn-primary pull-right my-3" type="button"
-                                            id="reviewSubmit">Share</button>
-                                    </div>
-                                </div>
+                            <div class="col-12">
+                                {{-- needs this id for add comment to work --}}
+                                <textarea class="form-control" id="reviewInput" rows="3"
+                                    style="margin-top: 0px; margin-bottom: 0px; height: 102px;"
+                                    placeholder="Add a review! Don't forget to select a rating"></textarea>
+
+                                <button class="btn btn-primary pull-right my-3" type="button"
+                                    id="reviewSubmit">Share</button>
                             </div>
                         </div>
                     </div>
                     @endif
                     {{-- Product comments --}}
-                    <div class="commentContainer my-5">
+                    <div class="commentContainer">
                         @if(count($product->ratings) < 1) <h4 class="text-center" id="noComments">This product doesn't
                             have comments yet!</h4>
                             @else
                             {{-- must maintain class name --}}
                             @foreach($product->ratings as $rating)
-                            <div class="container py-3">
-                                <div class="media">
-                                    <img src="{{ asset('/images/'.$rating->user->image->path) }}"
-                                        class="align-self-start mr-3" style="max-height: 100px;">
-                                    <div class="media-body">
-                                        <h5 class="mt-0">{{$rating->val}}/5
-                                            <i class="fas fa-star"></i>
-                                        </h5>
-                                        <p>
-                                            {{$rating->content}}
-                                        </p>
-                                    </div>
+                            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                    <strong class="mr-auto">
+                                        {{$rating->val}}/5
+                                        <i class="fas fa-star"></i>
+                                    </strong>
+                                </div>
+                                <div class="toast-body">
+                                    <a class="text-center">
+                                        <img src="{{ asset('/images/'.$rating->user->image->path) }}"
+                                            style="max-height: 100px;">
+                                        <a class="mx-1">
+                                            {{$rating->user->name.": ".$rating->content}}
+                                        </a>
+                                    </a>
                                 </div>
                             </div>
                             @endforeach

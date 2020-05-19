@@ -2,24 +2,28 @@
 <link href="{{ asset('css/homePage.css') }}" rel="stylesheet">
 @section('content')
 
-<div class="row-12">
+{{-- category button group --}}
+<div class="row-12 my-2">
     <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
-        <div class="btn-group d-flex justify-content-between ">
-            <div class="btn-group w-100 justify-content-center">
-                <a class="hvr-underline-from-center-home w-100" href="{{ url('search') }}" role="button">Tablets</a>
+        <div class="btn-group w-100">
+            <div class="col-4 px-1">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" value="Phones"
+                    name="Phones">Phones</button>
             </div>
-            <div class="btn-group w-100 justify-content-center">
-                <a class="hvr-underline-from-center-home w-100" href="{{url('brands')}}" role="button">Brands</a>
+            <div class="col-4 px-1">
+                <a type="button" class="btn btn-primary btn-lg btn-block" href="{{url('brands')}}">Brands</a>
             </div>
-            <div class="btn-group w-100 justify-content-center">
-                <a class="hvr-underline-from-center-home w-100" href="{{url('search/filter?Phones=Phones')}}" role="button">Phones</a>
+            <div class="col-4 px-1">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" value="Tablets"
+                    name="Tablets">Tablets</button>
             </div>
         </div>
     </form>
 </div>
-
-<div class="row-12 y-3 p-4">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade new-banner" data-interval="2000" data-ride="carousel">
+{{-- carousel --}}
+<div class="row-12 mt-5 w-100">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade new-banner" data-interval="2000"
+        data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -46,30 +50,21 @@
         </a>
     </div>
 </div>
-
-<div class="row-12 new-home-product">
-    <ul class="nav nav-tabs justify-content-center new-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active hvr-underline-from-center-tab" id="hot-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home"
-                aria-selected="true">Hot</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link hvr-underline-from-center-tab" id="promotions-tab" data-toggle="tab" href="#promotions" role="tab"
-                aria-controls="contact" aria-selected="false">Promotions</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="hot" role="tabpanel" data-toggle="button" aria-labelledby="hot-tab" aria-pressed="true">
-            <div class="col-12">
-                @include('partials.phoneGrid',['products' => $hotProducts])
-            </div>
-        </div>
-
-        <div class="tab-pane fade" id="promotions" role="tabpanel" aria-labelledby="promotions-tab">
-            <div class="col-12">
-                @include('partials.phoneGrid',['products' => $discountProducts])
-            </div>
-        </div>
+{{-- hot and discount tabs --}}
+<ul class="nav nav-tabs justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#hot">Most bought</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#discounts">Top discounts</a>
+    </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active show" id="hot">
+        @include('partials.phoneGrid',['products' => $hotProducts])
+    </div>
+    <div class="tab-pane fade" id="discounts">
+        @include('partials.phoneGrid',['products' => $discountProducts])
     </div>
 </div>
 @endsection

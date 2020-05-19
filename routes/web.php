@@ -24,7 +24,7 @@ Route::get('/', 'HomeController@show');
 Route::get('home', 'HomeController@show')->name('home');
 
 //Cart
-Route::get('cart', 'CartController@show');
+Route::get('cart', 'CartController@show')->name('cart');
 Route::get('product/{id}/cart', 'CartController@add');
 Route::get('cart/buy', 'CartController@buy');
 Route::delete('cart/delete/{id}', 'CartController@delete');
@@ -42,14 +42,14 @@ Route::get('product/{id}', 'ProductController@show');
 Route::put('product/{id}/add_review', 'ProductController@addReview');
 
 //Wishlist
+Route::get('wishlist', 'WishlistController@show')->name('wishlist');
 Route::delete('wishlist/delete/{id}', 'WishlistController@delete');
 Route::get('product/{id}/wishlist', 'WishlistController@add');
-Route::get('wishlist', 'WishlistController@show');
 
 //Search
+Route::get('search', 'SearchController@show')->name('search');
 Route::get('search/filter', 'SearchController@filterResults');
 Route::post('search/textResults', 'SearchController@filterText');
-Route::get('search', 'SearchController@show');
 Route::get('brands', 'BrandController@show');
 
 //Profile
@@ -57,10 +57,10 @@ Route::get('profile', 'ProfileController@show')->name('profile');
 Route::post('profile', 'ProfileController@profileUpdate')->name('profile.update');
 
 //static pages
-Route::get('about', 'AboutController@show');
-Route::get('FAQ', 'FAQController@show');
+Route::get('about', 'AboutController@show')->name('about');
+Route::get('FAQ', 'FAQController@show')->name('faq');
 
-//--------------------------------------------Management------------------------------------
+//--------------------------------------------MANAGEMENT------------------------------------
 //Delete stuff
 Route::get('admin', 'AdminProfileController@show');
 Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
@@ -110,4 +110,3 @@ Route::post('admin/faq/add', 'FAQController@create')->name('create_faq');
 Route::delete('admin/faq/delete/{id}', 'FAQController@delete');
 Route::post('admin/faq/update/{id}', 'FAQController@update');
 Route::post('admin/banner/update/{id}', 'BannerController@update');
-

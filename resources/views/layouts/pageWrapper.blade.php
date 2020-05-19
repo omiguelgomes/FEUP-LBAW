@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UPhone</title>
-    <link rel="stylesheet" href="{{ asset('/css/new.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
@@ -20,95 +20,80 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link href="{{ asset('css/pageWrapper.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/css/new.css') }}">
+    <link href={{ asset("css/bootstrap.min.css") }} rel="stylesheet" />
 </head>
 
 <body>
     <div class="allButFooter">
-    {{-- NAVBAR --}}
-    <div class="py-3">
-        <nav class="navbar navbar-expand-lg navbar-light new-navbar">
-            {{-- website name --}}
-            <a class="navbar-brand mr-auto ml-4 mt-2 mt-lg-0" href="{{ url('home') }}">
+        {{-- website name --}}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">
                 Phone
             </a>
-
-            {{-- search bar --}}
-                    
-                        <div class="buscar-caja">
-                        <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data"
-                        autocomplete="off">
-                            <input type="text" name="textSearch" id="navbarSearch" class="buscar-txt" placeholder="Search..." >
-                            <a class="buscar-btn">
-                            <i class="fas fa-search"></i>
-                            </a>
-                            </form>
-                        </div>
-                    
-         
-            <div class="dropdown-menu" style="right: auto; left: 50%; transform: translate(-50%);" id="dropdownResults">
-                <div class="productGrid">
-                </div>
-            </div>
-
-            {{-- cart --}}
-            <a class="nav-item nav-link" href="{{ url('cart') }}">
-                <img src="{{ asset('/images/shopping-cart.svg') }}" width="30" height="30" alt="">
-            </a>
-
-
-            {{-- dropdown --}}
-            <div class="btn-group" role="group">
-                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('/images/user.svg') }}" width="30" height="30">
-                </button>
-                <div class="dropdown-menu" style="right: 0; left: auto;">
-                    <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
-                    <a class="dropdown-item" href="{{ url('wishlist') }}">Wishlist</a>
-                    <a class="dropdown-item" href="{{ url('purchase_history') }}">Purchase History</a>
-                </div>
+            {{-- button for small screens --}}
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {{-- navbar items --}}
+            <div class="navbar-collapse collapse" id="navbarColor01" style="">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('cart') }}">Cart</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('wishlist') }}">Wishlist</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
         </nav>
+
+
+        {{-- CONTENT OF A PAGE --}}
+        @yield('content')
+
     </div>
-
-
-    {{-- CONTENT OF A PAGE --}}
-    @yield('content')
-
-</div>
     {{-- FOOTER --}}
-    <!--for search bar/ dropdown-->
     <footer>
-    <br>
-    <nav class="navbar navbar-light justify-content-center">
-        <a class="navbar-brand" href="{{ url('home') }}">
-            <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">Phone
-        </a>
-    </nav>
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-3 text-center" style="padding-right: -15px; padding-left: -15px;">
-                <h5 style="color: black;">Contact us</h5>
-                <p>+345 925515415</p>
-                <p>support@uphone.com</p>
-                <p>R. Dr. Roberto Frias, 4200-465 Porto</p>
-            </div>
+        <br>
+        <nav class="navbar navbar-light justify-content-center">
+            <a class="navbar-brand" href="{{ url('home') }}">
+                <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">Phone
+            </a>
+        </nav>
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-3 text-center" style="padding-right: -15px; padding-left: -15px;">
+                    <h5 style="color: black;">Contact us</h5>
+                    <p>+345 925515415</p>
+                    <p>support@uphone.com</p>
+                    <p>R. Dr. Roberto Frias, 4200-465 Porto</p>
+                </div>
 
-            <div class="col-3 text-center">
-                <h5 style="color: black;">Support</h5>
-                <br>
-                <a href="{{ url('FAQ') }}" class="font-weight-bold">FAQ</a>
-                <br>
-                <a href="#" class="font-weight-bold">Ticket us</a>
-                <br>
-                <a class="font-weight-bold" href="{{ url('about') }}">About us</a>
+                <div class="col-3 text-center">
+                    <h5 style="color: black;">Support</h5>
+                    <br>
+                    <a href="{{ url('FAQ') }}" class="font-weight-bold">FAQ</a>
+                    <br>
+                    <a href="#" class="font-weight-bold">Ticket us</a>
+                    <br>
+                    <a class="font-weight-bold" href="{{ url('about') }}">About us</a>
+                </div>
             </div>
         </div>
-    </div>
 
-</footer>
+    </footer>
 </body>
 <script type="text/javascript" src="{{ URL::asset('js/pageWrapper.js') }}"></script>
 

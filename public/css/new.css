@@ -10,13 +10,13 @@ body{
 }
 
 footer{
-  background: rgba(210, 195, 219, 0.616);
+  background: rgba(161, 161, 161, 0.445);
 }
 
 /* new-navbar */
 .py-3 {
   /* background: rgb(218, 127, 52); */
-  background-image: linear-gradient(to bottom right, rgb(206, 95, 240),rgb(153, 0, 255));
+  background-image: linear-gradient(to bottom, rgb(255, 145, 0),rgb(255, 136, 0));
 }
 
 @media screen and (min-width: 400px) {
@@ -82,7 +82,7 @@ footer{
     left: 51%;
     right: 51%;
     bottom: 0;
-    background: rgb(206, 95, 240);
+    background: rgb(255, 145, 0);
     height: 12%;
     -webkit-transition-property: left, right;
     transition-property: left, right;
@@ -94,7 +94,7 @@ footer{
   .hvr-underline-from-center-home:hover:before, .hvr-underline-from-center-home:focus:before, .hvr-underline-from-center-home:active:before {
     left: 0;
     right: 0;
-    background: rgb(206, 95, 240);
+    background: rgb(255, 145, 0);
   }
 
   @media screen and (min-width: 400px) {
@@ -260,7 +260,7 @@ footer{
 .hvr-underline-from-center-tab:hover:before, .hvr-underline-from-center-tab:focus:before, .hvr-underline-from-center-tab:active:before {
   left: 0;
   right: 0;
-  background: rgb(206, 95, 240);
+  background: rgb(255, 145, 0);
 }
 
 @media screen and (min-width: 400px) {
@@ -292,7 +292,7 @@ footer{
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(148, 4, 192, 0.616);
+  background: rgba(255, 145, 0, 0.815);
   height: 17%;
   -webkit-transform: translateY(800px);
   transform: translateY(800px);

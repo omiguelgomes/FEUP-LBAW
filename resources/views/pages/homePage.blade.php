@@ -6,22 +6,20 @@
     <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
         <div class="btn-group d-flex justify-content-between ">
             <div class="btn-group w-100 justify-content-center">
-                <button type="submit" class="btn btn-secondary w-100" value="Tablets" name="Tablets">
-                    Tablets</button>
+                <a class="hvr-underline-from-center-home w-100" href="{{ url('search') }}" role="button">Tablets</a>
             </div>
             <div class="btn-group w-100 justify-content-center">
-                <a class="btn btn-secondary w-100" href="{{url('brands')}}" role="button">Brands</a>
+                <a class="hvr-underline-from-center-home w-100" href="{{url('brands')}}" role="button">Brands</a>
             </div>
             <div class="btn-group w-100 justify-content-center">
-                <button type="submit" class="btn btn-secondary w-100" value="Phones" name="Phones">
-                    Phones</button>
+                <a class="hvr-underline-from-center-home w-100" href="{{url('search/filter?Phones=Phones')}}" role="button">Phones</a>
             </div>
         </div>
     </form>
 </div>
 
 <div class="row-12 y-3 p-4">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade new-banner" data-interval="2000" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -49,19 +47,19 @@
     </div>
 </div>
 
-<div class="row-12">
-    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+<div class="row-12 new-home-product">
+    <ul class="nav nav-tabs justify-content-center new-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home"
+            <a class="nav-link active hvr-underline-from-center-tab" id="hot-tab" data-toggle="tab" href="#hot" role="tab" aria-controls="home"
                 aria-selected="true">Hot</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="promotions-tab" data-toggle="tab" href="#promotions" role="tab"
+            <a class="nav-link hvr-underline-from-center-tab" id="promotions-tab" data-toggle="tab" href="#promotions" role="tab"
                 aria-controls="contact" aria-selected="false">Promotions</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="hot" role="tabpanel" aria-labelledby="hot-tab">
+        <div class="tab-pane fade show active" id="hot" role="tabpanel" data-toggle="button" aria-labelledby="hot-tab" aria-pressed="true">
             <div class="col-12">
                 @include('partials.phoneGrid',['products' => $hotProducts])
             </div>

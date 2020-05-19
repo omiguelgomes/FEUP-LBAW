@@ -1,4 +1,4 @@
-#navbarSearch {
+/* #navbarSearch {
   width: 150px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -16,7 +16,7 @@
 
 #navbarSearch:focus {
   width: 87%;
-}
+} */
 
 #searchIcon {
   transform: translate(45px, 10px);

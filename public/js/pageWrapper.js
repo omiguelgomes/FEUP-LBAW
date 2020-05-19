@@ -42,18 +42,18 @@ function getResultHandler() {
     productGrid.innerHTML = "";
     for (var i = 0; i < products.length; i++) {
         productGrid.innerHTML +=
-            `<div class="card mb-3" style="max-width: 300px;">
+            `<div class="mb-3" style="max-width: 300px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <a href="product/` + products[i].id + `">
-                            <img class = "card-img-top mt-4 ml-1" src="images/` + products[i].images[0].path + `"alt="Card image cap" style="max-height: 100px;"> 
+                            <img class = "card-img-top mt-4 ml-1" src="images/` + products[i].images[0].path + `"alt="Card image cap" style="max-height: 100px; max-width: 150px"> 
                         </a> 
                     </div>
-                    <div class="col-12 col-md-8">
+                    <div class="col-11 col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">` + products[i].brand.name + ` </h5> 
                             <p class="card-text"> ` + products[i].model + `</p>
-                            <a href="product/` + products[i].id + `"class="btn btn-secondary w-75">See</a>
+                            <a href="product/` + products[i].id + `"class="btn btn-secondary w-75 search-prev-product-button">See more</a>
                         </div>
                     </div>
                 </div>

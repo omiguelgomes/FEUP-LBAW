@@ -75,6 +75,14 @@ class SearchController extends Controller
       $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
     }
 
+    if ($request['priceDesc'] xor $request['priceAsc']) {
+      if ($request['priceDesc']) {
+        $products = $products->orderByDesc('price');
+      } else {
+        $products = $products->orderBy('price');
+      }
+    }
+
     // //text Search
     if ($request['textSearch'] != null) {
       //prepare text for tsquery
@@ -90,7 +98,8 @@ class SearchController extends Controller
     $products  = $products->paginate(16)->appends([
       'brand' => $request['brand'], 'fingerprint' => $request['fingerprint'],
       'waterRes' => $request['waterRes'], 'minRam' => $request['minRam'],
-      'minStorage' => $request['minStorage'], 'textSearch' => $request['textSearch']
+      'minStorage' => $request['minStorage'], 'textSearch' => $request['textSearch'],
+      'priceDesc' => $request['priceDesc'], 'priceAsc' => $request['priceAsc']
     ]);
 
     return view(

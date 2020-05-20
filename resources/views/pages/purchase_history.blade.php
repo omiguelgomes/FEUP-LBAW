@@ -4,10 +4,10 @@
 
 @include('partials.jumboTitle',['title' => 'Purchase History'])
 <div class="container d-flex">
-    <div class="row justify-content-right">
+    <div class="row justify-content-center">
         @foreach($purchases as $purchase)
         <div class="card text-center m-3">
-            <h5 class="card-title py-2"> <b> ORDER #{{$purchase->id}}</b></h5>
+            <h5 class="card-title py-2"><b>ORDER #{{$purchase->id}}</b></h5>
             <div class="card-body">
                 <div class="image-grid-container p-2">
                     @foreach($purchase->products as $product)

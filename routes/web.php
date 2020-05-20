@@ -34,7 +34,7 @@ Route::put('cart/decrement/{id}', 'CartController@decrement');
 
 //Purchase
 Route::get('purchase/{id}', 'PurchaseController@show');
-Route::get('purchase_history', 'PurchaseHistoryController@show');
+Route::get('purchase_history', 'PurchaseHistoryController@show')->name('purchase_history');
 
 //Product
 Route::get('product/{id}/buy', 'ProductController@buy');

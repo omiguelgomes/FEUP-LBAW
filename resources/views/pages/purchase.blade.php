@@ -4,7 +4,7 @@
 
 @include('partials.jumboTitle',['title' => 'Purchase details'])
 
-<div class="container">
+<div class="container ">
     <div class="d-flex bd-highlight mb-3">
         <h3>Order status: </h3>
         <div class="bd-highlight">
@@ -19,6 +19,7 @@
             @endif
         </div>
     </div>
+    <h5>{{"Purchase total: ".$purchase->val." €"}}</h5>
     <!-- Add class 'active' to progress -->
     <div class="row d-flex">
         <div class="col-12">
@@ -58,16 +59,19 @@
             </div>
         </div>
     </div>
-    <table class="table">
-        @include('partials.phoneList',['products' => $purchase->products, 'xButton' => 'purchase'])
-        <tr>
-            <th scope="row" colspan="5" class="text-right">Shipping Costs: 0.00 €</th>
-        </tr>
-        <tr>
-            <th scope="row" colspan="5" class="text-right">TOTAL PURCHASE: {{$purchase->val}} €</th>
-        </tr>
-        </tbody>
-    </table>
+    @foreach($purchase->products as $product)
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="card" style="width: 18rem;">
+                <div class="card-title text-center mt-1">
+                    <h4>{{$product->brand->name." ".$product->model}}</h4>
+                </div>
+                <img src="{{asset('images/'.$product->images->first()->path)}}" class="card-img-top"
+                    alt="Product image">
+            </div>
+        </div>
+    </div>
+    @endforeach
 </div>
 
 @endsection

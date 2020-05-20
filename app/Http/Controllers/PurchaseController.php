@@ -22,7 +22,8 @@ class PurchaseController extends Controller
     return view('pages.purchase')->with('purchase', $purchase);
   }
 
-  public function update($id, Request $request) {
+  public function update($id, Request $request)
+  {
     $purchase = Purchase::find($id);
     $purchase->status()->update((array('pstate' => $request->state)));
 

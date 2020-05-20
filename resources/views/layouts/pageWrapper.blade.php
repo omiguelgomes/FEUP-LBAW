@@ -47,13 +47,24 @@
             <div class="navbar-collapse collapse" id="navbarColor01" style="">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('cart') }}">Cart</a>
+                        <a class="nav-link" href="{{ route('cart') }}">Cart
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                        </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('wishlist') }}">Wishlist</a>
+                        <a class="nav-link" href="{{ route('wishlist') }}">Wishlist
+                            <i class="fas fa-heart fa-lg"></i>
+                        </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                        <a class="nav-link" href="{{ route('profile') }}">Profile
+                            <i class="fas fa-user fa-lg"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('purchase_history') }}">Purchase History
+                            <i class="fas fa-history fa-lg"></i>
+                        </a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="{{url('search/filter')}}" method="GET"

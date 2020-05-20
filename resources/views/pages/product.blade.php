@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-6">
             <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12 text-center mt-5">
                     <h1>{{$product->brand->name." ".$product->model}}</h1>
                 </div>
                 {{-- left side phone image col --}}

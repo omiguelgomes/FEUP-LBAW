@@ -31,6 +31,7 @@ function addEventListeners() {
   [].forEach.call(cartIncrementers, function (incrementer) {
     incrementer.addEventListener('click', sendCartIncrementRequest);
   });
+  console.log(cartIncrementers);
   let cartDecrementers = document.getElementsByClassName("cartDecrementer");
   [].forEach.call(cartDecrementers, function (decrementer) {
     decrementer.addEventListener('click', sendCartDecrementRequest);
@@ -83,9 +84,9 @@ function cartIncrementHandler() {
 
   let card = document.getElementById(this.responseText);
   let quantity = card.getElementsByClassName("quantity")[0];
-
   let price = card.getElementsByClassName("productTotal")[0];
   let priceDiff = (Number(price.innerHTML) / Number(quantity.innerHTML));
+
   price.innerHTML = (Number(price.innerHTML) + priceDiff).toFixed(2);
 
   quantity.innerHTML = Number(quantity.innerHTML) + 1;

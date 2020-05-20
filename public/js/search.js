@@ -14,7 +14,7 @@ function updateMinRam() {
   document.getElementById('minRamLabel').innerHTML = Math.pow(2, document.getElementById('minRam').value);
 }
 
-document.getElementById("minPrice").addEventListener('input', updateMinPrice);
-document.getElementById("maxPrice").addEventListener('input', updateMaxPrice);
-document.getElementById("minStorage").addEventListener('input', updateMinStorage);
-document.getElementById("minRam").addEventListener('input', updateMinRam);
+// document.getElementById("minPrice").addEventListener('input', updateMinPrice);
+// document.getElementById("maxPrice").addEventListener('input', updateMaxPrice);
+// document.getElementById("minStorage").addEventListener('input', updateMinStorage);
+// document.getElementById("minRam").addEventListener('input', updateMinRam);

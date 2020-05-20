@@ -59,7 +59,7 @@ class WishlistController extends Controller
     }
 
     //enable pagination, keep filters for next pages
-    $products  = $products->paginate(16)->appends([
+    $products  = $products->paginate(8)->appends([
       'textSearch' => $request['textSearch']
     ]);
 

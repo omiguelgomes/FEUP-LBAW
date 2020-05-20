@@ -101,6 +101,7 @@ Route::post('admin/product/update/{id}', 'ProductController@update');
 //Manage users
 Route::post('admin/users/promote/{id}', 'UserController@promote');
 Route::post('admin/users/demote/{id}', 'UserController@demote');
+Route::delete('admin/users/delete/{id}', 'UserController@delete');
 
 //Manage Orders
 Route::post('admin/orders/update/{id}', 'PurchaseController@update');

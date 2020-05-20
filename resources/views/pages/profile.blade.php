@@ -103,7 +103,7 @@
             <a class="text-danger">* Campos Obrigatórios</a>
             <br><br>
             <button id="change" type="submit" class="btn btn-primary" disabled>Change</button>
-            &nbsp;<a class="text-danger align-middle" href="#">Delete Account</a>
+            &nbsp;<a class="text-danger align-middle" id="deleteUser" value="{{$user->id}}">Delete Account</a>
             @endforeach
 
         </div>

@@ -53,20 +53,22 @@
                 </thead>
                 <tbody class='userTableBody'>
                     @foreach($clients as $client)
-                    <tr class='client' id='client-{{$client->id}}'>
-                        <td>{{$client->name}}</td>
-                        <td>{{$client->email}}</td>
-                        <td>
-                            <a class="userPromoter thumbnail" value='{{$client->id}}'>
-                                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" value='{{$client->id}}' class="thumbnail">
-                                <i class="far fa-times-circle fa-2x ml-4"></i>
-                            </a> 
-                        </td>
-                    </tr>
+                        @if($client->id != 1)
+                            <tr class='client' id='client-{{$client->id}}'>
+                                <td>{{$client->name}}</td>
+                                <td>{{$client->email}}</td>
+                                <td>
+                                    <a class="userPromoter thumbnail" value='{{$client->id}}'>
+                                        <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a value='{{$client->id}}' class="userDeleter thumbnail">
+                                        <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
+                                    </a> 
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

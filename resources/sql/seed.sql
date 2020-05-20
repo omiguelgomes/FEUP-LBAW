@@ -504,7 +504,9 @@ insert into bannerimage (imgurl, image_id) values ('http://localhost:8000/home',
 
 
 /* users */
-
+/*default null user*/
+insert into users (name, email, birthDate, password, image_id) values ('Null User', '', '2000-01-01', '', 1);
+/*normal users*/
 insert into users (name, email, birthDate, password, image_id, isadmin) values ('Tynan Kohnen', 'mail@mail.com', '2016-02-27', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 23, true); /* Pass: 123456 (é igual em todas abaixo)*/
 insert into users (name, email, birthDate, password, image_id) values ('Jane Dymott', 'jdymott1@examiner.com', '2013-03-08', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
 insert into users (name, email, birthDate, password, image_id) values ('Axel Jerg', 'ajerg2@bloglovin.com', '2014-07-02', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);

@@ -78,10 +78,10 @@
                 placeholder="Repeat password" type="password" required>
             </div>
 
-            <button type="submit">
+            <button class="btn btn-dark mr-2" type="submit">
               Register
             </button>
-            <a class="button button-outline" href="{{ route('login') }}">Login</a>
+            <a class="btn btn-dark" href="{{ route('login') }}">Login</a>
           </div>
         </div>
 

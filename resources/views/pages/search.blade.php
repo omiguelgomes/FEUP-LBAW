@@ -22,8 +22,6 @@
             <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
                 {{ csrf_field() }}
                 {{-- Text box --}}
-
-
                 <div class="filters d-flex flex-column p-0">
                     <h5>Filters</h5>
                     {{-- <legend>Custom forms</legend>

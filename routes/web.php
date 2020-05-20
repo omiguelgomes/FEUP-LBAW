@@ -43,6 +43,7 @@ Route::put('product/{id}/add_review', 'ProductController@addReview');
 
 //Wishlist
 Route::get('wishlist', 'WishlistController@show')->name('wishlist');
+Route::get('wishlist/filter', 'WishlistController@filter');
 Route::delete('wishlist/delete/{id}', 'WishlistController@delete');
 Route::get('product/{id}/wishlist', 'WishlistController@add');
 

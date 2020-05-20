@@ -91,12 +91,12 @@
         {{-- comments and specs --}}
         <div class="col-10 mx-auto my-3">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#comments" role="tab"
+                <li class="nav-item w-50">
+                    <a class="nav-link active text-center" id="home-tab" data-toggle="tab" href="#comments" role="tab"
                         aria-controls="home">Comments</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="specs-tab" data-toggle="tab" href="#specs" role="tab"
+                <li class="nav-item w-50">
+                    <a class="nav-link text-center" id="specs-tab" data-toggle="tab" href="#specs" role="tab"
                         aria-controls="contact">Specifications</a>
                 </li>
             </ul>

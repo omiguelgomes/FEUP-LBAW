@@ -21,7 +21,7 @@
     </form>
 </div>
 {{-- carousel --}}
-<div class="row-12 mt-5 w-100">
+<div class="row-12 w-100">
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade new-banner" data-interval="2000"
         data-ride="carousel">
         <ol class="carousel-indicators">
@@ -51,7 +51,7 @@
     </div>
 </div>
 {{-- hot and discount tabs --}}
-<ul class="nav nav-tabs justify-content-center">
+<ul class="nav nav-tabs justify-content-center mt-4">
     <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#hot">Most bought</a>
     </li>

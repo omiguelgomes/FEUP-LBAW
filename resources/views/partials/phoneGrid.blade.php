@@ -9,7 +9,7 @@
                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
             </div>
             <a href="{{url('product/'.$product->id)}}">
-                <img style="height: 200px; width: 100%; display: block;"
+                <img style="height: auto; width: 100%; display: block;"
                     src="{{ asset('images/'.$product->images->first()->path) }}" alt="Phone image">
             </a>
             <div class="card-body text-center">
@@ -20,7 +20,7 @@
                         @endif
                     </h5>
                 </b>
-                <a type="button" class="btn btn-primary px-sm-5 px-2" href="{{url('product/'.$product->id)}}">See</a>
+                <a type="button" class="btn btn-primary w-100" href="{{url('product/'.$product->id)}}">See</a>
             </div>
         </div>
     </div>

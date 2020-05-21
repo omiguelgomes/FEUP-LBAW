@@ -53,7 +53,7 @@ function getResultHandler() {
                         style = "width: 100%; height: auto;">
                         </div>
                         <div class = "col-6 my-auto">
-                            <a type="button" class="btn btn-primary" href="{{url('product/'` + products[i].id + `)}}">See</a>
+                            <a type="button" class="btn btn-primary" href="product/` + products[i].id + `">See</a>
                         </div>
                     </div>
             </div>`;

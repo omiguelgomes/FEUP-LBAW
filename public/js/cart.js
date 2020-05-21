@@ -31,7 +31,7 @@ function addEventListeners() {
   [].forEach.call(cartIncrementers, function (incrementer) {
     incrementer.addEventListener('click', sendCartIncrementRequest);
   });
-  console.log(cartIncrementers);
+
   let cartDecrementers = document.getElementsByClassName("cartDecrementer");
   [].forEach.call(cartDecrementers, function (decrementer) {
     decrementer.addEventListener('click', sendCartDecrementRequest);

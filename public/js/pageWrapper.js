@@ -24,7 +24,7 @@ function sendAjaxRequest(method, url, data, handler) {
 function sendGetResultRequest() {
     let textInput = document.getElementById("navbarSearch").value;
     if (textInput.length) {
-        sendAjaxRequest('post', 'search/textResults', {
+        sendAjaxRequest('post', '/search/textResults', {
             textInput: textInput,
         }, getResultHandler);
     }
@@ -42,21 +42,20 @@ function getResultHandler() {
     productGrid.innerHTML = "";
     for (var i = 0; i < products.length; i++) {
         productGrid.innerHTML +=
-            `<div class="mb-3" style="max-width: 300px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <a href="product/` + products[i].id + `">
-                            <img class = "card-img-top mt-4 ml-1" src="images/` + products[i].images[0].path + `"alt="Card image cap" style="max-height: 100px; max-width: 150px"> 
-                        </a> 
-                    </div>
-                    <div class="col-11 col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">` + products[i].brand.name + ` </h5> 
-                            <p class="card-text"> ` + products[i].model + `</p>
-                            <a href="product/` + products[i].id + `"class="btn btn-secondary w-75 search-prev-product-button">See more</a>
+            `<div class="text-center mb-1">
+                    <h5 class="card-header">` + products[i].brand.name + ` ` + products[i].model + `</h5>
+                    <div class="card-body p-0">
+                        <div class="row no-gutters">
+                        <div class = "col-6">
+                        <img class = "card-img-top"
+                        src = "/images/` + products[i].images[0].path + `"
+                        alt = "Card image cap"
+                        style = "width: 100%; height: auto;">
+                        </div>
+                        <div class = "col-6 my-auto">
+                            <a type="button" class="btn btn-primary" href="{{url('product/'` + products[i].id + `)}}">See</a>
                         </div>
                     </div>
-                </div>
             </div>`;
     }
 }

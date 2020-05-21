@@ -7,17 +7,17 @@ function updateMaxPrice() {
 }
 
 function updateMinStorage() {
-  document.getElementById('minStorageLabel').innerHTML = Math.pow(2, document.getElementById('minStorage').value);
+  document.getElementById('minStorageLabel').innerHTML = "Min Storage: " + Math.pow(2, document.getElementById('minStorage').value) + "GB";
 }
 
 function updateMinRam() {
-  document.getElementById('minRamLabel').innerHTML = Math.pow(2, document.getElementById('minRam').value);
+  document.getElementById('minRamLabel').innerHTML = "Min Ram: " + Math.pow(2, document.getElementById('minRam').value) + "GB";
 }
 
 document.getElementById("minPrice").addEventListener('input', updateMinPrice);
 document.getElementById("maxPrice").addEventListener('input', updateMaxPrice);
-// document.getElementById("minStorage").addEventListener('input', updateMinStorage);
-// document.getElementById("minRam").addEventListener('input', updateMinRam);
+document.getElementById("minStorage").addEventListener('input', updateMinStorage);
+document.getElementById("minRam").addEventListener('input', updateMinRam);
 
 function openNav() {
   document.getElementById("mySidenav").style.width = "350px";

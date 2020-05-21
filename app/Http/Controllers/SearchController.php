@@ -42,9 +42,12 @@ class SearchController extends Controller
     $battery = App\Specs\Battery::all();
     $products = App\Product::query();
 
-    if ($request['Phones'] != null xor $request['Tablets'] != null) {
-      $deviceType = $request['Phones'] != null ? $request['Phones'] : $request['Tablets'];
-      $products = $products->where('category', '=', $deviceType);
+    if ($request['deviceType'] == 'phones') {
+      $products = $products->where('category', '=', 'Phones');
+    }
+
+    if ($request['deviceType'] == 'tablets') {
+      $products = $products->where('category', '=', 'Tablets');
     }
 
     // //remove products that dont match the filters
@@ -101,7 +104,8 @@ class SearchController extends Controller
       'brand' => $request['brand'], 'fingerprint' => $request['fingerprint'],
       'waterRes' => $request['waterRes'], 'minRam' => $request['minRam'],
       'minStorage' => $request['minStorage'], 'textSearch' => $request['textSearch'],
-      'priceDesc' => $request['priceDesc'], 'priceAsc' => $request['priceAsc']
+      'priceDesc' => $request['priceDesc'], 'priceAsc' => $request['priceAsc'],
+      'deviceType' => $request['deviceType']
     ]);
 
     return view(

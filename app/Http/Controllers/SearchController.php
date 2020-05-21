@@ -75,13 +75,15 @@ class SearchController extends Controller
       $products = $products->where('price', '>=', $request['minPrice'])->where('price', '<=', $request['maxPrice']);
     }
 
-    if ($request['priceDesc'] xor $request['priceAsc']) {
-      if ($request['priceDesc']) {
-        $products = $products->orderByDesc('price');
-      } else {
-        $products = $products->orderBy('price');
-      }
+    // sort by price
+    if ($request['sortByPrice'] == "asc") {
+      $products = $products->orderBy('price');
     }
+
+    if ($request['sortByPrice'] == "desc") {
+      $products = $products->orderByDesc('price');
+    }
+
 
     // //text Search
     if ($request['textSearch'] != null) {

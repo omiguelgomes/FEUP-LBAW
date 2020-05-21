@@ -8,221 +8,94 @@
 <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
     <div class="container" id="main-container">
         <div class="row">
-            <div class="col-12 text-center">
-                @if(request()['textSearch'] != null)
-                <input type="text" placeholder="Search..." style="max-width:2000px;" name="textSearch"
-                    value="{{request()['textSearch']}}">
-                @else
-                <input type="text" placeholder="Search..." style="max-width:2000px;" name="textSearch">
-                @endif
+            <div class="col-8 text-center mb-4">
+                <input class="form-control form-control-lg w-100" name="textSearch" type="text" placeholder="Search"
+                    id="inputLarge" value="{{(request()['textSearch'] == null) ? " " : request()['textSearch']}}">
+            </div>
+            <div class="col-4">
                 <button class="btn btn-secondary" type="submit">
                     <img src="{{ asset('/images/search.svg') }}" width="30" height="30" alt="">
                 </button>
             </div>
 
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filters</span>
+            {{ csrf_field() }}
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="row">
+                    <div class="col-10 mx-auto">
+                        <h1>Filters</h1>
 
-            <div class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-3 ml-0" id="navbar-col">
-                <nav class="navbar navbar-dark bg-primary" id="sideBar">
-                    {{-- button for small screens --}}
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFilters"
-                        aria-controls="navbarFilters" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    {{-- navbar items --}}
-                    {{ csrf_field() }}
-                    {{-- Text box --}}
-                    <div class="">
-                        <h5>Filters</h5>
-                        {{-- <legend>Custom forms</legend>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
-                                            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
-                                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-                                        </div>
-                                    </div> --}}
                         {{-- PRICE --}}
                         <label for="minPrice">
                             @if(request()['minPrice'] != null)
-                            <a>Min Price: </a> <a id="minPriceLabel">{{request()['minPrice']}}</a>€
+                            <a id="minPriceLabel">{{"Min Price: ".request()['minPrice']."€"}}</a>
                             <input type="range" min="0" max="2500" class="custom-range" id="minPrice" name="minPrice"
                                 value={{request()['minPrice']}} step="25">
                             @else
-                            <a>Min Price: </a> <a id="minPriceLabel">0</a>€
+                            <a id="minPriceLabel">Min Price: 0€ </a>
                             <input type="range" min="0" max="2500" class="custom-range" id="minPrice" name="minPrice"
                                 value="0" step="25">
                             @endif
                         </label>
+                    </div>
+                    <div class="col-10 mx-auto">
                         <label for="maxPrice">
                             @if(request()['maxPrice'] != null)
-                            <a>Max Price</a> <a id="maxPriceLabel">{{request()['maxPrice']}}</a>€
+                            <a id="maxPriceLabel">{{"Max Price: ".request()['maxPrice']."€"}}</a>
                             <input type="range" min="0" max="2500" class="custom-range" id="maxPrice" name="maxPrice"
                                 value={{request()['maxPrice']}} step="25">
                             @else
-                            <a>Max Price</a> <a id="maxPriceLabel">2500</a>€
+                            <a id="maxPriceLabel">Max Price: 2500€ </a>
                             <input type="range" min="0" max="2500" class="custom-range" id="maxPrice" name="maxPrice"
                                 value="2500" step="25">
                             @endif
                         </label>
-                        {{-- sort by price --}}
-                        {{-- <label class="form-check-label">
-                                        Ascending
-                                        @if(request()['priceAsc'] != null)
-                                        <input type="checkbox" class="priceAscCheckbox" value="1" name="priceAsc" checked="checked">
-                                        @else
-                                        <input type="checkbox" class="priceAscCheckbox" value="1" name="priceAsc">
-                                        @endif
-                                    </label> --}}
-                        <div class="form-group">
-                            <label>Sort by price: </label>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"
-                                    checked="">
-                                <label class="custom-control-label" for="customRadio1">Ascending</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadio2">Descending</label>
-                            </div>
+                    </div>
+
+                    {{-- SORT BY PRICE --}}
+                    <div class="col-10 mx-auto">
+                        <label>Sort by price: </label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="sortByPrice" class="custom-control-input"
+                                value="asc" {{(request()['sortByPrice'] == 'asc') ? 'checked' : " "}}>
+                            <label class="custom-control-label" for="customRadio1">Ascending</label>
                         </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="sortByPrice" class="custom-control-input"
+                                value="desc" {{(request()['sortByPrice'] == 'desc') ? 'checked' : " "}}>
+                            <label class="custom-control-label" for="customRadio2">Descending</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio3" name="sortByPrice" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio3">None</label>
+                        </div>
+                    </div>
+
+                    {{-- BRAND --}}
+                    <div class="col-10 mx-auto">
                         {{-- BRANDS --}}
                         <a href="#brands" data-toggle="collapse" class="btn btn-secondary my-1">
                             Brands
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <div id="brands" class="collapse">
-                            @foreach($brands as $brand)
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    {{$brand->name}}
-                                    @if(request()['brand'] !=null && in_array($brand->id, request()['brand']))
-                                    <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}" name="brand[]"
-                                        checked="checked">
-                                    @else
-                                    <input type="checkbox" class="brandCheckbox" value="{{$brand->id}}" name="brand[]">
-                                    @endif
-                                </label>
-                            </div>
-                            @endforeach
-                        </div>
+                            <div class="form-group">
+                                @foreach($brands as $brand)
+                                <div class="custom-control custom-checkbox">
 
-                        {{-- Phone or tablet --}}
-                        <a href="#deviceType" data-toggle="collapse" class="btn btn-secondary my-1">
-                            Device type
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                        <div id="deviceType" class="collapse">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    Phones
-                                    @if(request()['Phones'] != null)
-                                    <input type="checkbox" class="phoneCheckBox" value="Phones" name="Phones"
-                                        checked="checked">
-                                    @else
-                                    <input type="checkbox" class="phoneCheckBox" value="Phones" name="Phones">
-                                    @endif
-                                </label>
-                                <label class="form-check-label">
-                                    Tablets
-                                    @if(request()['Tablets'] !=null)
-                                    <input type="checkbox" class="phoneCheckBox" value="Tablets" name="Tablets"
-                                        checked="checked">
-                                    @else
-                                    <input type="checkbox" class="phoneCheckBox" value="Tablets" name="Tablets">
-                                    @endif
-                                </label>
+                                    <input type="checkbox" class="custom-control-input" id={{"customCheck".$brand->id}}
+                                        value="{{$brand->id}}" name="brand[]"
+                                        {{(request()['brand'] !=null && in_array($brand->id, request()['brand']) ? 'checked' : " ")}}>
+                                    <label class="custom-control-label" for={{"customCheck".$brand->id}}>
+                                        {{$brand->name}}
+                                    </label>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
-
-                        {{-- FINGERPRINT --}}
-                        <a href="#fingerprint" data-toggle="collapse" class="btn btn-secondary my-1">
-                            FingerPrint Scanner
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                        <div id="fingerprint" class="collapse">
-                            @foreach($fingers as $finger)
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    {{$finger->value}}
-                                    @if(request()['fingerprint'] !=null && in_array($finger->id,
-                                    request()['fingerprint']))
-                                    <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}"
-                                        name="fingerprint[]" checked="checked">
-                                    @else
-                                    <input type="checkbox" class="fingerprintCheckbox" value="{{$finger->id}}"
-                                        name="fingerprint[]">
-                                    @endif
-                                </label>
-                            </div>
-                            @endforeach
-                        </div>
-
-                        {{-- WATERRES --}}
-                        <a href="#waterres" data-toggle="collapse" class="btn btn-secondary my-1">
-                            Water Resistance
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                        <div id="waterres" class="collapse">
-                            @foreach($water as $wr)
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    {{$wr->value}}
-                                    @if(request()['waterRes'] !=null && in_array($wr->id, request()['waterRes']))
-                                    <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}" name="waterRes[]"
-                                        checked="checked">
-                                    @else
-                                    <input type="checkbox" class="wrCheckbox" value="{{$wr->id}}" name="waterRes[]">
-                                    @endif
-                                </label>
-                            </div>
-                            @endforeach
-                        </div>
-
-                        {{-- RAM --}}
-                        <a href="#ram" data-toggle="collapse" class="btn btn-secondary my-1">
-                            RAM
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                        {{-- dont change min and max. value to search is 2^val--}}
-                        <div id="ram" class="collapse">
-                            <label for="ram">
-                                @if(request()['minRam'] != null)
-                                <a>Min RAM: </a> <a id="minRamLabel">{{pow(2, request()['minRam'])}}</a>GB
-                                <input type="range" min="1" max="5" class="custom-range" id="minRam" name="minRam"
-                                    value={{request()['minRam']}}>
-                                @else
-                                <a>Min Ram: </a> <a id="minRamLabel">2</a>GB
-                                <input type="range" min="1" max="5" class="custom-range" id="minRam" name="minRam"
-                                    value="1">
-                                @endif
-                            </label>
-                        </div>
-
-                        {{-- STORAGE --}}
-                        <a href="#storage" data-toggle="collapse" class="btn btn-secondary my-1">
-                            Storage
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                        {{-- dont change min and max. value to search is 2^val--}}
-                        <div id="storage" class="collapse">
-                            <label for="storage">
-                                @if(request()['minStorage'] != null)
-                                <a>Min storage: </a> <a id="minStorageLabel">{{pow(2, request()['minStorage'])}}</a>GB
-                                <input type="range" min="1" max="10" class="custom-range" id="minStorage"
-                                    name="minStorage" value={{request()['minStorage']}} step="1">
-                                @else
-                                <a>Min storage: </a> <a id="minStorageLabel">2</a>GB
-                                <input type="range" min="1" max="10" class="custom-range" id="minStorage"
-                                    name="minStorage" value="1" step="1">
-                                @endif
-                            </label>
-                        </div>
-
+                    </div>
+                    <div class="col-10">
                         {{-- submit and clear buttons--}}
                         <button class="btn btn-primary" type="submit" id="applyFilters" value="Apply Filters">
                             Apply Filters
@@ -231,29 +104,31 @@
                             Clear Filters
                         </a>
                     </div>
-                </nav>
-            </div>
-            <div class="col-8 col-sm-8 col-md-9 col-lg-10 col-xl-9" id="phone-grid-container">
-                <div class="row" id="phone-grid">
-                    @foreach($products as $product)
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">
-                        <div class="card text-center  vertical-align">
-                            <a href="{{ url('product/'.$product->id) }}">
-                                <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
-                                    alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title" value="{{$product->toJson()}}">{{$product->brand->name}}</h5>
-                                <h5 class="card-title-model">{{$product->model}}</h5>
-                                <a href="{{ url('product/'.$product->id) }}" class="btn btn-secondary w-75">See</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
                 </div>
-                {{$products->links()}}
             </div>
         </div>
+
+        <div class="col-12" id="phone-grid-container">
+            <div class="row" id="phone-grid">
+                @foreach($products as $product)
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">
+                    <div class="card text-center  vertical-align">
+                        <a href="{{ url('product/'.$product->id) }}">
+                            <img class="card-img-top" src="{{ asset('images/'.$product->images->first()->path) }}"
+                                alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title" value="{{$product->toJson()}}">{{$product->brand->name}}</h5>
+                            <h5 class="card-title-model">{{$product->model}}</h5>
+                            <a href="{{ url('product/'.$product->id) }}" class="btn btn-secondary w-75">See</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            {{$products->links()}}
+        </div>
+    </div>
 </form>
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/searchBar.js') }}"></script>

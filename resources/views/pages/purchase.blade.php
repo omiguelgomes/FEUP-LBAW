@@ -20,7 +20,6 @@
         </div>
     </div>
     <h5>{{"Purchase total: ".$purchase->val." €"}}</h5>
-    <!-- Add class 'active' to progress -->
     <div class="row d-flex">
         <div class="col-12">
             <ul id="progressbar" class="text-center" style="display: flex; justify-content: center;">
@@ -42,36 +41,33 @@
             </ul>
         </div>
     </div>
-    <div class="row justify-content-around top">
-        <div class="row d-flex icon-content"> <img class="icon" src="{{asset('images/order_shipped.png')}}">
-            <div class="d-flex flex-column">
-                <p class="font-weight-bold">Order<br>Shipped</p>
-            </div>
+    <div class="row justify-content-around w-100 mx-auto">
+        <div class="col-4 icon-content text-center">
+            <img class="icon" src="{{asset('images/order_shipped.png')}}">
+            <p class="font-weight-bold">Order<br>Shipped</p>
         </div>
-        <div class="row d-flex icon-content"> <img class="icon" src="{{asset('images/order_coming.png')}}">
-            <div class="d-flex flex-column">
-                <p class="font-weight-bold">Order<br>En Route</p>
-            </div>
+        <div class="col-4 icon-content text-center">
+            <img class="icon" src="{{asset('images/order_coming.png')}}">
+            <p class="font-weight-bold">Order<br>En Route</p>
         </div>
-        <div class="row d-flex icon-content"> <img class="icon" src="{{asset('images/order_arrived.png')}}">
-            <div class="d-flex flex-column">
-                <p class="font-weight-bold">Order<br>Arrived</p>
-            </div>
+        <div class="col-4 icon-content text-center">
+            <img class="icon" src="{{asset('images/order_arrived.png')}}">
+            <p class="font-weight-bold">Order<br>Arrived</p>
         </div>
     </div>
-    @foreach($purchase->products as $product)
-    <div class="container">
+    <div class="container mt-1">
         <div class="row justify-content-around">
-            <div class="card" style="width: 18rem;">
-                <div class="card-title text-center mt-1">
+            @foreach($purchase->products as $product)
+            <div class="card by-0 my-1" style="width: 18rem;">
+                <div class="card-title text-center">
                     <h4>{{$product->brand->name." ".$product->model}}</h4>
                 </div>
                 <img src="{{asset('images/'.$product->images->first()->path)}}" class="card-img-top"
                     alt="Product image">
             </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
 </div>
 
 @endsection

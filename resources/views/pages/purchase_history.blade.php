@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="image-grid-container p-2">
                     @foreach($purchase->products as $product)
-                    <img class="card-img-top" src="{{asset('images/'.$product->images->first()->path)}}"
+                    <img class="card-img-top p-1" src="{{asset('images/'.$product->images->first()->path)}}"
                         alt="Card image cap">
                     @endforeach
                 </div>

@@ -69,10 +69,10 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="{{url('search/filter')}}" method="GET"
                     enctype="multipart/form-data" autocomplete="off" style="position: relative;">
-                    <input class="form-control w-50" name="textSearch" id="navbarSearch" type="text"
+                    <input class="form-control w-75" name="textSearch" id="navbarSearch" type="text"
                         placeholder="Search">
                     <button class="btn btn-secondary" type="submit">Search</button>
-                    <div class="dropdown-menu" style="right: 100; left: auto;" id="dropdownResults">
+                    <div class="dropdown-menu" id="dropdownResults">
                         <div class="productGrid">
                         </div>
                     </div>

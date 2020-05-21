@@ -2,3 +2,11 @@
   position: absolute !important;
   left: 0 !important;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .productGrid img {
+    max-width: 100px;
+  }
+
+}

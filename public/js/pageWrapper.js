@@ -53,8 +53,15 @@ function getResultHandler() {
                         style = "width: 100%; height: auto;">
                         </div>
                         <div class = "col-6 my-auto">
-                            <a type="button" class="btn btn-primary" href="product/` + products[i].id + `">See</a>
-                        </div>
+                        <b>
+                            <h5>
+                                ` + products[i].price + `€
+                            </h5>
+                        </b>
+                        <a type = "button"
+                        class = "btn btn-primary"
+                        href = "product/` + products[i].id + `" > See </a>
+                         </div>
                     </div>
             </div>`;
     }

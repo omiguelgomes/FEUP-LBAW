@@ -7,15 +7,15 @@
     <form action="{{url('search/filter')}}" method="GET" enctype="multipart/form-data">
         <div class="btn-group w-100">
             <div class="col-4 px-1">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" value="Phones"
-                    name="Phones">Phones</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" value="phones"
+                    name="deviceType">Phones</button>
             </div>
             <div class="col-4 px-1">
                 <a type="button" class="btn btn-primary btn-lg btn-block" href="{{url('brands')}}">Brands</a>
             </div>
             <div class="col-4 px-1">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" value="Tablets"
-                    name="Tablets">Tablets</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" value="tablets"
+                    name="deviceType">Tablets</button>
             </div>
         </div>
     </form>

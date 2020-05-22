@@ -64,14 +64,29 @@ class AdminProfileController extends Controller
     public function destroyBrand($id)
     {
       $brand = Brand::find($id);
-      $brand->delete();
 
+      $products = $brand->products()->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a brand with associated products', 555);
+      }
+
+      $brand->delete();
       return $brand;
     }
 
     public function destroyCPU($id)
     {
       $cpu = CPU::find($id);
+
+      $products = Product::where('cpu_id', $cpu->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a CPU with associated products', 555);
+      }
+
       $cpu->delete();
 
       return $cpu;
@@ -80,6 +95,14 @@ class AdminProfileController extends Controller
     public function destroyRAM($id)
     {
       $ram = RAM::find($id);
+
+      $products = Product::where('ram_id', $ram->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a RAM module with associated products', 555);
+      }
+
       $ram->delete();
 
       return $ram;
@@ -88,25 +111,49 @@ class AdminProfileController extends Controller
     public function destroyWater($id)
     {
       $water = WaterRes::find($id);
+
+      $products = Product::where('waterproofing_id', $water->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a Water Resistance rating with associated products', 555);
+      }
+
       $water->delete();
 
-      return redirect()->to('admin');
+      return $water;
     }
 
     public function destroyOS($id)
     {
       $os = OS::find($id);
+
+      $products = Product::where('os_id', $os->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a OS rating with associated products', 555);
+      }
+
       $os->delete();
 
-      return redirect()->to('admin');
+      return $os;
     }
 
     public function destroyGPU($id)
     {
       $gpu = GPU::find($id);
+
+      $products = Product::where('gpu_id', $gpu->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a GPU with associated products', 555);
+      }
+
       $gpu->delete();
 
-      return redirect()->to('admin');
+      return $gpu;
     }
 
     public function destroyScreenSize($id)
@@ -218,29 +265,29 @@ class AdminProfileController extends Controller
     public function createWater(Request $request)
     {
         $water = new WaterRes();
-        $water->value = $request->inputName;
+        $water->value = $request->value;
         $water->save();
 
-        return redirect()->to('admin');
+        return $water;
     }
 
     public function createOS(Request $request)
     {
         $os = new OS();
-        $os->name = $request->inputName;
+        $os->name = $request->value;
         $os->save();
 
-        return redirect()->to('admin');
+        return $os;
     }
 
     public function createGPU(Request $request)
     {
         $gpu = new GPU();
-        $gpu->name = $request->inputName;
-        $gpu->vram = $request->inputVram;
+        $gpu->name = $request->value;
+        $gpu->vram = $request->vram;
         $gpu->save();
 
-        return redirect()->to('admin');
+        return $gpu;
     }
 
     public function createScreenSize(Request $request)
@@ -249,7 +296,7 @@ class AdminProfileController extends Controller
         $ss->value = $request->inputName;
         $ss->save();
 
-        return redirect()->to('admin');
+        return $ss;
     }
 
     public function createWeight(Request $request)
@@ -258,7 +305,7 @@ class AdminProfileController extends Controller
         $item->value = $request->inputName;
         $item->save();
 
-        return redirect()->to('admin');
+        return $item;
     }
 
     public function createStorage(Request $request)
@@ -267,7 +314,7 @@ class AdminProfileController extends Controller
         $item->value = $request->inputName;
         $item->save();
 
-        return redirect()->to('admin');
+        return $item;
     }
 
     public function createBattery(Request $request)
@@ -276,7 +323,7 @@ class AdminProfileController extends Controller
         $item->value = $request->inputName;
         $item->save();
 
-        return redirect()->to('admin');
+        return $item;
     }
 
     public function createScreenRes(Request $request)
@@ -285,7 +332,7 @@ class AdminProfileController extends Controller
         $item->value = $request->inputName;
         $item->save();
 
-        return redirect()->to('admin');
+        return $item;
     }
 
 
@@ -295,7 +342,7 @@ class AdminProfileController extends Controller
         $item->value = $request->inputName;
         $item->save();
 
-        return redirect()->to('admin');
+        return $item;
     }
 
     public function createFinger(Request $request)
@@ -304,7 +351,7 @@ class AdminProfileController extends Controller
         $item->value = $request->inputName;
         $item->save();
 
-        return redirect()->to('admin');
+        return $item;
     }
 
     public function showProductCreateForm()

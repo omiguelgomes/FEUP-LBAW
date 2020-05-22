@@ -67,16 +67,16 @@ Route::get('admin', 'AdminProfileController@show');
 Route::delete('admin/brands/delete/{id}', 'AdminProfileController@destroyBrand');
 Route::delete('admin/cpu/delete/{id}', 'AdminProfileController@destroyCPU');
 Route::delete('admin/ram/delete/{id}', 'AdminProfileController@destroyRAM');
-Route::get('admin/water/delete/{id}', 'AdminProfileController@destroyWater');
-Route::get('admin/os/delete/{id}', 'AdminProfileController@destroyOS');
-Route::get('admin/gpu/delete/{id}', 'AdminProfileController@destroyGPU');
-Route::get('admin/screensize/delete/{id}', 'AdminProfileController@destroyScreenSize');
-Route::get('admin/weight/delete/{id}', 'AdminProfileController@destroyWeight');
-Route::get('admin/storage/delete/{id}', 'AdminProfileController@destroyStorage');
-Route::get('admin/battery/delete/{id}', 'AdminProfileController@destroyBattery');
-Route::get('admin/screenres/delete/{id}', 'AdminProfileController@destroyScreenRes');
-Route::get('admin/cam/delete/{id}', 'AdminProfileController@destroyCam');
-Route::get('admin/finger/delete/{id}', 'AdminProfileController@destroyFinger');
+Route::delete('admin/water/delete/{id}', 'AdminProfileController@destroyWater');
+Route::delete('admin/os/delete/{id}', 'AdminProfileController@destroyOS');
+Route::delete('admin/gpu/delete/{id}', 'AdminProfileController@destroyGPU');
+Route::delete('admin/screensize/delete/{id}', 'AdminProfileController@destroyScreenSize');
+Route::delete('admin/weight/delete/{id}', 'AdminProfileController@destroyWeight');
+Route::delete('admin/storage/delete/{id}', 'AdminProfileController@destroyStorage');
+Route::delete('admin/battery/delete/{id}', 'AdminProfileController@destroyBattery');
+Route::delete('admin/screenres/delete/{id}', 'AdminProfileController@destroyScreenRes');
+Route::delete('admin/cam/delete/{id}', 'AdminProfileController@destroyCam');
+Route::delete('admin/finger/delete/{id}', 'AdminProfileController@destroyFinger');
 
 //Create stuff
 Route::post('admin/brands/add', 'AdminProfileController@createBrand')->name('create_brand');

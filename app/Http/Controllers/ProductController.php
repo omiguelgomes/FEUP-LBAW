@@ -24,7 +24,6 @@ class ProductController extends Controller
     } else {
       $canRate = Auth::user()->hasBought($product->id) && (!Auth::user()->hasReviewed($id));
     }
-
     return view('pages.product')->with(['product' => $product, 'canRate' => $canRate]);
   }
 
@@ -131,6 +130,7 @@ class ProductController extends Controller
 
     return json_encode([
       'user_image_path' => Auth::user()->image->path,
+      'user_name' => Auth::user()->name,
       'product_id' => $id,
       'content' => $request->content,
       'val' => $request->val

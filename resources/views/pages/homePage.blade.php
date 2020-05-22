@@ -22,7 +22,7 @@
 </div>
 {{-- carousel --}}
 <div class="row-12 w-100">
-    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="60000">
+    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
         <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>

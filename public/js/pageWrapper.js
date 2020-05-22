@@ -60,7 +60,7 @@ function getResultHandler() {
                         </b>
                         <a type = "button"
                         class = "btn btn-primary"
-                        href = "product/` + products[i].id + `" > See </a>
+                        href = "/product/` + products[i].id + `" > See </a>
                          </div>
                     </div>
             </div>`;

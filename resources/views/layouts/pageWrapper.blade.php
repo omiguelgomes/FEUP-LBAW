@@ -25,7 +25,6 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <link rel="stylesheet" href="{{ asset('/css/new.css') }}"> --}}
     <link href="{{ asset('css/pageWrapper.css') }}" rel="stylesheet">
     <link href={{ asset("css/bootstrap.min.css") }} rel="stylesheet" />
 </head>
@@ -33,7 +32,7 @@
 <body>
     <div class="allButFooter">
         {{-- website name --}}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('/images/uPlaceHolder.png') }}" width="30" height="30" alt="">
                 Phone

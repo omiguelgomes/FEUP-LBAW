@@ -66,7 +66,7 @@
                         {{$product->description->content}}
                     </p>
                 </div>
-                <div class="col-12 text-center">
+                <div class="col-12 text-center px-0">
                     {{-- price --}}
                     <h2><b>{{$product->price}}€
                             @if(count($product->discounts) > 0)
@@ -74,14 +74,14 @@
                             @endif
                         </b></h2>
                     {{-- cart wishlist buttons --}}
-                    <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary rounded">
+                    <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary rounded my-3">
                         Add to Cart
+                        <i class="fas fa-shopping-cart fa-lg"></i>
                     </a>
-                    <i class="fas fa-shopping-cart fa-lg"></i>
-                    <a href="{{ url('/product/'.$product->id.'/wishlist') }}" class="btn btn-primary rounded ml-2">
+                    <a href="{{ url('/product/'.$product->id.'/wishlist') }}" class="btn btn-primary rounded ml-2 my-3">
                         Add to Wishlist
+                        <i class="fas fa-heart fa-lg"></i>
                     </a>
-                    <i class="fas fa-heart fa-lg"></i>
                 </div>
             </div>
         </div>
@@ -89,15 +89,15 @@
 
 
         {{-- comments and specs --}}
-        <div class="col-10 mx-auto my-3">
+        <div class="col-11 mx-auto my-3">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item w-50">
-                    <a class="nav-link active text-center" id="home-tab" data-toggle="tab" href="#comments" role="tab"
-                        aria-controls="home">Comments</a>
+                    <a class="nav-link active p-2 text-center" id="home-tab" data-toggle="tab" href="#comments"
+                        role="tab" aria-controls="home">Comments</a>
                 </li>
                 <li class="nav-item w-50">
-                    <a class="nav-link text-center" id="specs-tab" data-toggle="tab" href="#specs" role="tab"
-                        aria-controls="contact">Specifications</a>
+                    <a class="nav-link text-center p-2 text-center" id="specs-tab" data-toggle="tab" href="#specs"
+                        role="tab" aria-controls="contact">Specifications</a>
                 </li>
             </ul>
             <div class="tab-content py-5" id="myTabContent">
@@ -145,14 +145,18 @@
                                         <i class="fas fa-star"></i>
                                     </strong>
                                 </div>
-                                <div class="toast-body">
-                                    <a class="text-center">
-                                        <img src="{{ asset('/images/'.$rating->user->image->path) }}"
-                                            style="max-height: 100px;">
-                                        <a class="mx-1">
-                                            {{$rating->user->name.": ".$rating->content}}
-                                        </a>
-                                    </a>
+                                <div class="toast-body p-1">
+                                    <div class="row">
+                                        <div class="col-4 mr-2 h-100">
+                                            <img src="{{ asset('/images/'.$rating->user->image->path) }}"
+                                                style="max-height: 100px;">
+                                        </div>
+                                        <div class="col-7 h-100">
+                                            <p>
+                                                {{$rating->user->name.": ".$rating->content}}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             @endforeach

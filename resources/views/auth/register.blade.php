@@ -11,7 +11,7 @@
       <form method="POST" action="{{ route('register') }}">
         {{ csrf_field() }}
         <div class="row my-1">
-          <div class="form-group col">
+          <div class="form-group col-12">
 
             {{-- name  --}}
             @if ($errors->has('name'))
@@ -77,14 +77,15 @@
               <input class="form-control" id="password-confirm" name="password_confirmation"
                 placeholder="Repeat password" type="password" required>
             </div>
-
-            <button class="btn btn-dark mr-2" type="submit">
-              Register
-            </button>
-            <a class="btn btn-dark" href="{{ route('login') }}">Login</a>
+          </div>
+          <button class="btn btn-dark ml-4" type="submit">
+            Register
+          </button>
+          <div class="col-12 mt-4">
+            Already have an account?
+            <a href="{{ route('login') }}">Login</a>
           </div>
         </div>
-
       </form>
 
   </div>

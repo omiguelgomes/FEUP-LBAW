@@ -75,8 +75,10 @@
                 <div class="card-title text-center">
                     <h4>{{$product->brand->name." ".$product->model}}</h4>
                 </div>
-                <img src="{{asset('images/'.$product->images->first()->path)}}" class="card-img-top"
-                    alt="Product image">
+                <a href="{{asset('/product/'.$product->id)}}">
+                    <img src="{{asset('images/'.$product->images->first()->path)}}" class="card-img-top"
+                        alt="Product image">
+                </a>
             </div>
             @endforeach
         </div>

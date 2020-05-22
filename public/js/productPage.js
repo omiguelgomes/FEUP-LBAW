@@ -66,18 +66,27 @@ function reviewCreateHandler() {
         var jsonResponse = JSON.parse(this.responseText);
 
         document.getElementsByClassName("commentContainer")[0].innerHTML =
-            `<div class="container py-3">
-            <div class="media">
-                <img src="/images/` + jsonResponse.user_image_path + `"
-                    class="align-self-start mr-3" style="max-height: 100px;">
-                    <div class="media-body">
-                        <h5 class = "mt-0"> ` + jsonResponse.val + ` / 5
+            `  <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="mr-auto">
+                            ` + jsonResponse.val + `
                             <i class="fas fa-star"></i>
-                        </h5>
-                        <p>` + jsonResponse.content + `</p>
+                        </strong>
                     </div>
-            </div>
-        </div>` + document.getElementsByClassName("commentContainer")[0].innerHTML;
+                    <div class="toast-body p-1">
+                        <div class="row">
+                            <div class="col-4 mr-2 h-100">
+                                <img src= "/images/` + jsonResponse.user_image_path + `"
+                                    style="max-height: 100px;">
+                            </div>
+                            <div class="col-7 h-100">
+                                <p>
+                                ` + jsonResponse.user_name + ` : ` + jsonResponse.content + `
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>` + document.getElementsByClassName("commentContainer")[0].innerHTML;
 
         document.getElementById("addComment").style.display = "none";
 

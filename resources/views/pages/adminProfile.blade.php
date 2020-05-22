@@ -136,13 +136,14 @@
                 </thead>
                 <tbody>
                     @foreach($orders as $order)
+                    @if ($order->user->id != 1)
                     <tr class="clickable">
                         <td>Order #{{$order->id}}</td>
                         <td>{{$order->user->email}}</td>
                         <td>{{$order->purchasedate}}</td>
                         <td>
                             <div class="input-group mb-3">
-                                <select class="custom-select" id="order-{{$order->id}}">
+                                <select class="purchaseUpdater custom-select" id="order-{{$order->id}}">
                                     <option value="Awaiting Payment" <?php echo ($order->status->pstate == 'Awaiting Payment') ? "selected":""; ?> >
                                         Awaiting Payment
                                     </option>
@@ -161,12 +162,8 @@
                                 </select>
                             </div>
                         </td>
-                        <td>
-                            <div class="ml-auto p-2">
-                                <a class="purchaseUpdater thumbnail" value='{{$order->id}}'><i class="fas fa-pencil-alt fa-2x ml-2"></i></button>
-                            </div>
-                        </td>
                     </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>
@@ -204,8 +201,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Stock</th>
-                            <th>Remove</th>
+                            <th>Current Stock</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -228,13 +224,9 @@
                                     </div>
                                     <div class="form-row p-2">
                                         <button class="btn btn-primary" type="submit"><i
-                                                class="fas fa-plus"></i></button>
+                                                class="fas fa-check text-success"></i></button>
                                     </div>
                                 </form>
-                            </td>
-                            <td><a value='{{$item->id}}' class="productDelete thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
-                                </a>
                             </td>
                         </tr>
                         @endforeach

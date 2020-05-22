@@ -12,6 +12,13 @@
 <script type="text/javascript" src="{{ URL::asset('js/Specs/watresrat.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/os.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/gpu.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/screensize.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/weight.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/storage.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/battery.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/screenres.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/camres.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/finger.js') }}" defer></script>
 
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
@@ -748,12 +755,12 @@
 
         <div class="collapse" id="tabelSSize">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_screensize') }}"
+                <form class="ssForm form-inline" method="POST" action="{{ route('create_screensize') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="number" step="0.01" name="inputName" class="form-control"
+                            <input id="inputName" type="number" step="0.01" name="inputSSName" class="form-control"
                                 placeholder="Size" required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -782,13 +789,13 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="ssTableBody">
                         @foreach($screen as $id => $name)
-                        <tr>
+                        <tr class="ss" id='ss-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/screensize/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
-                                </a> </td>
+                            <td><a value="{{$id}}" class="ssDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
+                                </a>  </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -810,12 +817,12 @@
 
         <div class="collapse" id="tabelWeight">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_weight') }}"
+                <form class="wgForm form-inline" method="POST" action="{{ route('create_weight') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="number" step="0.01" name="inputName" class="form-control"
+                            <input id="inputName" type="number" step="0.01" name="inputWgName" class="form-control"
                                 placeholder="Size" required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -844,12 +851,12 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="wgTableBody">
                         @foreach($weight as $id => $name)
-                        <tr>
+                        <tr class="wg" id='wg-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/weight/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <td><a value="{{$id}}" class="wgDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -872,12 +879,12 @@
 
         <div class="collapse" id="tabelStorage">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_storage') }}"
+                <form class="stForm form-inline" method="POST" action="{{ route('create_storage') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size"
+                            <input id="inputName" type="number" name="inputStName" class="form-control" placeholder="Size"
                                 required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -906,13 +913,13 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="stTableBody">
                         @foreach($storage as $id => $name)
-                        <tr>
+                        <tr class="st" id='st-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/storage/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
-                                </a> </td>
+                            <td><a value="{{$id}}" class="stDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
+                                </a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -934,12 +941,12 @@
 
         <div class="collapse" id="tabelBattery">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_battery') }}"
+                <form class="btForm form-inline" method="POST" action="{{ route('create_battery') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="number" name="inputName" class="form-control" placeholder="Size"
+                            <input id="inputName" type="number" name="inputBtName" class="form-control" placeholder="Size"
                                 required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -968,12 +975,12 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="btTableBody">
                         @foreach($battery as $id => $name)
-                        <tr>
+                        <tr class="bt" id='bt-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/battery/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <td><a value="{{$id}}" class="btDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -996,12 +1003,12 @@
 
         <div class="collapse" id="tabelScreenRes">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_screenres') }}"
+                <form class="resForm form-inline" method="POST" action="{{ route('create_screenres') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Value"
+                            <input id="inputName" type="text" name="inputResName" class="form-control" placeholder="Value"
                                 required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -1030,12 +1037,12 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="resTableBody">
                         @foreach($screenRes as $id => $name)
-                        <tr>
+                        <tr class="res" id='res-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/screenres/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <td><a value="{{$id}}" class="resDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -1058,12 +1065,12 @@
 
         <div class="collapse" id="tabelCamRes">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_cam') }}"
+                <form class="camForm form-inline" method="POST" action="{{ route('create_cam') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="number" name="inputName" class="form-control"
+                            <input id="inputName" type="number" name="inputCamName" class="form-control"
                                 placeholder="Value" required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -1092,12 +1099,12 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="camTableBody">
                         @foreach($cams as $id => $name)
-                        <tr>
+                        <tr class="cam" id='cam-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/cam/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <td><a value="{{$id}}" class="camDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -1120,12 +1127,12 @@
 
         <div class="collapse" id="tabelFinger">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_finger') }}"
+                <form class="fingerForm form-inline" method="POST" action="{{ route('create_finger') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Type"
+                            <input id="inputName" type="text" name="inputFingerName" class="form-control" placeholder="Type"
                                 required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -1154,13 +1161,13 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="fingerTableBody">
                         @foreach($fingers as $id => $name)
-                        <tr>
+                        <tr class="finger" id='finger-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/finger/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
-                                </a> </td>
+                            <td><a value="{{$id}}" class="fingerDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
+                                </a>  </td>
                         </tr>
                         @endforeach
                     </tbody>

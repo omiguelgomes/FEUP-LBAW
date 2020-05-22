@@ -159,58 +159,114 @@ class AdminProfileController extends Controller
     public function destroyScreenSize($id)
     {
       $screen = ScreenSize::find($id);
+
+      $products = Product::where('screensize_id', $screen->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a screen size with associated products', 555);
+      }
+
       $screen->delete();
 
-      return redirect()->to('admin');
+      return $screen;
     }
 
     public function destroyWeight($id)
     {
       $w = Weight::find($id);
+
+      $products = Product::where('weight_id', $w->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a weight with associated products', 555);
+      }
+
       $w->delete();
 
-      return redirect()->to('admin');
+      return  $w;
     }
 
     public function destroyStorage($id)
     {
       $st = Storage::find($id);
+
+      $products = Product::where('storage_id', $st->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a storage with associated products', 555);
+      }
+
       $st->delete();
 
-      return redirect()->to('admin');
+      return $st;
     }
 
     public function destroyBattery($id)
     {
       $bat = Battery::find($id);
+
+      $products = Product::where('battery_id', $bat->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a storage with associated products', 555);
+      }
+
       $bat->delete();
 
-      return redirect()->to('admin');
+      return $bat;
     }
 
     public function destroyScreenRes($id)
     {
       $screen = ScreenRes::find($id);
+
+      $products = Product::where('screenres_id', $screen->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a resolution with associated products', 555);
+      }
+
       $screen->delete();
 
-      return redirect()->to('admin');
+      return $screen;
     }
 
 
     public function destroyCam($id)
     {
       $cam = CamRes::find($id);
+
+      $products = Product::where('camerares_id', $cam->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a camera resolution with associated products', 555);
+      }
+
       $cam->delete();
 
-      return redirect()->to('admin');
+      return $cam;
     }
 
     public function destroyFinger($id)
     {
       $finger = FingerPrintType::find($id);
+
+      $products = Product::where('fingerprinttype_id', $finger->id)->get();
+      $count = $products->count();
+
+      if($count > 0) {
+        return response('Cannot delete a fingerprint type with associated products', 555);
+      }
+
       $finger->delete();
 
-      return redirect()->to('admin');
+      return $finger;
     }
 
     public function createBrand(Request $request)
@@ -293,7 +349,7 @@ class AdminProfileController extends Controller
     public function createScreenSize(Request $request)
     {
         $ss = new ScreenSize();
-        $ss->value = $request->inputName;
+        $ss->value = $request->value;
         $ss->save();
 
         return $ss;
@@ -302,7 +358,7 @@ class AdminProfileController extends Controller
     public function createWeight(Request $request)
     {
         $item = new Weight();
-        $item->value = $request->inputName;
+        $item->value = $request->value;
         $item->save();
 
         return $item;
@@ -311,7 +367,7 @@ class AdminProfileController extends Controller
     public function createStorage(Request $request)
     {
         $item = new Storage();
-        $item->value = $request->inputName;
+        $item->value = $request->value;
         $item->save();
 
         return $item;
@@ -320,7 +376,7 @@ class AdminProfileController extends Controller
     public function createBattery(Request $request)
     {
         $item = new Battery();
-        $item->value = $request->inputName;
+        $item->value = $request->value;
         $item->save();
 
         return $item;
@@ -329,7 +385,7 @@ class AdminProfileController extends Controller
     public function createScreenRes(Request $request)
     {
         $item = new ScreenRes();
-        $item->value = $request->inputName;
+        $item->value = $request->value;
         $item->save();
 
         return $item;
@@ -339,7 +395,7 @@ class AdminProfileController extends Controller
     public function createCam(Request $request)
     {
         $item = new CamRes();
-        $item->value = $request->inputName;
+        $item->value = $request->value;
         $item->save();
 
         return $item;
@@ -348,7 +404,7 @@ class AdminProfileController extends Controller
     public function createFinger(Request $request)
     {
         $item = new FingerPrintType();
-        $item->value = $request->inputName;
+        $item->value = $request->value;
         $item->save();
 
         return $item;

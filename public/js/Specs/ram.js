@@ -1,101 +1,113 @@
 $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
+  headers: {
+    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+  },
 });
 
-
 function addEventListeners() {
-    let ramCreators = document.getElementsByClassName("ramForm");
-    [].forEach.call(ramCreators, function (creator) {
-        creator.addEventListener('submit', sendRAMCreateRequest);
-    });
+  let ramCreators = document.getElementsByClassName("ramForm");
+  [].forEach.call(ramCreators, function (creator) {
+    creator.addEventListener("submit", sendRAMCreateRequest);
+  });
 
-    let ramDeleters = document.getElementsByClassName("ramDelete");
-    [].forEach.call(ramDeleters, function (deleter) {
-        deleter.addEventListener('click', sendRAMDeleteRequest);
-    });
+  let ramDeleters = document.getElementsByClassName("ramDelete");
+  [].forEach.call(ramDeleters, function (deleter) {
+    deleter.addEventListener("click", sendRAMDeleteRequest);
+  });
 }
 
 function encodeForAjax(data) {
-    if (data == null) return null;
-    return Object.keys(data).map(function (k) {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    }).join('&');
+  if (data == null) return null;
+  return Object.keys(data)
+    .map(function (k) {
+      return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+    })
+    .join("&");
 }
 
 function sendAjaxRequest(method, url, data, handler) {
-    let request = new XMLHttpRequest();
+  let request = new XMLHttpRequest();
 
-    request.open(method, url, true);
-    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.addEventListener('load', handler);
-    request.send(encodeForAjax(data));
+  request.open(method, url, true);
+  request.setRequestHeader(
+    "X-CSRF-TOKEN",
+    document.querySelector('meta[name="csrf-token"]').content
+  );
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  request.addEventListener("load", handler);
+  request.send(encodeForAjax(data));
 }
 
-
 function sendRAMCreateRequest(event) {
-    event.preventDefault();
-    let value = this.querySelector('input[name=inputRAMName]').value;
+  event.preventDefault();
+  let value = this.querySelector("input[name=inputRAMName]").value;
 
-    sendAjaxRequest('post', 'admin/ram/add', {
-        value: value
-    }, ramCreateHandler);
+  sendAjaxRequest(
+    "post",
+    "admin/ram/add",
+    {
+      value: value,
+    },
+    ramCreateHandler
+  );
 }
 
 function sendRAMDeleteRequest(event) {
-    event.preventDefault();
-    let id = this.getAttribute("value");
+  event.preventDefault();
+  let id = this.getAttribute("value");
 
-    sendAjaxRequest('delete', 'admin/ram/delete/' + id, null, ramDeleteHandler);
+  if (confirm("Are you sure you want to delete this RAM?"))
+    sendAjaxRequest("delete", "admin/ram/delete/" + id, null, ramDeleteHandler);
 }
 
 function ramCreateHandler() {
-    if (this.status != 201) {
-        window.location = '/admin';
-        alert("Failed to create RAM :'(");
-    }
+  if (this.status != 201) {
+    window.location = "/admin";
+    alert("Failed to create RAM :'(");
+  }
 
-    //controller function to create brand returns the elem it created in a JSON
-    let ram = JSON.parse(this.responseText);
+  //controller function to create brand returns the elem it created in a JSON
+  let ram = JSON.parse(this.responseText);
 
-    //create the html for the brand and put new brand item in top
-    let new_ram = createRAM(ram);
-    let table = document.querySelector('tbody.ramTableBody');
-    table.prepend(new_ram);
+  //create the html for the brand and put new brand item in top
+  let new_ram = createRAM(ram);
+  let table = document.querySelector("tbody.ramTableBody");
+  table.prepend(new_ram);
 
-    //clean form fields
-    let value = document.querySelector('input[name=inputRAMName]').value;
-    value = "";
+  //clean form fields
+  let value = document.querySelector("input[name=inputRAMName]").value;
+  value = "";
 }
 
 function ramDeleteHandler() {
-    if (this.status != 200) {
-        window.location = '/admin';
-        alert("Failed to delete RAM :'(");
-    }
+  if (this.status == 555) {
+    alert(this.responseText);
+  } else if (this.status != 200) {
+    window.location = "/admin";
+    alert("Failed to delete RAM :'(");
+  }
 
-    let ram = JSON.parse(this.responseText);
-    let element = document.getElementById('ram-' + ram.id);
-    element.remove();
+  let ram = JSON.parse(this.responseText);
+  let element = document.getElementById("ram-" + ram.id);
+  element.remove();
 }
 
 function createRAM(ram) {
-    let new_ram = document.createElement('tr');
-    new_ram.classList.add('ram');
-    new_ram.setAttribute('id', 'ram-' + ram.id);
-    new_ram.innerHTML =
-        `
+  let new_ram = document.createElement("tr");
+  new_ram.classList.add("ram");
+  new_ram.setAttribute("id", "ram-" + ram.id);
+  new_ram.innerHTML = `
     <td>${ram.value}</td>
         <td><a value="${ram.id}" class="ramDelete thumbnail">
             <i class="far fa-times-circle fa-2x ml-4"></i>
     </a> </td>
     `;
 
-    new_ram.querySelector('a.ramDelete').addEventListener('click', sendRAMDeleteRequest);
+  new_ram
+    .querySelector("a.ramDelete")
+    .addEventListener("click", sendRAMDeleteRequest);
 
-    return new_ram;
+  return new_ram;
 }
 
 addEventListeners();

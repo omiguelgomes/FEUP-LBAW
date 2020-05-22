@@ -9,6 +9,9 @@
 <script type="text/javascript" src="{{ URL::asset('js/brands.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/cpu.js') }}" defer></script>
 <script type="text/javascript" src="{{ URL::asset('js/Specs/ram.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/watresrat.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/os.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/gpu.js') }}" defer></script>
 
 @include('partials.jumboTitle',['title' => 'Admin Page'])
 
@@ -375,7 +378,7 @@
                         <tr class="brand" id='brand-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="brandDelete thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -467,7 +470,7 @@
                         <tr class="cpu" id='cpu-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="cpuDelete thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -528,7 +531,7 @@
                         <tr class="ram" id='ram-{{$id}}'>
                             <td>{{$name}}</td>
                             <td><a value="{{$id}}" class="ramDelete thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach
@@ -551,12 +554,12 @@
 
         <div class="collapse" id="tabelWater">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_water') }}"
+                <form class="waterForm form-inline" method="POST" action="{{ route('create_water') }}"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Rating"
+                            <input id="inputName" type="text" name="inputWaterName" class="form-control" placeholder="Rating"
                                 required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -585,13 +588,13 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="waterTableBody">
                         @foreach($water as $id => $name)
-                        <tr>
+                        <tr class="water" id='water-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/water/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
-                                </a> </td>
+                            <td><a value="{{$id}}" class="waterDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
+                                </a>  </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -599,7 +602,7 @@
             </div>
         </div>
 
-        <!-- Water -->
+        <!-- OS -->
         <div class="d-flex p-3 mb-2 bg-light text-dark">
             <div class="p-2">
                 <h4>Operating Systems</h4>
@@ -613,11 +616,11 @@
 
         <div class="collapse" id="tabelOS">
             <div class="row-form">
-                <form class="form-inline" method="POST" action="{{ route('create_os') }}" enctype="multipart/form-data">
+                <form class="osForm form-inline" method="POST" action="{{ route('create_os') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="text" name="inputName" class="form-control"
+                            <input id="inputName" type="text" name="inputOsName" class="form-control"
                                 placeholder="Operating System" required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -646,13 +649,13 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="osTableBody">
                         @foreach($os as $id => $name)
-                        <tr>
+                        <tr class="os" id='os-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/os/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
-                                </a> </td>
+                            <td><a value="{{$id}}" class="osDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
+                                </a>  </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -674,11 +677,11 @@
 
         <div class="collapse" id="tabelGPU">
             <div class="row-form">
-                <form class="form" method="POST" action="{{ route('create_gpu') }}" enctype="multipart/form-data">
+                <form class="gpuForm form" method="POST" action="{{ route('create_gpu') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="inputName" type="text" name="inputName" class="form-control" placeholder="Name"
+                            <input id="inputName" type="text" name="inputGPUName" class="form-control" placeholder="Name"
                                 required autofocus>
                             @if ($errors->has('inputName'))
                             <span class="error">
@@ -717,12 +720,12 @@
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="gpuTableBody">
                         @foreach($gpu as $id => $name)
-                        <tr>
+                        <tr class="gpu" id='gpu-{{$id}}'>
                             <td>{{$name}}</td>
-                            <td><a href="{{ url('admin/gpu/delete/'.$id) }}" class="thumbnail">
-                                    <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <td><a value="{{$id}}" class="gpuDelete thumbnail">
+                                    <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                                 </a> </td>
                         </tr>
                         @endforeach

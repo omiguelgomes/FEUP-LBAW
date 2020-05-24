@@ -1,4 +1,4 @@
-function addEventListeners() {
+function addBrandEventListeners() {
   // let brandCreator = document.getElementsByClassName("brandForm");
   // [].forEach.call(brandCreator, function(creator) {
   //     creator.addEventListener('submit', sendBrandCreateRequest);
@@ -41,8 +41,7 @@ function sendBrandCreateRequest(event) {
   console.log(data.get("inputBrandFile"));
   sendAjaxRequest(
     "post",
-    "admin/brands/add",
-    {
+    "admin/brands/add", {
       inputBrandName: data.get("inputBrandName"),
       inputBrandFile: file,
     },
@@ -117,5 +116,3 @@ function createBrand(brand) {
 
   return new_item;
 }
-
-addEventListeners();

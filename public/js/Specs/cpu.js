@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addCPUEventListeners() {
   let cpuCreators = document.getElementsByClassName("cpuForm");
   [].forEach.call(cpuCreators, function (creator) {
     creator.addEventListener("submit", sendCPUCreateRequest);
@@ -47,8 +47,7 @@ function sendCPUCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/cpu/add",
-    {
+    "admin/cpu/add", {
       name: name,
       freq: freq,
       cores: cores,
@@ -111,9 +110,8 @@ function createCPU(cpu) {
   new_cpu.innerHTML = `
     <td>${cpu.name}</td>
         <td><a value="${cpu.id}" class="cpuDelete thumbnail">
-            <i class="far fa-times-circle fa-2x ml-4"></i>
-    </a> </td>
-    `;
+            <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
+    </a> </td>`;
 
   new_cpu
     .querySelector("a.cpuDelete")
@@ -121,5 +119,3 @@ function createCPU(cpu) {
 
   return new_cpu;
 }
-
-addEventListeners();

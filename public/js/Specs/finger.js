@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addFingerprintEventListeners() {
   let creators = document.getElementsByClassName("fingerForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendItemCreateRequest);
@@ -44,8 +44,7 @@ function sendItemCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/finger/add",
-    {
+    "admin/finger/add", {
       value: value,
     },
     itemCreateHandler
@@ -110,5 +109,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

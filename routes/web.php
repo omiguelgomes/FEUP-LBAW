@@ -19,6 +19,8 @@ Route::post('register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
+Route::get('test', 'AdminProfileController@test')->name('test');
+
 //Page to go to by default + home
 Route::get('/', 'HomeController@show');
 Route::get('home', 'HomeController@show')->name('home');

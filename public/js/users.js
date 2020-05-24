@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addUserEventListeners() {
   let userPromoters = document.getElementsByClassName("userPromoter");
   [].forEach.call(userPromoters, function (promoter) {
     promoter.addEventListener("click", sendUserPromoteRequest);
@@ -163,4 +163,4 @@ function placeAdmin(admin) {
   return new_admin;
 }
 
-addEventListeners();
+addUserEventListeners();

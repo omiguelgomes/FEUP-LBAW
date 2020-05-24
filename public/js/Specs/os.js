@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addOSEventListeners() {
   let creators = document.getElementsByClassName("osForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendItemCreateRequest);
@@ -41,11 +41,10 @@ function sendAjaxRequest(method, url, data, handler) {
 function sendItemCreateRequest(event) {
   event.preventDefault();
   let value = this.querySelector("input[name=inputOsName]").value;
-
+  console.log(value);
   sendAjaxRequest(
     "post",
-    "admin/os/add",
-    {
+    "admin/os/add", {
       value: value,
     },
     itemCreateHandler
@@ -105,5 +104,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

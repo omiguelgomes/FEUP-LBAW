@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addWaterEventListeners() {
   let creators = document.getElementsByClassName("waterForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendWaterCreateRequest);
@@ -44,8 +44,7 @@ function sendWaterCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/water/add",
-    {
+    "admin/water/add", {
       value: value,
     },
     waterCreateHandler
@@ -110,5 +109,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

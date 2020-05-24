@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addRAMEventListeners() {
   let ramCreators = document.getElementsByClassName("ramForm");
   [].forEach.call(ramCreators, function (creator) {
     creator.addEventListener("submit", sendRAMCreateRequest);
@@ -44,8 +44,7 @@ function sendRAMCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/ram/add",
-    {
+    "admin/ram/add", {
       value: value,
     },
     ramCreateHandler
@@ -99,7 +98,7 @@ function createRAM(ram) {
   new_ram.innerHTML = `
     <td>${ram.value}</td>
         <td><a value="${ram.id}" class="ramDelete thumbnail">
-            <i class="far fa-times-circle fa-2x ml-4"></i>
+            <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
     </a> </td>
     `;
 
@@ -109,5 +108,3 @@ function createRAM(ram) {
 
   return new_ram;
 }
-
-addEventListeners();

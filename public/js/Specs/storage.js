@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addStorageEventListeners() {
   let creators = document.getElementsByClassName("stForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendItemCreateRequest);
@@ -44,8 +44,7 @@ function sendItemCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/storage/add",
-    {
+    "admin/storage/add", {
       value: value,
     },
     itemCreateHandler
@@ -110,5 +109,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

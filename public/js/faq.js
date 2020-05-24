@@ -4,7 +4,7 @@ $.ajaxSetup({
     }
 });
 
-function addEventListeners() {
+function addFaqEventListeners() {
     let faqUpdaters = document.getElementsByClassName("faqUpdate");
     [].forEach.call(faqUpdaters, function (updater) {
         updater.addEventListener('click', sendFAQUpdateRequest);
@@ -39,7 +39,9 @@ function sendFAQUpdateRequest(event) {
     let id = this.getAttribute("value");
     let answer = document.getElementById(`answer-${id}`).value;
 
-    sendAjaxRequest('post', 'admin/faq/update/' + id, {answer: answer}, faqUpdateHandler);    
+    sendAjaxRequest('post', 'admin/faq/update/' + id, {
+        answer: answer
+    }, faqUpdateHandler);
 }
 
 function sendFAQtDeleteRequest(event) {
@@ -68,5 +70,3 @@ function faqDeleteHandler() {
     let element = document.getElementById('faq-' + faq.id);
     element.remove();
 }
-
-addEventListeners();

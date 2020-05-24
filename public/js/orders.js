@@ -1,4 +1,4 @@
-function addEventListeners() {
+function addOrderEventListeners() {
   let stateUpdaters = document.getElementsByClassName("purchaseUpdater");
   [].forEach.call(stateUpdaters, function (updater) {
     updater.addEventListener("change", sendUpdateRequest);
@@ -35,8 +35,9 @@ function sendUpdateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/orders/update/" + id,
-    { state: state },
+    "admin/orders/update/" + id, {
+      state: state
+    },
     updateHandler
   );
 }
@@ -50,5 +51,3 @@ function updateHandler() {
   let purchase = JSON.parse(this.responseText);
   alert("Updated state of purchase #" + purchase.id);
 }
-
-addEventListeners();

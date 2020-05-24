@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addBatteryEventListeners() {
   let creators = document.getElementsByClassName("btForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendItemCreateRequest);
@@ -44,8 +44,7 @@ function sendItemCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/battery/add",
-    {
+    "admin/battery/add", {
       value: value,
     },
     itemCreateHandler
@@ -110,5 +109,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

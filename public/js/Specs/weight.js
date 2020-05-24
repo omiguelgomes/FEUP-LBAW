@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addWeightEventListeners() {
   let creators = document.getElementsByClassName("wgForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendItemCreateRequest);
@@ -44,8 +44,7 @@ function sendItemCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/weight/add",
-    {
+    "admin/weight/add", {
       value: value,
     },
     itemCreateHandler
@@ -110,5 +109,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

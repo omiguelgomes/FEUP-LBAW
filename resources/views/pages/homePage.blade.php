@@ -68,12 +68,20 @@
     </div>
 </div>
 {{-- hot and discount tabs --}}
-<ul class="nav nav-tabs justify-content-center mt-4">
+<ul class="nav nav-tabs justify-content-center my-4">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#hot">Most bought</a>
+        <a class="nav-link active" data-toggle="tab" href="#hot">
+            <h6>
+                Most bought
+            </h6>
+        </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#discounts">Top discounts</a>
+        <a class="nav-link" data-toggle="tab" href="#discounts">
+            <h6>
+                Top discounts
+            </h6>
+        </a>
     </li>
 </ul>
 <div id="myTabContent" class="tab-content">

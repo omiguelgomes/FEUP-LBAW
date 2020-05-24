@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addProductEventListeners() {
   let productCheckers = document.getElementsByClassName("productForm");
   [].forEach.call(productCheckers, function (checker) {
     checker.addEventListener("submit", sendProductUpdateRequest);
@@ -46,5 +46,3 @@ function sendProductUpdateRequest(event) {
       alert("Complete!");
     });
 }
-
-addEventListeners();

@@ -4,7 +4,7 @@ $.ajaxSetup({
   },
 });
 
-function addEventListeners() {
+function addGPUEventListeners() {
   let creators = document.getElementsByClassName("gpuForm");
   [].forEach.call(creators, function (creator) {
     creator.addEventListener("submit", sendItemCreateRequest);
@@ -45,8 +45,7 @@ function sendItemCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/gpu/add",
-    {
+    "admin/gpu/add", {
       value: value,
       vram: vram,
     },
@@ -112,5 +111,3 @@ function createItem(item) {
 
   return new_item;
 }
-
-addEventListeners();

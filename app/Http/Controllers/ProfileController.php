@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\City;
 use App\Country;
+use App\Image;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -35,7 +36,21 @@ class ProfileController extends Controller
     $address = Address::find($data['addressID']);
     $city = City::where('name', '=', $data['city'])->first();
     $country = Country::where('name', $data['country'])->first();
+    if ($request->hasFile('inputImg')) {
+      $allowedExtensions = ['jpg', 'JPG', 'png', 'jpeg'];
 
+      $file = $request->file('inputImg');
+
+      $filename = time() . '.' . $file->getClientOriginalExtension();
+      $file->move(public_path('images'), $filename);
+
+      $img = new Image();
+      $img->description = "$user->name image";
+      $img->path = $filename;
+      $img->save();
+      $user->image_id = $img->id;
+      $user->save();
+    }
     if ($country == null) {
       $country = Country::create([
         'name' => $data['country'],

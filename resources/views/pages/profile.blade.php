@@ -32,8 +32,12 @@
                 <div class="form-group col-sm-4 text-center">
                     <br>
                     <img src="{{ asset('/images/'.$user->image->path) }}" class="img-fluid" alt="imagempadrao">
-                    <label class='mt-1' for="image">Change Photo</label>
-                    <input type="file" name="image" class="form-control" id="fileInput" disabled>
+                    <input type="file" name="inputImg" class="form-control" id="fileInput" disabled>
+                    @if ($errors->has('inputImg'))
+                    <span class="error">
+                        {{ $errors->first('inputImg') }}
+                    </span>
+                    @endif
                 </div>
                 <div class="form-group col-sm-6">
                     <br>

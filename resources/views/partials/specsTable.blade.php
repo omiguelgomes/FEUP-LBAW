@@ -1,76 +1,76 @@
-<table class="table">
+<table class="table text-center">
     <tbody>
         <tr>
-            <td colspan="2">Screen size</td>
-            <td colspan="2">
+            <td>Screen size</td>
+            <td>
                 {{$product->screensize->value}}"
             </td>
         </tr>
         <tr>
-            <td colspan="2">Screen resolution</td>
-            <td colspan="2">
+            <td>Screen resolution</td>
+            <td>
                 {{$product->screenres->value}} pixels
             </td>
         </tr>
         <tr>
-            <td colspan="2">OS</td>
-            <td colspan="2">
+            <td>OS</td>
+            <td>
                 {{$product->os->name}}
             </td>
         </tr>
         <tr>
-            <td colspan="2">RAM</td>
-            <td colspan="2">
+            <td>RAM</td>
+            <td>
                 {{$product->ram->value}}GB
             </td>
         </tr>
         <tr>
-            <td colspan="2">Weight</td>
-            <td colspan="2">
+            <td>Weight</td>
+            <td>
                 {{$product->weight->value}}g
             </td>
         </tr>
         <tr>
-            <td colspan="2">CPU</td>
-            <td colspan="2">
+            <td>CPU</td>
+            <td>
                 {{$product->cpu->cores}}-core
                 {{$product->cpu->freq}} GHz
                 {{$product->cpu->name}}
             </td>
         </tr>
         <tr>
-            <td colspan="2">GPU</td>
-            <td colspan="2">
+            <td>GPU</td>
+            <td>
                 {{$product->gpu->name}}
             </td>
         </tr>
         <tr>
-            <td colspan="2">Water resistance rating</td>
-            <td colspan="2">
+            <td>Water resistance rating</td>
+            <td>
                 {{$product->waterproofing->value}}
             </td>
         </tr>
         <tr>
-            <td colspan="2">Camera resolution</td>
-            <td colspan="2">
+            <td>Camera resolution</td>
+            <td>
                 {{$product->camerares->value}}MP
             </td>
         </tr>
         <tr>
-            <td colspan="2">Fingerprint Type</td>
-            <td colspan="2">
+            <td>Fingerprint Type</td>
+            <td>
                 {{$product->fingerprinttype->value}}
             </td>
         </tr>
         <tr>
-            <td colspan="2">Storage</td>
-            <td colspan="2">
+            <td>Storage</td>
+            <td>
                 {{$product->storage->value}}GB
             </td>
         </tr>
         <tr>
-            <td colspan="2">Battery</td>
-            <td colspan="2">
+            <td>Battery</td>
+            <td>
                 {{$product->battery->value}}mAh
             </td>
         </tr>

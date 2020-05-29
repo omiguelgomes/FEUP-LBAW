@@ -10,7 +10,7 @@
         <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
     </div>
 
-    <div class="table-overflow">
+    <div class="table w-100">
         <table id="tabela" class="table table-hover">
             <thead>
                 <tr>
@@ -28,7 +28,7 @@
                     <td>{{$client->email}}</td>
                     <td>
                         <a class="userPromoter thumbnail" value='{{$client->id}}'>
-                            <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+                            <i class="fas fa-plus-circle fa-2x ml-2"></i>
                         </a>
                     </td>
                     <td>

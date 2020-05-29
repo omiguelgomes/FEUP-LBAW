@@ -2,6 +2,8 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('/css/search.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/adminPartials.css') }}">
+
 {{-- main page row --}}
 <div class="container">
     <div class="row">
@@ -39,11 +41,11 @@
 
 {{-- sidenav, offscreen --}}
 <div id="mySidenav" class="sidenav">
-    <h1>
+    <h1 class="pl-3">
         Options
     </h1>
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="row w-100 ">
+    <div class="row w-100 pl-4 pr-1">
         <div class="accordion w-100" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">

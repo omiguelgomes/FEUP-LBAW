@@ -24,6 +24,11 @@
                         {{ $errors->first('inputImg') }}
                     </span>
                     @endif
+                    <div class="form-group my-4">
+                        <label for="inputDescription">Phone description<a class="text-danger"> *</a></label>
+                        <textarea class="form-control my-3" id="exampleTextarea" name="inputDescription" rows="10"
+                            required></textarea>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">

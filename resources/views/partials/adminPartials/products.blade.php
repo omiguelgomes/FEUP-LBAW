@@ -35,19 +35,20 @@
                             <form class="form-inline productForm" id="productFormID" method="POST"
                                 action="{{ url('admin/product/update/'.$item->id) }}">
                                 {{ csrf_field() }}
-                                <div class="form-row col-xs-2">
+                                {{-- <div class="container mx-auto"> --}}
+                                <div class="form-row w-100 justify-content-start">
                                     <input id="inputStock" type="number" min="0" max="10000" name="inputStock"
-                                        class="form-control productStock" value='{{ $item->stock }}' required autofocus>
+                                        class="form-control productStock w-25 text-center" value='{{ $item->stock }}'
+                                        required autofocus>
                                     @if ($errors->has('inputStock'))
                                     <span class="error">
                                         {{ $errors->first('inputStock') }}
                                     </span>
                                     @endif
-                                </div>
-                                <div class="form-row p-2">
                                     <button class="btn btn-primary" type="submit"><i
                                             class="fas fa-check text-success"></i></button>
                                 </div>
+                                {{-- </div> --}}
                             </form>
                         </td>
                     </tr>

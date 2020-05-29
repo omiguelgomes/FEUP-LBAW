@@ -7,6 +7,7 @@ use App\PurchaseState;
 use App\Purchase;
 use App\Image;
 use App\Rating;
+use App\Description;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -60,6 +61,11 @@ class ProductController extends Controller
 
   public function create(Request $request)
   {
+
+    $newDescription = Description::create([
+      'content' => $request->inputDescription
+    ]);
+
     $newProduct = Product::create([
       'stock' => $request->inputStock,
       'price' => $request->inputPrice,
@@ -78,7 +84,7 @@ class ProductController extends Controller
       'screenres_id' => $request->inputSreenRes,
       'camerares_id' => $request->inputCamRes,
       'fingerprinttype_id' => $request->inputFinger,
-      'description_id' => 1
+      'description_id' => $newDescription->id
     ]);
 
     if ($request->hasFile('inputImg')) {

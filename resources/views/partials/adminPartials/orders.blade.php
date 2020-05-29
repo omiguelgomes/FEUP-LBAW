@@ -28,7 +28,7 @@
                     <td>Order #{{$order->id}}</td>
                     <td>{{$order->user->email}}</td>
                     <td>{{$order->purchasedate}}</td>
-                    <td>
+                    <td colspan="2">
                         <div class="input-group mb-3">
                             <select class="purchaseUpdater custom-select" id="order-{{$order->id}}">
                                 <option value="Awaiting Payment"

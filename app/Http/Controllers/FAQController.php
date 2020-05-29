@@ -10,22 +10,22 @@ use App\FAQ;
 
 class FAQController extends Controller
 {
-    public function show()
-    {
-      $faqs = FAQ::all();
-      return view('pages.FAQ')->with('faqs', $faqs);
-    }
+  public function show()
+  {
+    $faqs = FAQ::all();
+    return view('pages.FAQ')->with('faqs', $faqs);
+  }
 
-    public function create(Request $request) {
-      $faq = new FAQ();
-      $faq->question = $request->question;
-      $faq->answer = $request->answer;
-      $faq->save();
+  public function create(Request $request)
+  {
+    $faq = new FAQ();
+    $faq->question = $request->question;
+    $faq->answer = $request->answer;
+    $faq->save();
+    return $faq;
+  }
 
-      return redirect()->to('admin');
-    }
-
-    public function delete($id)
+  public function delete($id)
   {
     $faq = FAQ::find($id);
     $faq->delete();

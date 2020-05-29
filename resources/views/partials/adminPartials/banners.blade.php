@@ -1,11 +1,9 @@
 <script type="text/javascript" src="{{ URL::asset('js/banner.js') }}" defer></script>
 <div id="banners">
     <!-- BANNER -->
-
     <div class="p-2">
         <h4>Banner</h4>
     </div>
-
 
     <div class="row-12 py-3">
         <div class="row align-items-center justify-content-md-center">

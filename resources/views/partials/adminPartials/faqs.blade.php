@@ -9,7 +9,6 @@
     </div>
     <div class="table-overflow">
         <form method="POST" action="{{ route('create_faq') }}" class="faqForm" enctype="multipart/form-data">
-            {{ csrf_field() }}
             <input type="text" class="form-control w-75 mx-auto mb-2" placeholder="FAQ Title" id="question"
                 name="question" maxlength=100>
             <textarea name="answer" class="form-control w-75 mx-auto mb-2" id="answer" cols="20" rows="9"
@@ -46,5 +45,4 @@
         </div>
         @endforeach
     </div>
-</div>
 </div>

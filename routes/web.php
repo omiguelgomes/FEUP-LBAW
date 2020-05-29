@@ -97,9 +97,11 @@ Route::post('admin/finger/add', 'AdminProfileController@createFinger')->name('cr
 
 //Manage product
 Route::get('admin/product/add', 'AdminProfileController@showProductCreateForm');
+Route::get('admin/product/editAll/{id}', 'AdminProfileController@showProductEditPage');
 Route::post('admin/product/add', 'ProductController@create')->name('create_product');
+Route::post('admin/product/edit', 'ProductController@editProduct')->name('edit_product');
 Route::delete('admin/product/delete/{id}', 'ProductController@delete');
-Route::post('admin/product/update/{id}', 'ProductController@update');
+Route::post('admin/product/update/{id}', 'ProductController@updateStock');
 
 //Manage users
 Route::post('admin/users/promote/{id}', 'UserController@promote');

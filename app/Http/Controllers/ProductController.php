@@ -8,6 +8,7 @@ use App\Purchase;
 use App\Image;
 use App\Rating;
 use App\Description;
+use App\Brand;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -107,9 +108,8 @@ class ProductController extends Controller
     return redirect('product/' . $newProduct->id);
   }
 
-  public function update($id, Request $request)
+  public function updateStock($id, Request $request)
   {
-
     Product::where('id', $id)->update((array('stock' => $request->stock)));
   }
 
@@ -141,5 +141,52 @@ class ProductController extends Controller
       'content' => $request->content,
       'val' => $request->val
     ]);
+  }
+  public function editProduct(Request $request)
+  {
+    $product = Product::find($request->inputID);
+    $product->update([
+      'stock' => $request->inputStock,
+      'price' => $request->inputPrice,
+      'model' => $request->input('inputName'),
+      'category' => $request->inputCat,
+      'brand_id' => $request->inputBrand,
+      'cpu_id' => $request->inputCPUname,
+      'ram_id' => $request->inputRAM,
+      'waterproofing_id' => $request->inputWater,
+      'os_id' => $request->inputOS,
+      'gpu_id' => $request->inputGPU,
+      'screensize_id' => $request->inputScreen,
+      'weight_id' => $request->inputWeight,
+      'storage_id' => $request->inputStorage,
+      'battery_id' => $request->inputBattery,
+      'screenres_id' => $request->inputSreenRes,
+      'camerares_id' => $request->inputCamRes,
+      'fingerprinttype_id' => $request->inputFinger,
+    ]);
+
+    $product->description->content = $request->inputDescription;
+    $product->description->save();
+
+    if ($request->hasFile('inputImg')) {
+      $allowedExtensions = ['jpg', 'JPG', 'png', 'jpeg'];
+
+      $files = $request->file('inputImg');
+
+      foreach ($files as $file) {
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('images'), $filename);
+
+        $img = new Image();
+        $img->description = "$product->model product image";
+        $img->path = $filename;
+        $img->save();
+        $product->images()->attach($img->id);
+      }
+    }
+
+    $product->save();
+
+    return redirect('product/' . $product->id);
   }
 }

@@ -25,6 +25,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Current Stock</th>
+                        <th>Edit Info</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,11 @@
                                 </div>
                                 {{-- </div> --}}
                             </form>
+                        </td>
+                        <td>
+                            <a href="{{url('admin/product/editAll/'.$item->id)}}">
+                                <i class="fas fa-pencil-alt fa-2x"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach

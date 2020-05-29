@@ -1,12 +1,11 @@
 @extends('layouts.pageWrapper')
 @section('content')
 
-@include('partials.jumboTitle',['title' => 'Add a New Product'])
-
+@include('partials.jumboTitle',['title' => 'Edit product'])
 
 <div class="container">
     <div class="row-form">
-        <form method="POST" action="{{ route('create_product') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('edit_product') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <h3>Product Information</h3>
             <div class="form-row">
@@ -15,9 +14,9 @@
                     <label for="inputImg">Product Images<a class="text-danger"> *</a></label>
                     <br>
                     <div class="custom-file col-md-6">
-                        <input type="file" class="custom-file-input" name="inputImg[]" id="inputImg" multiple="multiple"
-                            required>
-                        <label class="custom-file-label" for="inputImg">Choose file</label>
+                        <input type="file" class="custom-file-input" name="inputImg[]" id="inputImg"
+                            multiple="multiple">
+                        <label class="custom-file-label" for="inputImg">{{$product->images->first()->path}}</label>
                     </div>
                     @if ($errors->has('inputImg'))
                     <span class="error">
@@ -27,14 +26,21 @@
                     <div class="form-group my-4">
                         <label for="inputDescription">Phone description<a class="text-danger"> *</a></label>
                         <textarea class="form-control my-3" id="exampleTextarea" name="inputDescription" rows="10"
-                            required></textarea>
+                            required>{{$product->description->content}}</textarea>
+                        <br>
+                        <label for="inputID">ID</label>
+                        <br>
+                        <input id="inputID" type="text" value="{{$product->id}}" name="inputID" class="form-control"
+                            autofocus readonly>
                     </div>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="inputName">Name and Model<a class="text-danger"> *</a></label>
+                    <label for="inputName">Name and Model<a class="text-danger"> *</a>
+                    </label>
                     <br>
-                    <input id="inputName" type="text" name="inputName" class="form-control" required autofocus>
+                    <input id="inputName" type="text" value="{{$product->model}}" name=" inputName" class="form-control"
+                        required autofocus>
                     @if ($errors->has('inputName'))
                     <span class="error">
                         {{ $errors->first('inputName') }}
@@ -46,7 +52,7 @@
                     <br>
                     <select class="form-control" id="inputBrand" name="inputBrand" type="text" required>
                         @foreach($brands as $id => $name)
-                        <option value="{{$id}}">{{$name}}</option>
+                        <option value="{{$id}}" {{$id == $product->brand->id ? "selected" : ""}}>{{$name}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputBrand'))
@@ -56,19 +62,21 @@
                     @endif
 
                     <br>
-                    <label for="inputPrice">Price<a class="text-danger"> *</a></label>
+                    <label for="inputPrice">Price w/o discount<a class="text-danger"> *</a></label>
                     <br>
-                    <input id="inputPrice" type="number" name="inputPrice" class="form-control" required>
-                    @if ($errors->has('inputPrice'))
+                    <input id="inputPrice" type="number" value="{{$product->price}}" name="inputPrice"
+                        class="form-control" required>
+                    {{-- @if ($errors->has('inputPrice'))
                     <span class="error">
                         {{ $errors->first('inputPrice') }}
                     </span>
-                    @endif
+                    @endif --}}
 
                     <br>
-                    <label for="inputStock">Initial stock:<a class="text-danger"> *</a></label>
+                    <label for="inputStock">Current stock:<a class="text-danger"> *</a></label>
                     <br>
-                    <input id="inputStock" type="number" name="inputStock" class="form-control" required>
+                    <input id="inputStock" type="number" name="inputStock" value="{{$product->stock}}"
+                        class="form-control" required>
                     @if ($errors->has('inputStock'))
                     <span class="error">
                         {{ $errors->first('inputStock') }}
@@ -80,7 +88,7 @@
                     <br>
                     <select class="form-control" id="inputOS" name="inputOS" type="text" required>
                         @foreach($os as $id => $name)
-                        <option value="{{$id}}">{{$name}}</option>
+                        <option value="{{$id}}" {{$id == $product->os->id ? "selected" : ""}}>{{$name}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputOS'))
@@ -93,8 +101,8 @@
                     <label for="inputCat">Category<a class="text-danger"> *</a></label>
                     <br>
                     <select class="form-control" id="inputCat" name="inputCat" type="text" required>
-                        <option value="Phones">Phones</option>
-                        <option value="Tablets">Tablets</option>
+                        <option value="Phones" {{'Phones' == $product->category ? "selected" : ""}}>Phones</option>
+                        <option value="Tablets" {{'Tablets' == $product->category ? "selected" : ""}}>Tablets</option>
                     </select>
                     @if ($errors->has('inputCat'))
                     <span class="error">
@@ -116,7 +124,7 @@
                 <br>
                 <select class="form-control" id="inputCPUname" name="inputCPUname" type="text" required>
                     @foreach($cpu as $id => $name)
-                    <option value="{{$id}}">{{$name}}</option>
+                    <option value="{{$id}}" {{$id == $product->cpu->id ? "selected" : ""}}>{{$name}}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('inputCPUname'))
@@ -133,7 +141,7 @@
                 <br>
                 <select class="form-control" id="inputGPU" name="inputGPU" type=text required>
                     @foreach($gpu as $id => $name)
-                    <option value="{{$id}}">{{$name}}</option>
+                    <option value="{{$id}}" {{$id == $product->gpu->id ? "selected" : ""}}>{{$name}}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('inputGPU'))
@@ -151,7 +159,7 @@
                 <br>
                 <select class="form-control" id="inputRAM" name="inputRAM" type="number" required>
                     @foreach($ram as $id => $value)
-                    <option value="{{$id}}">{{$value}}</option>
+                    <option value="{{$id}}" {{$id == $product->ram->id ? "selected" : ""}}>{{$value}}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('inputRAM'))
@@ -169,7 +177,8 @@
                     <br>
                     <select class="form-control" id="inputScreen" name="inputScreen" type="number" required>
                         @foreach($screen as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->screensize->id ? "selected" : ""}}>{{$value}}
+                        </option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputScreen'))
@@ -184,7 +193,7 @@
                     <br>
                     <select class="form-control" id="inputStorage" name="inputStorage" type="number" required>
                         @foreach($storage as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->storage->id ? "selected" : ""}}>{{$value}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputStorage'))
@@ -199,7 +208,7 @@
                     <br>
                     <select class="form-control" id="inputBattery" name="inputBattery" type="number" required>
                         @foreach($battery as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->battery->id ? "selected" : ""}}>{{$value}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputBattery'))
@@ -214,7 +223,7 @@
                     <br>
                     <select class="form-control" id="inputWeight" name="inputWeight" type="number" required>
                         @foreach($weight as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->weight->id ? "selected" : ""}}>{{$value}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputWeight'))
@@ -229,7 +238,8 @@
                     <br>
                     <select class="form-control" id="inputWater" name="inputWater" type="text" required>
                         @foreach($water as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->waterproofing->id ? "selected" : ""}}>{{$value}}
+                        </option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputWater'))
@@ -244,7 +254,7 @@
                     <br>
                     <select class="form-control" id="inputSreenRes" name="inputSreenRes" type="text" required>
                         @foreach($screenRes as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->screenres->id ? "selected" : ""}}>{{$value}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputSreenRes'))
@@ -259,7 +269,7 @@
                     <br>
                     <select class="form-control" id="inputCamRes" name="inputCamRes" type="text" required>
                         @foreach($cams as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->camerares->id ? "selected" : ""}}>{{$value}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputCamRes'))
@@ -274,7 +284,8 @@
                     <br>
                     <select class="form-control" id="inputFinger" name="inputFinger" type="text" required>
                         @foreach($fingers as $id => $value)
-                        <option value="{{$id}}">{{$value}}</option>
+                        <option value="{{$id}}" {{$id == $product->fingerprinttype->id ? "selected" : ""}}>{{$value}}
+                        </option>
                         @endforeach
                     </select>
                     @if ($errors->has('inputFinger'))
@@ -283,14 +294,11 @@
                     </span>
                     @endif
                 </div>
-
             </div>
-
-
             <br>
             <a class="text-danger">* Mandatory Fields</a>
             <br><br>
-            <button type="submit" class="btn btn-primary">Add product to the store</button>
+            <button type="submit" class="btn btn-primary">Update product info</button>
 
         </form>
     </div>

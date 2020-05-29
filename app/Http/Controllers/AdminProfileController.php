@@ -504,10 +504,32 @@ class AdminProfileController extends Controller
     $cams = CamRes::list();
     $fingers = FingerPrintType::list();
 
-
     return view(
       'pages.addProduct',
       compact('cpu', 'ram', 'water', 'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers')
+    );
+  }
+
+  public function showProductEditPage($id)
+  {
+    $cpu = CPU::list();
+    $ram = RAM::list();
+    $water = WaterRes::list();
+    $os = OS::list();
+    $gpu = GPU::list();
+    $screen = ScreenSize::list();
+    $weight = Weight::list();
+    $storage = Storage::list();
+    $battery = Battery::list();
+    $brands = Brand::list();
+    $screenRes = ScreenRes::list();
+    $cams = CamRes::list();
+    $fingers = FingerPrintType::list();
+    $product = Product::find($id);
+
+    return view(
+      'pages.editProduct',
+      compact('cpu', 'ram', 'water', 'os', 'gpu', 'screen', 'weight', 'storage', 'battery', 'brands', 'screenRes', 'cams', 'fingers', 'product')
     );
   }
 }

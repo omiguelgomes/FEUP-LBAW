@@ -299,11 +299,8 @@
             <a class="text-danger">* Mandatory Fields</a>
             <br><br>
             <button type="submit" class="btn btn-primary">Update product info</button>
-
         </form>
     </div>
     <br>
 </div>
-
-
 @endsection

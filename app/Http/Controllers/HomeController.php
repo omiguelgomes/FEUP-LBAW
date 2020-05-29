@@ -10,10 +10,11 @@ class HomeController extends Controller
 {
   public function show()
   {
-    //get 10 first products from db. should be replaced with query for the hottest products
-    $hotProducts = $this->hotProducts(12);
-    $discountProducts = $this->discountProducts(12);
-    return view('pages.homePage')->with(['hotProducts' => $hotProducts, 'discountProducts' => $discountProducts]);
+    $productNr = 12;
+    return view('pages.homePage')->with([
+      'hotProducts' => $this->hotProducts($productNr), 'discountProducts' => $this->discountProducts($productNr),
+      'newProducts' => $this->newProducts($productNr)
+    ]);
   }
 
   function hotProducts($max)
@@ -39,5 +40,10 @@ class HomeController extends Controller
         return $product->discounts->first()->val;
       }
     )->take($max);
+  }
+
+  public function newProducts($max)
+  {
+    return Product::all()->sortByDesc('id')->take($max);
   }
 }

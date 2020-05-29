@@ -68,18 +68,25 @@
     </div>
 </div>
 {{-- hot and discount tabs --}}
-<ul class="nav nav-tabs justify-content-center my-4">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#hot">
+<ul class="nav nav-tabs justify-content-center my-4 text-center">
+    <li class="nav-item w-25">
+        <a class="nav-link active text-center px-1" data-toggle="tab" href="#hot">
             <h6>
                 Most bought
             </h6>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#discounts">
+    <li class="nav-item w-25">
+        <a class="nav-link text-center px-1" data-toggle="tab" href="#discounts">
             <h6>
                 Top discounts
+            </h6>
+        </a>
+    </li>
+    <li class="nav-item w-25">
+        <a class="nav-link text-center px-2" data-toggle="tab" href="#new">
+            <h6>
+                Recent products
             </h6>
         </a>
     </li>
@@ -90,6 +97,9 @@
     </div>
     <div class="tab-pane fade" id="discounts">
         @include('partials.phoneGrid',['products' => $discountProducts])
+    </div>
+    <div class="tab-pane fade" id="new">
+        @include('partials.phoneGrid',['products' => $newProducts])
     </div>
 </div>
 @endsection

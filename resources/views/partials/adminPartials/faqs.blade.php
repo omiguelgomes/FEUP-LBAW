@@ -22,14 +22,14 @@
                 <div id="faq-{{$faq->id}}">
                     <div class="d-flex">
                         <div class="p-4">
-                            <h5>{{$faq->question}}</h5>
-                        </div>
-                        <div class="p-4">
                             <button class="btn btn-primary bg-primary" type="button" data-toggle="collapse"
                                 data-target="#FAQs<?= $faq->id ?>" aria-expanded="false"
                                 aria-controls="FAQs<?= $faq->id ?>">
                                 <i class="fas fa-sort-down" style="color: white;"> </i>
                             </button>
+                        </div>
+                        <div class="p-4">
+                            <h5>{{$faq->question}}</h5>
                         </div>
                     </div>
 

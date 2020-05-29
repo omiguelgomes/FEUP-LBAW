@@ -94,31 +94,30 @@ function faqCreateHandler() {
     let newFaq = JSON.parse(this.responseText);
     document.getElementById('faq-container').innerHTML =
         `<div class="d-flex">
-                    <div class="p-4">
-                        <h5>` + newFaq.question + `</h5>
-                    </div>
-                    <div class="p-4">
-                        <button class="btn btn-primary bg-primary" type="button" data-toggle="collapse"
-                            data-target="#FAQs` + newFaq.id + `" aria-expanded="false"
-                            aria-controls="FAQs` + newFaq.id + `">
-                            <i class="fas fa-sort-down" style="color: white;"> </i>
-                        </button>
-                    </div>
-                </div>
+            <div class="p-4">
+                <button class="btn btn-primary bg-primary" type="button" data-toggle="collapse"
+                data-target="#FAQs` + newFaq.id + `" aria-expanded="false"
+                aria-controls="FAQs` + newFaq.id + `">
+                    <i class="fas fa-sort-down" style="color: white;"> </i>
+                </button>
+            </div>
+            <div class="p-4">
+                <h5>` + newFaq.question + `</h5>
+            </div>
+        </div>
 
-                <div class="collapse" id="FAQs` + newFaq.id + `" >
-                    <textarea name = "answer" class="form-control w-75" id="answer-` + newFaq.id + `"
-                    cols="20" rows="9">` + newFaq.answer + `</textarea>
-                    <a class="faqDelete thumbnail" value="` + newFaq.id + `">
-                        Delete FAQ
-                        <i class="far fa-times-circle text-danger fa-2x"></i>
-                    </a>
-                    <a class="faqUpdate thumbnail" value="` + newFaq.id + `">
-                        Update FAQ
-                        <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                    </a>
-                </div>
- ` +
-        document.getElementById('faq-container').innerHTML;
+        <div class="collapse" id="FAQs` + newFaq.id + `" >
+            <textarea name = "answer" class="form-control w-75" id="answer-` + newFaq.id + `"
+            cols="20" rows="9">` + newFaq.answer + `</textarea>
+            <a class="faqDelete thumbnail" value="` + newFaq.id + `">
+                Delete FAQ
+                <i class="far fa-times-circle text-danger fa-2x"></i>
+            </a>
+            <a class="faqUpdate thumbnail" value="` + newFaq.id + `">
+                Update FAQ
+                <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+            </a>
+        </div>
+ ` + document.getElementById('faq-container').innerHTML;
     addFaqEventListeners();
 }

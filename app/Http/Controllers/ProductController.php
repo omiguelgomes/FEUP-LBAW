@@ -60,7 +60,6 @@ class ProductController extends Controller
 
   public function create(Request $request)
   {
-
     $newProduct = Product::create([
       'stock' => $request->inputStock,
       'price' => $request->inputPrice,
@@ -78,7 +77,8 @@ class ProductController extends Controller
       'battery_id' => $request->inputBattery,
       'screenres_id' => $request->inputSreenRes,
       'camerares_id' => $request->inputCamRes,
-      'fingerprinttype_id' => $request->inputFinger
+      'fingerprinttype_id' => $request->inputFinger,
+      'description_id' => 1
     ]);
 
     if ($request->hasFile('inputImg')) {

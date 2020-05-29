@@ -44,7 +44,7 @@
                 @endif
               </h3>
             </b>
-            <div class="btn-group btn-group-lg py-2">
+            <div class="btn-group btn-group py-2">
               <a href="{{ url('/product/'.$product->id.'/buy')}}" class="btn btn-primary mr-1"> Buy now <i
                   class="fas fa-euro-sign"></i></a>
               <a href="{{ url('/product/'.$product->id.'/cart') }}" class="btn btn-primary ml-1"> Add to cart <i

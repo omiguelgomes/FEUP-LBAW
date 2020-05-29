@@ -33,7 +33,8 @@ class Product extends Model
         'battery_id',
         'screenres_id',
         'camerares_id',
-        'fingerprinttype_id'
+        'fingerprinttype_id',
+        'description_id'
     ];
     protected $with = [
         'ram', 'waterProofing', 'screensize', 'storage',

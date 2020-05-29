@@ -15,7 +15,8 @@
                     <label for="inputImg">Product Images<a class="text-danger"> *</a></label>
                     <br>
                     <div class="custom-file col-md-6">
-                        <input type="file" class="custom-file-input" name="inputImg[]" id="inputImg" multiple="multiple" required>
+                        <input type="file" class="custom-file-input" name="inputImg[]" id="inputImg" multiple="multiple"
+                            required>
                         <label class="custom-file-label" for="inputImg">Choose file</label>
                     </div>
                     @if ($errors->has('inputImg'))

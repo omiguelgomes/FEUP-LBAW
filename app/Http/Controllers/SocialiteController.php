@@ -26,11 +26,6 @@ class SocialiteController extends Controller
     {
         $user = Socialite::driver('google')->user();
 
-        $httpClient = new \GuzzleHttp\Client([
-            'base_uri' => 'localhost:8000',
-            'verify' => false
-        ]);
-
         var_dump($user);
 
         // $user->token;

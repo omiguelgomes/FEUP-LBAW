@@ -8,16 +8,25 @@ function addUserEventListeners() {
   let userPromoters = document.getElementsByClassName("userPromoter");
   [].forEach.call(userPromoters, function (promoter) {
     promoter.addEventListener("click", sendUserPromoteRequest);
+    //make modal appear when button is clicked
+    promoter.setAttribute('data-toggle', 'modal');
+    promoter.setAttribute('data-target', '#exampleModal');
   });
 
   let userDemoters = document.getElementsByClassName("userDemoter");
   [].forEach.call(userDemoters, function (demoter) {
     demoter.addEventListener("click", sendUserDemoterRequest);
+    //make modal appear when button is clicked
+    demoter.setAttribute('data-toggle', 'modal');
+    demoter.setAttribute('data-target', '#exampleModal');
   });
 
   let userDeleters = document.getElementsByClassName("userDeleter");
   [].forEach.call(userDeleters, function (deleter) {
     deleter.addEventListener("click", sendUserDeleterRequest);
+    //make modal appear when button is clicked
+    deleter.setAttribute('data-toggle', 'modal');
+    deleter.setAttribute('data-target', '#exampleModal');
   });
 }
 
@@ -44,30 +53,54 @@ function sendAjaxRequest(method, url, data, handler) {
 }
 
 function sendUserPromoteRequest(event) {
+
+  var oldModal = document.getElementsByClassName("modal")[0];
+  var modal = oldModal.cloneNode(true);
+  oldModal.parentNode.replaceChild(modal, oldModal);
+
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  sendAjaxRequest("post", "admin/users/promote/" + id, null, promotionHandler);
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Do you want to promote this user?";
+  document.getElementById('modal-confirm').addEventListener('click', function () {
+    sendAjaxRequest("post", "admin/users/promote/" + id, null, promotionHandler)
+  });
 }
 
 function sendUserDemoterRequest(event) {
+  var oldModal = document.getElementsByClassName("modal")[0];
+  var modal = oldModal.cloneNode(true);
+  oldModal.parentNode.replaceChild(modal, oldModal);
+
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  sendAjaxRequest("post", "admin/users/demote/" + id, null, demotionHandler);
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Do you want to demote this admin?";
+  document.getElementById('modal-confirm').addEventListener('click', function () {
+    sendAjaxRequest("post", "admin/users/demote/" + id, null, demotionHandler);
+  });
+
 }
 
 function sendUserDeleterRequest(event) {
+
+  var oldModal = document.getElementsByClassName("modal")[0];
+  var modal = oldModal.cloneNode(true);
+  oldModal.parentNode.replaceChild(modal, oldModal);
+
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  if (confirm("Do you wish do delete the user?"))
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Do you want to delete this user?";
+
+  document.getElementById('modal-confirm').addEventListener('click', function () {
     sendAjaxRequest(
       "delete",
       "admin/users/delete/" + id,
       null,
-      deletionHandler
-    );
+      deletionHandler);
+  });
+
 }
 
 function promotionHandler() {
@@ -75,6 +108,8 @@ function promotionHandler() {
     window.location = "/admin";
     alert("Failed to promote User :'(");
   }
+
+  myAlert("User promoted with success!");
 
   //create row in admin table
   let admin = JSON.parse(this.responseText);
@@ -93,6 +128,8 @@ function demotionHandler() {
     alert("Failed to demote Admin :'(");
   }
 
+  myAlert("User demoted with success!");
+
   //create row in user table
   let user = JSON.parse(this.responseText);
   let new_user = placeUser(user);
@@ -110,6 +147,8 @@ function deletionHandler() {
     alert("Failed to delete User :'(");
   }
 
+  myAlert("User deleted with success!");
+
   let user = JSON.parse(this.responseText);
   //eliminate row in user table
   let element = document.getElementById("client-" + user.id);
@@ -125,12 +164,12 @@ function placeUser(user) {
     <td>${user.email}</td>
     <td>
         <a value="${user.id}" class="userPromoter thumbnail">
-            <i class="fas fa-pencil-alt fa-2x ml-2"></i>
+            <i class="fas fa-plus-circle fa-2x ml-2"></i>
         </a> 
     </td>
     <td>
         <a href="#" value='${user.id}' class="thumbnail">
-            <i class="far fa-times-circle fa-2x ml-4"></i>
+            <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
         </a> 
     </td>
     `;
@@ -151,7 +190,7 @@ function placeAdmin(admin) {
     <td>${admin.email}</td>
     <td>
         <a value="${admin.id}" class="userDemoter thumbnail">
-            <i class="far fa-times-circle fa-2x ml-4"></i>
+            <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
         </a> 
     </td>
     `;
@@ -163,4 +202,11 @@ function placeAdmin(admin) {
   return new_admin;
 }
 
-addUserEventListeners();
+function myAlert(message) {
+  var wrapper = document.createElement("div");
+  wrapper.innerHTML = `<div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>` + message + `</strong>
+</div>`;
+  document.getElementById('adminPageContainer').prepend(wrapper);
+}

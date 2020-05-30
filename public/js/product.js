@@ -34,6 +34,7 @@ function sendAjaxRequest(method, url, data, handler) {
 }
 
 function sendProductUpdateRequest(event) {
+
   event.preventDefault();
   let url = this.closest("form").getAttribute("action");
   let stock = this.querySelector("input[name=inputStock]").value;
@@ -43,6 +44,6 @@ function sendProductUpdateRequest(event) {
       stock: stock,
     })
     .then(function (response) {
-      alert("Complete!");
+      myAlert("Item stock updated!");
     });
 }

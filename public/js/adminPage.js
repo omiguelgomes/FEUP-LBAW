@@ -1,4 +1,9 @@
 function addEventListeners() {
+  //user list is the default tab open, so the event listeners have to be called when the page loads
+  document.addEventListener('DOMContentLoaded',
+    showUserAccounts
+  );
+
   document
     .getElementById("userAccountsButton")
     .addEventListener("click", showUserAccounts);

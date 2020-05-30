@@ -5,10 +5,30 @@
 <link rel="stylesheet" href="{{ asset('/css/adminPartials.css') }}">
 
 {{-- main page row --}}
-<div class="container">
+<div class="container" id="adminPageContainer">
     <div class="row">
         <div class="col-12">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Sections</span>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="modal-confirm"
+                                data-dismiss="modal">Confirm</button>
+                            <button type="button" class="btn btn-danger" id="modal-cancel" data-dismiss="modal"
+                                aria-label="Close">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         {{-- main page col, where specs stuff will show when selected --}}
         <div class=" col-12" id="mainContainer">

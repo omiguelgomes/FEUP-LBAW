@@ -25,7 +25,7 @@
                     <td>{{$admin->email}}</td>
                     <td>
                         <a class="userDemoter thumbnail" value='{{$admin->id}}'>
-                            <i class="far fa-times-circle fa-2x ml-4"></i>
+                            <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
                         </a>
                     </td>
                 </tr>

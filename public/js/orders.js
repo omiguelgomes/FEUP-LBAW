@@ -49,5 +49,5 @@ function updateHandler() {
   }
 
   let purchase = JSON.parse(this.responseText);
-  alert("Updated state of purchase #" + purchase.id);
+  myAlert("Updated state of purchase #" + purchase.id);
 }

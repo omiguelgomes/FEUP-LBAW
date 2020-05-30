@@ -27,7 +27,6 @@ class SocialiteController extends Controller
     {
         $user = Socialite::driver('google')->user();
 
-
         echo "<h1> SEJA  BEM VINDO  {$user->getName()}</h1>";
         echo "<img src='{$user->getAvatar()}' style='max-width: 200px; border-radius: 50%'>";
         var_dump($user);

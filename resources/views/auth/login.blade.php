@@ -31,8 +31,10 @@
         </label>
 
         &nbsp;
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
+        <div class="row p-3">
+            <button class="btn btn-primary" type="submit">Login</button> &nbsp;&nbsp;
+            <a href="login/google" class= "btn btn-danger ">Login with Google</a>
+        </div>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ url('register') }}">New around here? Sign up</a>
         <a class="dropdown-item" href="#">Forgot password?</a>

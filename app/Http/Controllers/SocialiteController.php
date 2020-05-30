@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use GuzzleHttp\guzzle;
 
 class SocialiteController extends Controller
 {

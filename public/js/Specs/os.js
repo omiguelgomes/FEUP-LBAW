@@ -7,12 +7,15 @@ $.ajaxSetup({
 function addOSEventListeners() {
   let creators = document.getElementsByClassName("osForm");
   [].forEach.call(creators, function (creator) {
-    creator.addEventListener("submit", sendItemCreateRequest);
+    creator.addEventListener("submit", sendOSCreateRequest);
   });
 
   let deleters = document.getElementsByClassName("osDelete");
   [].forEach.call(deleters, function (deleter) {
-    deleter.addEventListener("click", sendItemDeleteRequest);
+    deleter.addEventListener("click", sendOSDeleteRequest);
+    //make modal appear when button is clicked
+    deleter.setAttribute('data-toggle', 'modal');
+    deleter.setAttribute('data-target', '#exampleModal');
   });
 }
 
@@ -38,7 +41,7 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
-function sendItemCreateRequest(event) {
+function sendOSCreateRequest(event) {
   event.preventDefault();
   let value = this.querySelector("input[name=inputOsName]").value;
   console.log(value);
@@ -47,47 +50,52 @@ function sendItemCreateRequest(event) {
     "admin/os/add", {
       value: value,
     },
-    itemCreateHandler
+    OSCreateHandler
   );
 }
 
-function sendItemDeleteRequest(event) {
+function sendOSDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  if (confirm("Are you sure you want to delete this OS?"))
-    sendAjaxRequest("delete", "admin/os/delete/" + id, null, itemDeleteHandler);
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this OS?";
+  document.getElementById('modal-confirm').addEventListener('click', function () {
+    sendAjaxRequest("delete", "admin/os/delete/" + id, null, OSDeleteHandler);
+  });
 }
 
-function itemCreateHandler() {
+function OSCreateHandler() {
   if (this.status != 201) {
-    window.location = "/admin";
-    alert("Failed to create OS :'(");
+    myErrorAlert("Failed to create OS :'(");
   }
 
   //controller function to create brand returns the elem it created in a JSON
   let item = JSON.parse(this.responseText);
 
   //create the html for the brand and put new brand item in top
-  let new_item = createItem(item);
+  let new_item = createOS(item);
   let table = document.querySelector("tbody.osTableBody");
   table.prepend(new_item);
+
+  myAlert('Created OS successfully!');
+
 }
 
-function itemDeleteHandler() {
+function OSDeleteHandler() {
   if (this.status == 555) {
-    alert(this.responseText);
+    myErrorAlert(this.responseText);
   } else if (this.status != 200) {
-    window.location = "/admin";
-    alert("Failed to delete OS :'(");
-  }
+    myErrorAlert("Failed to delete OS :'(");
+  } else {
+    let item = JSON.parse(this.responseText);
+    let element = document.getElementById("os-" + item.id);
+    element.remove();
+    myAlert('OS deleted successfully!');
 
-  let item = JSON.parse(this.responseText);
-  let element = document.getElementById("os-" + item.id);
-  element.remove();
+  }
 }
 
-function createItem(item) {
+function createOS(item) {
   let new_item = document.createElement("tr");
   new_item.classList.add("os");
   new_item.setAttribute("id", "os-" + item.id);
@@ -100,7 +108,10 @@ function createItem(item) {
 
   new_item
     .querySelector("a.osDelete")
-    .addEventListener("click", sendItemDeleteRequest);
+    .addEventListener("click", sendOSDeleteRequest);
+  //make modal appear when button is clicked
+  new_item.setAttribute('data-toggle', 'modal');
+  new_item.setAttribute('data-target', '#exampleModal');
 
   return new_item;
 }

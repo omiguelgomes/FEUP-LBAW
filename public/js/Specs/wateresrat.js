@@ -13,6 +13,9 @@ function addWaterEventListeners() {
   let deleters = document.getElementsByClassName("waterDelete");
   [].forEach.call(deleters, function (deleter) {
     deleter.addEventListener("click", sendWaterDeleteRequest);
+    //make modal appear when button is clicked
+    deleter.setAttribute('data-toggle', 'modal');
+    deleter.setAttribute('data-target', '#exampleModal');
   });
 }
 
@@ -39,6 +42,7 @@ function sendAjaxRequest(method, url, data, handler) {
 }
 
 function sendWaterCreateRequest(event) {
+  console.log("hi");
   event.preventDefault();
   let value = this.querySelector("input[name=inputWaterName]").value;
 
@@ -55,44 +59,49 @@ function sendWaterDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  if (confirm("Are you sure you want to delete this Rating?"))
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this Fingerprint type?";
+  document.getElementById('modal-confirm').addEventListener('click', function () {
     sendAjaxRequest(
       "delete",
       "admin/water/delete/" + id,
       null,
       waterDeleteHandler
     );
+  });
 }
 
 function waterCreateHandler() {
   if (this.status != 201) {
-    window.location = "/admin";
-    alert("Failed to create Rating :'(");
+    myErrorAlert("Failed to create Rating :'(");
   }
 
   //controller function to create brand returns the elem it created in a JSON
   let item = JSON.parse(this.responseText);
 
   //create the html for the brand and put new brand item in top
-  let new_item = createItem(item);
+  let new_item = createWaterRes(item);
   let table = document.querySelector("tbody.waterTableBody");
   table.prepend(new_item);
+
+  myAlert('Created water resistance rating successfully!');
 }
 
 function waterDeleteHandler() {
   if (this.status == 555) {
-    alert(this.responseText);
+    myErrorAlert(this.responseText);
   } else if (this.status != 200) {
     window.location = "/admin";
-    alert("Failed to delete Rating :'(");
+    myErrorAlert("Failed to delete Rating :'(");
+  } else {
+    let item = JSON.parse(this.responseText);
+    let element = document.getElementById("water-" + item.id);
+    element.remove();
+    myAlert('Water resistance rating deleted successfully!');
   }
 
-  let item = JSON.parse(this.responseText);
-  let element = document.getElementById("water-" + item.id);
-  element.remove();
 }
 
-function createItem(item) {
+function createWaterRes(item) {
   let new_item = document.createElement("tr");
   new_item.classList.add("water");
   new_item.setAttribute("id", "water-" + item.id);
@@ -106,6 +115,10 @@ function createItem(item) {
   new_item
     .querySelector("a.waterDelete")
     .addEventListener("click", sendWaterDeleteRequest);
+
+  //make modal appear when button is clicked
+  new_item.setAttribute('data-toggle', 'modal');
+  new_item.setAttribute('data-target', '#exampleModal');
 
   return new_item;
 }

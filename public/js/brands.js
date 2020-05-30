@@ -1,12 +1,10 @@
 function addBrandEventListeners() {
-  // let brandCreator = document.getElementsByClassName("brandForm");
-  // [].forEach.call(brandCreator, function(creator) {
-  //     creator.addEventListener('submit', sendBrandCreateRequest);
-  // });
-
   let productDeleters = document.getElementsByClassName("brandDelete");
   [].forEach.call(productDeleters, function (deleter) {
     deleter.addEventListener("click", sendBrandDeleteRequest);
+
+    deleter.setAttribute('data-toggle', 'modal');
+    deleter.setAttribute('data-target', '#exampleModal');
   });
 }
 
@@ -50,17 +48,23 @@ function sendBrandCreateRequest(event) {
 }
 
 function sendBrandDeleteRequest(event) {
+  var oldModal = document.getElementsByClassName("modal")[0];
+  var modal = oldModal.cloneNode(true);
+  oldModal.parentNode.replaceChild(modal, oldModal);
+
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  if (confirm("Are you sure you want to delete this brand?")) {
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Do you want to delete this brand?";
+
+  document.getElementById('modal-confirm').addEventListener('click', function () {
     sendAjaxRequest(
       "delete",
       "admin/brands/delete/" + id,
       null,
       brandDeleteHandler
     );
-  }
+  });
 }
 
 function brandCreateHandler() {
@@ -87,18 +91,17 @@ function brandCreateHandler() {
 
 function brandDeleteHandler() {
   if (this.status == 555) {
-    alert(this.responseText);
-    window.location = "/admin";
+    myErrorAlert(this.responseText);
+    return;
   } else if (this.status != 200) {
-    window.location = "/admin";
-    alert("Failed to delete brand :'(");
+    myErrorAlert("Failed to delete brand :'(");
   }
 
   let brand = JSON.parse(this.responseText);
   let element = document.getElementById("brand-" + brand.id);
   element.remove();
 
-  alert("Deleted " + brand.name);
+  myAlert("Deleted " + brand.name);
 }
 
 function createBrand(brand) {

@@ -1,4 +1,4 @@
-<script type="text/javascript" src="{{ URL::asset('js/Specs/watresrat.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/Specs/wateresrat.js') }}" defer></script>
 
 <div id="waters">
     <div class="d-flex p-3 mb-2 bg-light text-dark">

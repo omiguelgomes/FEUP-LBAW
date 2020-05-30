@@ -13,6 +13,9 @@ function addRAMEventListeners() {
   let ramDeleters = document.getElementsByClassName("ramDelete");
   [].forEach.call(ramDeleters, function (deleter) {
     deleter.addEventListener("click", sendRAMDeleteRequest);
+    //make modal appear when button is clicked
+    deleter.setAttribute('data-toggle', 'modal');
+    deleter.setAttribute('data-target', '#exampleModal');
   });
 }
 
@@ -55,14 +58,17 @@ function sendRAMDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  if (confirm("Are you sure you want to delete this RAM?"))
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this RAM ?";
+  document.getElementById('modal-confirm').addEventListener('click', function () {
     sendAjaxRequest("delete", "admin/ram/delete/" + id, null, ramDeleteHandler);
+  });
+
 }
 
 function ramCreateHandler() {
   if (this.status != 201) {
-    window.location = "/admin";
-    alert("Failed to create RAM :'(");
+    myErrorAlert("Failed to create RAM :'(");
+    return;
   }
 
   //controller function to create brand returns the elem it created in a JSON
@@ -80,15 +86,18 @@ function ramCreateHandler() {
 
 function ramDeleteHandler() {
   if (this.status == 555) {
-    alert(this.responseText);
+    myErrorAlert(this.responseText);
+    return;
   } else if (this.status != 200) {
-    window.location = "/admin";
-    alert("Failed to delete RAM :'(");
+    myErrorAlert("Failed to delete RAM :'(");
+    return;
+  } else {
+    myAlert('Ram deleted successfully!');
+    let ram = JSON.parse(this.responseText);
+    let element = document.getElementById("ram-" + ram.id);
+    element.remove();
   }
 
-  let ram = JSON.parse(this.responseText);
-  let element = document.getElementById("ram-" + ram.id);
-  element.remove();
 }
 
 function createRAM(ram) {
@@ -106,5 +115,20 @@ function createRAM(ram) {
     .querySelector("a.ramDelete")
     .addEventListener("click", sendRAMDeleteRequest);
 
+  //make modal appear when button is clicked
+  new_ram.setAttribute('data-toggle', 'modal');
+  new_ram.setAttribute('data-target', '#exampleModal');
+
+  myAlert("Ram created successfully!");
+
   return new_ram;
+}
+
+function myErrorAlert(message) {
+  var wrapper = document.createElement("div");
+  wrapper.innerHTML = `<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>` + message + `</strong>
+</div>`;
+  document.getElementById('adminPageContainer').prepend(wrapper);
 }

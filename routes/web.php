@@ -116,3 +116,7 @@ Route::put('admin/faq/create', 'FAQController@create')->name('create_faq');
 Route::delete('admin/faq/delete/{id}', 'FAQController@delete');
 Route::post('admin/faq/update/{id}', 'FAQController@update');
 Route::post('admin/banner/update/{id}', 'BannerController@update');
+
+//Autenticacion Gooogle
+Route::get('login/google', 'SocialiteController@redirectToProvider');
+Route::get('login/google/callback', 'SocialiteController@handleProviderCallback');

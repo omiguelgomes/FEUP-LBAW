@@ -42,7 +42,6 @@ function sendAjaxRequest(method, url, data, handler) {
 }
 
 function sendWaterCreateRequest(event) {
-  console.log("hi");
   event.preventDefault();
   let value = this.querySelector("input[name=inputWaterName]").value;
 
@@ -90,7 +89,6 @@ function waterDeleteHandler() {
   if (this.status == 555) {
     myErrorAlert(this.responseText);
   } else if (this.status != 200) {
-    window.location = "/admin";
     myErrorAlert("Failed to delete Rating :'(");
   } else {
     let item = JSON.parse(this.responseText);

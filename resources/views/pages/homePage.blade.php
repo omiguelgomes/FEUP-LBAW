@@ -1,5 +1,4 @@
 @extends('layouts.pageWrapper')
-<link href="{{ asset('css/homePage.css') }}" rel="stylesheet">
 @section('content')
 
 {{-- category button group --}}

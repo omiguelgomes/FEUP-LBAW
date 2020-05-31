@@ -1,4 +1,4 @@
-function addEventListeners() {
+function addProfileEventListeners() {
   document.getElementById("edit").addEventListener("click", function () {
     //disable readonly on input boxes
     let inputs = document.getElementsByTagName("input");
@@ -10,12 +10,14 @@ function addEventListeners() {
 
     //enable upload photo button
     document.getElementById("fileInput").removeAttribute("disabled");
+
   });
 
   document
     .getElementById("deleteUser")
     .addEventListener("click", sendDeleteRequest);
 }
+
 
 function encodeForAjax(data) {
   if (data == null) return null;
@@ -55,4 +57,4 @@ function handleDelete() {
   window.location = "/home";
 }
 
-addEventListeners();
+addProfileEventListeners();

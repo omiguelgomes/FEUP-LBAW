@@ -36,6 +36,7 @@ class ProfileController extends Controller
     $address = Address::find($data['addressID']);
     $city = City::where('name', '=', $data['city'])->first();
     $country = Country::where('name', $data['country'])->first();
+
     if ($request->hasFile('inputImg')) {
       $allowedExtensions = ['jpg', 'JPG', 'png', 'jpeg'];
 
@@ -71,7 +72,7 @@ class ProfileController extends Controller
     $address->street = $data['street'];
     $address->postal_code = $data['postalcode'];
     $address->save();
-
+    clearstatcache();
     return $this->show();
   }
 }

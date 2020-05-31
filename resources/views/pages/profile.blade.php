@@ -31,11 +31,8 @@
             <div class="form-row">
                 <div class="form-group col-sm-4 text-center">
                     <br>
-                    @if(!(file_exists(asset('/images/'.$user->image->path))))
-                    <img src="{{ asset('/images/profilepadrao.jpg') }}" class="img-fluid" alt="imagempadrao">
-                    @else
-                    <img src="{{ asset('/images/'.$user->image->path) }}" class="img-fluid" alt="user image">
-                    @endif
+                    <img src="{{ asset('/images/'.$user->image->path) }}" class="img-fluid" alt="user image"
+                        onerror="this.onerror=null;this.src=`{{asset('images/profilepadrao.jpg')}}`;" />
                     <input type="file" name="inputImg" class="form-control" id="fileInput" disabled>
                     @if ($errors->has('inputImg'))
                     <span class="error">

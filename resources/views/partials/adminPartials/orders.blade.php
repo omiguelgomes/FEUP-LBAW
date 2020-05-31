@@ -31,14 +31,6 @@
                     <td colspan="2">
                         <div class="input-group mb-3">
                             <select class="purchaseUpdater custom-select" id="order-{{$order->id}}">
-                                <option value="Awaiting Payment"
-                                    <?php echo ($order->status->pstate == 'Awaiting Payment') ? "selected":""; ?>>
-                                    Awaiting Payment
-                                </option>
-                                <option value="Payment in-store"
-                                    <?php echo ($order->status->pstate == 'Payment in-store') ? "selected":""; ?>>
-                                    Payment in-store
-                                </option>
                                 <option value="Processing"
                                     <?php echo ($order->status->pstate == 'Processing') ? "selected":""; ?>>
                                     Processing

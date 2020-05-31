@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use GuzzleHttp\guzzle;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Auth;
+use App\Image;
 
 class SocialiteController extends Controller
 {
@@ -27,9 +30,24 @@ class SocialiteController extends Controller
     {
         $user = Socialite::driver('google')->user();
 
-        echo "<h1> SEJA  BEM VINDO  {$user->getName()}</h1>";
-        echo "<img src='{$user->getAvatar()}' style='max-width: 200px; border-radius: 50%'>";
-        var_dump($user);
+        $img = new Image();
+        $img->description = "$user->name image";
+        $img->path = $user->getAvatar();
+        
+        $user = User::firstOrCreate([
+            'name' => $user->getName(),
+            'email' => $user->getEmail()],[
+            'password' => Hash::make(str_random(24)), 
+            'google_id' => $user->getId(), 
+              
+        ]);
+      
+        $img->save();
+        $user->image_id = $img->id;
+        $user->save();
+
+        Auth::login($user,true);
+        return redirect('/profile');
 
         // $user->token;
     }

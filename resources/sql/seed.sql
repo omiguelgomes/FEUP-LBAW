@@ -37,7 +37,9 @@ create table users
     birthdate date        not null default ('now'::text)::date,
     password      varchar        not null,
     image_id integer not null references image(id) on delete cascade default 1,
-    isadmin   boolean default false
+    isadmin   boolean default false,
+    google_id varchar        null,
+    remember_token varchar null
 );
 
 create table faq
@@ -526,7 +528,7 @@ insert into users (name, email, birthDate, password, image_id) values ('Karlens 
 insert into users (name, email, birthDate, password, image_id) values ('Dame Doget', 'ddogeth@apple.com', '2019-02-04', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 23);
 insert into users (name, email, birthDate, password, image_id) values ('Conrade Hasser', 'chasseri@weibo.com', '2017-11-10', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 24);
 insert into users (name, email, birthDate, password, image_id) values ('Ashli Flippini', 'aflippinij@state.gov', '2011-07-15', '$2y$04$OPVL/mCdGDkihClFCOx72O5FwwFC3BcUcAZFgVOvweN.T9DCJvXU6', 25);
-insert into users (name, email, birthDate, password, image_id, isadmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 26, true); /* Pass: 1234*/ /* id = 20 */
+insert into users (name, email, birthDate, password, image_id, isadmin) values ('João Nunes','joaonunes@gmail.com','1999-09-02', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 27, true); /* Pass: 1234*/ /* id = 20 */
 
 /* country */
 

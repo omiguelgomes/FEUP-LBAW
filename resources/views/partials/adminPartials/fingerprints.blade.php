@@ -2,8 +2,8 @@
 <div id="fingerprints">
     <!-- Fingerprints -->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Fingerprint Types</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Fingerprint values</h4>
         </div>
     </div>
 

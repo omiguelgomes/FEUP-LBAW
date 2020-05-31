@@ -1,8 +1,8 @@
 <script type="text/javascript" src="{{ URL::asset('js/Specs/battery.js') }}" defer></script>
 <div id="batteries">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Battery Size</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Battery Size</h4>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 <div id="sales">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Sales</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Sales</h4>
         </div>
 
         <div class="ml-auto p-2">

@@ -1,8 +1,8 @@
 <script type="text/javascript" src="{{ URL::asset('js/users.js') }}" defer></script>
 <div id="userAccounts">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Client Accounts</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Client Accounts</h4>
         </div>
     </div>
     <div class="form-group input-group">
@@ -41,5 +41,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{$clients->links()}}
     </div>
 </div>

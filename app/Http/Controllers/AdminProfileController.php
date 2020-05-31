@@ -37,9 +37,9 @@ class AdminProfileController extends Controller
     else
       $user = Auth::user();
 
-    $admins = User::list_admins();
-    $clients = User::list_users();
-    $orders = Purchase::list();
+    $admins = User::where('isadmin', 'true')->paginate(10);
+    $clients = User::where('isadmin', 'false')->paginate(10);
+    $orders = Purchase::paginate(10);
     $products = Product::list();
     $cpu = CPU::list();
     $ram = RAM::list();

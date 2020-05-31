@@ -2,8 +2,8 @@
 
 <div id="waters">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Water Resistance Ratings</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Water Resistance</h4>
         </div>
     </div>
     <div class="row-form">

@@ -2,8 +2,8 @@
 
 <div id="cpus">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>CPU Models</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">CPU models</h4>
         </div>
     </div>
     <div class="row-form">

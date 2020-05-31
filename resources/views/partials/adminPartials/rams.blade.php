@@ -1,8 +1,8 @@
 <script type="text/javascript" src="{{ URL::asset('js/Specs/ram.js') }}" defer></script>
 <div id="rams">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>RAM Modules</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">RAM modules</h4>
         </div>
     </div>
     <div class="row-form">

@@ -2,8 +2,8 @@
 
 <div id="products">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Manage Products</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Products</h4>
         </div>
         <div class="ml-auto p-2">
             <a href="{{ url('/admin/product/add') }}">

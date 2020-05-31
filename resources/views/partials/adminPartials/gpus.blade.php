@@ -2,8 +2,8 @@
 
 <div id="gpus">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>GPU Models</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">GPU models</h4>
         </div>
     </div>
 

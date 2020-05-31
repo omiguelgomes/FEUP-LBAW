@@ -2,8 +2,8 @@
 <div id="storages">
     <!-- Storage -->
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Device Storage</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Storage Values</h4>
         </div>
     </div>
 

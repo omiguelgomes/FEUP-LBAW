@@ -1,8 +1,8 @@
 <script type="text/javascript" src="{{ URL::asset('js/orders.js') }}" defer></script>
 <div class="collapse" id="orders">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Orders</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Orders</h4>
         </div>
     </div>
     <div class="form-group input-group">
@@ -50,5 +50,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{$orders->links()}}
     </div>
 </div>

@@ -1,8 +1,8 @@
 <script type="text/javascript" src="{{ URL::asset('js/Specs/camres.js') }}" defer></script>
 <div id="cameraress">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
-        <div class="p-2">
-            <h4>Camera Resolution Values</h4>
+        <div class="mx-auto">
+            <h4 class="mx-auto">Camera Resolution</h4>
         </div>
     </div>
 

@@ -1,8 +1,6 @@
 function addEventListeners() {
   //user list is the default tab open, so the event listeners have to be called when the page loads
-  document.addEventListener('DOMContentLoaded',
-    showUserAccounts
-  );
+  document.addEventListener("DOMContentLoaded", showUserAccounts);
 
   document
     .getElementById("userAccountsButton")
@@ -21,14 +19,30 @@ function addEventListeners() {
   document.getElementById("watersButton").addEventListener("click", showWaters);
   document.getElementById("ossButton").addEventListener("click", showOSs);
   document.getElementById("gpusButton").addEventListener("click", showGPUs);
-  document.getElementById("screensizesButton").addEventListener("click", showScreenSizes);
-  document.getElementById("weightsButton").addEventListener("click", showWeights);
-  document.getElementById("storagesButton").addEventListener("click", showStorages);
-  document.getElementById("batteriesButton").addEventListener("click", showBatteries);
-  document.getElementById("screenressButton").addEventListener("click", showScreenRess);
-  document.getElementById("cameraressButton").addEventListener("click", showCameraRess);
-  document.getElementById("fingerprintsButton").addEventListener("click", showFingerprints);
-  document.getElementById("bannersButton").addEventListener("click", showBanners);
+  document
+    .getElementById("screensizesButton")
+    .addEventListener("click", showScreenSizes);
+  document
+    .getElementById("weightsButton")
+    .addEventListener("click", showWeights);
+  document
+    .getElementById("storagesButton")
+    .addEventListener("click", showStorages);
+  document
+    .getElementById("batteriesButton")
+    .addEventListener("click", showBatteries);
+  document
+    .getElementById("screenressButton")
+    .addEventListener("click", showScreenRess);
+  document
+    .getElementById("cameraressButton")
+    .addEventListener("click", showCameraRess);
+  document
+    .getElementById("fingerprintsButton")
+    .addEventListener("click", showFingerprints);
+  document
+    .getElementById("bannersButton")
+    .addEventListener("click", showBanners);
   document.getElementById("faqsButton").addEventListener("click", showFaqs);
 }
 
@@ -61,7 +75,7 @@ function showProducts() {
 
 function showSales() {
   fillMainContainer("sales");
-  // addSalesEventListeners();
+  addSalesEventListeners();
 }
 
 function showBrands() {
@@ -100,42 +114,42 @@ function showScreenSizes() {
 }
 
 function showWeights() {
-  fillMainContainer('weights');
+  fillMainContainer("weights");
   addWeightEventListeners();
 }
 
 function showStorages() {
-  fillMainContainer('storages');
+  fillMainContainer("storages");
   addStorageEventListeners();
 }
 
 function showBatteries() {
-  fillMainContainer('batteries');
+  fillMainContainer("batteries");
   addBatteryEventListeners();
 }
 
 function showScreenRess() {
-  fillMainContainer('screenress');
+  fillMainContainer("screenress");
   addScreenResEventListeners();
 }
 
 function showCameraRess() {
-  fillMainContainer('cameraress');
+  fillMainContainer("cameraress");
   addCameraResEventListeners();
 }
 
 function showFingerprints() {
-  fillMainContainer('fingerprints');
+  fillMainContainer("fingerprints");
   addFingerprintEventListeners();
 }
 
 function showBanners() {
-  fillMainContainer('banners');
+  fillMainContainer("banners");
   //addBannerEventListeners();
 }
 
 function showFaqs() {
-  fillMainContainer('faqs');
+  fillMainContainer("faqs");
   addFaqEventListeners();
 }
 

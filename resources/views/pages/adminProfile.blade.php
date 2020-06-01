@@ -41,7 +41,7 @@
     @include('partials.adminPartials.adminAccounts', ['admins', $admins])
     @include('partials.adminPartials.orders', ['orders', $orders])
     @include('partials.adminPartials.products', ['products', $products])
-    @include('partials.adminPartials.sales', ['sales', 1])
+    @include('partials.adminPartials.sales', ['sales', $sales])
     @include('partials.adminPartials.brands', ['brands', $brands])
     @include('partials.adminPartials.cpus', ['cpu', $cpu])
     @include('partials.adminPartials.rams', ['ram', $ram])

@@ -14,8 +14,8 @@ function addCPUEventListeners() {
   [].forEach.call(cpuDeleters, function (deleter) {
     deleter.addEventListener("click", sendCPUDeleteRequest);
     //make modal appear when button is clicked
-    deleter.setAttribute('data-toggle', 'modal');
-    deleter.setAttribute('data-target', '#exampleModal');
+    deleter.setAttribute("data-toggle", "modal");
+    deleter.setAttribute("data-target", "#exampleModal");
   });
 }
 
@@ -50,7 +50,8 @@ function sendCPUCreateRequest(event) {
 
   sendAjaxRequest(
     "post",
-    "admin/cpu/add", {
+    "admin/cpu/add",
+    {
       name: name,
       freq: freq,
       cores: cores,
@@ -64,10 +65,18 @@ function sendCPUDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this RAM ?";
-  document.getElementById('modal-confirm').addEventListener('click', function () {
-    sendAjaxRequest("delete", "admin/cpu/delete/" + id, null, cpuDeleteHandler);
-  });
+  document.getElementsByClassName("modal-title")[0].innerHTML =
+    "Are you sure you want to delete this CPU ?";
+  document
+    .getElementById("modal-confirm")
+    .addEventListener("click", function () {
+      sendAjaxRequest(
+        "delete",
+        "admin/cpu/delete/" + id,
+        null,
+        cpuDeleteHandler
+      );
+    });
 }
 
 function cpuCreateHandler() {
@@ -96,13 +105,12 @@ function cpuCreateHandler() {
 }
 
 function cpuDeleteHandler() {
-  console.log("hi");
   if (this.status == 555) {
     myErrorAlert(this.responseText);
   } else if (this.status != 200) {
     myErrorAlert("Failed to delete CPU :'(");
   } else {
-    myAlert('CPU deleted successfully!');
+    myAlert("CPU deleted successfully!");
     let cpu = JSON.parse(this.responseText);
     let element = document.getElementById("cpu-" + cpu.id);
     element.remove();
@@ -124,8 +132,8 @@ function createCPU(cpu) {
     .addEventListener("click", sendCPUDeleteRequest);
 
   //make modal appear when button is clicked
-  new_cpu.setAttribute('data-toggle', 'modal');
-  new_cpu.setAttribute('data-target', '#exampleModal');
+  new_cpu.setAttribute("data-toggle", "modal");
+  new_cpu.setAttribute("data-target", "#exampleModal");
   myAlert("Cpu created successfully!");
 
   return new_cpu;

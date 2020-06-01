@@ -111,6 +111,9 @@ Route::delete('admin/users/delete/{id}', 'UserController@delete');
 //Manage Orders
 Route::post('admin/orders/update/{id}', 'PurchaseController@update');
 
+//Manage sales
+Route::delete('admin/sale/delete/{id}', 'AdminProfileController@destroySale');
+
 //Manage static pages
 Route::put('admin/faq/create', 'FAQController@create')->name('create_faq');
 Route::delete('admin/faq/delete/{id}', 'FAQController@delete');

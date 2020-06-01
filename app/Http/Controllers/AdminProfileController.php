@@ -350,6 +350,14 @@ class AdminProfileController extends Controller
     return $finger;
   }
 
+  public function destroySale($id) {
+    $sale = Discount::find($id);
+
+    $sale->delete();
+
+    return $sale;
+  }
+
   public function createBrand(Request $request)
   {
 

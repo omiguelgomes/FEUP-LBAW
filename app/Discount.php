@@ -13,6 +13,6 @@ class Discount extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'discount_produt');
+        return $this->belongsToMany('App\Product', 'discount_product');
     }
 }

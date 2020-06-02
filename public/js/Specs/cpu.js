@@ -64,7 +64,7 @@ function sendCPUDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this RAM ?";
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this CPU ?";
   document.getElementById('modal-confirm').addEventListener('click', function () {
     sendAjaxRequest("delete", "admin/cpu/delete/" + id, null, cpuDeleteHandler);
   });
@@ -72,7 +72,6 @@ function sendCPUDeleteRequest(event) {
 
 function cpuCreateHandler() {
   if (this.status != 201) {
-    window.location = "/admin";
     myErrorAlert("Failed to create CPU :'(");
   }
 

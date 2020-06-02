@@ -25,6 +25,7 @@ use App\User;
 use App\Purchase;
 use App\FAQ;
 use App\Banner;
+use App\Discount;
 
 
 class AdminProfileController extends Controller
@@ -56,6 +57,7 @@ class AdminProfileController extends Controller
     $fingers = FingerPrintType::list();
     $faqs = FAQ::all();
     $banners = Banner::all();
+    $sales = Discount::all();
 
     return view(
       'pages.adminProfile',
@@ -79,7 +81,8 @@ class AdminProfileController extends Controller
         'cams',
         'fingers',
         'faqs',
-        'banners'
+        'banners',
+        'sales'
       )
     );
   }
@@ -345,6 +348,14 @@ class AdminProfileController extends Controller
     $finger->delete();
 
     return $finger;
+  }
+
+  public function destroySale($id) {
+    $sale = Discount::find($id);
+
+    $sale->delete();
+
+    return $sale;
   }
 
   public function createBrand(Request $request)

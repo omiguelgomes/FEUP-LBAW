@@ -255,7 +255,7 @@ create table discount
     val       double precision not null,
     beginDate date             not null,
     endDate   date             not null,
-    constraint val check (val > (0)::double precision and val < (1)::double precision),
+    constraint val check (val > (0)::double precision and val < (100)::double precision),
     constraint endDate check (endDate > beginDate)
     -- constraint beginDate check (beginDate >= ('now'::text)::date) doesnt allow for testing
 );
@@ -982,11 +982,11 @@ insert into wishlist (product_id, user_id) values (9, 9);
 
 /* discount */
 
-insert into discount (val, beginDate, endDate) values (0.10, '2020-04-23', '2021-05-12');
-insert into discount (val, beginDate, endDate) values (0.20, '2019-04-17', '2021-05-02');
-insert into discount (val, beginDate, endDate) values (0.30, '2018-05-10', '2021-05-26');
-insert into discount (val, beginDate, endDate) values (0.40, '2018-06-14', '2021-06-18');
-insert into discount (val, beginDate, endDate) values (0.50, '2019-07-04', '2021-07-16');
+insert into discount (val, beginDate, endDate) values (10, '2020-04-23', '2021-05-12');
+insert into discount (val, beginDate, endDate) values (20, '2019-04-17', '2021-05-02');
+insert into discount (val, beginDate, endDate) values (30, '2018-05-10', '2021-05-26');
+insert into discount (val, beginDate, endDate) values (40, '2018-06-14', '2021-06-18');
+insert into discount (val, beginDate, endDate) values (50, '2019-07-04', '2021-07-16');
 
 /* discount product */
 

@@ -1,11 +1,8 @@
+<script type="text/javascript" src="{{ URL::asset('js/sale.js') }}" defer></script>
 <div id="sales">
     <div class="d-flex p-3 mb-2 bg-light text-dark">
         <div class="mx-auto">
             <h4 class="mx-auto">Sales</h4>
-        </div>
-
-        <div class="ml-auto p-2">
-            <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
         </div>
     </div>
 
@@ -19,61 +16,32 @@
             <thead>
                 <tr>
                     <th>Product's Name</th>
-                    <th>Product ID</th>
-                    <th>Discount %</th>
-                    <th>Date</th>
+                    <th>Discount ID</th>
+                    <th>Discount (%)</th>
+                    <th>Beginning Date</th>
+                    <th>Ending Date</th>
                     <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Samsung Galaxy S10</td>
-                    <td>01</td>
-                    <td>10%</td>
-                    <td>2020-01-05</td>
-                    <td><a href="#" class="thumbnail">
-                            <i class="far fa-times-circle fa-2x ml-4"></i>
+                @foreach($sales as $sale)
+                <tr class="sale" id='sale-{{$sale->id}}'>
+                    <td>
+                        @foreach($sale->products as $p)
+                            <p>{{$p->model}}</p>
+                        @endforeach
+                    </td>
+                    <td class="align-middle">{{$sale->id}}</td>
+                    <td class="align-middle">{{$sale->val}}%</td>
+                    <td class="align-middle">{{ $sale->begindate}}</td>
+                    <td class="align-middle">{{$sale->enddate}}</td>
+                    <td class="align-middle">
+                        <a value="{{$sale->id}}" class="saleDelete thumbnail">
+                            <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a>
-                        <a href="#" class="thumbnail">
-                            <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                        </a> </td>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Samsung Galaxy S9</td>
-                    <td>02</td>
-                    <td>30%</td>
-                    <td>2019-12-15</td>
-                    <td><a href="#" class="thumbnail">
-                            <i class="far fa-times-circle fa-2x ml-4"></i>
-                        </a>
-                        <a href="#" class="thumbnail">
-                            <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                        </a> </td>
-                </tr>
-                <tr>
-                    <td>Iphone 11</td>
-                    <td>03</td>
-                    <td>0%</td>
-                    <td>2019-12-08</td>
-                    <td><a href="#" class="thumbnail">
-                            <i class="far fa-times-circle fa-2x ml-4"></i>
-                        </a>
-                        <a href="#" class="thumbnail">
-                            <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                        </a> </td>
-                </tr>
-                <tr>
-                    <td>Iphone 11 Pro Max</td>
-                    <td>04</td>
-                    <td>0%</td>
-                    <td>2019-11-18</td>
-                    <td><a href="#" class="thumbnail">
-                            <i class="far fa-times-circle fa-2x ml-4"></i>
-                        </a>
-                        <a href="#" class="thumbnail">
-                            <i class="fas fa-pencil-alt fa-2x ml-2"></i>
-                        </a> </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

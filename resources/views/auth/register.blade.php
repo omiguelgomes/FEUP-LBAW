@@ -78,10 +78,17 @@
                 placeholder="Repeat password" type="password" required>
             </div>
           </div>
-          <button class="btn btn-dark ml-4" type="submit">
-            Register
-          </button>
-          <div class="col-12 mt-4">
+          <div class="row ml-4 justify-content-center">
+           <div class="col-auto">
+             <button class="btn btn-dark ml-4" type="submit">
+               Register
+             </button>
+            </div>
+            <div class="col-auto">
+              <a href="login/google" class= "btn btn-danger ">Register with Google</a>
+            </div>
+          </div>
+          <div class="col-12 mt-4 text-center">
             Already have an account?
             <a href="{{ route('login') }}">Login</a>
           </div>

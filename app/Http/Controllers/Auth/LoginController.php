@@ -47,6 +47,11 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function showRestorePassword()
+    {
+        return view('auth.restore_password');
+    }
+
     public function login(Request $request)
     {
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -68,5 +70,21 @@ class LoginController extends Controller
         }
 
         return redirect()->back()->withInput()->withErrors(['The email and password do not match']);
+    }
+
+    public function restorePassword(Request $request) {
+        $user = User::where('email', $request->email)->get();
+
+        if($user->count() == 0) {
+            return response('No account found with given email! :\'(', 555);
+        }
+
+        Mail::send('mail.password', ['id' => $user[0]->id], function($m) use ($request) {
+            $m->from('lbaw2065@gmail.com', 'LBAW2065');
+            $m->to($request->email);
+
+        });
+
+        return $user;
     }
 }

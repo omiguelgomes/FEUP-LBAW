@@ -18,6 +18,7 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('restore_password', 'Auth\LoginController@showRestorePassword')->name('restore_password');
+Route::post('email_verify', 'Auth\LoginController@restorePassword');
 
 
 Route::get('test', 'AdminProfileController@test')->name('test');

@@ -4,8 +4,9 @@
 
 @include('partials.jumboTitle',['title' => 'Restore Password'])
 
+<script type="text/javascript" src="{{ URL::asset('js/recoverPW.js') }}" defer></script>
 <div class="container">
-    <form method="POST" action="{{ route('restore_password') }}">
+    <form class="recover form" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     
         <label for="email">Email address</label>

@@ -5,7 +5,7 @@ $.ajaxSetup({
 });
 
 function addPWEventListeners() {
-  let deleters = document.getElementsByClassName("recover");
+  let deleters = document.getElementsByClassName("changePW");
   [].forEach.call(deleters, function (deleter) {
     deleter.addEventListener("submit", sendPassRequest);
   });
@@ -35,17 +35,29 @@ function sendAjaxRequest(method, url, data, handler) {
 
 function sendPassRequest(event) {
   event.preventDefault();
-  let email = this.querySelector("input[name=email]").value;
+  let pass = this.querySelector("input[name=pass]").value;
+  let confirmPW = this.querySelector("input[name=pass2]").value;
 
-  if (confirm("Are you sure you want to request a password recovery?"))
-    sendAjaxRequest(
-      "post",
-      "email_verify/",
-      {
-        email: email,
-      },
-      recoveryHandler
-    );
+  if (pass === confirmPW) {
+    if (confirm("Are you sure you want to change your password?")) {
+      let params = new URLSearchParams(location.search);
+      let id = params.get("user");
+
+      sendAjaxRequest(
+        "post",
+        "change_password/",
+        {
+          id: id,
+          pass: pass,
+        },
+        recoveryHandler
+      );
+    }
+  } else {
+    alert("Passwords do not match!");
+    document.getElementById("pass").value = "";
+    document.getElementById("pass2").value = "";
+  }
 }
 
 function recoveryHandler() {

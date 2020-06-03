@@ -54,6 +54,11 @@ class LoginController extends Controller
         return view('auth.restore_password');
     }
 
+    public function showChangePassword()
+    {
+        return view('auth.changePassword');
+    }
+
     public function login(Request $request)
     {
 
@@ -82,9 +87,18 @@ class LoginController extends Controller
         Mail::send('mail.password', ['id' => $user[0]->id], function($m) use ($request) {
             $m->from('lbaw2065@gmail.com', 'LBAW2065');
             $m->to($request->email);
-
+            $m->subject("Password reset");
         });
 
         return $user;
+    }
+
+    public function changePassword (Request $request) {
+        $id = $request->id;
+
+        $user = User::find($id);
+        $pass = bcrypt($request->pass);
+        $user->password = $pass;
+        $user->save();
     }
 }

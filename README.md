@@ -45,6 +45,14 @@ O objetivo deste projeto é desenvolver uma aplicação web para uma loja de sma
 | conta 1 | jdymott1@examiner.com | 123456   |
 | conta 2 | ajerg2@bloglovin.com  | 123456   |
 
+### Docker Command
+
+```
+docker-compose up
+
+docker run -it -p 8000:80 -e DB_DATABASE="lbaw2065" -e DB_USERNAME="lbaw2065" -e DB_PASSWORD="FE538806" lbaw2065/lbaw2065
+```
+
 ---
 
 GROUP2065, 03/06/2020

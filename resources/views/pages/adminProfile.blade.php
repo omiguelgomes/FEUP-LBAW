@@ -59,7 +59,7 @@
 </div>
 
 {{-- sidenav, offscreen --}}
-<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav" style="z-index: 3;">{{--z-index to show this on top of pagination--}}
     <h1 class="pl-3">
         Options
     </h1>

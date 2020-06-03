@@ -37,11 +37,9 @@ function addEventListeners() {
     document.addEventListener("DOMContentLoaded", showFaqs);
   } else if (url.indexOf('banner') != -1) {
     document.addEventListener("DOMContentLoaded", showBanners);
-  } else if (url.indexOf('users') != -1) {
-    document.addEventListener("DOMContentLoaded", showUserAccounts);
+  } else if (url.indexOf('sales') != -1) {
+    document.addEventListener("DOMContentLoaded", showSales);
   } else {
-    // document.addEventListener("DOMContentLoaded", showD);
-    console.log("none found");
     document.addEventListener("DOMContentLoaded", showUserAccounts);
   }
 

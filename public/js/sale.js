@@ -8,6 +8,9 @@ function addSalesEventListeners() {
   let deleters = document.getElementsByClassName("saleDelete");
   [].forEach.call(deleters, function (deleter) {
     deleter.addEventListener("click", sendSaleDeleteRequest);
+    //make modal appear when button is clicked
+    deleter.setAttribute('data-toggle', 'modal');
+    deleter.setAttribute('data-target', '#exampleModal');
   });
 }
 
@@ -37,13 +40,15 @@ function sendSaleDeleteRequest(event) {
   event.preventDefault();
   let id = this.getAttribute("value");
 
-  if (confirm("Are you sure you want to delete this sale event?"))
+  document.getElementsByClassName('modal-title')[0].innerHTML = "Are you sure you want to delete this sale?";
+  document.getElementById('modal-confirm').addEventListener('click', function () {
     sendAjaxRequest(
       "delete",
       "admin/sale/delete/" + id,
       null,
       saleDeleteHandler
     );
+  });
 }
 
 function saleDeleteHandler() {

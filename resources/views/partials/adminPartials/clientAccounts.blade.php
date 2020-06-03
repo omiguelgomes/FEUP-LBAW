@@ -5,10 +5,6 @@
             <h4 class="mx-auto">Client Accounts</h4>
         </div>
     </div>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
 
     <div class="table w-100">
         <table id="tabela" class="table table-hover">

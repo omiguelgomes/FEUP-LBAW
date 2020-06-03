@@ -1,8 +1,10 @@
 <script type="text/javascript" src="{{ URL::asset('js/banner.js') }}" defer></script>
 <div id="banners">
     <!-- BANNER -->
-    <div class="mx-auto">
-        <h4 class="mx-auto">Banner</h4>
+    <div class="d-flex p-3 mb-2 bg-light text-dark">
+        <div class="mx-auto">
+            <h4 class="mx-auto">Banner</h4>
+        </div>
     </div>
 
     <div class="row-12 py-3">

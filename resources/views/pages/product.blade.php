@@ -1,6 +1,7 @@
-<link href="{{ asset('css/product.css') }}" rel="stylesheet">
 @extends('layouts.pageWrapper')
 @section('content')
+<link href="{{ asset('css/product.css') }}" rel="stylesheet">
+
 <div class="container-fluid">
     {{-- whole page row --}}
     <div class="row justify-content-center">

@@ -39,11 +39,6 @@
             </form>
         </div>
         <br>
-        <div class="form-group input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-        </div>
-
         <div class="table-overflow">
             <table id="tabela" class="table table-hover">
                 <thead>
@@ -53,10 +48,10 @@
                     </tr>
                 </thead>
                 <tbody class="gpuTableBody">
-                    @foreach($gpu as $id => $name)
-                    <tr class="gpu" id='gpu-{{$id}}'>
-                        <td>{{$name}}</td>
-                        <td><a value="{{$id}}" class="gpuDelete thumbnail">
+                    @foreach($gpu as $g)
+                    <tr class="gpu" id='gpu-{{$g->id}}'>
+                        <td>{{$g->name}}</td>
+                        <td><a value="{{$g->id}}" class="gpuDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                             </a> </td>
                     </tr>
@@ -65,4 +60,5 @@
             </table>
         </div>
     </div>
+    {{$gpu->render()}}
 </div>

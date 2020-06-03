@@ -1,6 +1,48 @@
 function addEventListeners() {
-  //user list is the default tab open, so the event listeners have to be called when the page loads
-  document.addEventListener("DOMContentLoaded", showUserAccounts);
+
+  let url = window.location.href;
+  if (url.indexOf('adminAccounts') != -1) {
+    document.addEventListener("DOMContentLoaded", showAdminAccounts);
+  } else if (url.indexOf('orders') != -1) {
+    document.addEventListener("DOMContentLoaded", showOrders);
+  } else if (url.indexOf('products') != -1) {
+    document.addEventListener("DOMContentLoaded", showProducts);
+  } else if (url.indexOf('cpu') != -1) {
+    document.addEventListener("DOMContentLoaded", showCPUs);
+  } else if (url.indexOf('ram') != -1) {
+    document.addEventListener("DOMContentLoaded", showRAMs);
+  } else if (url.indexOf('waterres') != -1) {
+    document.addEventListener("DOMContentLoaded", showWaters);
+  } else if (url.indexOf('os') != -1) {
+    document.addEventListener("DOMContentLoaded", showOSs);
+  } else if (url.indexOf('gpu') != -1) {
+    document.addEventListener("DOMContentLoaded", showGPUs);
+  } else if (url.indexOf('screensize') != -1) {
+    document.addEventListener("DOMContentLoaded", showScreenSizes);
+  } else if (url.indexOf('weight') != -1) {
+    document.addEventListener("DOMContentLoaded", showWeights);
+  } else if (url.indexOf('storage') != -1) {
+    document.addEventListener("DOMContentLoaded", showStorages);
+  } else if (url.indexOf('battery') != -1) {
+    document.addEventListener("DOMContentLoaded", showBatteries);
+  } else if (url.indexOf('brand') != -1) {
+    document.addEventListener("DOMContentLoaded", showBrands);
+  } else if (url.indexOf('screenres') != -1) {
+    document.addEventListener("DOMContentLoaded", showScreenRess);
+  } else if (url.indexOf('camres') != -1) {
+    document.addEventListener("DOMContentLoaded", showCameraRess);
+  } else if (url.indexOf('fingerprint') != -1) {
+    document.addEventListener("DOMContentLoaded", showFingerprints);
+  } else if (url.indexOf('faq') != -1) {
+    document.addEventListener("DOMContentLoaded", showFaqs);
+  } else if (url.indexOf('banner') != -1) {
+    document.addEventListener("DOMContentLoaded", showBanners);
+  } else if (url.indexOf('sales') != -1) {
+    document.addEventListener("DOMContentLoaded", showSales);
+  } else {
+    document.addEventListener("DOMContentLoaded", showUserAccounts);
+  }
+
 
   document
     .getElementById("userAccountsButton")

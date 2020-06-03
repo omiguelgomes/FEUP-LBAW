@@ -28,10 +28,7 @@
         </form>
     </div>
     <br>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
+
 
     <div class="table-overflow">
         <table id="tabela" class="table table-hover">
@@ -42,10 +39,10 @@
                 </tr>
             </thead>
             <tbody class="waterTableBody">
-                @foreach($water as $id => $name)
-                <tr class="water" id='water-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="waterDelete thumbnail">
+                @foreach($water as $w)
+                <tr class="water" id='water-{{$w->id}}'>
+                    <td>{{$w->value}}</td>
+                    <td><a value="{{$w->id}}" class="waterDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -53,4 +50,5 @@
             </tbody>
         </table>
     </div>
+    {{$water->render()}}
 </div>

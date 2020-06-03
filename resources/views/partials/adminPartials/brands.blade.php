@@ -28,10 +28,6 @@
         </form>
     </div>
     <br>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
 
     <div class="table-overflow">
         <table id="tabela" class="table table-hover">
@@ -42,10 +38,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($brands as $id => $name)
-                <tr class="brand" id='brand-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="brandDelete thumbnail">
+                @foreach($brands as $brand)
+                <tr class="brand" id='brand-{{$brand->id}}'>
+                    <td>{{$brand->name}}</td>
+                    <td><a value="{{$brand->id}}" class="brandDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -53,4 +49,5 @@
             </tbody>
         </table>
     </div>
+    {{$brands->links()}}
 </div>

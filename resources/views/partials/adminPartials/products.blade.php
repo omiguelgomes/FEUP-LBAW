@@ -5,19 +5,17 @@
         <div class="mx-auto">
             <h4 class="mx-auto">Products</h4>
         </div>
-        <div class="ml-auto p-2">
-            <a href="{{ url('/admin/product/add') }}">
-                <button class="btn btn-primary" type="button"><i class="fas fa-plus"></i></button>
-            </a>
-        </div>
+    </div>
+    <div class="ml-auto p-2">
+        <a href="{{ url('/admin/product/add') }}">
+            <button class="btn btn-primary" type="button">
+                <h6>Add new Product</h6><i class="fas fa-plus"></i>
+            </button>
+        </a>
     </div>
 
     <div id="tabelProducts">
         <br>
-        <div class="form-group input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-            <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-        </div>
 
         <div class="table-overflow productContainer" id="productContainer">
             <table id="tabela" class="table table-hover productTable">
@@ -63,4 +61,5 @@
             </table>
         </div>
     </div>
+    {{$products->render()}}
 </div>

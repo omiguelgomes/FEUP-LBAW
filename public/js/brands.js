@@ -70,7 +70,6 @@ function sendBrandDeleteRequest(event) {
 function brandCreateHandler() {
   console.log(this.responseText);
   if (this.status != 200) {
-    window.location = "/admin";
     alert("Failed to create brand :'(");
   }
 
@@ -92,7 +91,6 @@ function brandCreateHandler() {
 function brandDeleteHandler() {
   if (this.status == 555) {
     myErrorAlert(this.responseText);
-    return;
   } else if (this.status != 200) {
     myErrorAlert("Failed to delete brand :'(");
   }

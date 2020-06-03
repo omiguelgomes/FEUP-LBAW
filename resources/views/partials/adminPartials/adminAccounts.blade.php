@@ -5,10 +5,6 @@
             <h4 class="mx-auto">Admin Accounts</h4>
         </div>
     </div>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
     <div class="table-overflow">
         <table id="tabela" class="table table-hover">
             <thead>
@@ -23,14 +19,17 @@
                 <tr class='admin' id='admin-{{$admin->id}}'>
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->email}}</td>
+                    @if($admin->id != Auth::user()->id)
                     <td>
                         <a class="userDemoter thumbnail" value='{{$admin->id}}'>
                             <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
                         </a>
                     </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    {{$admins->render()}}
 </div>

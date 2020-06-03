@@ -26,24 +26,21 @@
         </form>
     </div>
     <br>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
+
 
     <div class="table-overflow">
         <table id="tabela" class="table table-hover">
             <thead>
                 <tr>
-                    <th>Value</th>
+                    <th>Value (GB)</th>
                     <th>Remove</th>
                 </tr>
             </thead>
             <tbody class="ramTableBody">
-                @foreach($ram as $id => $name)
-                <tr class="ram" id='ram-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="ramDelete thumbnail">
+                @foreach($ram as $r)
+                <tr class="ram" id='ram-{{$r->id}}'>
+                    <td>{{$r->value}}</td>
+                    <td><a value="{{$r->id}}" class="ramDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -51,4 +48,5 @@
             </tbody>
         </table>
     </div>
+    {{$ram->render()}}
 </div>

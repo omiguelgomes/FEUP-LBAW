@@ -96,14 +96,14 @@ class Product extends Model
     public function getPriceAttribute($price)
     {
         if (count($this->discounts) > 0) {
-            return round($price * (1 - $this->discounts->first()->val), 2);
+            return round($price * ((100 - $this->discounts->first()->val) / 100), 2);
         }
         return $price;
     }
 
     public function originalPrice()
     {
-        return round($this->price / (1 - $this->discounts->first()->val), 2);
+        return round($this->price / ((100 - $this->discounts->first()->val) / 100), 2);
     }
 
     public function averageRating()

@@ -32,7 +32,6 @@
         </div>
         {{-- main page col, where specs stuff will show when selected --}}
         <div class=" col-12" id="mainContainer">
-            @include('partials.adminPartials.clientAccounts', ['clients', $clients])
         </div>
     </div>
 </div>
@@ -60,7 +59,7 @@
 </div>
 
 {{-- sidenav, offscreen --}}
-<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav" style="z-index: 3;">{{--z-index to show this on top of pagination--}}
     <h1 class="pl-3">
         Options
     </h1>

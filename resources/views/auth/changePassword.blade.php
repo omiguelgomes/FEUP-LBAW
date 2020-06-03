@@ -2,15 +2,20 @@
 
 @section('content')
 
-@include('partials.jumboTitle',['title' => 'Restore Password'])
+@include('partials.jumboTitle',['title' => 'Change Password'])
 
-<script type="text/javascript" src="{{ URL::asset('js/recoverPW.js') }}" defer></script>
+<script type="text/javascript" src="{{ URL::asset('js/changePW.js') }}" defer></script>
 <div class="container">
-    <form class="recover form" method="POST" enctype="multipart/form-data">
+    <form class="changePW form" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     
-        <label for="email">Email address</label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="email@example.com" required autofocus>
+        <label for="pass">Password Field</label>
+        <input type="password" class="form-control" id="pass" name="pass"  required autofocus>
+
+        <br>
+
+        <label for="pass2">Confirm Password</label>
+        <input type="password" class="form-control" id="pass2" name="pass2"  required autofocus>
 
         <br>
 

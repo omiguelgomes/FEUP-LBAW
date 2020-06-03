@@ -5,10 +5,6 @@
             <h4 class="mx-auto">Orders</h4>
         </div>
     </div>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
 
     <div class="table-overflow">
         <table class="table table-hover">
@@ -50,6 +46,6 @@
                 @endforeach
             </tbody>
         </table>
-        {{$orders->links()}}
+        {{$orders->render()}}
     </div>
 </div>

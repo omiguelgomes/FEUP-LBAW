@@ -27,10 +27,6 @@
         </form>
     </div>
     <br>
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
 
     <div class="table-overflow">
         <table id="tabela" class="table table-hover">
@@ -41,10 +37,10 @@
                 </tr>
             </thead>
             <tbody class="osTableBody">
-                @foreach($os as $id => $name)
-                <tr class="os" id='os-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="osDelete thumbnail">
+                @foreach($os as $o)
+                <tr class="os" id='os-{{$o->id}}'>
+                    <td>{{$o->name}}</td>
+                    <td><a value="{{$o->id}}" class="osDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -52,4 +48,5 @@
             </tbody>
         </table>
     </div>
+    {{$os->render()}}
 </div>

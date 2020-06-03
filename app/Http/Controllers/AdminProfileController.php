@@ -38,26 +38,26 @@ class AdminProfileController extends Controller
     else
       $user = Auth::user();
 
-    $admins = User::where('isadmin', 'true')->paginate(10);
-    $clients = User::where('isadmin', 'false')->paginate(10);
-    $orders = Purchase::paginate(10);
-    $products = Product::list();
-    $cpu = CPU::list();
-    $ram = RAM::list();
-    $water = WaterRes::list();
-    $os = OS::list();
-    $gpu = GPU::list();
-    $screen = ScreenSize::list();
-    $weight = Weight::list();
-    $storage = Storage::list();
-    $battery = Battery::list();
-    $brands = Brand::list();
-    $screenRes = ScreenRes::list();
-    $cams = CamRes::list();
-    $fingers = FingerPrintType::list();
-    $faqs = FAQ::all();
-    $banners = Banner::all();
-    $sales = Discount::all();
+    $admins = User::where('isadmin', 'true')->paginate(10, ['*'], 'adminAccounts');
+    $clients = User::where('isadmin', 'false')->paginate(10, ['*'], 'users');
+    $orders = Purchase::paginate(10, ['*'], 'orders');
+    $products = Product::paginate(10, ['*'], 'products');
+    $cpu = CPU::paginate(10, ['*'], 'cpu');
+    $ram = RAM::paginate(10, ['*'], 'ram');
+    $water = WaterRes::paginate(10, ['*'], 'waterres');
+    $os = OS::paginate(10, ['*'], 'os');
+    $gpu = GPU::paginate(10, ['*'], 'gpu');
+    $screen = ScreenSize::paginate(10, ['*'], 'screensize');
+    $weight = Weight::paginate(10, ['*'], 'weight');
+    $storage = Storage::paginate(10, ['*'], 'storage');
+    $battery = Battery::paginate(10, ['*'], 'battery');
+    $brands = Brand::paginate(10, ['*'], 'brand');
+    $screenRes = ScreenRes::paginate(10, ['*'], 'screenres');
+    $cams = CamRes::paginate(10, ['*'], 'camres');
+    $fingers = FingerPrintType::paginate(10, ['*'], 'fingerprint');
+    $faqs = FAQ::paginate(10, ['*'], 'faq');
+    $banners = Banner::paginate(10, ['*'], 'banner');
+    $sales = Discount::paginate(10, ['*'], 'discount');
 
     return view(
       'pages.adminProfile',
@@ -83,61 +83,6 @@ class AdminProfileController extends Controller
         'faqs',
         'banners',
         'sales'
-      )
-    );
-  }
-
-  public function test()
-  {
-    //should be changed with policies so only admins can come in
-    if (!Auth::check())
-      return redirect('/register');
-    else
-      $user = Auth::user();
-
-    $admins = User::list_admins();
-    $clients = User::list_users();
-    $orders = Purchase::list();
-    $products = Product::list();
-    $cpu = CPU::list();
-    $ram = RAM::list();
-    $water = WaterRes::list();
-    $os = OS::list();
-    $gpu = GPU::list();
-    $screen = ScreenSize::list();
-    $weight = Weight::list();
-    $storage = Storage::list();
-    $battery = Battery::list();
-    $brands = Brand::list();
-    $screenRes = ScreenRes::list();
-    $cams = CamRes::list();
-    $fingers = FingerPrintType::list();
-    $faqs = FAQ::all();
-    $banners = Banner::all();
-
-    return view(
-      'pages.test',
-      compact(
-        'user',
-        'admins',
-        'clients',
-        'orders',
-        'products',
-        'cpu',
-        'ram',
-        'water',
-        'os',
-        'gpu',
-        'screen',
-        'weight',
-        'storage',
-        'battery',
-        'brands',
-        'screenRes',
-        'cams',
-        'fingers',
-        'faqs',
-        'banners'
       )
     );
   }
@@ -350,7 +295,8 @@ class AdminProfileController extends Controller
     return $finger;
   }
 
-  public function destroySale($id) {
+  public function destroySale($id)
+  {
     $sale = Discount::find($id);
 
     $sale->delete();

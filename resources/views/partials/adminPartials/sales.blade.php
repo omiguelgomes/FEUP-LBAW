@@ -6,11 +6,6 @@
         </div>
     </div>
 
-    <div class="form-group input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-        <input name="consulta" id="txt_consulta" placeholder="Search" type="text" class="form-control">
-    </div>
-
     <div class="table-overflow">
         <table id="tabela" class="table table-hover">
             <thead>
@@ -28,7 +23,7 @@
                 <tr class="sale" id='sale-{{$sale->id}}'>
                     <td>
                         @foreach($sale->products as $p)
-                            <p>{{$p->model}}</p>
+                        <p>{{$p->model}}</p>
                         @endforeach
                     </td>
                     <td class="align-middle">{{$sale->id}}</td>
@@ -45,4 +40,5 @@
             </tbody>
         </table>
     </div>
+    {{$sales->render()}}
 </div>

@@ -81,7 +81,6 @@ function sendCPUDeleteRequest(event) {
 
 function cpuCreateHandler() {
   if (this.status != 201) {
-    window.location = "/admin";
     myErrorAlert("Failed to create CPU :'(");
   }
 

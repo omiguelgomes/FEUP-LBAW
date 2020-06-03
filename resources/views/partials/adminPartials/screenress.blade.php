@@ -39,15 +39,15 @@
             <table id="tabela" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Value</th>
+                        <th>Value (px)</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody class="resTableBody">
-                    @foreach($screenRes as $id => $name)
-                    <tr class="res" id='res-{{$id}}'>
-                        <td>{{$name}}</td>
-                        <td><a value="{{$id}}" class="resDelete thumbnail">
+                    @foreach($screenRes as $s)
+                    <tr class="res" id='res-{{$s->id}}'>
+                        <td>{{$s->value}}</td>
+                        <td><a value="{{$s->id}}" class="resDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                             </a> </td>
                     </tr>
@@ -56,4 +56,5 @@
             </table>
         </div>
     </div>
+    {{$screenRes->render()}}
 </div>

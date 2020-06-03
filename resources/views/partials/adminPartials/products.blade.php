@@ -63,4 +63,5 @@
             </table>
         </div>
     </div>
+    {{$products->render()}}
 </div>

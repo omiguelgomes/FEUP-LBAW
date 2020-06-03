@@ -38,15 +38,15 @@
             <table id="tabela" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Value</th>
+                        <th>Value (mAh)</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody class="btTableBody">
-                    @foreach($battery as $id => $name)
-                    <tr class="bt" id='bt-{{$id}}'>
-                        <td>{{$name}}</td>
-                        <td><a value="{{$id}}" class="btDelete thumbnail">
+                    @foreach($battery as $b)
+                    <tr class="bt" id='bt-{{$b->id}}'>
+                        <td>{{$b->value}}</td>
+                        <td><a value="{{$b->id}}" class="btDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                             </a> </td>
                     </tr>
@@ -55,4 +55,5 @@
             </table>
         </div>
     </div>
+    {{$battery->render()}}
 </div>

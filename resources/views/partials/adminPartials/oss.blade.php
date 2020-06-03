@@ -41,10 +41,10 @@
                 </tr>
             </thead>
             <tbody class="osTableBody">
-                @foreach($os as $id => $name)
-                <tr class="os" id='os-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="osDelete thumbnail">
+                @foreach($os as $o)
+                <tr class="os" id='os-{{$o->id}}'>
+                    <td>{{$o->name}}</td>
+                    <td><a value="{{$o->id}}" class="osDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -52,4 +52,5 @@
             </tbody>
         </table>
     </div>
+    {{$os->render()}}
 </div>

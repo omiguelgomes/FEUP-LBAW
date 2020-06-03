@@ -32,7 +32,6 @@
         </div>
         {{-- main page col, where specs stuff will show when selected --}}
         <div class=" col-12" id="mainContainer">
-            @include('partials.adminPartials.clientAccounts', ['clients', $clients])
         </div>
     </div>
 </div>

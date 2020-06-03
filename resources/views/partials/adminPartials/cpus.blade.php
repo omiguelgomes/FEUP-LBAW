@@ -72,10 +72,10 @@
                 </tr>
             </thead>
             <tbody class="cpuTableBody">
-                @foreach($cpu as $id => $name)
-                <tr class="cpu" id='cpu-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="cpuDelete thumbnail">
+                @foreach($cpu as $c)
+                <tr class="cpu" id='cpu-{{$c->id}}'>
+                    <td>{{$c->name}}</td>
+                    <td><a value="{{$c->id}}" class="cpuDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -83,4 +83,5 @@
             </tbody>
         </table>
     </div>
+    {{$cpu->render()}}
 </div>

@@ -50,6 +50,6 @@
                 @endforeach
             </tbody>
         </table>
-        {{$orders->links()}}
+        {{$orders->render()}}
     </div>
 </div>

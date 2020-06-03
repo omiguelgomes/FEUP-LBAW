@@ -38,15 +38,15 @@
             <table id="tabela" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Value</th>
+                        <th>Value (MP)</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody class="camTableBody">
-                    @foreach($cams as $id => $name)
-                    <tr class="cam" id='cam-{{$id}}'>
-                        <td>{{$name}}</td>
-                        <td><a value="{{$id}}" class="camDelete thumbnail">
+                    @foreach($cams as $c)
+                    <tr class="cam" id='cam-{{$c->id}}'>
+                        <td>{{$c->value}}</td>
+                        <td><a value="{{$c->id}}" class="camDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                             </a> </td>
                     </tr>
@@ -55,4 +55,5 @@
             </table>
         </div>
     </div>
+    {{$cams->render()}}
 </div>

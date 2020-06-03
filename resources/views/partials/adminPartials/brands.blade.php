@@ -42,10 +42,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($brands as $id => $name)
-                <tr class="brand" id='brand-{{$id}}'>
-                    <td>{{$name}}</td>
-                    <td><a value="{{$id}}" class="brandDelete thumbnail">
+                @foreach($brands as $brand)
+                <tr class="brand" id='brand-{{$brand->id}}'>
+                    <td>{{$brand->name}}</td>
+                    <td><a value="{{$brand->id}}" class="brandDelete thumbnail">
                             <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                         </a> </td>
                 </tr>
@@ -53,4 +53,5 @@
             </tbody>
         </table>
     </div>
+    {{$brands->links()}}
 </div>

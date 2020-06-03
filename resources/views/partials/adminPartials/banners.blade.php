@@ -24,4 +24,5 @@
             @endforeach
         </div>
     </div>
+    {{$banners->render()}}
 </div>

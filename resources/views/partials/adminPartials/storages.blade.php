@@ -39,15 +39,15 @@
             <table id="tabela" class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Value</th>
+                        <th>Value (GB)</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody class="stTableBody">
-                    @foreach($storage as $id => $name)
-                    <tr class="st" id='st-{{$id}}'>
-                        <td>{{$name}}</td>
-                        <td><a value="{{$id}}" class="stDelete thumbnail">
+                    @foreach($storage as $s)
+                    <tr class="st" id='st-{{$s->id}}'>
+                        <td>{{$s->value}}</td>
+                        <td><a value="{{$s->id}}" class="stDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                             </a></td>
                     </tr>
@@ -56,4 +56,5 @@
             </table>
         </div>
     </div>
+    {{$storage->render()}}
 </div>

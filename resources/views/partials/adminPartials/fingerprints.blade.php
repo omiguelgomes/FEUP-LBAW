@@ -44,10 +44,10 @@
                     </tr>
                 </thead>
                 <tbody class="fingerTableBody">
-                    @foreach($fingers as $id => $name)
-                    <tr class="finger" id='finger-{{$id}}'>
-                        <td>{{$name}}</td>
-                        <td><a value="{{$id}}" class="fingerDelete thumbnail">
+                    @foreach($fingers as $f)
+                    <tr class="finger" id='finger-{{$f->id}}'>
+                        <td>{{$f->value}}</td>
+                        <td><a value="{{$f->id}}" class="fingerDelete thumbnail">
                                 <i class="far fa-times-circle fa-2x ml-4 text-danger"></i>
                             </a> </td>
                     </tr>
@@ -56,5 +56,5 @@
             </table>
         </div>
     </div>
-</div>
+    {{$fingers->render()}}
 </div>

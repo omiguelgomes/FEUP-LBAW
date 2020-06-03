@@ -28,7 +28,7 @@
                 <tr class="sale" id='sale-{{$sale->id}}'>
                     <td>
                         @foreach($sale->products as $p)
-                            <p>{{$p->model}}</p>
+                        <p>{{$p->model}}</p>
                         @endforeach
                     </td>
                     <td class="align-middle">{{$sale->id}}</td>
@@ -45,4 +45,5 @@
             </tbody>
         </table>
     </div>
+    {{$sales->render()}}
 </div>

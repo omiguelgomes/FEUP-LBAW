@@ -19,11 +19,13 @@
                 <tr class='admin' id='admin-{{$admin->id}}'>
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->email}}</td>
+                    @if($admin->id != Auth::user()->id)
                     <td>
                         <a class="userDemoter thumbnail" value='{{$admin->id}}'>
                             <i class="far fa-times-circle text-danger fa-2x ml-4"></i>
                         </a>
                     </td>
+                    @endif
                 </tr>
                 @endforeach
             </tbody>

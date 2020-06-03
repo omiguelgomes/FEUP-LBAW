@@ -37,7 +37,7 @@
         </div>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ url('register') }}">New around here? Sign up</a>
-        <a class="dropdown-item" href="#">Forgot password?</a>
+        <a class="dropdown-item" href="{{ url('restore_password') }}">Forgot password?</a>
     </form>
     <br>
 </div>

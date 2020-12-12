@@ -11,6 +11,9 @@
 |
 */
 
+//TEST
+Route::get('eupago', 'euPago@list');
+
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');

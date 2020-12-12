@@ -135,7 +135,7 @@ class ProductController extends Controller
     ]);
 
     return json_encode([
-      'user_image_path' => Auth::user()->image->path,
+      'user_image_path' => 'me.JPG',
       'user_name' => Auth::user()->name,
       'product_id' => $id,
       'content' => $request->content,

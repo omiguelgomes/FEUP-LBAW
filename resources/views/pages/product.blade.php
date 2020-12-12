@@ -150,7 +150,9 @@
                                     <div class="row">
                                         <div class="col-4 mr-2 h-100">
                                             <img src="{{ asset('/images/'.$rating->user->image->path) }}"
-                                                style="max-height: 100px;">
+                                                style="max-height: 100px" class="img-fluid" alt="user image"
+                                                onerror="this.onerror=null; this.src=`{{$rating->user->image->path}}`;"
+                                                onerror="this.onerror=null; this.src=`{{asset('images/profilepadrao.jpg')}}`;" />
                                         </div>
                                         <div class="col-7 h-100">
                                             <p>

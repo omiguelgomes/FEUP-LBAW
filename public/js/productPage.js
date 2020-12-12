@@ -69,7 +69,7 @@ function reviewCreateHandler() {
             `  <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
                         <strong class="mr-auto">
-                            ` + jsonResponse.val + `
+                            ` + jsonResponse.val + `/5
                             <i class="fas fa-star"></i>
                         </strong>
                     </div>

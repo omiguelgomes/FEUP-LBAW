@@ -6,6 +6,19 @@ eCommerce web application, focused on smartphones, developed in Laravel.
 
 ### Final grade: 17
 
+## Preview of some of the pages
+
+### HomePage
+
+<img width="75%" src=https://i.imgur.com/RvBra5d.png/>
+
+### Product Page
+
+<img width="75%" src=https://i.imgur.com/UCaWPL6.png/>
+
+### Wishlist Page
+
+<img width="75%" src=https://i.imgur.com/M681DEV.png/>
 
 
 ### Team

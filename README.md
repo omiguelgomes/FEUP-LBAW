@@ -2,7 +2,11 @@
 
 ## Project
 
-O objetivo deste projeto é desenvolver uma aplicação web para uma loja de smartphones online, chamada uPhone.
+eCommerce web application, focused on smartphones, developed in Laravel.
+
+### Final grade: 17
+
+
 
 ### Team
 

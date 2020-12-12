@@ -1,0 +1,54 @@
+.filters {
+    padding: 2em;
+    max-height: min-content; }
+    .filters h5 {
+      text-align: center; }
+    .filters h6 {
+      margin-top: 2em; }
+    .filters .form-check-label > p {
+      font-size: 0.9em;
+      margin: 0;
+      padding-top: 0.2em; }
+  
+  .bottom-buffer {
+    margin-bottom: 2em; }
+  
+  main .scroll_nav {
+    border-bottom: 0.1em solid black;
+    padding-bottom: 0.3em; }
+    main .scroll_nav h1 {
+      margin: 0;
+      padding-left: 0; }
+    main .scroll_nav a {
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1em;
+      color: black;
+      padding-left: 1.2em;
+      text-decoration: none;
+      padding-right: 0; }
+      main .scroll_nav a:hover {
+        color: #646464;
+        cursor: pointer; }
+      @media (max-width: 770px) {
+        main .scroll_nav a {
+          padding-left: 0; } }
+  main div.jumptarget {
+    padding-top: 5em !important;
+    margin-top: -5em; }
+  main form label {
+    padding-left: 1.1em;
+    font-weight: 700; }
+  main form + div input[type="button"] {
+    width: 20%;
+    margin-left: auto; }
+    @media (max-width: 1000px) {
+      main form + div input[type="button"] {
+        width: 30%; } }
+    @media (max-width: 800px) {
+      main form + div input[type="button"] {
+        width: 40%; } }
+    @media (max-width: 600px) {
+      main form + div input[type="button"] {
+        width: 100%; } 
+}

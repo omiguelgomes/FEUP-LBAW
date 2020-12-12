@@ -1,0 +1,25 @@
+.table-overflow {
+    max-height:350px;
+    overflow-y:auto;
+}
+
+.fa-exclamation {
+    color: rgb(0, 89, 255);
+  }
+
+.thumbnail-carousel {
+    position: relative;
+    bottom: 10.2vw;
+    left: 40vw;
+    color:red;
+}
+
+@media only screen and (max-width: 600px) {
+    .thumbnail-carousel {
+        position: relative;
+        bottom: 13.2vw;
+        left: 46vw;
+        color:red;
+    }
+}
+
